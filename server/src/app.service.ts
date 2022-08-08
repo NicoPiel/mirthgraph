@@ -69,17 +69,17 @@ export class AppService {
 
                   break;
                 // TODO: Add more cases
-                case 'SMTP Writer':
-                  //console.log('Unhandled SMTP Writer connector type');
+                case 'SMTP Sender':
+                  // console.log('Unhandled SMTP Writer connector type');
                   break;
-                case 'TCP Writer':
-                  //console.log('Unhandled TCP Writer connector type');
+                case 'TCP Sender':
+                  // console.log('Unhandled TCP Writer connector type');
                   break;
                 case 'File Writer':
-                  //console.log('Unhandled File Writer connector type');
+                  // console.log('Unhandled File Writer connector type');
                   break;
                 default:
-                  console.warn('Unhandled connector type');
+                  // console.error('Unhandled connector type ', connector.transportName[0],);
                   break;
               }
             });
