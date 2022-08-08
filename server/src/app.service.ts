@@ -29,13 +29,14 @@ export class AppService {
           gData.nodes.push({
             id: channelId,
             name: channelName,
-            val: 0,
+            val: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
           });
 
           // destinationConnector is an array holding every connector in the channel
           channel.destinationConnectors.forEach((destinationConnector) => {
             // Go through each connector
             destinationConnector.connector.forEach((connector) => {
+              // Check if connector is enabled
               // Check for different transports
               switch (connector.transportName[0]) {
                 // Is a channel writer?
@@ -43,16 +44,42 @@ export class AppService {
                   // Extract target channel id
                   const targetChannelId = connector.properties[0].channelId[0];
 
-                  // Create a new link - ref: https://github.com/vasturiano/force-graph#input-json-syntax
-                  if (channelId != 'none') {
-                    gData.links.push({
-                      source: channelId,
-                      target: targetChannelId,
-                    });
+                  let isTargetEnabled = false;
+
+                  // Check if target channel is enabled
+                  root.channel.forEach((targetChannel) => {
+                    if (targetChannel.id[0] == targetChannelId) {
+                      isTargetEnabled =
+                        targetChannel.exportData[0].metadata[0].enabled[0] ==
+                        'true';
+                    }
+                  });
+
+                  if (isTargetEnabled) {
+                    // Create a new link - ref: https://github.com/vasturiano/force-graph#input-json-syntax
+                    if (targetChannelId != 'none') {
+                      gData.links.push({
+                        source: channelId,
+                        target: targetChannelId,
+                        enabled: connector.enabled[0] == 'true' ? 1 : 0,
+                        group: 'Channel Writer',
+                      });
+                    }
                   }
+
                   break;
                 // TODO: Add more cases
-                case 'Blurb':
+                case 'SMTP Writer':
+                  //console.log('Unhandled SMTP Writer connector type');
+                  break;
+                case 'TCP Writer':
+                  //console.log('Unhandled TCP Writer connector type');
+                  break;
+                case 'File Writer':
+                  //console.log('Unhandled File Writer connector type');
+                  break;
+                default:
+                  console.warn('Unhandled connector type');
                   break;
               }
             });

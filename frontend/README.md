@@ -1,4 +1,4 @@
-# mirthgraph (mirthgraph)
+# MirthGraph (mirthgraph)
 
 A Quasar Project
 
