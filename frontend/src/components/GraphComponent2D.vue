@@ -1,137 +1,149 @@
 <template>
-  <div>
-    <div id="graph"/>
-    <q-input v-model="searchInput" label="Search" stack-label />
+  <div class="q-pa-lg">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4"><q-input v-model="searchInput" label="Search" stack-label/></div>
+      <div class="col-4"></div>
+
+    </div>
+    <div class="row">
+
+      <div id="graph"/>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent, ref} from 'vue';
+<script lang="ts" setup>
 import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
+import {Ref, ref, UnwrapRef, watch} from 'vue';
 
-export default defineComponent({
-  name: 'GraphComponent2D',
-  props: {},
-  setup() {
-    axios.get('http://localhost:3000/', {
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin': '*'
-      }
-    }).then((response) => {
-      let gData = response.data;
 
-      if (document.getElementById('graph')) {
-        const el = document.getElementById('graph')
+axios.get('http://localhost:3000/', {
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin': '*'
+  }
+}).then((response) => {
+  let gData = response.data;
 
-        if (el) constructGraph(gData, el);
-      }
-    }).catch((error) => {
-      console.error(error);
-    })
+  if (document.getElementById('graph')) {
+    const el = document.getElementById('graph')
 
-    let searchInput = ref('');
+    if (el) constructGraph(gData, el);
+  }
+}).catch((error) => {
+  console.error(error);
+})
 
-    function constructGraph(gData: any, element: HTMLElement) {
-      const dashLen = 6;
-      const gapLen = 8;
+let searchInput: Ref<UnwrapRef<string>> = ref('');
 
-      const highlightNodes = new Set();
-      const highlightLinks = new Set();
-      let hoverNode: NodeObject | null = null;
+function constructGraph(gData: any, element: HTMLElement) {
+  const dashLen = 6;
+  const gapLen = 8;
 
-      let NODE_R = 5;
+  const highlightNodes = new Set();
+  const highlightLinks = new Set();
+  const searchHighlightNodes = new Set();
+  let hoverNode: NodeObject | null = null;
 
-      // cross-link node objects
-      gData.links.forEach((link: { source: string; target: string; }) => {
-        const a = gData.nodes.find((node: NodeObject) => node.id == link.source);
-        const b = gData.nodes.find((node: NodeObject) => node.id == link.target);
-        !a.neighbors && (a.neighbors = []);
-        !b.neighbors && (b.neighbors = []);
-        a.neighbors.push(b);
-        b.neighbors.push(a);
+  let NODE_R = 5;
 
-        !a.links && (a.links = []);
-        !b.links && (b.links = []);
-        a.links.push(link);
-        b.links.push(link);
+  // cross-link node objects
+  gData.links.forEach((link: { source: string; target: string; }) => {
+    const a = gData.nodes.find((node: NodeObject) => node.id == link.source);
+    const b = gData.nodes.find((node: NodeObject) => node.id == link.target);
+    !a.neighbors && (a.neighbors = []);
+    !b.neighbors && (b.neighbors = []);
+    a.neighbors.push(b);
+    b.neighbors.push(a);
+
+    !a.links && (a.links = []);
+    !b.links && (b.links = []);
+    a.links.push(link);
+    b.links.push(link);
+  });
+
+  return ForceGraph()(element)
+    .graphData(gData)
+    .warmupTicks(15)
+    .linkDirectionalParticles(1)
+    .nodeRelSize(NODE_R)
+    .linkWidth(2)
+    .linkLineDash(link => !link.enabled && [dashLen, gapLen])
+    .linkLabel((link) => link.group)
+    .nodeAutoColorBy(node => node.group)
+    .linkAutoColorBy(link => link.group)
+    .onEngineTick(() => {
+      watch(searchInput, (newString, oldString) => {
+        searchHighlightNodes.clear();
+        if (newString) {
+          const results = gData.nodes.filter((node: NodeObject) => node.name.includes(newString));
+          for (const result in results) {
+            searchHighlightNodes.add(gData.nodes[result]);
+          }
+        }
       });
 
-      return ForceGraph()(element)
-        .graphData(gData)
-        .warmupTicks(15)
-        .linkDirectionalParticles(1)
-        .nodeRelSize(NODE_R)
-        .linkWidth(2)
-        .linkLineDash(link => !link.enabled && [dashLen, gapLen])
-        .linkLabel((link) => link.group)
-        .nodeAutoColorBy(node => node.group)
-        .linkAutoColorBy(link => link.group)
-        .onNodeHover((node, previousNode) => {
-          highlightNodes.clear();
-          highlightLinks.clear();
-          if (node) {
-            highlightNodes.add(node);
-            if (node.neighbors) node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
-            if (node.links) node.links.forEach(link => highlightLinks.add(link));
-          }
+    })
+    .onNodeHover((node, previousNode) => {
+      highlightNodes.clear();
+      highlightLinks.clear();
+      if (node) {
+        highlightNodes.add(node);
+        if (node.neighbors) node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
+        if (node.links) node.links.forEach(link => highlightLinks.add(link));
+      }
 
-          hoverNode = node || null;
-        })
-        .onLinkHover(link => {
-          highlightNodes.clear();
-          highlightLinks.clear();
+      hoverNode = node || null;
+    })
+    .onLinkHover(link => {
+      highlightNodes.clear();
+      highlightLinks.clear();
 
-          if (link) {
-            highlightLinks.add(link);
-            highlightNodes.add(link.source);
-            highlightNodes.add(link.target);
-          }
-        })
-        .autoPauseRedraw(false) // keep redrawing after engine has stopped
-        .linkWidth(link => highlightLinks.has(link) ? 5 : 2)
-        .linkDirectionalParticles(4)
-        .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 8 : 4)
-        .nodeCanvasObjectMode(node => highlightNodes.has(node) ? 'before' : undefined)
-        .nodeCanvasObject((node, ctx) => {
-          if (node) {
-            // add ring just for highlighted nodes
-            ctx.beginPath();
-            ctx.arc(node.x!, node.y!, NODE_R * 2.0, 0, 2 * Math.PI, false);
-            ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
-            ctx.fill();
-          }
-        });
-      /*.nodeCanvasObject((node, ctx, globalScale) => {
-      const label = node.name;
-      const fontSize = 12/globalScale;
-      ctx.font = `${fontSize}px Sans-Serif`;
-      const textWidth = ctx.measureText(label).width;
-      const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
+      if (link) {
+        highlightLinks.add(link);
+        highlightNodes.add(link.source);
+        highlightNodes.add(link.target);
+      }
+    })
+    .autoPauseRedraw(false) // keep redrawing after engine has stopped
+    .linkWidth(link => highlightLinks.has(link) ? 5 : 2)
+    .linkDirectionalParticles(4)
+    .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 8 : 4)
+    .nodeCanvasObjectMode(node => searchHighlightNodes.has(node) || highlightNodes.has(node) ? 'before' : undefined)
+    .nodeCanvasObject((node, ctx) => {
+      if (node) {
+        // add ring just for highlighted nodes
+        ctx.beginPath();
+        ctx.arc(node.x!, node.y!, NODE_R * 2.0, 0, 2 * Math.PI, false);
+        ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
+        ctx.fill();
+      }
+    });
+  /*.nodeCanvasObject((node, ctx, globalScale) => {
+  const label = node.name;
+  const fontSize = 12/globalScale;
+  ctx.font = `${fontSize}px Sans-Serif`;
+  const textWidth = ctx.measureText(label).width;
+  const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+  ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
 
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillStyle = node.color;
-      ctx.fillText(label, node.x, node.y);
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = node.color;
+  ctx.fillText(label, node.x, node.y);
 
-      node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
-      })
-      .nodePointerAreaPaint((node, color, ctx) => {
-      ctx.fillStyle = color;
-      const bckgDimensions = node.__bckgDimensions;
-      bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-      })*/
+  node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
+  })
+  .nodePointerAreaPaint((node, color, ctx) => {
+  ctx.fillStyle = color;
+  const bckgDimensions = node.__bckgDimensions;
+  bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+  })*/
 
-      // return graph;
-    }
-
-    return {
-      searchInput
-    }
-  },
-});
+  // return graph;
+}
 </script>

@@ -1,7 +1,6 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <graph-component2-d
-      title="Example component"
       active
     ></graph-component2-d>
   </q-page>
