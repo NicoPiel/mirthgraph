@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   getGData() {
-    return this.appService.getGData();
+    return this.appService.getGraphData();
   }
 }

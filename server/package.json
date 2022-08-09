@@ -23,9 +23,13 @@
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/mongoose": "^9.2.0",
     "@nestjs/platform-express": "^9.0.0",
     "eyes": "^0.1.8",
     "force-graph": "1.42.11",
+    "generate-schema": "^2.6.0",
+    "ioredis": "^5.2.2",
+    "redis": "^4.2.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",

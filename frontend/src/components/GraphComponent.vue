@@ -32,8 +32,8 @@ export default defineComponent({
           .linkWidth(2)
           .linkLineDash(link => !link.enabled && [dashLen, gapLen])
           .nodeAutoColorBy(node => node.val)
-          .linkAutoColorBy(link => link.group)
-          .nodeCanvasObject((node, ctx, globalScale) => {
+          .linkAutoColorBy(link => link.group);
+          /*.nodeCanvasObject((node, ctx, globalScale) => {
           const label = node.name;
           const fontSize = 12/globalScale;
           ctx.font = `${fontSize}px Sans-Serif`;
@@ -54,7 +54,7 @@ export default defineComponent({
           ctx.fillStyle = color;
           const bckgDimensions = node.__bckgDimensions;
           bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-          })
+          })*/
       }
     }).catch((error) => {
       console.error(error);
