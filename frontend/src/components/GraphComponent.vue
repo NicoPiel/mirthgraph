@@ -31,7 +31,7 @@ export default defineComponent({
           .graphData(gData)
           .linkWidth(2)
           .linkLineDash(link => !link.enabled && [dashLen, gapLen])
-          .nodeAutoColorBy(node => node.val)
+          .nodeAutoColorBy(node => node.group)
           .linkAutoColorBy(link => link.group);
           /*.nodeCanvasObject((node, ctx, globalScale) => {
           const label = node.name;
