@@ -2,7 +2,7 @@
   <div class="q-pa-lg">
     <div class="row">
       <div class="col-4"></div>
-      <div class="col-4"><q-input v-model="searchInput" label="Search" stack-label/></div>
+      <div class="col-4"><q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/></div>
       <div class="col-4"></div>
 
     </div>
@@ -18,8 +18,10 @@ import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
 
+const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}`
 
-axios.get('http://localhost:3000/', {
+
+axios.get(remoteAddress, {
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',
     'Access-Control-Allow-Origin': '*'
@@ -75,13 +77,13 @@ function constructGraph(gData: any, element: HTMLElement) {
     .nodeAutoColorBy(node => node.group)
     .linkAutoColorBy(link => link.group)
     .onEngineTick(() => {
-      watch(searchInput, (newString, oldString) => {
+      watch(searchInput, async (newString, oldString) => {
         searchHighlightNodes.clear();
         if (newString) {
-          const results = gData.nodes.filter((node: NodeObject) => node.name.includes(newString));
-          for (const result in results) {
-            searchHighlightNodes.add(gData.nodes[result]);
-          }
+          const results = await gData.nodes.filter((node: NodeObject) => node.name.search(newString) > -1);
+          results.forEach((result: NodeObject) => {
+            searchHighlightNodes.add(result);
+          })
         }
       });
 
@@ -91,7 +93,6 @@ function constructGraph(gData: any, element: HTMLElement) {
       highlightLinks.clear();
       if (node) {
         highlightNodes.add(node);
-        if (node.neighbors) node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
         if (node.links) node.links.forEach(link => highlightLinks.add(link));
       }
 
