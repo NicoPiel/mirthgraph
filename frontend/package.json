@@ -14,6 +14,7 @@
     "build:pwa": "quasar build -m pwa"
   },
   "dependencies": {
+    "3d-force-graph": "^1.70.10",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",

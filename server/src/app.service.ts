@@ -7,20 +7,33 @@ import { createClient } from 'redis';
 @Injectable()
 export class AppService {
   /**
-   * Builds a graph data object from the parsed XML configuration and returns it as a JSON string.
+   * Builds a graph data object from the cached XML configuration and returns it as a JSON string.
    */
   async getGraphData(): Promise<string> {
     // TODO: Disable debugs
-    const cache = await this.getFromRedisXMLCache();
+    const cache = null; //await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache();
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
-      const gdata = await this.getFromRedisGraphDataCache();
+      const gdata = null; //await this.getFromRedisGraphDataCache();
 
       if (!gdata) await this.createRedisGraphDataCache();
 
       return gdata ? gdata : this.getFromRedisGraphDataCache();
+    });
+  }
+
+  /**
+   * Forces the redis cache to rebuild.
+   */
+  async getGraphDataForceRebuild() {
+    await this.createRedisXMLCache();
+    // Get from redis cache
+    return this.getFromRedisXMLCache().then(async (result) => {
+      await this.createRedisGraphDataCache();
+
+      return this.getFromRedisGraphDataCache();
     });
   }
 
@@ -135,7 +148,7 @@ export class AppService {
         // Create a new node from the channel's ID and name
         gData.nodes.push({
           id: channelId,
-          name: channelName,
+          name: 'Channel: ' + channelName,
           val: 1,
           description: channelDescription,
           group: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 'channel' : 'disabled',
@@ -147,10 +160,11 @@ export class AppService {
           // Go through each connector
           destinationConnector.connector.forEach((connector) => {
             const connectorProperties = connector.properties[0];
+            const transportName = connector.transportName[0];
 
             // Check if connector is enabled
             // Check for different transports
-            switch (connector.transportName[0]) {
+            switch (transportName) {
               // Is a channel writer?
               case 'Channel Writer':
                 // Extract target channel id
@@ -196,13 +210,14 @@ export class AppService {
                   const emails = to.split(',');
 
                   emails.forEach((email) => {
+                    email = email.trim();
                     if (email.search(regex) != -1) {
                       if (!gData.nodes.find((node) => node.id == email)) {
                         gData.nodes.push({
                           id: email,
-                          name: email,
+                          name: 'SMTP: ' + email,
                           val: 1,
-                          group: 'email',
+                          group: transportName,
                         });
                       }
 
@@ -215,9 +230,9 @@ export class AppService {
                       if (!gData.nodes.find((node) => node.id == to)) {
                         gData.nodes.push({
                           id: to,
-                          name: to,
+                          name: 'SMTP: ' + to,
                           val: 1,
-                          group: 'invalid_email',
+                          group: 'Invalid ' + transportName,
                         });
                       }
 
@@ -225,6 +240,7 @@ export class AppService {
                         source: channelId,
                         target: to,
                         enabled: connector.enabled[0] == 'true' ? 1 : 0,
+                        group: 'Invalid ' + transportName,
                       });
                     }
                   });
@@ -239,15 +255,15 @@ export class AppService {
                   if (!gData.nodes.find((node) => node.id == remoteAddressAndPort)) {
                     gData.nodes.push({
                       id: remoteAddressAndPort,
-                      name: remoteAddressAndPort,
-                      group: 'remote',
+                      name: 'TCP Remote: ' + remoteAddressAndPort,
+                      group: transportName,
                     });
                   }
 
                   gData.links.push({
                     source: channelId,
                     target: remoteAddressAndPort,
-                    group: 'remote',
+                    group: transportName,
                     enabled: connector.enabled[0] == 'true' ? 1 : 0,
                   });
                 }
@@ -259,15 +275,15 @@ export class AppService {
                   if (!gData.nodes.find((node) => node.id == host)) {
                     gData.nodes.push({
                       id: host,
-                      name: host,
-                      group: 'file',
+                      name: 'File Host: ' + host,
+                      group: transportName,
                     });
                   }
 
                   gData.links.push({
                     source: channelId,
                     target: host,
-                    group: 'file',
+                    group: transportName,
                     enabled: connector.enabled[0] == 'true' ? 1 : 0,
                   });
                 }

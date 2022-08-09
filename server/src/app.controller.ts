@@ -9,4 +9,9 @@ export class AppController {
   getGData() {
     return this.appService.getGraphData();
   }
+
+  @Get('/force')
+  getGDataForceRebuild() {
+    return this.appService.getGraphDataForceRebuild();
+  }
 }
