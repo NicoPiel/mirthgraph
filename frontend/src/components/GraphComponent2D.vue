@@ -1,29 +1,48 @@
 <template>
-  <q-drawer
-    v-model="detailsDrawer"
-    :width="200"
-    :breakpoint="500"
-    overlay
-    bordered
-    class="bg-grey-3"
-    side="right"
-  >
+  <div class="q-pa-md">
+    <q-drawer
+      v-model="detailsDrawer"
+      :width="300"
+      :breakpoint="500"
+      overlay
+      bordered
+      class="bg-grey-3"
+      side="right"
+    >
+      <q-scroll-area class="fit">
+        <div v-if="detailsNode">
+          <div>ID: {{ detailsNode.id }}</div>
+          <div>{{ detailsNode.name }}</div>
+          <div>Gruppe: {{ detailsNode.group }}</div>
+          <q-separator/>
+          <q-separator/>
+          <div>Verbindungen zu:</div>
+          <q-separator/>
+          <q-separator/>
+          <div v-for="(neighbor, index) in detailsNode.neighbors" :key="index">
+            <div>ID: {{ neighbor.id }}</div>
+            <div>{{ neighbor.name }}</div>
+            <div>Gruppe: {{ neighbor.group }}</div>
+            <q-separator :key="'sep' + index"/>
+          </div>
+        </div>
+      </q-scroll-area>
+    </q-drawer>
+    <div class="q-pa-lg">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/>
+        </div>
+        <div class="col-4"></div>
 
-  </q-drawer>
-  <div class="q-pa-lg">
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4">
-        <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/>
       </div>
-      <div class="col-4"></div>
-
-    </div>
-    <div class="row">
-
-      <div id="graph"/>
+      <div class="row">
+        <div id="graph" class="col"/>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script lang="ts" setup>
@@ -32,8 +51,8 @@ import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
 
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
-
-let detailsDrawer = ref(false);
+const detailsDrawer = ref(false);
+const detailsNode: Ref<UnwrapRef<NodeObject>> | Ref<UnwrapRef<null>> = ref(null);
 
 axios.get(remoteAddress + 'graphs', {
   headers: {
@@ -52,7 +71,7 @@ axios.get(remoteAddress + 'graphs', {
   console.error(error);
 })
 
-let searchInput: Ref<UnwrapRef<string>> = ref('');
+const searchInput: Ref<UnwrapRef<string>> = ref('');
 
 function constructGraph(gData: any, element: HTMLElement) {
   const dashLen = 6;
@@ -64,6 +83,7 @@ function constructGraph(gData: any, element: HTMLElement) {
   let hoverNode: NodeObject | null = null;
 
   let NODE_R = 5;
+  let showNames = false;
 
   // cross-link node objects
   gData.links.forEach((link: { source: string; target: string; }) => {
@@ -79,8 +99,6 @@ function constructGraph(gData: any, element: HTMLElement) {
     a.links.push(link);
     b.links.push(link);
   });
-
-  let showNames = false;
 
   return ForceGraph()(element)
     .graphData(gData)
@@ -128,8 +146,11 @@ function constructGraph(gData: any, element: HTMLElement) {
     .linkWidth(link => highlightLinks.has(link) ? 5 : 2)
     .linkDirectionalParticles(4)
     .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 8 : 4)
-    .nodeCanvasObjectMode(node => searchHighlightNodes.has(node) || highlightNodes.has(node) ? 'before' : undefined)
-    .nodeCanvasObjectMode(() => showNames ? 'replace' : undefined)
+    .nodeCanvasObjectMode(node => {
+      if (showNames) return 'replace';
+      else if (searchHighlightNodes.has(node) || highlightNodes.has(node)) return 'before';
+      else return undefined;
+    })
     .nodeCanvasObject((node, ctx, globalScale) => {
       if (node) {
         if (!showNames) {
@@ -159,22 +180,24 @@ function constructGraph(gData: any, element: HTMLElement) {
     })
     .enableNodeDrag(false)
     .onNodeClick((node, event) => {
-      detailsDrawer = ref(true)
+      detailsDrawer.value = true
+      detailsNode.value = node;
+      console.log('Clicked')
+    })
+    .onNodeRightClick((node, event) => {
+      detailsDrawer.value = true
+      detailsNode.value = node;
       console.log('Clicked')
     })
     .onBackgroundClick((event) => {
-      detailsDrawer = ref(false)
+      detailsDrawer.value = false
+      detailsNode.value = null;
       console.log('Clicked background')
     })
     .linkHoverPrecision(10)
     .onZoom(({k, x, y}) => {
       // k = zoom level
       showNames = k > 2.4;
-    })
-    .nodePointerAreaPaint((node, color, ctx) => {
-      ctx.fillStyle = color;
-      const bckgDimensions = node.__bckgDimensions;
-      bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
     })
 
   // return graph;
