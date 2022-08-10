@@ -18,10 +18,10 @@ import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
 
-const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}`
+const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 
 
-axios.get(remoteAddress, {
+axios.get(remoteAddress + 'graphs', {
   headers: {
     'Content-Type': 'application/json;charset=UTF-8',
     'Access-Control-Allow-Origin': '*'
@@ -80,7 +80,7 @@ function constructGraph(gData: any, element: HTMLElement) {
       watch(searchInput, async (newString, oldString) => {
         searchHighlightNodes.clear();
         if (newString) {
-          const results = await gData.nodes.filter((node: NodeObject) => node.name.search(newString) > -1);
+          const results = await gData.nodes.filter((node: NodeObject) => node.name.toLowerCase().search(newString.toLowerCase()) > -1);
           results.forEach((result: NodeObject) => {
             searchHighlightNodes.add(result);
           })
