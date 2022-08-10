@@ -1,6 +1,40 @@
 <template>
   <div class="q-pa-md">
     <q-drawer
+      v-model="drawerLeft"
+      :width="250"
+      :breakpoint="500"
+      show-if-above
+      :mini="miniState"
+      @mouseover="miniState = false"
+      @mouseout="miniState = true"
+      overlay
+      bordered
+      class="bg-grey-3"
+    >
+      <q-scroll-area class="fit">
+        <q-list padding>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="3d_rotation"/>
+            </q-item-section>
+            <q-item-section>
+              <q-btn to="/3d">3D Version</q-btn>
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="warning"/>
+            </q-item-section>
+            <q-item-section>
+              <q-btn @click="forceReload" to="/">Force Reload</q-btn>
+            </q-item-section>
+          </q-item>
+          <q-separator/>
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
+    <q-drawer
       v-model="detailsDrawer"
       :width="300"
       :breakpoint="500"
@@ -46,6 +80,7 @@
 </template>
 
 <script lang="ts" setup>
+
 import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
@@ -53,6 +88,9 @@ import {Ref, ref, UnwrapRef, watch} from 'vue';
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 const detailsDrawer = ref(false);
 const detailsNode: Ref<UnwrapRef<NodeObject>> | Ref<UnwrapRef<null>> = ref(null);
+const searchInput: Ref<UnwrapRef<string>> = ref('');
+const drawerLeft = ref(false);
+const miniState = ref(false)
 
 axios.get(remoteAddress + 'graphs', {
   headers: {
@@ -71,7 +109,14 @@ axios.get(remoteAddress + 'graphs', {
   console.error(error);
 })
 
-const searchInput: Ref<UnwrapRef<string>> = ref('');
+function forceReload() {
+  axios.get(remoteAddress + 'graphs/force', {
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*'
+    }
+  });
+}
 
 function constructGraph(gData: any, element: HTMLElement) {
   const dashLen = 6;

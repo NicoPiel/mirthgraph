@@ -28,6 +28,7 @@ export class GraphsService {
    * Forces the redis cache to rebuild.
    */
   async getGraphDataForceRebuild() {
+    Logger.warn('Client forced a reload');
     await this.createRedisXMLCache();
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
