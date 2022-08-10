@@ -84,6 +84,7 @@
 import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
+import * as d3 from 'd3-force';
 
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 const detailsDrawer = ref(false);
@@ -190,7 +191,7 @@ function constructGraph(gData: any, element: HTMLElement) {
     .autoPauseRedraw(false) // keep redrawing after engine has stopped
     .linkWidth(link => highlightLinks.has(link) ? 5 : 2)
     .linkDirectionalParticles(4)
-    .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 8 : 4)
+    .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 9 : 5)
     .nodeCanvasObjectMode(node => {
       if (showNames) return 'replace';
       else if (searchHighlightNodes.has(node) || highlightNodes.has(node)) return 'before';
@@ -244,6 +245,7 @@ function constructGraph(gData: any, element: HTMLElement) {
       // k = zoom level
       showNames = k > 2.4;
     })
+    .d3Force('collide', d3.forceCollide(15))
 
   // return graph;
 }
