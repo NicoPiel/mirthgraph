@@ -26,6 +26,10 @@ import axios from 'axios';
 import {ref} from 'vue';
 
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`;
+const pagination = ref({
+  rowsPerPage: 0
+})
+const filter = ref('')
 
 const response = await axios
   .get(remoteAddress + 'ports', {
@@ -35,27 +39,31 @@ const response = await axios
     },
   });
 
-response.data.forEach((dataPoint: {host:string, port: string}) => {
-  if (!dataPoint.port) {
-    delete response.data[response.data.indexOf(dataPoint)]
-  }
-})
-
 const portsData = response.data;
 
-const pagination = ref({
-  rowsPerPage: 100
-})
-
-const filter = ref('')
-
 const columns = [
+  {
+    name: 'name',
+    required: true,
+    label: 'Channel',
+    align: 'center',
+    field: (row: { host: string, port: string, mode: string, channel: string }) => row.channel,
+    sortable: true
+  },
+  {
+    name: 'mode',
+    required: true,
+    label: 'Modus',
+    align: 'center',
+    field: (row: { host: string, port: string, mode: string, channel: string }) => row.mode,
+    sortable: true
+  },
   {
     name: 'port',
     required: true,
     label: 'Belegter Port',
     align: 'center',
-    field: (row: { host: string, port: string }) => row.port,
+    field: (row: { host: string, port: string, mode: string, channel: string }) => row.port,
     sortable: true
   },
   {
@@ -63,7 +71,7 @@ const columns = [
     required: true,
     label: 'Host-Adresse',
     align: 'center',
-    field: (row: { host: string, port: string }) => row.host,
+    field: (row: { host: string, port: string, mode: string, channel: string }) => row.host,
     sortable: true
   }
 ];

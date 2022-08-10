@@ -12,7 +12,7 @@
 
       <q-page-container>
         <q-page>
-          <router-view/>
+          <RouterView/>
         </q-page>
       </q-page-container>
     </q-layout>

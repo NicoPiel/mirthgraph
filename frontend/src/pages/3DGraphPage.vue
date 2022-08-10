@@ -1,5 +1,5 @@
 <template>
-  <graph-component3-d/>
+  <GraphComponent3D/>
 </template>
 <script>
 import GraphComponent3D from '../components/GraphComponent3D.vue';

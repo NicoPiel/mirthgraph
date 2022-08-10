@@ -14,20 +14,20 @@
     >
       <q-scroll-area class="fit">
         <q-list padding>
-          <q-item clickable v-ripple>
+          <q-item>
             <q-item-section avatar>
               <q-icon name="3d_rotation"/>
             </q-item-section>
             <q-item-section>
-              <q-btn to="/3d">3D Version</q-btn>
+              <q-btn to="/3d" v-ripple>3D Version</q-btn>
             </q-item-section>
           </q-item>
-          <q-item clickable v-ripple>
+          <q-item>
             <q-item-section avatar>
               <q-icon name="warning"/>
             </q-item-section>
             <q-item-section>
-              <q-btn @click="forceReload" to="/">Force Reload</q-btn>
+              <q-btn @click="forceReload" to="/" v-ripple>Force Reload</q-btn>
             </q-item-section>
           </q-item>
           <q-separator/>
@@ -48,6 +48,7 @@
           <div>ID: {{ detailsNode.id }}</div>
           <div>{{ detailsNode.name }}</div>
           <div>Gruppe: {{ detailsNode.group }}</div>
+          <div>Beschreibung: {{ detailsNode.description }}</div>
           <q-separator/>
           <q-separator/>
           <div>Verbindungen zu:</div>
@@ -62,14 +63,13 @@
         </div>
       </q-scroll-area>
     </q-drawer>
-    <div class="q-pa-lg">
-      <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+    <div class="q-pa-md">
+      <div class="row col-1">
+        <div class="col-5"/>
+        <div class="col">
           <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/>
         </div>
-        <div class="col-4"></div>
-
+        <div class="col-5"/>
       </div>
       <div class="row">
         <div id="graph" class="col"/>

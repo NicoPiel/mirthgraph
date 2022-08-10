@@ -1,6 +1,6 @@
 <template>
   <q-page class="items-center justify-evenly">
-    <graph-component2-d/>
+    <GraphComponent2D/>
   </q-page>
 </template>
 

@@ -13,7 +13,7 @@ export class PortsService {
     if (!cache) await this.createRedisXMLCache();
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
-      const ports = await this.getFromRedisPortsDataCache();
+      const ports = null; //await this.getFromRedisPortsDataCache();
 
       if (!ports) await this.createRedisPortsDataCache();
 
@@ -34,6 +34,8 @@ export class PortsService {
             portsData.add({
               host: sourceConnectorProperties.listenerConnectorProperties[0].host[0],
               port: sourceConnectorProperties.listenerConnectorProperties[0].port[0],
+              mode: 'Listener',
+              channel: channel.name[0],
             });
           }
         });
@@ -47,13 +49,16 @@ export class PortsService {
             if (connector.transportName[0] == 'TCP Sender') {
               portsData.add({
                 host: destinationConnectorProperties.remoteAddress[0],
-                post: destinationConnectorProperties.remotePort[0],
+                port: destinationConnectorProperties.remotePort[0],
+                mode: 'Sender',
+                channel: channel.name[0],
               });
             }
           });
         });
       });
     });
+
     return JSON.stringify(Array.from(portsData));
   }
 
