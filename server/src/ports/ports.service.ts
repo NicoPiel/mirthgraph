@@ -32,10 +32,10 @@ export class PortsService {
 
           if (sourceConnector.transportName[0] == 'TCP Listener') {
             portsData.add({
+              channel: channel.name[0],
+              mode: 'Listener',
               host: sourceConnectorProperties.listenerConnectorProperties[0].host[0],
               port: sourceConnectorProperties.listenerConnectorProperties[0].port[0],
-              mode: 'Listener',
-              channel: channel.name[0],
             });
           }
         });
@@ -48,10 +48,10 @@ export class PortsService {
 
             if (connector.transportName[0] == 'TCP Sender') {
               portsData.add({
+                channel: channel.name[0],
+                mode: 'Sender',
                 host: destinationConnectorProperties.remoteAddress[0],
                 port: destinationConnectorProperties.remotePort[0],
-                mode: 'Sender',
-                channel: channel.name[0],
               });
             }
           });

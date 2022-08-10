@@ -3,7 +3,6 @@
     <q-table
       title="Ports"
       :rows="portsData"
-      :columns="columns"
       virtual-scroll
       v-model:pagination="pagination"
       :rows-per-page-options="[0]"
@@ -40,40 +39,5 @@ const response = await axios
   });
 
 const portsData = response.data;
-
-const columns = [
-  {
-    name: 'name',
-    required: true,
-    label: 'Channel',
-    align: 'center',
-    field: (row: { host: string, port: string, mode: string, channel: string }) => row.channel,
-    sortable: true
-  },
-  {
-    name: 'mode',
-    required: true,
-    label: 'Modus',
-    align: 'center',
-    field: (row: { host: string, port: string, mode: string, channel: string }) => row.mode,
-    sortable: true
-  },
-  {
-    name: 'port',
-    required: true,
-    label: 'Belegter Port',
-    align: 'center',
-    field: (row: { host: string, port: string, mode: string, channel: string }) => row.port,
-    sortable: true
-  },
-  {
-    name: 'host',
-    required: true,
-    label: 'Host-Adresse',
-    align: 'center',
-    field: (row: { host: string, port: string, mode: string, channel: string }) => row.host,
-    sortable: true
-  }
-];
 
 </script>
