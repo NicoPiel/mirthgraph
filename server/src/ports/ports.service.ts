@@ -54,8 +54,7 @@ export class PortsService {
         });
       });
     });
-
-    return JSON.stringify(portsData);
+    return JSON.stringify(Array.from(portsData));
   }
 
   async createRedisPortsDataCache() {
@@ -84,14 +83,12 @@ export class PortsService {
 
     const result = JSON.parse(await client.get('serverConfiguration:ports'));
 
-    Logger.log('Ports data cache: ', result);
-
     await client.quit();
 
     return result;
   }
 
-  async buildPortsDataWithXMLCache() {
+  async buildPortsDataWithXMLCache(): Promise<string> {
     Logger.log('Building ports data with XML cache');
     const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
