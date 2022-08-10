@@ -11,12 +11,12 @@ export class GraphsService {
    */
   async getGraphData(): Promise<string> {
     // TODO: Disable debugs
-    const cache = null; //await this.getFromRedisXMLCache();
+    const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache();
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
-      const gdata = null; //await this.getFromRedisGraphDataCache();
+      const gdata = await this.getFromRedisGraphDataCache();
 
       if (!gdata) await this.createRedisGraphDataCache();
 

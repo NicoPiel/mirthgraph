@@ -1,8 +1,21 @@
 <template>
+  <q-drawer
+    v-model="detailsDrawer"
+    :width="200"
+    :breakpoint="500"
+    overlay
+    bordered
+    class="bg-grey-3"
+    side="right"
+  >
+
+  </q-drawer>
   <div class="q-pa-lg">
     <div class="row">
       <div class="col-4"></div>
-      <div class="col-4"><q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/></div>
+      <div class="col-4">
+        <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/>
+      </div>
       <div class="col-4"></div>
 
     </div>
@@ -20,6 +33,7 @@ import {Ref, ref, UnwrapRef, watch} from 'vue';
 
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 
+let detailsDrawer = ref(false);
 
 axios.get(remoteAddress + 'graphs', {
   headers: {
@@ -65,6 +79,8 @@ function constructGraph(gData: any, element: HTMLElement) {
     a.links.push(link);
     b.links.push(link);
   });
+
+  let showNames = false;
 
   return ForceGraph()(element)
     .graphData(gData)
@@ -113,37 +129,53 @@ function constructGraph(gData: any, element: HTMLElement) {
     .linkDirectionalParticles(4)
     .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 8 : 4)
     .nodeCanvasObjectMode(node => searchHighlightNodes.has(node) || highlightNodes.has(node) ? 'before' : undefined)
-    .nodeCanvasObject((node, ctx) => {
+    .nodeCanvasObjectMode(() => showNames ? 'replace' : undefined)
+    .nodeCanvasObject((node, ctx, globalScale) => {
       if (node) {
-        // add ring just for highlighted nodes
-        ctx.beginPath();
-        ctx.arc(node.x!, node.y!, NODE_R * 2.0, 0, 2 * Math.PI, false);
-        ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
-        ctx.fill();
+        if (!showNames) {
+          // add ring just for highlighted nodes
+          ctx.beginPath();
+          ctx.arc(node.x!, node.y!, NODE_R * 2.0, 0, 2 * Math.PI, false);
+          ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
+          ctx.fill();
+        } else {
+          const label = node.name;
+          const fontSize = 12 / globalScale;
+          ctx.font = `${fontSize}px Sans-Serif`;
+          const textWidth = ctx.measureText(label).width;
+          const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
+
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+          ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = node.color;
+          ctx.fillText(label, node.x, node.y);
+
+          node.__bckgDimensions = bckgDimensions;
+        }
       }
-    });
-  /*.nodeCanvasObject((node, ctx, globalScale) => {
-  const label = node.name;
-  const fontSize = 12/globalScale;
-  ctx.font = `${fontSize}px Sans-Serif`;
-  const textWidth = ctx.measureText(label).width;
-  const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
-
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-  ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillStyle = node.color;
-  ctx.fillText(label, node.x, node.y);
-
-  node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
-  })
-  .nodePointerAreaPaint((node, color, ctx) => {
-  ctx.fillStyle = color;
-  const bckgDimensions = node.__bckgDimensions;
-  bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-  })*/
+    })
+    .enableNodeDrag(false)
+    .onNodeClick((node, event) => {
+      detailsDrawer = ref(true)
+      console.log('Clicked')
+    })
+    .onBackgroundClick((event) => {
+      detailsDrawer = ref(false)
+      console.log('Clicked background')
+    })
+    .linkHoverPrecision(10)
+    .onZoom(({k, x, y}) => {
+      // k = zoom level
+      showNames = k > 2.4;
+    })
+    .nodePointerAreaPaint((node, color, ctx) => {
+      ctx.fillStyle = color;
+      const bckgDimensions = node.__bckgDimensions;
+      bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+    })
 
   // return graph;
 }

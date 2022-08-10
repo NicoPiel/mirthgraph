@@ -14,7 +14,7 @@ export default defineComponent({
   name: 'IndexPage',
   components: {GraphComponent2D},
   setup() {
-    return null;
+    return {};
   }
 });
 </script>

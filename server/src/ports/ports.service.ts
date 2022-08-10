@@ -8,12 +8,12 @@ import { createClient } from 'redis';
 export class PortsService {
   async getPortsData() {
     // TODO: Disable debugs
-    const cache = null; //await this.getFromRedisXMLCache();
+    const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache();
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
-      const ports = null; //await this.getFromRedisPortsDataCache();
+      const ports = await this.getFromRedisPortsDataCache();
 
       if (!ports) await this.createRedisPortsDataCache();
 
@@ -89,18 +89,15 @@ export class PortsService {
   }
 
   async buildPortsDataWithXMLCache(): Promise<string> {
-    Logger.log('Building ports data with XML cache');
     const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) {
-      Logger.warn('XML cache was empty, rebuilding..');
       await this.createRedisXMLCache();
 
       return this.getFromRedisXMLCache().then((result) => {
         return this.buildPortsData(result);
       });
     } else {
-      Logger.log('XML cache successfully retrieved, building..');
       return this.buildPortsData(cache);
     }
   }
