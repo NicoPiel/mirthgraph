@@ -85,6 +85,8 @@
     >
       <q-scroll-area class="fit">
         <div v-if="detailsNode">
+          <q-btn @click="showDetailsView(detailsNode)">Details</q-btn>
+
           <div>ID: {{ detailsNode.id }}</div>
           <div>{{ detailsNode.name }}</div>
           <div>Gruppe: {{ detailsNode.group }}</div>
@@ -125,6 +127,9 @@ import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
 import * as d3 from 'd3-force';
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
 
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 const detailsDrawer = ref(false);
@@ -134,30 +139,27 @@ const drawerLeft = ref(false);
 const miniState = ref(false);
 const environment = ref('DATA_PRODUCTION');
 
-makePage('DATA_PRODUCTION');
+const props = defineProps([
+  'gData'
+])
+
+loadPage('DATA_PRODUCTION');
 
 watch(environment, (value, oldValue, onCleanup) => {
-  makePage(value);
+  loadPage(value);
 });
 
-function makePage(serverEnv: string) {
+function loadPage(serverEnv: string) {
   axios.post(remoteAddress + 'graphs', {
     data: serverEnv,
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
-  }).then((response) => {
-    let gData = response.data;
-
-    if (document.getElementById('graph')) {
-      const el = document.getElementById('graph')
-
-      if (el) constructGraph(gData, el);
-    }
-  }).catch((error) => {
-    console.error(error);
-  })
+  }).then((response) => makePage(response))
+    .catch((error) => {
+      console.error(error);
+    })
 }
 
 
@@ -168,10 +170,27 @@ function forceReload() {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
-  });
+  }).then((response) => makePage(response))
+    .catch((error) => {
+      console.error(error);
+    })
 }
 
-function drawerClick (e: any) {
+function makePage(response: any = null, customGData: any = null) {
+  let gData;
+
+  if (customGData) gData = customGData;
+  else if (props.gData) gData = props.gData;
+  else gData = response.data;
+
+  if (document.getElementById('graph')) {
+    const el = document.getElementById('graph')
+
+    if (el) constructGraph(gData, el);
+  }
+}
+
+function drawerClick(e: any) {
   // if in "mini" state and user
   // click on drawer, we switch it to "normal" mode
   if (miniState.value) {
@@ -186,6 +205,21 @@ function drawerClick (e: any) {
 
 function changeEnvironment(newEnv: string) {
   environment.value = newEnv;
+}
+
+async function showDetailsView(node: NodeObject) {
+  const nodeAndNeighbors = [];
+  nodeAndNeighbors.push(node);
+  nodeAndNeighbors.push(node.neighbors)
+
+  const custom = {
+    nodes: nodeAndNeighbors,
+    links: node.links
+  }
+
+  console.log(custom)
+
+  makePage(null, custom);
 }
 
 function constructGraph(gData: any, element: HTMLElement) {
