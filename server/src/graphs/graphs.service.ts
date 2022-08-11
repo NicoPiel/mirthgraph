@@ -16,7 +16,7 @@ export class GraphsService {
     if (!cache) await this.createRedisXMLCache();
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
-      const gdata = await this.getFromRedisGraphDataCache();
+      const gdata = null; //await this.getFromRedisGraphDataCache();
 
       if (!gdata) await this.createRedisGraphDataCache();
 
@@ -137,6 +137,7 @@ export class GraphsService {
     gData.nodes.push({
       id: 'other',
       name: 'other',
+      group: 'other',
       description: 'Unhandled connectors',
     });
 
@@ -155,7 +156,7 @@ export class GraphsService {
           name: 'Channel: ' + channelName,
           val: 1,
           description: channelDescription,
-          group: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 'channel' : 'disabled',
+          group: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 'Channel' : 'disabled',
           enabled: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
         });
 
@@ -228,6 +229,7 @@ export class GraphsService {
                       gData.links.push({
                         source: channelId,
                         target: email,
+                        group: 'SMTP Sender',
                         enabled: connector.enabled[0] == 'true' ? 1 : 0,
                       });
                     } else {
