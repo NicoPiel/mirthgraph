@@ -6,14 +6,53 @@
       :breakpoint="500"
       show-if-above
       :mini="miniState"
-      @mouseover="miniState = false"
-      @mouseout="miniState = true"
+      @click.capture="drawerClick"
       overlay
       bordered
       class="bg-grey-3"
     >
+      <div class="q-mini-drawer-hide absolute" style="top: 15px; right: -50px">
+        <q-btn
+          dense
+          round
+          unelevated
+          color="accent"
+          icon="chevron_left"
+          @click="miniState = true"
+        />
+      </div>
       <q-scroll-area class="fit">
         <q-list padding>
+          <q-item>
+            <q-item-section avatar>
+              <q-icon name="dns"/>
+            </q-item-section>
+            <q-item-section>
+              <q-btn-dropdown
+                split
+                label="Umgebung"
+              >
+                <q-list>
+                  <q-item clickable v-close-popup @click="changeEnvironment('DATA_PRODUCTION')">
+                    <q-item-section>
+                      Produktionsumgebung
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable v-close-popup @click="changeEnvironment('DATA_DICOM')">
+                    <q-item-section>
+                      DICOM-Server
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable v-close-popup @click="changeEnvironment('DATA_TEST')">
+                    <q-item-section>
+                      Testumgebung
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+              </q-btn-dropdown>
+            </q-item-section>
+          </q-item>
+          <q-separator/>
           <q-item>
             <q-item-section avatar>
               <q-icon name="3d_rotation"/>
@@ -22,6 +61,7 @@
               <q-btn to="/3d" v-ripple>3D Version</q-btn>
             </q-item-section>
           </q-item>
+          <q-separator/>
           <q-item>
             <q-item-section avatar>
               <q-icon name="warning"/>
@@ -91,32 +131,61 @@ const detailsDrawer = ref(false);
 const detailsNode: Ref<UnwrapRef<NodeObject>> | Ref<UnwrapRef<null>> = ref(null);
 const searchInput: Ref<UnwrapRef<string>> = ref('');
 const drawerLeft = ref(false);
-const miniState = ref(false)
+const miniState = ref(false);
+const environment = ref('DATA_PRODUCTION');
 
-axios.get(remoteAddress + 'graphs', {
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-    'Access-Control-Allow-Origin': '*'
-  }
-}).then((response) => {
-  let gData = response.data;
+makePage('DATA_PRODUCTION');
 
-  if (document.getElementById('graph')) {
-    const el = document.getElementById('graph')
+watch(environment, (value, oldValue, onCleanup) => {
+  makePage(value);
+});
 
-    if (el) constructGraph(gData, el);
-  }
-}).catch((error) => {
-  console.error(error);
-})
+function makePage(serverEnv: string) {
+  axios.post(remoteAddress + 'graphs', {
+    data: serverEnv,
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Access-Control-Allow-Origin': '*'
+    }
+  }).then((response) => {
+    let gData = response.data;
+
+    if (document.getElementById('graph')) {
+      const el = document.getElementById('graph')
+
+      if (el) constructGraph(gData, el);
+    }
+  }).catch((error) => {
+    console.error(error);
+  })
+}
+
 
 function forceReload() {
-  axios.get(remoteAddress + 'graphs/force', {
+  axios.post(remoteAddress + 'graphs/force', {
+    data: 'DATA_PRODUCTION',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
   });
+}
+
+function drawerClick (e: any) {
+  // if in "mini" state and user
+  // click on drawer, we switch it to "normal" mode
+  if (miniState.value) {
+    miniState.value = false
+
+    // notice we have registered an event with capture flag;
+    // we need to stop further propagation as this click is
+    // intended for switching drawer to "normal" mode only
+    e.stopPropagation()
+  }
+}
+
+function changeEnvironment(newEnv: string) {
+  environment.value = newEnv;
 }
 
 function constructGraph(gData: any, element: HTMLElement) {
