@@ -16,7 +16,7 @@ export class GraphsService {
     if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
     return this.getFromRedisXMLCache(serverType).then(async (result) => {
-      const gdata = null; //await this.getFromRedisGraphDataCache();
+      const gdata = await this.getFromRedisGraphDataCache(serverType);
 
       if (!gdata) await this.createRedisGraphDataCache(serverType);
 

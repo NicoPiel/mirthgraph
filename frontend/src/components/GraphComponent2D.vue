@@ -140,7 +140,7 @@ const miniState = ref(false);
 const environment = ref('DATA_PRODUCTION');
 
 const props = defineProps([
-  'gData'
+  'gData',
 ])
 
 loadPage('DATA_PRODUCTION');
@@ -209,12 +209,20 @@ function changeEnvironment(newEnv: string) {
 
 async function showDetailsView(node: NodeObject) {
   const nodeAndNeighbors = [];
-  nodeAndNeighbors.push(node);
-  nodeAndNeighbors.push(node.neighbors)
+
+  const unwrap = {...node};
+
+  console.log(unwrap)
+
+  nodeAndNeighbors.push(unwrap);
+
+  const unwrapNeighbors = {...unwrap.neighbors};
+
+  nodeAndNeighbors.push({...unwrap.neighbors})
 
   const custom = {
     nodes: nodeAndNeighbors,
-    links: node.links
+    links: {...unwrap.links},
   }
 
   console.log(custom)
