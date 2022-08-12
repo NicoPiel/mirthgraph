@@ -16,12 +16,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/3DGraphPage.vue') }],
   },
-  {
-    path: '/details',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/DetailsPage.vue') }],
-    props: true,
-  },
 
   // Always leave this as last one,
   // but you can also remove it

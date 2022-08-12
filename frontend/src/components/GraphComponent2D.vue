@@ -107,11 +107,14 @@
     </q-drawer>
     <div class="q-pa-md">
       <div class="row col-1">
-        <div class="col-5"/>
-        <div class="col">
+        <div class="col-3"/>
+        <div class="col-2">
+          <q-btn v-if="isDetailView" @click="loadPage(environment)">Zurück zur Übersicht</q-btn>
+        </div>
+        <div class="col-3">
           <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/>
         </div>
-        <div class="col-5"/>
+        <div class="col"/>
       </div>
       <div class="row">
         <div id="graph" class="col"/>
@@ -125,7 +128,7 @@
 
 import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
-import {Ref, ref, UnwrapRef, watch} from 'vue';
+import {Ref, ref, toRaw, UnwrapRef, watch} from 'vue';
 import * as d3 from 'd3-force';
 import {useRouter} from 'vue-router';
 
@@ -138,6 +141,7 @@ const searchInput: Ref<UnwrapRef<string>> = ref('');
 const drawerLeft = ref(false);
 const miniState = ref(false);
 const environment = ref('DATA_PRODUCTION');
+const isDetailView = ref(false);
 
 const props = defineProps([
   'gData',
@@ -179,14 +183,23 @@ function forceReload() {
 function makePage(response: any = null, customGData: any = null) {
   let gData;
 
-  if (customGData) gData = customGData;
-  else if (props.gData) gData = props.gData;
-  else gData = response.data;
+  if (customGData) {
+    gData = customGData;
+    isDetailView.value = true;
+  }
+  else if (props.gData) {
+    gData = props.gData;
+    isDetailView.value = false;
+  }
+  else {
+    gData = response.data;
+    isDetailView.value = false;
+  }
 
   if (document.getElementById('graph')) {
     const el = document.getElementById('graph')
 
-    if (el) constructGraph(gData, el);
+    if (el) constructGraph(gData, el, isDetailView.value);
   }
 }
 
@@ -208,29 +221,15 @@ function changeEnvironment(newEnv: string) {
 }
 
 async function showDetailsView(node: NodeObject) {
-  const nodeAndNeighbors = [];
+  const unwrapped = toRaw(node);
 
-  const unwrap = {...node};
-
-  console.log(unwrap)
-
-  nodeAndNeighbors.push(unwrap);
-
-  const unwrapNeighbors = {...unwrap.neighbors};
-
-  nodeAndNeighbors.push({...unwrap.neighbors})
-
-  const custom = {
-    nodes: nodeAndNeighbors,
-    links: {...unwrap.links},
-  }
-
-  console.log(custom)
-
-  makePage(null, custom);
+  makePage(null, {
+    nodes: [unwrapped, ...unwrapped.neighbors],
+    links: unwrapped.links
+  });
 }
 
-function constructGraph(gData: any, element: HTMLElement) {
+function constructGraph(gData: any, element: HTMLElement, isDetailView = false) {
   const dashLen = 6;
   const gapLen = 8;
 
@@ -242,20 +241,24 @@ function constructGraph(gData: any, element: HTMLElement) {
   let NODE_R = 5;
   let showNames = false;
 
-  // cross-link node objects
-  gData.links.forEach((link: { source: string; target: string; }) => {
-    const a = gData.nodes.find((node: NodeObject) => node.id == link.source);
-    const b = gData.nodes.find((node: NodeObject) => node.id == link.target);
-    !a.neighbors && (a.neighbors = []);
-    !b.neighbors && (b.neighbors = []);
-    a.neighbors.push(b);
-    b.neighbors.push(a);
+  console.log(gData);
 
-    !a.links && (a.links = []);
-    !b.links && (b.links = []);
-    a.links.push(link);
-    b.links.push(link);
-  });
+  if (!isDetailView) {
+    // cross-link node objects
+    gData.links.forEach((link: { source: string; target: string; }) => {
+      const a = gData.nodes.find((node: NodeObject) => node.id == link.source);
+      const b = gData.nodes.find((node: NodeObject) => node.id == link.target);
+      !a.neighbors && (a.neighbors = []);
+      !b.neighbors && (b.neighbors = []);
+      a.neighbors.push(b);
+      b.neighbors.push(a);
+
+      !a.links && (a.links = []);
+      !b.links && (b.links = []);
+      a.links.push(link);
+      b.links.push(link);
+    });
+  }
 
   return ForceGraph()(element)
     .graphData(gData)
@@ -339,17 +342,14 @@ function constructGraph(gData: any, element: HTMLElement) {
     .onNodeClick((node, event) => {
       detailsDrawer.value = true
       detailsNode.value = node;
-      console.log('Clicked')
     })
     .onNodeRightClick((node, event) => {
       detailsDrawer.value = true
       detailsNode.value = node;
-      console.log('Clicked')
     })
     .onBackgroundClick((event) => {
       detailsDrawer.value = false
       detailsNode.value = null;
-      console.log('Clicked background')
     })
     .linkHoverPrecision(10)
     .onZoom(({k, x, y}) => {
