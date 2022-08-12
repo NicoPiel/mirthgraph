@@ -9,46 +9,46 @@ export class GraphsService {
   /**
    * Builds a graph data object from the cached XML configuration and returns it as a JSON string.
    */
-  async getGraphData(): Promise<string> {
+  async getGraphData(serverType: string): Promise<string> {
     // TODO: Disable debugs
-    const cache = await this.getFromRedisXMLCache();
+    const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
-    if (!cache) await this.createRedisXMLCache();
+    if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
-    return this.getFromRedisXMLCache().then(async (result) => {
-      const gdata = await this.getFromRedisGraphDataCache();
+    return this.getFromRedisXMLCache(serverType).then(async (result) => {
+      const gdata = await this.getFromRedisGraphDataCache(serverType);
 
-      if (!gdata) await this.createRedisGraphDataCache();
+      if (!gdata) await this.createRedisGraphDataCache(serverType);
 
-      return gdata ? gdata : this.getFromRedisGraphDataCache();
+      return gdata ? gdata : this.getFromRedisGraphDataCache(serverType);
     });
   }
 
   /**
    * Forces the redis cache to rebuild.
    */
-  async getGraphDataForceRebuild() {
+  async getGraphDataForceRebuild(serverType: string) {
     Logger.warn('Client forced a reload');
-    await this.createRedisXMLCache();
+    await this.createRedisXMLCache(serverType);
     // Get from redis cache
-    return this.getFromRedisXMLCache().then(async (result) => {
-      await this.createRedisGraphDataCache();
+    return this.getFromRedisXMLCache(serverType).then(async (result) => {
+      await this.createRedisGraphDataCache(serverType);
 
-      return this.getFromRedisGraphDataCache();
+      return this.getFromRedisGraphDataCache(serverType);
     });
   }
 
   /**
    * Creates a new graph data cache.
    */
-  async createRedisGraphDataCache() {
+  async createRedisGraphDataCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while building GData cache', err));
 
     await client.connect();
 
-    await client.set('serverConfiguration:gdata', await this.buildGraphDataWithXMLCache());
+    await client.set(`serverConfiguration:gdata:${serverType}`, await this.buildGraphDataWithXMLCache(serverType));
 
     Logger.log('Created new gdata cache.');
 
@@ -58,14 +58,14 @@ export class GraphsService {
   /**
    * Retrieves graph data from the redis cache.
    */
-  async getFromRedisGraphDataCache() {
+  async getFromRedisGraphDataCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while retrieving GData cache', err));
 
     await client.connect();
 
-    const result = JSON.parse(await client.get('serverConfiguration:gdata'));
+    const result = JSON.parse(await client.get(`serverConfiguration:gdata:${serverType}`));
 
     await client.quit();
 
@@ -75,14 +75,14 @@ export class GraphsService {
   /**
    * Creates a copy of the parsed XML file in memory
    */
-  async createRedisXMLCache() {
+  async createRedisXMLCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while building XML cache', err));
 
     await client.connect();
 
-    await client.set('serverConfiguration:xml', JSON.stringify(await this.getData()));
+    await client.set(`serverConfiguration:xml:${serverType}`, JSON.stringify(await this.getData(process.env[serverType])));
 
     Logger.log('Created new XML cache.');
 
@@ -92,14 +92,14 @@ export class GraphsService {
   /**
    * Retrieves a copy of the parsed XML file from memory.
    */
-  async getFromRedisXMLCache() {
+  async getFromRedisXMLCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while retrieving XML cache', err));
 
     await client.connect();
 
-    const result = JSON.parse(await client.get('serverConfiguration:xml'));
+    const result = JSON.parse(await client.get(`serverConfiguration:xml:${serverType}`));
 
     await client.quit();
 
@@ -109,13 +109,13 @@ export class GraphsService {
   /**
    * Weird stuff was going on, so I had to create this function.
    */
-  async buildGraphDataWithXMLCache(): Promise<string> {
-    const cache = await this.getFromRedisXMLCache();
+  async buildGraphDataWithXMLCache(serverType: string): Promise<string> {
+    const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
     if (!cache) {
-      await this.createRedisXMLCache();
+      await this.createRedisXMLCache(serverType);
 
-      return this.getFromRedisXMLCache().then((result) => {
+      return this.getFromRedisXMLCache(serverType).then((result) => {
         return this.buildGraphData(result);
       });
     } else {
@@ -137,6 +137,7 @@ export class GraphsService {
     gData.nodes.push({
       id: 'other',
       name: 'other',
+      group: 'other',
       description: 'Unhandled connectors',
     });
 
@@ -155,7 +156,7 @@ export class GraphsService {
           name: 'Channel: ' + channelName,
           val: 1,
           description: channelDescription,
-          group: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 'channel' : 'disabled',
+          group: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 'Channel' : 'disabled',
           enabled: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
         });
 
@@ -228,6 +229,7 @@ export class GraphsService {
                       gData.links.push({
                         source: channelId,
                         target: email,
+                        group: 'SMTP Sender',
                         enabled: connector.enabled[0] == 'true' ? 1 : 0,
                       });
                     } else {
@@ -312,8 +314,8 @@ export class GraphsService {
   /**
    * Parses the backup file as XML and converts it into a JSO.
    */
-  getData(): Promise<any> {
-    const file = readFileSync(join('public', 'data.xml'));
+  getData(fileName: string): Promise<any> {
+    const file = readFileSync(join('public', fileName));
 
     return xml2js
       .parseStringPromise(file)
