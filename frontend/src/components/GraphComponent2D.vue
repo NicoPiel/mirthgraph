@@ -76,7 +76,7 @@
     </q-drawer>
     <q-drawer
       v-model="detailsDrawer"
-      :width="300"
+      :width="500"
       :breakpoint="500"
       overlay
       bordered
@@ -85,29 +85,70 @@
     >
       <q-scroll-area class="fit">
         <div v-if="detailsNode">
-          <q-btn @click="showDetailsView(detailsNode)">Details</q-btn>
-
-          <div>ID: {{ detailsNode.id }}</div>
-          <div>{{ detailsNode.name }}</div>
-          <div>Gruppe: {{ detailsNode.group }}</div>
-          <div>Beschreibung: {{ detailsNode.description }}</div>
-          <q-separator/>
-          <q-separator/>
-          <div>Verbindungen zu:</div>
-          <q-separator/>
-          <q-separator/>
-          <div v-for="(neighbor, index) in detailsNode.neighbors" :key="index">
-            <div>ID: {{ neighbor.id }}</div>
-            <div>{{ neighbor.name }}</div>
-            <div>Gruppe: {{ neighbor.group }}</div>
-            <q-separator :key="'sep' + index"/>
-          </div>
+          <q-list bordered separator>
+            <q-item>
+              <q-btn @click="showDetailsView(detailsNode)">Details</q-btn>
+            </q-item>
+            <q-item>
+              <q-item-section avatar>
+                <q-icon name="fingerprint"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                ID: {{ detailsNode.id }}
+              </q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section avatar>
+                <q-icon name="badge"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                {{ detailsNode.name }}
+              </q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section avatar>
+                <q-icon name="workspaces"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                Gruppe: {{ detailsNode.group }}
+              </q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section avatar>
+                <q-icon name="description"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                Beschreibung: <p>{{ detailsNode.description }}</p>
+              </q-item-section>
+            </q-item>
+            <q-expansion-item
+              expand-separator
+              icon="share"
+              label="Verbindungen"
+            >
+              <q-list bordered separator>
+                <q-item v-for="(neighbor, index) in detailsNode.neighbors" :key="index">
+                  <div class="column">
+                    <div class="row">
+                      ID: {{ neighbor.id }}
+                    </div>
+                    <div class="row">
+                      {{ neighbor.name }}
+                    </div>
+                    <div class="row">
+                      Gruppe: {{ neighbor.group }}
+                    </div>
+                  </div>
+                </q-item>
+              </q-list>
+            </q-expansion-item>
+          </q-list>
         </div>
       </q-scroll-area>
     </q-drawer>
     <div class="q-pa-md">
       <div class="row col-1">
-        <div class="col-3"/>
+        <div class="col-2"/>
         <div class="col-2">
           <q-btn v-if="isDetailView" @click="loadPage(environment)">Zurück zur Übersicht</q-btn>
         </div>
@@ -139,7 +180,7 @@ const detailsDrawer = ref(false);
 const detailsNode: Ref<UnwrapRef<NodeObject>> | Ref<UnwrapRef<null>> = ref(null);
 const searchInput: Ref<UnwrapRef<string>> = ref('');
 const drawerLeft = ref(false);
-const miniState = ref(false);
+const miniState = ref(true);
 const environment = ref('DATA_PRODUCTION');
 const isDetailView = ref(false);
 
@@ -149,7 +190,7 @@ const props = defineProps([
 
 loadPage('DATA_PRODUCTION');
 
-watch(environment, (value, oldValue, onCleanup) => {
+watch(environment, async (value, oldValue, onCleanup) => {
   loadPage(value);
 });
 
@@ -160,12 +201,8 @@ function loadPage(serverEnv: string) {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
-  }).then((response) => makePage(response))
-    .catch((error) => {
-      console.error(error);
-    })
+  }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
-
 
 function forceReload() {
   axios.post(remoteAddress + 'graphs/force', {
@@ -174,10 +211,7 @@ function forceReload() {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
-  }).then((response) => makePage(response))
-    .catch((error) => {
-      console.error(error);
-    })
+  }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
 function makePage(response: any = null, customGData: any = null) {
@@ -186,12 +220,10 @@ function makePage(response: any = null, customGData: any = null) {
   if (customGData) {
     gData = customGData;
     isDetailView.value = true;
-  }
-  else if (props.gData) {
+  } else if (props.gData) {
     gData = props.gData;
     isDetailView.value = false;
-  }
-  else {
+  } else {
     gData = response.data;
     isDetailView.value = false;
   }
@@ -209,7 +241,6 @@ function drawerClick(e: any) {
   if (miniState.value) {
     miniState.value = false
 
-    // notice we have registered an event with capture flag;
     // we need to stop further propagation as this click is
     // intended for switching drawer to "normal" mode only
     e.stopPropagation()
@@ -220,7 +251,7 @@ function changeEnvironment(newEnv: string) {
   environment.value = newEnv;
 }
 
-async function showDetailsView(node: NodeObject) {
+function showDetailsView(node: NodeObject) {
   const unwrapped = toRaw(node);
 
   makePage(null, {
@@ -240,8 +271,6 @@ function constructGraph(gData: any, element: HTMLElement, isDetailView = false) 
 
   let NODE_R = 5;
   let showNames = false;
-
-  console.log(gData);
 
   if (!isDetailView) {
     // cross-link node objects
