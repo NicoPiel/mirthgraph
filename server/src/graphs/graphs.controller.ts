@@ -1,17 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { GraphsService } from './graphs.service';
 
 @Controller('graphs')
 export class GraphsController {
   constructor(private readonly graphsService: GraphsService) {}
 
-  @Get()
-  getGData() {
-    return this.graphsService.getGraphData();
+  @Post()
+  getGData(@Body() body) {
+    return this.graphsService.getGraphData(body.data);
   }
 
-  @Get('/force')
-  getGDataForceRebuild() {
-    return this.graphsService.getGraphDataForceRebuild();
+  @Post('/force')
+  getGDataForceRebuild(@Body() body) {
+    return this.graphsService.getGraphDataForceRebuild(body.data);
   }
 }

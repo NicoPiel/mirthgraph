@@ -11,6 +11,8 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+#/public/*.xml
+
 # OS
 .DS_Store
 
