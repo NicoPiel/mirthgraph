@@ -1,12 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Body, Post } from '@nestjs/common';
 import { PortsService } from './ports.service';
 
 @Controller('ports')
 export class PortsController {
   constructor(private readonly portsService: PortsService) {}
 
-  @Get()
-  getPortsData() {
-    return this.portsService.getPortsData();
+  @Post()
+  getPortsData(@Body() body) {
+    return this.portsService.getPortsData(body.data);
   }
 }

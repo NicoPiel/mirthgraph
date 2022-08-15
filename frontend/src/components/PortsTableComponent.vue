@@ -24,6 +24,10 @@
 import axios from 'axios';
 import {ref} from 'vue';
 
+const props = defineProps([
+  'environment',
+])
+
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`;
 const pagination = ref({
   rowsPerPage: 0
@@ -31,7 +35,8 @@ const pagination = ref({
 const filter = ref('')
 
 const response = await axios
-  .get(remoteAddress + 'ports', {
+  .post(remoteAddress + 'ports', {
+    data: props.environment,
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*',

@@ -6,18 +6,18 @@ import { createClient } from 'redis';
 
 @Injectable()
 export class PortsService {
-  async getPortsData() {
+  async getPortsData(serverType: string) {
     // TODO: Disable debugs
-    const cache = await this.getFromRedisXMLCache();
+    const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
-    if (!cache) await this.createRedisXMLCache();
+    if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
-    return this.getFromRedisXMLCache().then(async (result) => {
-      const ports = null; //await this.getFromRedisPortsDataCache();
+    return this.getFromRedisXMLCache(serverType).then(async (result) => {
+      const ports = await this.getFromRedisPortsDataCache(serverType);
 
-      if (!ports) await this.createRedisPortsDataCache();
+      if (!ports) await this.createRedisPortsDataCache(serverType);
 
-      return ports ? ports : this.getFromRedisPortsDataCache();
+      return ports ? ports : this.getFromRedisPortsDataCache(serverType);
     });
   }
 
@@ -62,14 +62,14 @@ export class PortsService {
     return JSON.stringify(Array.from(portsData));
   }
 
-  async createRedisPortsDataCache() {
+  async createRedisPortsDataCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while building Ports cache', err));
 
     await client.connect();
 
-    await client.set('serverConfiguration:ports', await this.buildPortsDataWithXMLCache());
+    await client.set(`serverConfiguration:ports:${serverType}`, await this.buildPortsDataWithXMLCache(serverType));
 
     Logger.log('Created new ports cache.');
 
@@ -79,27 +79,27 @@ export class PortsService {
   /**
    * Retrieves ports data from the redis cache.
    */
-  async getFromRedisPortsDataCache() {
+  async getFromRedisPortsDataCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while retrieving Ports cache', err));
 
     await client.connect();
 
-    const result = JSON.parse(await client.get('serverConfiguration:ports'));
+    const result = JSON.parse(await client.get(`serverConfiguration:ports:${serverType}`));
 
     await client.quit();
 
     return result;
   }
 
-  async buildPortsDataWithXMLCache(): Promise<string> {
-    const cache = await this.getFromRedisXMLCache();
+  async buildPortsDataWithXMLCache(serverType: string): Promise<string> {
+    const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
     if (!cache) {
-      await this.createRedisXMLCache();
+      await this.createRedisXMLCache(serverType);
 
-      return this.getFromRedisXMLCache().then((result) => {
+      return this.getFromRedisXMLCache(serverType).then((result) => {
         return this.buildPortsData(result);
       });
     } else {
@@ -110,14 +110,14 @@ export class PortsService {
   /**
    * Creates a copy of the ports data
    */
-  async createRedisXMLCache() {
+  async createRedisXMLCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while building XML cache', err));
 
     await client.connect();
 
-    await client.set('serverConfiguration:xml', JSON.stringify(await this.getData()));
+    await client.set(`serverConfiguration:xml:${serverType}`, JSON.stringify(await this.getData(process.env[serverType])));
 
     Logger.log('Created new XML cache.');
 
@@ -127,14 +127,14 @@ export class PortsService {
   /**
    * Retrieves a copy of the parsed XML file from memory.
    */
-  async getFromRedisXMLCache() {
+  async getFromRedisXMLCache(serverType: string) {
     const client = createClient();
 
     client.on('error', (err) => Logger.error('Redis Client error while retrieving XML cache', err));
 
     await client.connect();
 
-    const result = JSON.parse(await client.get('serverConfiguration:xml'));
+    const result = JSON.parse(await client.get(`serverConfiguration:xml:${serverType}`));
 
     await client.quit();
 
@@ -144,8 +144,8 @@ export class PortsService {
   /**
    * Parses the backup file as XML and converts it into a JSO.
    */
-  getData(): Promise<any> {
-    const file = readFileSync(join('public', 'data.xml'));
+  getData(fileName: string): Promise<any> {
+    const file = readFileSync(join('public', fileName));
 
     return xml2js
       .parseStringPromise(file)

@@ -356,7 +356,7 @@ function constructGraph(gData: any, element: HTMLElement, isDetailView = false) 
       // k = zoom level
       showNames = k > 2.4;
     })
-    .d3Force('collide', d3.forceCollide(15))
+    .d3Force('collide', d3.forceCollide(10))
 
   // return graph;
 }
