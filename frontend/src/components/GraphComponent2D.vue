@@ -87,7 +87,7 @@
         <div v-if="detailsNode">
           <q-list bordered separator>
             <q-item>
-              <q-btn @click="showDetailsView(detailsNode)">Details</q-btn>
+              <q-btn @click="showDetailsView(detailsNode)">Detail-Ansicht</q-btn>
             </q-item>
             <q-item>
               <q-item-section avatar>
@@ -153,7 +153,11 @@
           <q-btn v-if="isDetailView" @click="loadPage(environment)">Zurück zur Übersicht</q-btn>
         </div>
         <div class="col-3">
-          <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ.."/>
+          <q-input v-model="searchInput" label="Suche" placeholder="Name, Tags, Typ..">
+            <template v-slot:after>
+              <q-btn type="submit" @click="searchSubmit" color="primary">Details anzeigen</q-btn>
+            </template>
+          </q-input>
         </div>
         <div class="col"/>
       </div>
@@ -168,7 +172,7 @@
 <script lang="ts" setup>
 
 import axios from 'axios';
-import ForceGraph, {NodeObject} from 'force-graph';
+import ForceGraph, {LinkObject, NodeObject} from 'force-graph';
 import {Ref, ref, toRaw, UnwrapRef, watch} from 'vue';
 import {useRouter} from 'vue-router';
 import * as d3 from 'd3-force';
@@ -214,7 +218,7 @@ function forceReload() {
   }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
-function makePage(response: any = null, customGData: any = null) {
+function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -10, forceCollideStrength = 10) {
   let gData;
 
   if (customGData) {
@@ -231,7 +235,7 @@ function makePage(response: any = null, customGData: any = null) {
   if (document.getElementById('graph')) {
     const el = document.getElementById('graph')
 
-    if (el) constructGraph(gData, el, isDetailView.value);
+    if (el) constructGraph(gData, el, forceManyBodyStrength, forceCollideStrength);
   }
 }
 
@@ -260,19 +264,43 @@ function showDetailsView(node: NodeObject) {
   });
 }
 
-function constructGraph(gData: any, element: HTMLElement, isDetailView = false) {
+function searchSubmit() {
+  isDetailView.value = true;
+
+  const highlightLinks: LinkObject[] = [];
+  const highlightNodesArray = Array.from(searchHighlightNodes);
+
+  searchHighlightNodes.forEach((node: any) => {
+    if (node.neighbors && node.links) {
+      highlightNodesArray.push(...node.neighbors);
+      highlightLinks.push(...node.links);
+    }
+  })
+
+  const newGData = {
+    nodes: highlightNodesArray,
+    links: highlightLinks,
+  }
+
+  console.log(newGData);
+
+  makePage(null, newGData, -1, 1);
+}
+
+const searchHighlightNodes = new Set();
+
+function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength = -10, forceCollideStrength = 10) {
   const dashLen = 6;
   const gapLen = 8;
 
   const highlightNodes = new Set();
   const highlightLinks = new Set();
-  const searchHighlightNodes = new Set();
   let hoverNode: NodeObject | null = null;
 
   let NODE_R = 5;
   let showNames = false;
 
-  if (!isDetailView) {
+  if (!isDetailView.value) {
     // cross-link node objects
     gData.links.forEach((link: { source: string; target: string; }) => {
       const a = gData.nodes.find((node: NodeObject) => node.id == link.source);
@@ -289,9 +317,12 @@ function constructGraph(gData: any, element: HTMLElement, isDetailView = false) 
     });
   }
 
-  return ForceGraph()(element)
+  const centerForce = d3.forceManyBody();
+  centerForce.strength(centerManyBodyStrength);
+
+  const graph = ForceGraph()(element)
     .graphData(gData)
-    .warmupTicks(15)
+    .cooldownTime(10000)
     .linkDirectionalParticles(1)
     .nodeRelSize(NODE_R)
     .linkWidth(2)
@@ -385,8 +416,12 @@ function constructGraph(gData: any, element: HTMLElement, isDetailView = false) 
       // k = zoom level
       showNames = k > 2.4;
     })
-    .d3Force('collide', d3.forceCollide(10))
+    .d3Force('collide', d3.forceCollide(forceCollideStrength))
+    .d3Force('charge', centerForce)
 
-  // return graph;
+  graph.onEngineStop(() => {
+    graph.zoomToFit(200);
+  })
+  return graph;
 }
 </script>
