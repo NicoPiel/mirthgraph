@@ -58,7 +58,7 @@
               <q-icon name="3d_rotation"/>
             </q-item-section>
             <q-item-section>
-              <q-btn to="/3d" v-ripple>3D Version</q-btn>
+              <q-btn to="/3d" v-ripple>3D Version (WIP)</q-btn>
             </q-item-section>
           </q-item>
           <q-separator/>
@@ -129,8 +129,8 @@
 import axios from 'axios';
 import ForceGraph, {NodeObject} from 'force-graph';
 import {Ref, ref, toRaw, UnwrapRef, watch} from 'vue';
-import * as d3 from 'd3-force';
 import {useRouter} from 'vue-router';
+import * as d3 from 'd3-force';
 
 const router = useRouter();
 
