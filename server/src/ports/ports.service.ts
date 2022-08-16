@@ -117,7 +117,7 @@ export class PortsService {
 
     await client.connect();
 
-    await client.set(`serverConfiguration:xml:${serverType}`, JSON.stringify(await this.getData(process.env[serverType])));
+    await client.set(`serverConfiguration:xml`, JSON.stringify(await this.getData(process.env[serverType])));
 
     Logger.log('Created new XML cache.');
 
@@ -134,7 +134,7 @@ export class PortsService {
 
     await client.connect();
 
-    const result = JSON.parse(await client.get(`serverConfiguration:xml:${serverType}`));
+    const result = JSON.parse(await client.get(`serverConfiguration:xml`));
 
     await client.quit();
 

@@ -218,7 +218,7 @@ function forceReload() {
   }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
-function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -10, forceCollideStrength = 10) {
+function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -10, forceCollideStrength = 10, zoomToFit = false) {
   let gData;
 
   if (customGData) {
@@ -235,7 +235,7 @@ function makePage(response: any = null, customGData: any = null, forceManyBodySt
   if (document.getElementById('graph')) {
     const el = document.getElementById('graph')
 
-    if (el) constructGraph(gData, el, forceManyBodyStrength, forceCollideStrength);
+    if (el) constructGraph(gData, el, forceManyBodyStrength, forceCollideStrength, zoomToFit);
   }
 }
 
@@ -282,14 +282,12 @@ function searchSubmit() {
     links: highlightLinks,
   }
 
-  console.log(newGData);
-
-  makePage(null, newGData, -1, 1);
+  makePage(null, newGData, -1, 1, true);
 }
 
 const searchHighlightNodes = new Set();
 
-function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength = -10, forceCollideStrength = 10) {
+function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength = -10, forceCollideStrength = 10, zoomToFit = false) {
   const dashLen = 6;
   const gapLen = 8;
 
@@ -299,6 +297,8 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
 
   let NODE_R = 5;
   let showNames = false;
+
+  console.log(gData);
 
   if (!isDetailView.value) {
     // cross-link node objects
@@ -420,7 +420,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     .d3Force('charge', centerForce)
 
   graph.onEngineStop(() => {
-    graph.zoomToFit(200);
+    if (zoomToFit) graph.zoomToFit(200);
   })
   return graph;
 }
