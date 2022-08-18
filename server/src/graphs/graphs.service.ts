@@ -16,7 +16,7 @@ export class GraphsService {
     if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
     return this.getFromRedisXMLCache(serverType).then(async (result) => {
-      const gdata = await this.getFromRedisGraphDataCache(serverType);
+      const gdata = null; //await this.getFromRedisGraphDataCache(serverType);
 
       if (!gdata) await this.createRedisGraphDataCache(serverType);
 
@@ -82,7 +82,10 @@ export class GraphsService {
 
     await client.connect();
 
-    await client.set(`serverConfiguration:xml:${serverType}`, JSON.stringify(await this.getData(process.env[serverType])));
+    await client.set(
+      `serverConfiguration:xml:${serverType}`,
+      JSON.stringify(await this.getData(process.env[serverType])),
+    );
 
     Logger.log('Created new XML cache.');
 
@@ -160,12 +163,44 @@ export class GraphsService {
           enabled: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
         });
 
+        channel.sourceConnector.forEach((sourceConnector) => {
+          const transformer = sourceConnector.transformer[0];
+          const filter = sourceConnector.filter[0];
+        });
+
         // destinationConnector is an array holding every connector in the channel
         channel.destinationConnectors.forEach((destinationConnector) => {
           // Go through each connector
           destinationConnector.connector.forEach((connector) => {
             const connectorProperties = connector.properties[0];
             const transportName = connector.transportName[0];
+
+            const connectorTransformer = connector.transformer[0];
+
+            // Catch router.routeMessage(<channelName>, payload) links
+            connectorTransformer.elements.forEach((element) => {
+              const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
+
+              if (jsStep) {
+                // console.log(jsStep[0].script[0]);
+
+                const resultByName = jsStep[0].script[0].match(
+                  /^(?<!\/\/)\s*router\.routeMessage\(&(?:quot|apos);(?<dest>[a-zA-z0-9\_]+)&(?:quot|apos);,/gm,
+                );
+
+                const resultByID = jsStep[0].script[0].match(
+                  /^(?<!\/\/)\s*router\.routeMessageByChannelId\(&(?:quot|apos);(?<dest>[a-zA-z0-9\_\-]+)&(?:quot|apos);,/gm,
+                );
+
+                if (resultByName) {
+                  // TODO
+                  console.log('found by name', resultByName);
+                } else if (resultByID) {
+                  // TODO
+                  console.log('found by id', resultByID);
+                }
+              }
+            });
 
             // Check if connector is enabled
             // Check for different transports

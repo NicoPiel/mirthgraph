@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { PortsService } from './ports.service';
 
 @Controller('ports')
