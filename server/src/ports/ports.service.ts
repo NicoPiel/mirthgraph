@@ -1,19 +1,21 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { CACHE_MANAGER, Inject, Injectable, Logger } from '@nestjs/common';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import * as xml2js from 'xml2js';
-import { createClient } from 'redis';
+import { Cache } from 'cache-manager';
 
 @Injectable()
 export class PortsService {
+  constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
+
   async getPortsData(serverType: string) {
     // TODO: Disable debugs
-    const cache = await this.getFromRedisXMLCache(serverType);
+    const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
-    return this.getFromRedisXMLCache(serverType).then(async (result) => {
-      const ports = await this.getFromRedisPortsDataCache(serverType);
+    return this.getFromRedisXMLCache().then(async (result) => {
+      const ports = null; //await this.getFromRedisPortsDataCache(serverType);
 
       if (!ports) await this.createRedisPortsDataCache(serverType);
 
@@ -62,44 +64,13 @@ export class PortsService {
     return JSON.stringify(Array.from(portsData));
   }
 
-  async createRedisPortsDataCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while building Ports cache', err));
-
-    await client.connect();
-
-    await client.set(`serverConfiguration:ports:${serverType}`, await this.buildPortsDataWithXMLCache(serverType));
-
-    Logger.log('Created new ports cache.');
-
-    await client.quit();
-  }
-
-  /**
-   * Retrieves ports data from the redis cache.
-   */
-  async getFromRedisPortsDataCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while retrieving Ports cache', err));
-
-    await client.connect();
-
-    const result = JSON.parse(await client.get(`serverConfiguration:ports:${serverType}`));
-
-    await client.quit();
-
-    return result;
-  }
-
   async buildPortsDataWithXMLCache(serverType: string): Promise<string> {
-    const cache = await this.getFromRedisXMLCache(serverType);
+    const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) {
       await this.createRedisXMLCache(serverType);
 
-      return this.getFromRedisXMLCache(serverType).then((result) => {
+      return this.getFromRedisXMLCache().then((result) => {
         return this.buildPortsData(result);
       });
     } else {
@@ -107,38 +78,41 @@ export class PortsService {
     }
   }
 
+  async createRedisPortsDataCache(serverType: string) {
+    await this.cacheManager.set(
+      `serverConfiguration:ports:${serverType}`,
+      await this.buildPortsDataWithXMLCache(serverType),
+      { ttl: 43200 }, // 12 hours
+    );
+
+    Logger.log('Created new ports cache.');
+  }
+
+  /**
+   * Retrieves ports data from the redis cache.
+   */
+  async getFromRedisPortsDataCache(serverType: string) {
+    return JSON.parse(await this.cacheManager.get(`serverConfiguration:ports:${serverType}`));
+  }
+
   /**
    * Creates a copy of the ports data
    */
   async createRedisXMLCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while building XML cache', err));
-
-    await client.connect();
-
-    await client.set(`serverConfiguration:xml`, JSON.stringify(await this.getData(process.env[serverType])));
+    await this.cacheManager.set(
+      'serverConfiguration:xml',
+      JSON.stringify(await this.getData(process.env[serverType])),
+      { ttl: 43200 }, // 12 hours
+    );
 
     Logger.log('Created new XML cache.');
-
-    await client.quit();
   }
 
   /**
    * Retrieves a copy of the parsed XML file from memory.
    */
-  async getFromRedisXMLCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while retrieving XML cache', err));
-
-    await client.connect();
-
-    const result = JSON.parse(await client.get(`serverConfiguration:xml`));
-
-    await client.quit();
-
-    return result;
+  async getFromRedisXMLCache() {
+    return JSON.parse(await this.cacheManager.get('serverConfiguration:xml'));
   }
 
   /**

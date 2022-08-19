@@ -1,11 +1,13 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { createClient } from 'redis';
+import { CACHE_MANAGER, Inject, Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import * as xml2js from 'xml2js';
+import { Cache } from 'cache-manager';
 
 @Injectable()
-export class GraphsService {
+export class GraphsService implements OnApplicationBootstrap {
+  constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
+
   /**
    * Builds a graph data object from the cached XML configuration and returns it as a JSON string.
    */
@@ -27,8 +29,8 @@ export class GraphsService {
   /**
    * Forces the redis cache to rebuild.
    */
-  async getGraphDataForceRebuild(serverType: string) {
-    Logger.warn('Client forced a reload');
+  async getGraphDataForceRebuild(serverType: string, from = 'Client') {
+    Logger.warn(`${from} forced a reload`);
     await this.createRedisXMLCache(serverType);
     // Get from redis cache
     return this.getFromRedisXMLCache(serverType).then(async (result) => {
@@ -42,71 +44,40 @@ export class GraphsService {
    * Creates a new graph data cache.
    */
   async createRedisGraphDataCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while building GData cache', err));
-
-    await client.connect();
-
-    await client.set(`serverConfiguration:gdata:${serverType}`, await this.buildGraphDataWithXMLCache(serverType));
+    await this.cacheManager.set(
+      `serverConfiguration:gdata:${serverType}`,
+      await this.buildGraphDataWithXMLCache(serverType),
+      { ttl: 43200 }, // 12 hours
+    );
 
     Logger.log('Created new gdata cache.');
-
-    await client.quit();
   }
 
   /**
    * Retrieves graph data from the redis cache.
    */
   async getFromRedisGraphDataCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while retrieving GData cache', err));
-
-    await client.connect();
-
-    const result = JSON.parse(await client.get(`serverConfiguration:gdata:${serverType}`));
-
-    await client.quit();
-
-    return result;
+    return JSON.parse(await this.cacheManager.get(`serverConfiguration:gdata:${serverType}`));
   }
 
   /**
    * Creates a copy of the parsed XML file in memory
    */
   async createRedisXMLCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while building XML cache', err));
-
-    await client.connect();
-
-    await client.set(
+    await this.cacheManager.set(
       `serverConfiguration:xml:${serverType}`,
       JSON.stringify(await this.getData(process.env[serverType])),
+      { ttl: 43200 }, // 12 hours
     );
 
     Logger.log('Created new XML cache.');
-
-    await client.quit();
   }
 
   /**
    * Retrieves a copy of the parsed XML file from memory.
    */
   async getFromRedisXMLCache(serverType: string) {
-    const client = createClient();
-
-    client.on('error', (err) => Logger.error('Redis Client error while retrieving XML cache', err));
-
-    await client.connect();
-
-    const result = JSON.parse(await client.get(`serverConfiguration:xml:${serverType}`));
-
-    await client.quit();
-
-    return result;
+    return JSON.parse(await this.cacheManager.get(`serverConfiguration:xml:${serverType}`));
   }
 
   /**
@@ -137,10 +108,12 @@ export class GraphsService {
       links: [],
     };
 
+    const OTHER = 'OTHER';
+
     gData.nodes.push({
-      id: 'other',
-      name: 'other',
-      group: 'other',
+      id: OTHER,
+      name: OTHER,
+      group: OTHER,
       description: 'Unhandled connectors',
     });
 
@@ -163,9 +136,138 @@ export class GraphsService {
           enabled: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
         });
 
+        // sourceConnector is an array holding the data source of the channel
         channel.sourceConnector.forEach((sourceConnector) => {
-          const transformer = sourceConnector.transformer[0];
-          const filter = sourceConnector.filter[0];
+          const sourceConnectorProperties = sourceConnector.properties[0];
+          const transportName = sourceConnector.transportName[0];
+
+          const sourceTransformer = sourceConnector.transformer[0];
+          const sourceFilter = sourceConnector.filter[0];
+
+          switch (transportName) {
+            case 'TCP Listener':
+              const tcpListenerConnectorProperties = sourceConnectorProperties.listenerConnectorProperties[0];
+              const tcpInnerSourceConnectorProperties = sourceConnectorProperties.sourceConnectorProperties[0];
+
+              const tcpListenerHost = tcpListenerConnectorProperties.host[0];
+              const tcpListenerPort = tcpListenerConnectorProperties.port[0];
+
+              const tcpListenerID = `${tcpListenerHost}:${tcpListenerPort}`;
+
+              if (!gData.nodes.find((node) => node.id == tcpListenerHost)) {
+                gData.nodes.push({
+                  id: tcpListenerHost,
+                  name: `Host: ${tcpListenerHost}`,
+                  group: 'Host',
+                  description: 'TCP oder HTTP Host',
+                });
+              }
+
+              if (!gData.nodes.find((node) => node.id == tcpListenerID)) {
+                gData.nodes.push({
+                  id: tcpListenerID,
+                  name: `${transportName}: ${tcpListenerID}`,
+                  val: 1,
+                  group: transportName,
+                });
+              }
+
+              gData.links.push({
+                source: tcpListenerHost,
+                target: tcpListenerID,
+                group: transportName,
+                enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
+              });
+
+              break;
+            case 'HTTP Listener':
+              const httpListenerConnectorProperties = sourceConnectorProperties.listenerConnectorProperties[0];
+              const httpInnerSourceConnectorProperties = sourceConnectorProperties.sourceConnectorProperties[0];
+
+              const httpListenerHost = httpListenerConnectorProperties.host[0];
+              const httpListenerPort = httpListenerConnectorProperties.port[0];
+
+              const httpListenerID = `${httpListenerHost}:${httpListenerPort}`;
+
+              if (!gData.nodes.find((node) => node.id == httpListenerHost)) {
+                gData.nodes.push({
+                  id: httpListenerHost,
+                  name: `Host: ${httpListenerHost}`,
+                  group: 'Host',
+                  description: 'TCP oder HTTP Host',
+                });
+              }
+
+              if (!gData.nodes.find((node) => node.id == httpListenerID)) {
+                gData.nodes.push({
+                  id: httpListenerID,
+                  name: `${transportName}: ${httpListenerID}`,
+                  val: 1,
+                  group: transportName,
+                });
+              }
+
+              gData.links.push({
+                source: httpListenerHost,
+                target: httpListenerID,
+                group: transportName,
+                enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
+              });
+
+              break;
+            case 'Database Reader':
+              const dbReaderID = sourceConnectorProperties.url[0];
+              const dbHost = dbReaderID.split(/(@|\/\/)/)[1];
+
+              if (!gData.nodes.find((node) => node.id == dbHost)) {
+                gData.nodes.push({
+                  id: dbHost,
+                  name: `Database Host: ${dbReaderID}`,
+                  group: 'Host',
+                  description: `DB Host\nTreiber: ${sourceConnectorProperties.driver[0]}`,
+                });
+              }
+
+              if (!gData.nodes.find((node) => node.id == dbReaderID)) {
+                gData.nodes.push({
+                  id: dbReaderID,
+                  name: `${transportName}: ${dbReaderID}`,
+                  val: 1,
+                  group: transportName,
+                });
+              }
+
+              gData.links.push({
+                source: dbHost,
+                target: dbReaderID,
+                group: transportName,
+                enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
+              });
+              break;
+            case 'File Reader':
+              break;
+            case 'DICOM Listener':
+              break;
+            case 'JavaScript Reader':
+              break;
+          }
+
+          // Catch router.routeMessage(<channelName>, payload) links
+          sourceTransformer.elements.forEach((element) => {
+            const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
+
+            if (jsStep) {
+              addRouterNodesAndLinks(sourceConnector, jsStep);
+            }
+          });
+
+          sourceFilter.elements.forEach((element) => {
+            const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
+
+            if (jsStep) {
+              addRouterNodesAndLinks(sourceConnector, jsStep);
+            }
+          });
         });
 
         // destinationConnector is an array holding every connector in the channel
@@ -176,31 +278,8 @@ export class GraphsService {
             const transportName = connector.transportName[0];
 
             const connectorTransformer = connector.transformer[0];
-
-            // Catch router.routeMessage(<channelName>, payload) links
-            connectorTransformer.elements.forEach((element) => {
-              const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
-
-              if (jsStep) {
-                // console.log(jsStep[0].script[0]);
-
-                const resultByName = jsStep[0].script[0].match(
-                  /^(?<!\/\/)\s*router\.routeMessage\(&(?:quot|apos);(?<dest>[a-zA-z0-9\_]+)&(?:quot|apos);,/gm,
-                );
-
-                const resultByID = jsStep[0].script[0].match(
-                  /^(?<!\/\/)\s*router\.routeMessageByChannelId\(&(?:quot|apos);(?<dest>[a-zA-z0-9\_\-]+)&(?:quot|apos);,/gm,
-                );
-
-                if (resultByName) {
-                  // TODO
-                  console.log('found by name', resultByName);
-                } else if (resultByID) {
-                  // TODO
-                  console.log('found by id', resultByID);
-                }
-              }
-            });
+            const connectorFilter = connector.filter[0];
+            const connectorResponseTransformer = connector.responseTransformer[0];
 
             // Check if connector is enabled
             // Check for different transports
@@ -212,6 +291,7 @@ export class GraphsService {
 
                 let isTargetEnabled = false;
 
+                // Check if the target channel is enabled
                 root.channel.forEach((targetChannel) => {
                   if (targetChannel.id[0] == targetChannelId) {
                     isTargetEnabled = targetChannel.exportData[0].metadata[0].enabled[0] == 'true';
@@ -238,19 +318,20 @@ export class GraphsService {
                 }
 
                 break;
-              // TODO: Add more cases
               case 'SMTP Sender':
                 const regex =
                   // eslint-disable-next-line max-len
                   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-                const to = connectorProperties.to[0];
+                const to = connectorProperties.to[0].toLowerCase();
 
                 if (to) {
                   const emails = to.split(',');
 
                   emails.forEach((email) => {
                     email = email.trim();
+                    email = email.toLowerCase();
+
                     if (email.search(regex) != -1) {
                       if (!gData.nodes.find((node) => node.id == email)) {
                         gData.nodes.push({
@@ -273,7 +354,7 @@ export class GraphsService {
                           id: to,
                           name: 'SMTP: ' + to,
                           val: 1,
-                          group: 'Invalid ' + transportName,
+                          group: 'Unreadable ' + transportName,
                         });
                       }
 
@@ -281,7 +362,7 @@ export class GraphsService {
                         source: channelId,
                         target: to,
                         enabled: connector.enabled[0] == 'true' ? 1 : 0,
-                        group: 'Invalid ' + transportName,
+                        group: 'Unreadable ' + transportName,
                       });
                     }
                   });
@@ -310,7 +391,7 @@ export class GraphsService {
                 }
                 break;
               case 'File Writer':
-                const host = connectorProperties.host[0];
+                const host = connectorProperties.host[0].toLowerCase();
 
                 if (host) {
                   if (!gData.nodes.find((node) => node.id == host)) {
@@ -330,16 +411,158 @@ export class GraphsService {
                 }
                 break;
               default:
-                gData.links.push({
+                // If the connector is unknown, add a link to OTHER
+                // TODO: Currently breaks the graph
+                /*gData.links.push({
                   source: channelId,
-                  target: 'other',
-                  group: 'other',
+                  target: OTHER,
+                  group: OTHER,
                   enabled: connector.enabled[0] == 'true' ? 1 : 0,
-                });
+                });*/
                 break;
             }
+
+            // Catch router.routeMessage(<channelName>, payload) links
+            connectorTransformer.elements.forEach((element) => {
+              const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
+
+              if (jsStep) {
+                addRouterNodesAndLinks(connector, jsStep);
+              }
+            });
+
+            connectorFilter.elements.forEach((element) => {
+              const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
+
+              if (jsStep) {
+                addRouterNodesAndLinks(connector, jsStep);
+              }
+            });
+
+            connectorResponseTransformer.elements.forEach((element) => {
+              const jsStep = element['com.mirth.connect.plugins.javascriptstep.JavaScriptStep'];
+
+              if (jsStep) {
+                addRouterNodesAndLinks(connector, jsStep);
+              }
+            });
           });
         });
+
+        /**
+         * Tries to parse JavaScript steps in filters and connectors, then looks for manual routing
+         * @param connector Connector XML node
+         * @param jsStep JavaScript step XML node
+         */
+        function addRouterNodesAndLinks(connector, jsStep) {
+          /**
+           * Uses RegEx to find the target of a given manual routing attempt, then returns an object containing either
+           */
+          function getChannelNameOrID(): { channelName: string | undefined; channelId: string | undefined } {
+            //console.log(jsStep[0].script[0]);
+
+            const regexName = /^\s*router\.routeMessage\(['"](\w+)['"],/;
+            const regexID = /^\s*router\.routeMessageByChannelId\(['"]([\w\-]+)['"],/;
+
+            // Split JS step into single lines
+            const scriptSplit = jsStep[0].script[0].split('\n');
+
+            let channelName;
+            let channelId;
+
+            // Go through each line
+            scriptSplit.forEach((str: string) => {
+              let nameRegexResult;
+              let idRegExResult;
+
+              // Try to find router.routeMessage()
+              if ((nameRegexResult = regexName.exec(str))) {
+                // This is necessary to avoid infinite loops with zero-width matches
+                if (nameRegexResult.index === regexName.lastIndex) {
+                  regexName.lastIndex++;
+                }
+
+                // Get from index 1, because the RegEx contains a capture group
+                channelName = nameRegexResult[1];
+              }
+
+              // Try to find router.routeMessageByChannelId()
+              if ((idRegExResult = regexID.exec(str))) {
+                // This is necessary to avoid infinite loops with zero-width matches
+                if (idRegExResult.index === regexID.lastIndex) {
+                  regexID.lastIndex++;
+                }
+
+                // Get from index 1, because the RegEx contains a capture group
+                channelId = idRegExResult[1];
+              }
+            });
+
+            return {
+              channelName: channelName,
+              channelId: channelId,
+            };
+          }
+
+          const result = getChannelNameOrID();
+
+          // console.log(result);
+
+          // If result contains the target channel's name
+          if (result.channelName) {
+            // Find the channel in the XML structure
+            root.channel.forEach((targetChannel) => {
+              if (targetChannel.name[0] == result.channelName) {
+                const nodeResult = gData.nodes.find((node) => (node.id = targetChannel.id[0]));
+
+                // If gData doesn't contain the node yet, add it
+                if (!nodeResult) {
+                  gData.nodes.push({
+                    id: targetChannel.id[0],
+                    name: 'Router Target: ' + targetChannel.name[0],
+                    val: 1,
+                    description: targetChannel.description[0],
+                    group: 'Router Target',
+                    enabled: targetChannel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
+                  });
+                }
+
+                // Add custom router link
+                gData.links.push({
+                  source: channelId,
+                  target: targetChannel.id[0],
+                  enabled: connector.enabled[0] == 'true' ? 1 : 0,
+                  group: 'Router',
+                });
+              }
+            });
+          } else if (result.channelId) {
+            // If result contains ID, but not the name
+            const nodeResult = gData.nodes.find((node) => (node.id = result.channelId));
+
+            // If gData doesn't contain the node yet, add it
+            if (!nodeResult) {
+              root.channel.forEach((targetChannel) => {
+                if (targetChannel.id[0] == result.channelId) {
+                  gData.nodes.push({
+                    id: targetChannel.id[0],
+                    name: 'Router Target: ' + targetChannel.name[0],
+                    val: 1,
+                    group: 'Router Target',
+                  });
+                }
+              });
+            }
+
+            // Add custom router link
+            gData.links.push({
+              source: channelId,
+              target: result.channelId,
+              enabled: connector.enabled[0] == 'true' ? 1 : 0,
+              group: 'Router',
+            });
+          }
+        }
       });
     });
 
@@ -360,5 +583,13 @@ export class GraphsService {
       .catch((error) => {
         Logger.error(error);
       });
+  }
+
+  async onApplicationBootstrap(): Promise<any> {
+    if (process.env.ENV == 'PROD') {
+      await this.getGraphDataForceRebuild('DATA_PRODUCTION', 'Startup');
+      await this.getGraphDataForceRebuild('DATA_DICOM', 'Startup');
+      await this.getGraphDataForceRebuild('DATA_TEST', 'Startup');
+    }
   }
 }

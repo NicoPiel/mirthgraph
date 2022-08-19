@@ -218,7 +218,7 @@ function forceReload() {
   }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
-function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -10, forceCollideStrength = 10, zoomToFit = false) {
+function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -15, forceCollideStrength = 15, zoomToFit = false) {
   let gData;
 
   if (customGData) {
@@ -287,7 +287,7 @@ function searchSubmit() {
 
 const searchHighlightNodes = new Set();
 
-function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength = -10, forceCollideStrength = 10, zoomToFit = false) {
+function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength: number, forceCollideStrength: number, zoomToFit = false) {
   const dashLen = 6;
   const gapLen = 8;
 
@@ -305,6 +305,10 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     gData.links.forEach((link: { source: string; target: string; }) => {
       const a = gData.nodes.find((node: NodeObject) => node.id == link.source);
       const b = gData.nodes.find((node: NodeObject) => node.id == link.target);
+
+      if (!a) console.error(`Couldn't find source ${link.source}`);
+      if (!b) console.error(`Couldn't find target ${link.target}`);
+
       !a.neighbors && (a.neighbors = []);
       !b.neighbors && (b.neighbors = []);
       a.neighbors.push(b);
