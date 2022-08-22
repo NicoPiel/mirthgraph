@@ -35,7 +35,21 @@ export class PortsService {
           if (sourceConnector.transportName[0] == 'TCP Listener') {
             portsData.add({
               channel: channel.name[0],
-              mode: 'Listener',
+              mode: 'TCP Listener',
+              host: sourceConnectorProperties.listenerConnectorProperties[0].host[0],
+              port: sourceConnectorProperties.listenerConnectorProperties[0].port[0],
+            });
+          } else if (sourceConnector.transportName[0] == 'DICOM Listener') {
+            portsData.add({
+              channel: channel.name[0],
+              mode: 'DICOM Listener',
+              host: sourceConnectorProperties.applicationEntity[0],
+              port: sourceConnectorProperties.listenerConnectorProperties[0].port[0],
+            });
+          } else if (sourceConnector.transportName[0] == 'HTTP Listener') {
+            portsData.add({
+              channel: channel.name[0],
+              mode: 'HTTP Listener',
               host: sourceConnectorProperties.listenerConnectorProperties[0].host[0],
               port: sourceConnectorProperties.listenerConnectorProperties[0].port[0],
             });
@@ -51,7 +65,7 @@ export class PortsService {
             if (connector.transportName[0] == 'TCP Sender') {
               portsData.add({
                 channel: channel.name[0],
-                mode: 'Sender',
+                mode: 'TCP Sender',
                 host: destinationConnectorProperties.remoteAddress[0],
                 port: destinationConnectorProperties.remotePort[0],
               });

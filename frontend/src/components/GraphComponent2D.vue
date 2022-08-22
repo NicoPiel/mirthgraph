@@ -161,7 +161,7 @@
         </div>
         <div class="col"/>
       </div>
-      <div class="row">
+      <div class="row full-width full-height">
         <div id="graph" class="col"/>
       </div>
     </div>
@@ -205,7 +205,7 @@ function loadPage(serverEnv: string) {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
     }
-  }).then((response) => makePage(response)).catch((error) => console.error(error))
+  }).then((response) => makePage(response, null)).catch((error) => console.error(error))
 }
 
 function forceReload() {
@@ -218,7 +218,7 @@ function forceReload() {
   }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
-function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -15, forceCollideStrength = 15, zoomToFit = false) {
+function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -15, forceCollideStrength = 15, zoomToFit = false, engineTicksInSeconds = 10) {
   let gData;
 
   if (customGData) {
@@ -235,7 +235,7 @@ function makePage(response: any = null, customGData: any = null, forceManyBodySt
   if (document.getElementById('graph')) {
     const el = document.getElementById('graph')
 
-    if (el) constructGraph(gData, el, forceManyBodyStrength, forceCollideStrength, zoomToFit);
+    if (el) constructGraph(gData, el, forceManyBodyStrength, forceCollideStrength, zoomToFit, engineTicksInSeconds);
   }
 }
 
@@ -267,35 +267,47 @@ function showDetailsView(node: NodeObject) {
 function searchSubmit() {
   isDetailView.value = true;
 
-  const highlightLinks: LinkObject[] = [];
-  const highlightNodesArray = Array.from(searchHighlightNodes);
+  const highlightLinksSet = new Set<LinkObject>();
+  const highlightNodesSet = new Set(Array.from(searchHighlightNodes));
+
+  highlightLinksSet.clear();
+  highlightNodesSet.clear();
 
   searchHighlightNodes.forEach((node: any) => {
     if (node.neighbors && node.links) {
-      highlightNodesArray.push(...node.neighbors);
-      highlightLinks.push(...node.links);
+      node.neighbors.forEach((neighbor: NodeObject) => {
+        highlightNodesSet.add(neighbor);
+      })
+
+      node.links.forEach((link: LinkObject) => {
+        highlightNodesSet.add(link.source);
+        highlightNodesSet.add(link.target);
+        highlightLinksSet.add(link);
+      })
     }
   })
 
   const newGData = {
-    nodes: highlightNodesArray,
-    links: highlightLinks,
+    nodes: Array.from(highlightNodesSet),
+    links: Array.from(highlightLinksSet),
   }
 
-  makePage(null, newGData, -1, 1, true);
+  makePage(null, newGData);
 }
 
-const searchHighlightNodes = new Set();
+let searchHighlightNodes = new Set();
 
-function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength: number, forceCollideStrength: number, zoomToFit = false) {
+function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength: number, forceCollideStrength: number, zoomToFit = false, engineTicksInSeconds: number) {
   const dashLen = 6;
   const gapLen = 8;
+
+  searchHighlightNodes.clear();
 
   const highlightNodes = new Set();
   const highlightLinks = new Set();
   let hoverNode: NodeObject | null = null;
 
-  let NODE_R = 5;
+  let NODE_R = 4;
   let showNames = false;
 
   console.log(gData);
@@ -321,15 +333,58 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     });
   }
 
+  let selfLoopLinks = {};
+  let sameNodesLinks = {};
+  const curvatureMinMax = 0.5;
+
+  // 1. assign each link a nodePairId that combines their source and target independent of the links direction
+  // 2. group links together that share the same two nodes or are self-loops
+  gData.links.forEach((link: LinkObject) => {
+    link.nodePairId = link.source <= link.target ? (link.source + "_" + link.target) : (link.target + "_" + link.source);
+    let map = link.source === link.target ? selfLoopLinks : sameNodesLinks;
+    if (!map[link.nodePairId]) {
+      map[link.nodePairId] = [];
+    }
+    map[link.nodePairId].push(link);
+  });
+
+  // Compute the curvature for self-loop links to avoid overlaps
+  Object.keys(selfLoopLinks).forEach(id => {
+    let links = selfLoopLinks[id];
+    let lastIndex = links.length - 1;
+    links[lastIndex].curvature = 1;
+    let delta = (1 - curvatureMinMax) / lastIndex;
+    for (let i = 0; i < lastIndex; i++) {
+      links[i].curvature = curvatureMinMax + i * delta;
+    }
+  });
+
+  // Compute the curvature for links sharing the same two nodes to avoid overlaps
+  Object.keys(sameNodesLinks).filter(nodePairId => sameNodesLinks[nodePairId].length > 1).forEach((nodePairId: string) => {
+    let links = sameNodesLinks[nodePairId];
+    let lastIndex = links.length - 1;
+    let lastLink = links[lastIndex];
+    lastLink.curvature = curvatureMinMax;
+    let delta = 2 * curvatureMinMax / lastIndex;
+    for (let i = 0; i < lastIndex; i++) {
+      links[i].curvature = - curvatureMinMax + i * delta;
+      if (lastLink.source !== links[i].source) {
+        links[i].curvature *= -1; // flip it around, otherwise they overlap
+      }
+    }
+  });
+
   const centerForce = d3.forceManyBody();
   centerForce.strength(centerManyBodyStrength);
 
   const graph = ForceGraph()(element)
     .graphData(gData)
-    .cooldownTime(10000)
-    .linkDirectionalParticles(1)
+    .cooldownTime(engineTicksInSeconds * 1000)
     .nodeRelSize(NODE_R)
-    .linkWidth(2)
+    .linkCurvature('curvature')
+    //.nodeVal((node) => node.neighbors ? node.val * node.neighbors.length: node.val)
+    .linkDirectionalArrowLength((link) => highlightLinks.has(link) ? 15 : 9)
+    .linkDirectionalArrowRelPos(.8)
     .linkLineDash(link => !link.enabled && [dashLen, gapLen])
     .linkLabel((link) => link.group)
     .nodeAutoColorBy(node => node.group)
@@ -349,8 +404,14 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     .onNodeHover((node, previousNode) => {
       highlightNodes.clear();
       highlightLinks.clear();
+
       if (node) {
         highlightNodes.add(node);
+        if (node.neighbors) {
+          node.neighbors.forEach((neighbor: NodeObject) => {
+            highlightNodes.add(neighbor);
+          })
+        }
         if (node.links) node.links.forEach(link => highlightLinks.add(link));
       }
 
@@ -367,9 +428,9 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
       }
     })
     .autoPauseRedraw(false) // keep redrawing after engine has stopped
-    .linkWidth(link => highlightLinks.has(link) ? 5 : 2)
+    .linkWidth(link => highlightLinks.has(link) ? 4 : 1)
     .linkDirectionalParticles(4)
-    .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 9 : 5)
+    .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 7 : 3)
     .nodeCanvasObjectMode(node => {
       if (showNames) return 'replace';
       else if (searchHighlightNodes.has(node) || highlightNodes.has(node)) return 'before';

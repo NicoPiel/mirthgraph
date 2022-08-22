@@ -154,15 +154,6 @@ export class GraphsService implements OnApplicationBootstrap {
 
               const tcpListenerID = `${tcpListenerHost}:${tcpListenerPort}`;
 
-              if (!gData.nodes.find((node) => node.id == tcpListenerHost)) {
-                gData.nodes.push({
-                  id: tcpListenerHost,
-                  name: `Host: ${tcpListenerHost}`,
-                  group: 'Host',
-                  description: 'TCP oder HTTP Host',
-                });
-              }
-
               if (!gData.nodes.find((node) => node.id == tcpListenerID)) {
                 gData.nodes.push({
                   id: tcpListenerID,
@@ -173,8 +164,8 @@ export class GraphsService implements OnApplicationBootstrap {
               }
 
               gData.links.push({
-                source: tcpListenerHost,
-                target: tcpListenerID,
+                source: tcpListenerID,
+                target: channelId,
                 group: transportName,
                 enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
               });
@@ -189,15 +180,6 @@ export class GraphsService implements OnApplicationBootstrap {
 
               const httpListenerID = `${httpListenerHost}:${httpListenerPort}`;
 
-              if (!gData.nodes.find((node) => node.id == httpListenerHost)) {
-                gData.nodes.push({
-                  id: httpListenerHost,
-                  name: `Host: ${httpListenerHost}`,
-                  group: 'Host',
-                  description: 'TCP oder HTTP Host',
-                });
-              }
-
               if (!gData.nodes.find((node) => node.id == httpListenerID)) {
                 gData.nodes.push({
                   id: httpListenerID,
@@ -208,8 +190,8 @@ export class GraphsService implements OnApplicationBootstrap {
               }
 
               gData.links.push({
-                source: httpListenerHost,
-                target: httpListenerID,
+                source: httpListenerID,
+                target: channelId,
                 group: transportName,
                 enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
               });
@@ -217,12 +199,12 @@ export class GraphsService implements OnApplicationBootstrap {
               break;
             case 'Database Reader':
               const dbReaderID = sourceConnectorProperties.url[0];
-              const dbHost = dbReaderID.split(/(@|\/\/)/)[1];
+              const dbHost = dbReaderID.split(/(@|\/\/)/)[2];
 
               if (!gData.nodes.find((node) => node.id == dbHost)) {
                 gData.nodes.push({
                   id: dbHost,
-                  name: `Database Host: ${dbReaderID}`,
+                  name: `Database Host: ${dbHost}`,
                   group: 'Host',
                   description: `DB Host\nTreiber: ${sourceConnectorProperties.driver[0]}`,
                 });
@@ -243,10 +225,52 @@ export class GraphsService implements OnApplicationBootstrap {
                 group: transportName,
                 enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
               });
+
+              gData.links.push({
+                source: dbReaderID,
+                target: channelId,
+                group: transportName,
+                enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
+              });
               break;
             case 'File Reader':
+              const fileReaderID = sourceConnectorProperties.host[0];
+
+              if (!gData.nodes.find((node) => node.id == fileReaderID)) {
+                gData.nodes.push({
+                  id: fileReaderID,
+                  name: `${transportName}: ${fileReaderID}`,
+                  val: 1,
+                  group: transportName,
+                });
+              }
+
+              gData.links.push({
+                source: fileReaderID,
+                target: channelId,
+                group: transportName,
+                enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
+              });
               break;
             case 'DICOM Listener':
+              const dicomListenerConnectorProperties = sourceConnectorProperties.listenerConnectorProperties[0];
+              const dicomListenerID = `${sourceConnectorProperties.applicationEntity[0]}:${dicomListenerConnectorProperties.port[0]}`;
+
+              if (!gData.nodes.find((node) => node.id == dicomListenerID)) {
+                gData.nodes.push({
+                  id: dicomListenerID,
+                  name: `${transportName}: ${dicomListenerID}`,
+                  val: 1,
+                  group: transportName,
+                });
+              }
+
+              gData.links.push({
+                source: dicomListenerID,
+                target: channelId,
+                group: transportName,
+                enabled: sourceConnector.enabled[0] == 'true' ? 1 : 0,
+              });
               break;
             case 'JavaScript Reader':
               break;
