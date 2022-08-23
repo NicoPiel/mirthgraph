@@ -123,6 +123,21 @@
             </q-item>
             <q-expansion-item
               expand-separator
+              icon="local_offer"
+              label="Tags"
+            >
+              <q-list bordered separator>
+                <q-item v-for="(tag, index) in detailsNode.tags" :key="index">
+                  <div class="column">
+                    <div class="row">
+                      {{ tag }}
+                    </div>
+                  </div>
+                </q-item>
+              </q-list>
+            </q-expansion-item>
+            <q-expansion-item
+              expand-separator
               icon="share"
               label="Verbindungen"
             >
@@ -379,6 +394,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
 
   const graph = ForceGraph()(element)
     .graphData(gData)
+    //.dagMode('td')
     .cooldownTime(engineTicksInSeconds * 1000)
     .nodeRelSize(NODE_R)
     .linkCurvature('curvature')
@@ -393,7 +409,19 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
       watch(searchInput, async (newString, oldString) => {
         searchHighlightNodes.clear();
         if (newString) {
-          const results = await gData.nodes.filter((node: NodeObject) => node.name.toLowerCase().search(newString.toLowerCase()) > -1);
+          const results = await gData.nodes.filter((node: NodeObject) => {
+            let result = false;
+
+            if (node.name.toLowerCase().search(newString.toLowerCase()) > -1) result = true;
+
+            if (node.tags) {
+              node.tags.forEach((tag: string) => {
+                if (tag.toLowerCase().search(newString.toLowerCase()) > -1) result = true;
+              })
+            }
+
+            return result;
+          });
           results.forEach((result: NodeObject) => {
             searchHighlightNodes.add(result);
           })

@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import * as xml2js from 'xml2js';
 import { Cache } from 'cache-manager';
+import * as util from 'util';
 
 @Injectable()
 export class GraphsService implements OnApplicationBootstrap {
@@ -115,6 +116,7 @@ export class GraphsService implements OnApplicationBootstrap {
       name: OTHER,
       group: OTHER,
       description: 'Unhandled connectors',
+      tags: [],
     });
 
     // XML structure is a bit weird. <channels> is an array, so it's the 'root' so to speak.
@@ -134,6 +136,7 @@ export class GraphsService implements OnApplicationBootstrap {
           description: channelDescription,
           group: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 'Channel' : 'disabled',
           enabled: channel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
+          tags: [],
         });
 
         // sourceConnector is an array holding the data source of the channel
@@ -160,6 +163,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `${transportName}: ${tcpListenerID}`,
                   val: 1,
                   group: transportName,
+                  tags: [],
                 });
               }
 
@@ -186,6 +190,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `${transportName}: ${httpListenerID}`,
                   val: 1,
                   group: transportName,
+                  tags: [],
                 });
               }
 
@@ -207,6 +212,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `Database Host: ${dbHost}`,
                   group: 'Host',
                   description: `DB Host\nTreiber: ${sourceConnectorProperties.driver[0]}`,
+                  tags: [],
                 });
               }
 
@@ -216,6 +222,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `${transportName}: ${dbReaderID}`,
                   val: 1,
                   group: transportName,
+                  tags: [],
                 });
               }
 
@@ -242,6 +249,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `${transportName}: ${fileReaderID}`,
                   val: 1,
                   group: transportName,
+                  tags: [],
                 });
               }
 
@@ -262,6 +270,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `${transportName}: ${dicomListenerID}`,
                   val: 1,
                   group: transportName,
+                  tags: [],
                 });
               }
 
@@ -363,6 +372,7 @@ export class GraphsService implements OnApplicationBootstrap {
                           name: 'SMTP: ' + email,
                           val: 1,
                           group: transportName,
+                          tags: [],
                         });
                       }
 
@@ -379,6 +389,7 @@ export class GraphsService implements OnApplicationBootstrap {
                           name: 'SMTP: ' + to,
                           val: 1,
                           group: 'Unreadable ' + transportName,
+                          tags: [],
                         });
                       }
 
@@ -403,6 +414,7 @@ export class GraphsService implements OnApplicationBootstrap {
                       id: remoteAddressAndPort,
                       name: 'TCP Remote: ' + remoteAddressAndPort,
                       group: transportName,
+                      tags: [],
                     });
                   }
 
@@ -423,6 +435,7 @@ export class GraphsService implements OnApplicationBootstrap {
                       id: host,
                       name: 'File Host: ' + host,
                       group: transportName,
+                      tags: [],
                     });
                   }
 
@@ -548,6 +561,7 @@ export class GraphsService implements OnApplicationBootstrap {
                     description: targetChannel.description[0],
                     group: 'Router Target',
                     enabled: targetChannel.exportData[0].metadata[0].enabled[0] == 'true' ? 1 : 0,
+                    tags: [],
                   });
                 }
 
@@ -573,6 +587,7 @@ export class GraphsService implements OnApplicationBootstrap {
                     name: 'Router Target: ' + targetChannel.name[0],
                     val: 1,
                     group: 'Router Target',
+                    tags: [],
                   });
                 }
               });
@@ -587,6 +602,28 @@ export class GraphsService implements OnApplicationBootstrap {
             });
           }
         }
+      });
+    });
+
+    xml.serverConfiguration.channelTags.forEach((root) => {
+      root.channelTag.forEach((channelTag) => {
+        const tagName = channelTag.name[0];
+
+        channelTag.channelIds.forEach((channelIdRoot) => {
+          if (channelIdRoot.string) {
+            channelIdRoot.string.forEach((channelId) => {
+              xml.serverConfiguration.channels.forEach((channelRoot) => {
+                // Go through each channel
+                channelRoot.channel.forEach((channel) => {
+                  if (channel.id[0] == channelId) {
+                    const result = gData.nodes.find((node) => node.id == channelId);
+                    result.tags.push(tagName);
+                  }
+                });
+              });
+            });
+          }
+        });
       });
     });
 
