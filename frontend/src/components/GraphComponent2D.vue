@@ -233,7 +233,7 @@ function forceReload() {
   }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
-function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -15, forceCollideStrength = 15, zoomToFit = false, engineTicksInSeconds = 10) {
+function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -70, forceCollideStrength = 40, zoomToFit = false, engineTicksInSeconds = 10) {
   let gData;
 
   if (customGData) {
@@ -398,7 +398,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     .cooldownTime(engineTicksInSeconds * 1000)
     .nodeRelSize(NODE_R)
     .linkCurvature('curvature')
-    //.nodeVal((node) => node.neighbors ? node.val * node.neighbors.length: node.val)
+    .nodeVal((node) => node.neighbors ? node.val * node.neighbors.length : node.val)
     .linkDirectionalArrowLength((link) => highlightLinks.has(link) ? 15 : 9)
     .linkDirectionalArrowRelPos(.8)
     .linkLineDash(link => !link.enabled && [dashLen, gapLen])
@@ -456,7 +456,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
       }
     })
     .autoPauseRedraw(false) // keep redrawing after engine has stopped
-    .linkWidth(link => highlightLinks.has(link) ? 4 : 1)
+    .linkWidth(link => highlightLinks.has(link) ? 3 : 1)
     .linkDirectionalParticles(4)
     .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 7 : 3)
     .nodeCanvasObjectMode(node => {
@@ -469,7 +469,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
         if (!showNames) {
           // add ring just for highlighted nodes
           ctx.beginPath();
-          ctx.arc(node.x!, node.y!, NODE_R * 2.0, 0, 2 * Math.PI, false);
+          ctx.arc(node.x!, node.y!, node.neighbors ? NODE_R * (node.val * node.neighbors.length) : NODE_R * 2.0, 0, 2 * Math.PI, false);
           ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
           ctx.fill();
         } else {
@@ -515,7 +515,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
   graph.onEngineStop(() => {
     if (zoomToFit) graph.zoomToFit(200);
   })
-  
+
   return graph;
 }
 </script>

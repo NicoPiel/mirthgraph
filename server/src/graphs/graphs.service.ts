@@ -115,6 +115,7 @@ export class GraphsService implements OnApplicationBootstrap {
       name: OTHER,
       group: OTHER,
       description: 'Unhandled connectors',
+      val: 1,
       tags: [],
     });
 
@@ -211,6 +212,7 @@ export class GraphsService implements OnApplicationBootstrap {
                   name: `Database Host: ${dbHost}`,
                   group: 'Host',
                   description: `DB Host\nTreiber: ${sourceConnectorProperties.driver[0]}`,
+                  val: 1,
                   tags: [],
                 });
               }
@@ -413,6 +415,7 @@ export class GraphsService implements OnApplicationBootstrap {
                       id: remoteAddressAndPort,
                       name: 'TCP Remote: ' + remoteAddressAndPort,
                       group: transportName,
+                      val: 1,
                       tags: [],
                     });
                   }
@@ -434,6 +437,7 @@ export class GraphsService implements OnApplicationBootstrap {
                       id: host,
                       name: 'File Host: ' + host,
                       group: transportName,
+                      val: 1,
                       tags: [],
                     });
                   }
