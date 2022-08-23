@@ -355,7 +355,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
   // 1. assign each link a nodePairId that combines their source and target independent of the links direction
   // 2. group links together that share the same two nodes or are self-loops
   gData.links.forEach((link: LinkObject) => {
-    link.nodePairId = link.source <= link.target ? (link.source + "_" + link.target) : (link.target + "_" + link.source);
+    link.nodePairId = link.source <= link.target ? (link.source + '_' + link.target) : (link.target + '_' + link.source);
     let map = link.source === link.target ? selfLoopLinks : sameNodesLinks;
     if (!map[link.nodePairId]) {
       map[link.nodePairId] = [];
@@ -382,7 +382,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     lastLink.curvature = curvatureMinMax;
     let delta = 2 * curvatureMinMax / lastIndex;
     for (let i = 0; i < lastIndex; i++) {
-      links[i].curvature = - curvatureMinMax + i * delta;
+      links[i].curvature = -curvatureMinMax + i * delta;
       if (lastLink.source !== links[i].source) {
         links[i].curvature *= -1; // flip it around, otherwise they overlap
       }
@@ -515,6 +515,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
   graph.onEngineStop(() => {
     if (zoomToFit) graph.zoomToFit(200);
   })
+  
   return graph;
 }
 </script>

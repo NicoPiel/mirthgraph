@@ -3,7 +3,6 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import * as xml2js from 'xml2js';
 import { Cache } from 'cache-manager';
-import * as util from 'util';
 
 @Injectable()
 export class GraphsService implements OnApplicationBootstrap {

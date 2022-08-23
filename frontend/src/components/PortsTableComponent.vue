@@ -12,7 +12,7 @@
       <template v-slot:top-right>
         <q-input borderless dense debounce="300" v-model="filter" placeholder="Suche nach Port oder IP">
           <template v-slot:append>
-            <q-icon name="search" />
+            <q-icon name="search"/>
           </template>
         </q-input>
       </template>
