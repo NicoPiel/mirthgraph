@@ -12,13 +12,12 @@ export class GraphsService implements OnApplicationBootstrap {
    * Builds a graph data object from the cached XML configuration and returns it as a JSON string.
    */
   async getGraphData(serverType: string): Promise<string> {
-    // TODO: Disable debugs
     const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
     return this.getFromRedisXMLCache(serverType).then(async (result) => {
-      const gdata = null; //await this.getFromRedisGraphDataCache(serverType);
+      const gdata = process.env['ENV'] == 'PROD' ? await this.getFromRedisGraphDataCache(serverType) : null;
 
       if (!gdata) await this.createRedisGraphDataCache(serverType);
 

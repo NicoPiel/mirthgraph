@@ -67,7 +67,7 @@
               <q-icon name="warning"/>
             </q-item-section>
             <q-item-section>
-              <q-btn @click="forceReload" to="/" v-ripple>Force Reload</q-btn>
+              <q-btn @click="forceReload(environment)" to="/" v-ripple>Force Reload</q-btn>
             </q-item-section>
           </q-item>
           <q-separator/>
@@ -187,12 +187,9 @@
 <script lang="ts" setup>
 
 import axios from 'axios';
-import ForceGraph, {LinkObject, NodeObject} from 'force-graph';
+import ForceGraph, {ForceGraphInstance, LinkObject, NodeObject} from 'force-graph';
 import {Ref, ref, toRaw, UnwrapRef, watch} from 'vue';
-import {useRouter} from 'vue-router';
 import * as d3 from 'd3-force';
-
-const router = useRouter();
 
 const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 const detailsDrawer = ref(false);
@@ -202,6 +199,7 @@ const drawerLeft = ref(false);
 const miniState = ref(true);
 const environment = ref('DATA_PRODUCTION');
 const isDetailView = ref(false);
+let graphRef: ForceGraphInstance | null = null;
 
 const props = defineProps([
   'gData',
@@ -223,9 +221,9 @@ function loadPage(serverEnv: string) {
   }).then((response) => makePage(response, null)).catch((error) => console.error(error))
 }
 
-function forceReload() {
+function forceReload(serverEnv: string) {
   axios.post(remoteAddress + 'graphs/force', {
-    data: 'DATA_PRODUCTION',
+    data: serverEnv,
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
       'Access-Control-Allow-Origin': '*'
@@ -233,7 +231,7 @@ function forceReload() {
   }).then((response) => makePage(response)).catch((error) => console.error(error))
 }
 
-function makePage(response: any = null, customGData: any = null, forceManyBodyStrength = -70, forceCollideStrength = 40, zoomToFit = false, engineTicksInSeconds = 10) {
+function makePage(response: any = null, customGData: any = null) {
   let gData;
 
   if (customGData) {
@@ -242,15 +240,26 @@ function makePage(response: any = null, customGData: any = null, forceManyBodySt
   } else if (props.gData) {
     gData = props.gData;
     isDetailView.value = false;
-  } else {
+  } else if (response.data) {
     gData = response.data;
     isDetailView.value = false;
+  } else {
+    console.error('No data');
   }
 
-  if (document.getElementById('graph')) {
-    const el = document.getElementById('graph')
+  const graphElement = document.getElementById('graph')
 
-    if (el) constructGraph(gData, el, forceManyBodyStrength, forceCollideStrength, zoomToFit, engineTicksInSeconds);
+  if (graphElement) {
+    if (!graphRef) graphRef =
+      constructGraph(
+        graphElement,
+      )
+
+    reloadGraph(gData,
+      -30,
+      30,
+      false,
+      20);
   }
 }
 
@@ -310,22 +319,21 @@ function searchSubmit() {
   makePage(null, newGData);
 }
 
-let searchHighlightNodes = new Set();
+const dashLen = 6;
+const gapLen = 8;
 
-function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength: number, forceCollideStrength: number, zoomToFit = false, engineTicksInSeconds: number) {
-  const dashLen = 6;
-  const gapLen = 8;
+const highlightNodes = new Set();
+const highlightLinks = new Set();
+const searchHighlightNodes = new Set();
+let hoverNode: NodeObject | null = null;
 
+let NODE_R = 4;
+let showNames = false;
+
+function reloadGraph(gData: any, centerManyBodyStrength: number, forceCollideStrength: number, zoomToFit = false, engineTicksInSeconds: number) {
   searchHighlightNodes.clear();
 
-  const highlightNodes = new Set();
-  const highlightLinks = new Set();
-  let hoverNode: NodeObject | null = null;
-
-  let NODE_R = 4;
-  let showNames = false;
-
-  console.log(gData);
+  // console.log(gData);
 
   if (!isDetailView.value) {
     // cross-link node objects
@@ -389,143 +397,151 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
     }
   });
 
-  const centerForce = d3.forceManyBody();
-  centerForce.strength(centerManyBodyStrength);
+  if (graphRef) {
+    const centerForce = d3.forceManyBody();
+    centerForce.strength(centerManyBodyStrength);
 
-  const graph = ForceGraph()(element)
-    .graphData(gData)
-    //.dagMode('td')
-    .cooldownTime(engineTicksInSeconds * 1000) // Controls physics engine render time
-    .nodeRelSize(NODE_R) // Node size
-    .linkCurvature('curvature') // Activates link curvature
-    .nodeVal((node) => node.neighbors ? node.val * node.neighbors.length : node.val) // Changes node size according to their value
-    .linkDirectionalArrowLength((link) => highlightLinks.has(link) ? 15 : 9) // Activates arrows in links
-    .linkDirectionalArrowRelPos(.8) // Sets position of arrows
-    .linkLineDash(link => !link.enabled && [dashLen, gapLen]) // Dashes certain links
-    .linkLabel((link) => link.group) // Sets link label
-    .nodeAutoColorBy(node => node.group) // Colors nodes
-    .linkAutoColorBy(link => link.group) // Colors links
-    .onEngineTick(() => { // Happens every frame
-      watch(searchInput, async (newString, oldString) => {
-        searchHighlightNodes.clear();
-        if (newString) {
-          const results = await gData.nodes.filter((node: NodeObject) => {
-            let result = false;
+    graphRef.graphData(gData)
+      .nodeRelSize(NODE_R) // Node size
+      .linkCurvature('curvature') // Activates link curvature
+      .nodeVal((node) => node.neighbors ? Math.sqrt(node.val * node.neighbors.length) : node.val) // Changes node size according to their value
+      .linkDirectionalArrowLength((link) => highlightLinks.has(link) ? 15 : 9) // Activates arrows in links
+      .linkDirectionalArrowRelPos(.8) // Sets position of arrows
+      .linkLineDash(link => !link.enabled && [dashLen, gapLen]) // Dashes certain links
+      .linkLabel((link) => link.group) // Sets link label
+      .nodeAutoColorBy(node => node.group) // Colors nodes
+      .linkAutoColorBy(link => link.group) // Colors links
+      .onEngineTick(() => { // Happens every frame
+        watch(searchInput, async (newString, oldString) => {
+          searchHighlightNodes.clear();
+          if (newString) {
+            const results = await gData.nodes.filter((node: NodeObject) => {
+              let result = false;
 
-            if (node.name.toLowerCase().search(newString.toLowerCase()) > -1) result = true;
+              if (node.name.toLowerCase().search(newString.toLowerCase()) > -1) result = true;
 
-            if (node.tags) {
-              node.tags.forEach((tag: string) => {
-                if (tag.toLowerCase().search(newString.toLowerCase()) > -1) result = true;
-              })
+              if (node.tags) {
+                node.tags.forEach((tag: string) => {
+                  if (tag.toLowerCase().search(newString.toLowerCase()) > -1) result = true;
+                })
+              }
+
+              return result;
+            });
+
+            results.forEach((result: NodeObject) => {
+              searchHighlightNodes.add(result);
+            })
+          }
+        });
+
+      })
+      // Happens whenever a node is hovered over
+      .onNodeHover((node, previousNode) => {
+        highlightNodes.clear();
+        highlightLinks.clear();
+
+        if (node) {
+          highlightNodes.add(node);
+          if (node.neighbors) {
+            node.neighbors.forEach((neighbor: NodeObject) => {
+              highlightNodes.add(neighbor);
+            })
+          }
+          if (node.links) node.links.forEach(link => highlightLinks.add(link));
+        }
+
+        hoverNode = node || null;
+      })
+      // Happens whenever a link is hovered over
+      .onLinkHover(link => {
+        highlightNodes.clear();
+        highlightLinks.clear();
+
+        if (link) {
+          highlightLinks.add(link);
+          highlightNodes.add(link.source);
+          highlightNodes.add(link.target);
+        }
+      })
+      // Never stops drawing (because of selection)
+      .autoPauseRedraw(false) // keep redrawing after engine has stopped
+      // Sets link width
+      .linkWidth(link => highlightLinks.has(link) ? 3 : 1)
+      // Sets particles in links
+      .linkDirectionalParticles(4)
+      // Sets size of particles
+      .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 7 : 3)
+      // Render control for nodes based on certain conditions
+      .nodeCanvasObjectMode(node => {
+        if (showNames) return 'replace';
+        else if (searchHighlightNodes.has(node) || highlightNodes.has(node)) return 'before';
+        else if (!(searchHighlightNodes.has(node) || highlightNodes.has(node))) return 'after';
+        else return undefined;
+      })
+      // Renders certain nodes differently than the rest
+      .nodeCanvasObject((node, ctx, globalScale) => {
+        if (node) {
+          if (!showNames) {
+            if (!(searchHighlightNodes.has(node) || highlightNodes.has(node))) {
+              // add default ring
+              ctx.beginPath();
+              ctx.arc(node.x!, node.y!, node.neighbors ? NODE_R * Math.sqrt(Math.sqrt(node.val * node.neighbors.length)) : NODE_R * 2.0, 0, 2 * Math.PI, false);
+              ctx.fillStyle = 'black';
+              ctx.fill();
+            } else {
+              // add ring just for highlighted nodes
+              ctx.beginPath();
+              ctx.arc(node.x!, node.y!, node.neighbors ? NODE_R * Math.sqrt(Math.sqrt(node.val * node.neighbors.length) * 2) : NODE_R * 2.0, 0, 2 * Math.PI, false);
+              ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
+              ctx.fill();
             }
+          } else {
+            // Show name as node
+            const label = node.name;
+            const fontSize = 12 / globalScale;
+            ctx.font = `${fontSize}px Sans-Serif`;
+            const textWidth = ctx.measureText(label).width;
+            const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
 
-            return result;
-          });
-          results.forEach((result: NodeObject) => {
-            searchHighlightNodes.add(result);
-          })
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = node.color;
+            ctx.fillText(label, node.x, node.y);
+
+            node.__bckgDimensions = bckgDimensions;
+          }
         }
-      });
+      })
+      // Disable displacement of nodes
+      .enableNodeDrag(false)
+      .onNodeClick((node, event) => {
+        detailsDrawer.value = true
+        detailsNode.value = node;
+      })
+      .onNodeRightClick((node, event) => {
+        detailsDrawer.value = true
+        detailsNode.value = node;
+      })
+      .onBackgroundClick((event) => {
+        detailsDrawer.value = false
+        detailsNode.value = null;
+      })
+      // Enlarges link interaction collider
+      .linkHoverPrecision(8)
+      .onZoom(({k, x, y}) => {
+        // k = zoom level
+        showNames = k > 2.4;
+      })
+      .d3Force('collide', d3.forceCollide(forceCollideStrength))
+      .d3Force('charge', centerForce)
+  }
+}
 
-    })
-    // Happens whenever a node is hovered over
-    .onNodeHover((node, previousNode) => {
-      highlightNodes.clear();
-      highlightLinks.clear();
-
-      if (node) {
-        highlightNodes.add(node);
-        if (node.neighbors) {
-          node.neighbors.forEach((neighbor: NodeObject) => {
-            highlightNodes.add(neighbor);
-          })
-        }
-        if (node.links) node.links.forEach(link => highlightLinks.add(link));
-      }
-
-      hoverNode = node || null;
-    })
-    // Happens whenever a link is hovered over
-    .onLinkHover(link => {
-      highlightNodes.clear();
-      highlightLinks.clear();
-
-      if (link) {
-        highlightLinks.add(link);
-        highlightNodes.add(link.source);
-        highlightNodes.add(link.target);
-      }
-    })
-    // Never stops drawing (because of selection)
-    .autoPauseRedraw(false) // keep redrawing after engine has stopped
-    // Sets link width
-    .linkWidth(link => highlightLinks.has(link) ? 3 : 1)
-    // Sets particles in links
-    .linkDirectionalParticles(4)
-    // Sets size of particles
-    .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 7 : 3)
-    // Render control for nodes based on certain conditions
-    .nodeCanvasObjectMode(node => {
-      if (showNames) return 'replace';
-      else if (searchHighlightNodes.has(node) || highlightNodes.has(node)) return 'before';
-      else return undefined;
-    })
-    // Renders certain nodes differently than the rest
-    .nodeCanvasObject((node, ctx, globalScale) => {
-      if (node) {
-        if (!showNames) {
-          // add ring just for highlighted nodes
-          ctx.beginPath();
-          ctx.arc(node.x!, node.y!, node.neighbors ? NODE_R * Math.sqrt((node.val * node.neighbors.length) * 2) : NODE_R * 2.0, 0, 2 * Math.PI, false);
-          ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
-          ctx.fill();
-        } else {
-          const label = node.name;
-          const fontSize = 12 / globalScale;
-          ctx.font = `${fontSize}px Sans-Serif`;
-          const textWidth = ctx.measureText(label).width;
-          const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
-
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-          ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillStyle = node.color;
-          ctx.fillText(label, node.x, node.y);
-
-          node.__bckgDimensions = bckgDimensions;
-        }
-      }
-    })
-    // Disable displacement of nodes
-    .enableNodeDrag(false)
-    .onNodeClick((node, event) => {
-      detailsDrawer.value = true
-      detailsNode.value = node;
-    })
-    .onNodeRightClick((node, event) => {
-      detailsDrawer.value = true
-      detailsNode.value = node;
-    })
-    .onBackgroundClick((event) => {
-      detailsDrawer.value = false
-      detailsNode.value = null;
-    })
-    // Enlarges link interaction collider
-    .linkHoverPrecision(8)
-    .onZoom(({k, x, y}) => {
-      // k = zoom level
-      showNames = k > 2.4;
-    })
-    .d3Force('collide', d3.forceCollide(forceCollideStrength))
-    .d3Force('charge', centerForce)
-
-  graph.onEngineStop(() => {
-    if (zoomToFit) graph.zoomToFit(200);
-  })
-
-  return graph;
+function constructGraph(element: HTMLElement) {
+  return ForceGraph()(element).graphData({nodes: [], links: []});
 }
 </script>

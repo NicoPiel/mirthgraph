@@ -9,13 +9,12 @@ export class PortsService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
   async getPortsData(serverType: string) {
-    // TODO: Disable debugs
     const cache = await this.getFromRedisXMLCache();
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
     return this.getFromRedisXMLCache().then(async (result) => {
-      const ports = null; //await this.getFromRedisPortsDataCache(serverType);
+      const ports = process.env['ENV'] == 'PROD' ? await this.getFromRedisPortsDataCache(serverType) : null;
 
       if (!ports) await this.createRedisPortsDataCache(serverType);
 
