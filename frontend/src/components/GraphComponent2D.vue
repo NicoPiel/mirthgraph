@@ -395,17 +395,17 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
   const graph = ForceGraph()(element)
     .graphData(gData)
     //.dagMode('td')
-    .cooldownTime(engineTicksInSeconds * 1000)
-    .nodeRelSize(NODE_R)
-    .linkCurvature('curvature')
-    .nodeVal((node) => node.neighbors ? node.val * node.neighbors.length : node.val)
-    .linkDirectionalArrowLength((link) => highlightLinks.has(link) ? 15 : 9)
-    .linkDirectionalArrowRelPos(.8)
-    .linkLineDash(link => !link.enabled && [dashLen, gapLen])
-    .linkLabel((link) => link.group)
-    .nodeAutoColorBy(node => node.group)
-    .linkAutoColorBy(link => link.group)
-    .onEngineTick(() => {
+    .cooldownTime(engineTicksInSeconds * 1000) // Controls physics engine render time
+    .nodeRelSize(NODE_R) // Node size
+    .linkCurvature('curvature') // Activates link curvature
+    .nodeVal((node) => node.neighbors ? node.val * node.neighbors.length : node.val) // Changes node size according to their value
+    .linkDirectionalArrowLength((link) => highlightLinks.has(link) ? 15 : 9) // Activates arrows in links
+    .linkDirectionalArrowRelPos(.8) // Sets position of arrows
+    .linkLineDash(link => !link.enabled && [dashLen, gapLen]) // Dashes certain links
+    .linkLabel((link) => link.group) // Sets link label
+    .nodeAutoColorBy(node => node.group) // Colors nodes
+    .linkAutoColorBy(link => link.group) // Colors links
+    .onEngineTick(() => { // Happens every frame
       watch(searchInput, async (newString, oldString) => {
         searchHighlightNodes.clear();
         if (newString) {
@@ -429,6 +429,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
       });
 
     })
+    // Happens whenever a node is hovered over
     .onNodeHover((node, previousNode) => {
       highlightNodes.clear();
       highlightLinks.clear();
@@ -445,6 +446,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
 
       hoverNode = node || null;
     })
+    // Happens whenever a link is hovered over
     .onLinkHover(link => {
       highlightNodes.clear();
       highlightLinks.clear();
@@ -455,21 +457,27 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
         highlightNodes.add(link.target);
       }
     })
+    // Never stops drawing (because of selection)
     .autoPauseRedraw(false) // keep redrawing after engine has stopped
+    // Sets link width
     .linkWidth(link => highlightLinks.has(link) ? 3 : 1)
+    // Sets particles in links
     .linkDirectionalParticles(4)
+    // Sets size of particles
     .linkDirectionalParticleWidth(link => highlightLinks.has(link) ? 7 : 3)
+    // Render control for nodes based on certain conditions
     .nodeCanvasObjectMode(node => {
       if (showNames) return 'replace';
       else if (searchHighlightNodes.has(node) || highlightNodes.has(node)) return 'before';
       else return undefined;
     })
+    // Renders certain nodes differently than the rest
     .nodeCanvasObject((node, ctx, globalScale) => {
       if (node) {
         if (!showNames) {
           // add ring just for highlighted nodes
           ctx.beginPath();
-          ctx.arc(node.x!, node.y!, node.neighbors ? NODE_R * (node.val * node.neighbors.length) : NODE_R * 2.0, 0, 2 * Math.PI, false);
+          ctx.arc(node.x!, node.y!, node.neighbors ? NODE_R * Math.sqrt((node.val * node.neighbors.length) * 2) : NODE_R * 2.0, 0, 2 * Math.PI, false);
           ctx.fillStyle = searchHighlightNodes.has(node) || (node === hoverNode) ? 'red' : 'orange';
           ctx.fill();
         } else {
@@ -491,6 +499,7 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
         }
       }
     })
+    // Disable displacement of nodes
     .enableNodeDrag(false)
     .onNodeClick((node, event) => {
       detailsDrawer.value = true
@@ -504,7 +513,8 @@ function constructGraph(gData: any, element: HTMLElement, centerManyBodyStrength
       detailsDrawer.value = false
       detailsNode.value = null;
     })
-    .linkHoverPrecision(10)
+    // Enlarges link interaction collider
+    .linkHoverPrecision(8)
     .onZoom(({k, x, y}) => {
       // k = zoom level
       showNames = k > 2.4;
