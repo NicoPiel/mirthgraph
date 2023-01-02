@@ -1,3 +1,4 @@
-class Util {}
+class Util {
+}
 
 export default Util;

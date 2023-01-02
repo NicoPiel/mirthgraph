@@ -1,5 +1,5 @@
 <template>
-  <q-page class="items-center justify-evenly">
+  <q-page class="items-center justify-center">
     <GraphComponent2D/>
   </q-page>
 </template>
