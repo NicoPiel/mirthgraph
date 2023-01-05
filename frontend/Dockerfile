@@ -14,6 +14,6 @@ RUN yarn build:pwa
 
 FROM nginx:latest as deploy
 
-COPY --from=build /usr/src/app/dist/spa /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/pwa /usr/share/nginx/html
 
 EXPOSE 80
