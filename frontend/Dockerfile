@@ -2,28 +2,30 @@
 
 FROM node:18.12.1 as development
 
-RUN npm i -g yarn
+RUN npm install -g -s --no-progress yarn
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn install
 
 COPY . .
 
-RUN yarn build
+RUN yarn build:pwa
 
 FROM node:18.12.1 as production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-RUN npm i -g yarn
+RUN npm install -g -s --no-progress yarn
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn install
 
