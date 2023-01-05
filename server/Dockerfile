@@ -9,7 +9,7 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn build:pwa
+RUN yarn build
 
 
 FROM node:18.12.1-alpine as production
@@ -28,6 +28,6 @@ COPY . .
 
 COPY --from=development /usr/src/app/dist ./dist
 
-CMD ["node", "dist/main"]
+CMD ["yarn", "start:prod"]
 
-EXPOSE 9000
+EXPOSE 3000

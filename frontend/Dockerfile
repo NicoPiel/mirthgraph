@@ -1,4 +1,4 @@
-FROM node:18.12.1-alpine as development
+FROM node:18.12.1-alpine as build
 
 WORKDIR /usr/src/app
 
@@ -12,22 +12,8 @@ COPY . .
 RUN yarn build:pwa
 
 
-FROM node:18.12.1-alpine as production
+FROM nginx:latest as deploy
 
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
+COPY --from=build /usr/src/app/dist/spa /usr/share/nginx/html
 
-WORKDIR /usr/src/app
-
-COPY package.json ./
-COPY yarn.lock ./
-
-RUN yarn install
-
-COPY . .
-
-COPY --from=development /usr/src/app/dist ./dist
-
-CMD ["node", "dist/main"]
-
-EXPOSE 3000
+EXPOSE 80
