@@ -86,7 +86,7 @@ import {NodeObject} from 'force-graph';
 import {Ref, ref, UnwrapRef, watch} from 'vue';
 import ForceGraph3D from '3d-force-graph';
 
-const remoteAddress = `//${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
+const remoteAddress = `http://${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 const detailsDrawer = ref(false);
 const detailsNode: Ref<UnwrapRef<NodeObject>> | Ref<UnwrapRef<null>> = ref(null);
 const searchInput: Ref<UnwrapRef<string>> = ref('');
