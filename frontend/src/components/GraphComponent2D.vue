@@ -216,7 +216,7 @@ function loadPage(serverEnv: string) {
     data: serverEnv,
     headers: {
       'Content-Type': 'application/json;charset=UTF-8',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': 'http://frontend.localhost:80'
     }
   }).then((response) => makePage(response, null)).catch((error) => console.error(error))
 }
