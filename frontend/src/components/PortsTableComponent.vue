@@ -28,7 +28,7 @@ const props = defineProps([
   'environment',
 ])
 
-const remoteAddress = `${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`;
+const remoteAddress = `//${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`;
 const pagination = ref({
   rowsPerPage: 0
 })

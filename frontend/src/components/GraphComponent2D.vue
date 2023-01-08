@@ -191,7 +191,7 @@ import ForceGraph, {ForceGraphInstance, LinkObject, NodeObject} from 'force-grap
 import {Ref, ref, toRaw, UnwrapRef, watch} from 'vue';
 import * as d3 from 'd3-force';
 
-const remoteAddress = `${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
+const remoteAddress = `//${process.env.REMOTE_IP}:${process.env.REMOTE_PORT}/`
 const detailsDrawer = ref(false);
 const detailsNode: Ref<UnwrapRef<NodeObject>> | Ref<UnwrapRef<null>> = ref(null);
 const searchInput: Ref<UnwrapRef<string>> = ref('');
