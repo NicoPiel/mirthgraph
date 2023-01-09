@@ -7,10 +7,10 @@ services:
       context: ./server/
     ports:
       - 3000:3000
-    links:
-      - "frontend:frontend.localhost"
     networks:
-      - mirthnet
+      mirthnet:
+        aliases:
+          - server.localhost
     depends_on:
       - redis
   frontend:
@@ -18,9 +18,9 @@ services:
     build:
       context: ./frontend/
     networks:
-      - mirthnet
-    links:
-      - "server:server.localhost"
+      mirthnet:
+        aliases:
+          - frontend.localhost
     ports:
       - 80:80
     depends_on:
