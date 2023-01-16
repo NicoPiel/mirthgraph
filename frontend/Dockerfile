@@ -12,7 +12,7 @@ COPY . .
 RUN yarn build:pwa
 
 
-FROM nginx:latest-alpine as deploy
+FROM nginx:1.23.3-alpine as deploy
 
 COPY --from=build /usr/src/app/dist/pwa /usr/share/nginx/html
 
