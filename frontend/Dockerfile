@@ -1,34 +1,19 @@
-# syntax=docker/dockerfile:1
-
-FROM node:18.12.1 as development
-
-RUN npm i -g yarn
+FROM node:18.12.1-alpine as build
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn install
 
 COPY . .
 
-RUN yarn build
+RUN yarn build:pwa
 
-FROM node:18.12.1 as production
 
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
+FROM nginx:1.23.3-alpine as deploy
 
-RUN npm i -g yarn
+COPY --from=build /usr/src/app/dist/pwa /usr/share/nginx/html
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN yarn install
-
-COPY . .
-
-COPY --from=development /usr/src/app/dist ./dist
-
-CMD ["node", "dist/main"]
+EXPOSE 80

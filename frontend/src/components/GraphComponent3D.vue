@@ -101,6 +101,8 @@ axios.get(remoteAddress + 'graphs', {
 }).then((response) => {
   let gData = response.data;
 
+  console.log(response);
+
   if (document.getElementById('graph')) {
     const el = document.getElementById('graph')
 
