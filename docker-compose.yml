@@ -8,7 +8,7 @@ services:
     ports:
       - 3000:3000
     networks:
-      mirthnet:
+      m:
         aliases:
           - server.localhost
     depends_on:
@@ -18,7 +18,7 @@ services:
     build:
       context: ./frontend/
     networks:
-      mirthnet:
+      m:
         aliases:
           - frontend.localhost
     ports:
@@ -34,4 +34,4 @@ services:
       - 6379:6379
 
 networks:
-  mirthnet:
+  m:
