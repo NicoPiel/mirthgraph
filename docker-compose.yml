@@ -13,6 +13,7 @@ services:
           - server.localhost
     depends_on:
       - redis
+    restart: always
   frontend:
     container_name: mirthgraph-frontend
     build:
@@ -25,6 +26,7 @@ services:
       - 80:80
     depends_on:
       - server
+    restart: always
   redis:
     container_name: mirthgraph-redis
     image: redis:latest
@@ -32,6 +34,6 @@ services:
       - m
     ports:
       - 6379:6379
-
+    restart: always
 networks:
   m:
