@@ -9,11 +9,11 @@ export class PortsService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
   async getPortsData(serverType: string) {
-    const cache = await this.getFromRedisXMLCache();
+    const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
     if (!cache) await this.createRedisXMLCache(serverType);
     // Get from redis cache
-    return this.getFromRedisXMLCache().then(async (result) => {
+    return this.getFromRedisXMLCache(serverType).then(async (result) => {
       const ports = process.env['ENV'] == 'PROD' ? await this.getFromRedisPortsDataCache(serverType) : null;
 
       if (!ports) await this.createRedisPortsDataCache(serverType);
@@ -78,12 +78,12 @@ export class PortsService {
   }
 
   async buildPortsDataWithXMLCache(serverType: string): Promise<string> {
-    const cache = await this.getFromRedisXMLCache();
+    const cache = await this.getFromRedisXMLCache(serverType);
     // Check if cache exists and create if not.
     if (!cache) {
       await this.createRedisXMLCache(serverType);
 
-      return this.getFromRedisXMLCache().then((result) => {
+      return this.getFromRedisXMLCache(serverType).then((result) => {
         return this.buildPortsData(result);
       });
     } else {
@@ -113,7 +113,7 @@ export class PortsService {
    */
   async createRedisXMLCache(serverType: string) {
     await this.cacheManager.set(
-      'serverConfiguration:xml',
+      `serverConfiguration:xml:${serverType}`,
       JSON.stringify(await this.getData(process.env[serverType])),
       { ttl: 43200 }, // 12 hours
     );
@@ -124,8 +124,8 @@ export class PortsService {
   /**
    * Retrieves a copy of the parsed XML file from memory.
    */
-  async getFromRedisXMLCache() {
-    return JSON.parse(await this.cacheManager.get('serverConfiguration:xml'));
+  async getFromRedisXMLCache(serverType: string) {
+    return JSON.parse(await this.cacheManager.get(`serverConfiguration:xml:${serverType}`));
   }
 
   /**
