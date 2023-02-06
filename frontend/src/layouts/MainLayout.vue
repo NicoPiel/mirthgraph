@@ -6,7 +6,7 @@
           <q-toolbar-title>Mirth Graph</q-toolbar-title>
           <q-btn to="/">Graph</q-btn>
           <q-btn to="/ports">Ports</q-btn>
-          <div>v0.0.1</div>
+          <div>v1.0.1 (06.02.2023)</div>
         </q-toolbar>
       </q-header>
 
