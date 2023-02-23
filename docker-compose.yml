@@ -8,32 +8,30 @@ services:
     ports:
       - 3000:3000
     networks:
-      m:
+      mirthnet:
         aliases:
           - server.localhost
     depends_on:
       - redis
-    restart: always
   frontend:
     container_name: mirthgraph-frontend
     build:
       context: ./frontend/
     networks:
-      m:
+      mirthnet:
         aliases:
           - frontend.localhost
     ports:
       - 80:80
     depends_on:
       - server
-    restart: always
   redis:
     container_name: mirthgraph-redis
     image: redis:latest
     networks:
-      - m
+      - mirthnet
     ports:
       - 6379:6379
-    restart: always
+
 networks:
-  m:
+  mirthnet:
