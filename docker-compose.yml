@@ -10,7 +10,11 @@ services:
     networks:
       m:
     volumes:
-      - /usr/share/mirthgraph/public:/usr/src/app/public
+      - type: bind
+        source: /usr/share/mirthgraph/public
+        target: /usr/src/app/public
+        bind:
+          create_host_path: true
     depends_on:
       - redis
     restart: always
