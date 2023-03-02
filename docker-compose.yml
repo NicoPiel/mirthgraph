@@ -10,7 +10,7 @@ services:
     networks:
       m:
     volumes:
-      - type: volume
+      - type: bind
         source: /usr/share/mirthgraph/public
         target: /usr/src/app/public
         bind:
