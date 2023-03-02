@@ -10,7 +10,7 @@ services:
     networks:
       m:
     volumes:
-      - /usr/share/mirthgraph/public:/public:ro
+      - /usr/share/mirthgraph/public:/usr/src/app/public
     depends_on:
       - redis
     restart: always
