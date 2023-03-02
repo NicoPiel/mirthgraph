@@ -9,8 +9,8 @@ services:
       - 3000:3000
     networks:
       m:
-        aliases:
-          - server.localhost
+    volumes:
+      - /usr/share/mirthgraph/public:/public:ro
     depends_on:
       - redis
     restart: always
@@ -20,8 +20,6 @@ services:
       context: ./frontend/
     networks:
       m:
-        aliases:
-          - frontend.localhost
     ports:
       - 80:80
     depends_on:
