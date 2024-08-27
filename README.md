@@ -1,8 +1,8 @@
 # README (v1.0.1)
 
-# ENGLISH
+## ENGLISH
 
-## DEV SETUP
+### DEV SETUP
 
 - Run `yarn install` once in both `mirthgraph/server` and `mirthgraph/frontend`.
 - Install Redis on a VM.
@@ -10,11 +10,11 @@
   - server: `yarn start:dev`
   - frontend: `yarn dev`
 
-## ADD DATA
+### ADD DATA
 
 - Add an exported Mirth configuration XML to the `/server/public` folder (currently, it must be named `218.xml`)
 
-## DEPLOYMENT WITH DOCKER
+### DEPLOYMENT WITH DOCKER
 
 - The Docker Compose image contains everything needed for the software.
 - Clone the repository FRESH into a directory.
@@ -26,9 +26,9 @@
 
 
 
-# GERMAN
+## GERMAN
 
-## DEV SETUP
+### DEV SETUP
 
 - Einmal `yarn install` sowohl in `mirthgraph/server`, als auch in `mirthgraph/frontend`.
 - Redis auf einer VM installieren.
@@ -36,7 +36,7 @@
   - server: `yarn start:dev`
   - frontend: `yarn dev`
 
-## DEPLOYMENT MIT DOCKER
+### DEPLOYMENT MIT DOCKER
 
 - Das Docker Compose Image enthält alles, was für die Software nötig ist.
 - Das Repository FRISCH in ein Verzeichnis clonen.
