@@ -1,3 +1,9 @@
+![image](https://github.com/user-attachments/assets/03825022-ccc8-4365-b6e1-d3300d548c66)
+
+# Mirth Graph
+
+Mirth Graph is a web application that uses force graphs to visualise a Mirth's channels, source connectors and destinations.
+
 # README (v1.0.1)
 
 ## ENGLISH
