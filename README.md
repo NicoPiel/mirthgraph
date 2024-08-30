@@ -24,6 +24,7 @@ Mirth Graph is a web application that uses force graphs to visualise a Mirth's c
 
 - The Docker Compose image contains everything needed for the software.
 - Clone the repository FRESH into a directory.
+- Add data to `/server/public`
 - In `/server` and `/frontend` copy `.env.base` and rename it to `.env`.
 - In `/server/.env` replace `localhost` with `redis`.
 - In `/frontend/.env` replace `localhost` with the server address.
