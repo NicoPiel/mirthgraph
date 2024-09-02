@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<RadzenSidebar @bind-Expanded="_drawerLeft" Width="250px" Breakpoint="Breakpoint.Sm" Style="position: fixed;">
+    <ChildContent>
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Option 1" Icon="database" />
+            <RadzenPanelMenuItem Text="Option 2" Icon="storage" />
+        </RadzenPanelMenu>
+    </ChildContent>
+</RadzenSidebar>
+
+<RadzenSidebarToggle Click="ToggleSidebar" />
+
+<div class="content" style="padding-left: 260px; padding-top: 20px;">
+    <h3>Graph Visualization</h3>
+    <div id="graph-container" style="height: 500px;">
+        <mirthgraph.Components.Pages.GraphComponent />
+    </div>
+</div>
+
+@code {
+    private bool _drawerLeft = true;
+
+    void ToggleSidebar()
+    {
+        _drawerLeft = !_drawerLeft;
+    }
+}
