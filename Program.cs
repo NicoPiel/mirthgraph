@@ -1,4 +1,5 @@
 using mirthgraph.Components;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +8,14 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddControllers();
-builder.Services.AddScoped<IGraphsService, GraphsService>();
 builder.Services.AddHttpClient();
+
+var redisConnection = builder.Configuration.GetConnectionString("RedisConnection");
+var redis = ConnectionMultiplexer.Connect(redisConnection);
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
+
+builder.Services.AddScoped<GraphsService>();
 
 var app = builder.Build();
 

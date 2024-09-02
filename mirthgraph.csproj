@@ -15,7 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Pages\Home.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Pages\Home.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Radzen.Blazor" Version="5.1.6" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.0" />
   </ItemGroup>
 
 </Project>

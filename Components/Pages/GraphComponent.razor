@@ -1,90 +1,17 @@
-﻿@using System.Text.Json
-@inject IJSRuntime JSRuntime
-@inject HttpClient Http
+﻿@page "/config/{configName}"
 
-<div class="graph-container" style="height: 500px;" id="graph-container">
-    <!-- The graph will be rendered here -->
-</div>
+@inject MirthConfigService ConfigService
+
+<h3>@configName</h3>
+<pre>@configContent</pre>
 
 @code {
-    private bool _initialized = false;
-    private GraphData _graphData;
+    [Parameter]
+    public required string configName { get; set; }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            var dotNetRef = DotNetObjectReference.Create(this);
-            await JSRuntime.InvokeVoidAsync("graphInterop.registerDotNetHelper", dotNetRef);
-            await LoadGraphDataAsync();
-            await InitializeGraphAsync();
-            _initialized = true;
-        }
-    }
+    private string configContent;
 
-    private async Task LoadGraphDataAsync()
-    {
-        // Replace with your actual API endpoint
-        var response = await Http.GetAsync("api/graphs");
-        if (response.IsSuccessStatusCode)
-        {
-            var json = await response.Content.ReadAsStringAsync();
-            _graphData = JsonSerializer.Deserialize<GraphData>(json, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-        }
-        else
-        {
-            // Handle error
-            Console.Error.WriteLine("Failed to load graph data.");
-        }
-    }
-
-    private async Task InitializeGraphAsync()
-    {
-        if (_graphData != null)
-        {
-            await JSRuntime.InvokeVoidAsync("graphInterop.initializeGraph", "graph-container", _graphData);
-        }
-    }
-
-    // Handle node click events from JavaScript
-    [JSInvokable]
-    public async Task OnNodeClick(string nodeId)
-    {
-        Console.WriteLine($"Node clicked: {nodeId}");
-        // Implement logic to display node details, e.g., open a drawer
-        // Example:
-        // detailsNode = await FetchNodeDetailsAsync(nodeId);
-        // detailsDrawer = true;
-        await InvokeAsync(StateHasChanged);
-    }
-
-    // Dispose the DotNetObjectReference
-    public void Dispose()
-    {
-        // Optionally, unregister the DotNetHelper if needed
-    }
-
-    // Define the graph data structure
-    public class GraphData
-    {
-        public List<Node> Nodes { get; set; }
-        public List<Link> Links { get; set; }
-    }
-
-    public class Node
-    {
-        public string Id { get; set; }
-        public string Group { get; set; }
-        // Add other properties as needed
-    }
-
-    public class Link
-    {
-        public string Source { get; set; }
-        public string Target { get; set; }
-        // Add other properties as needed
+    protected override async Task OnParametersSetAsync() {
+        configContent = await ConfigService.GetMirthConfigAsync(configName);
     }
 }

@@ -5,9 +5,9 @@
 [Route("api/[controller]")]
 public class GraphsController : ControllerBase
 {
-    private readonly IGraphsService _graphsService;
+    private readonly GraphsService _graphsService;
 
-    public GraphsController(IGraphsService graphsService)
+    public GraphsController(GraphsService graphsService)
     {
         _graphsService = graphsService;
     }
@@ -15,7 +15,7 @@ public class GraphsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<GraphData>> GetGraphData()
     {
-        var graphData = await _graphsService.GetGraphDataAsync();
+        var graphData = await _graphsService.GetGraphDataAsync("prod");
         if (graphData == null)
         {
             return NotFound();

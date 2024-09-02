@@ -1,0 +1,8 @@
+@page "/"
+
+<RadzenPanelMenu>
+    @foreach (var config in configs)
+    {
+        <RadzenPanelMenuItem Text="@config" Path="/config/@config" />
+    }
+</RadzenPanelMenu>

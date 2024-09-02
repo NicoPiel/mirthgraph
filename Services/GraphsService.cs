@@ -1,26 +1,50 @@
-﻿public interface IGraphsService
-{
-    Task<GraphData> GetGraphDataAsync();
-    // Add other methods as needed
-}
+﻿using StackExchange.Redis;
+using System.Xml.Linq;
 
-public class GraphsService : IGraphsService
+public class GraphsService
 {
-    // Inject any dependencies like database context, Redis, etc.
+    private readonly IConnectionMultiplexer _redis;
+    private readonly ILogger<GraphsService> _logger;
+    private readonly IDatabase _db;
 
-    public async Task<GraphData> GetGraphDataAsync()
+    public GraphsService(IConnectionMultiplexer redis, ILogger<GraphsService> logger)
     {
-        // Implement logic to fetch graph data from your data source
-        // For demonstration, returning mock data
+        _redis = redis;
+        _logger = logger;
+        _db = _redis.GetDatabase();
+    }
 
-        var nodes = new List<Node> { new Node { Id = "1", Group = "A" }, new Node { Id = "2", Group = "A" }, new Node { Id = "3", Group = "B" }, new Node { Id = "4", Group = "B" } };
+    public async Task<string> GetGraphDataAsync(string serverType)
+    {
+        string cacheKey = $"GraphData_{serverType}";
+        string graphData = await _db.StringGetAsync(cacheKey);
 
-        var links = new List<Link> { new Link { Source = "1", Target = "2" }, new Link { Source = "1", Target = "3" }, new Link { Source = "2", Target = "4" }, new Link { Source = "3", Target = "4" } };
-
-        return new GraphData
+        if (graphData == null)
         {
-            Nodes = nodes,
-            Links = links
-        };
+            _logger.LogInformation("Cache missing, building new graph data.");
+            graphData = await BuildGraphDataAsync(serverType);
+            await _db.StringSetAsync(cacheKey, graphData, TimeSpan.FromHours(12)); // Cache for 12 hours
+        }
+
+        return graphData;
+    }
+
+    public async Task<string> ForceRebuildGraphDataAsync(string serverType)
+    {
+        _logger.LogWarning("Forcing graph data rebuild.");
+        string graphData = await BuildGraphDataAsync(serverType);
+        await _db.StringSetAsync($"GraphData_{serverType}", graphData, TimeSpan.FromHours(12));
+        return graphData;
+    }
+
+    private async Task<string> BuildGraphDataAsync(string serverType)
+    {
+        // Simulate reading and processing XML data
+        // Replace with actual XML processing logic
+        var xml = "<Graph><Node id='1' /><Node id='2' /></Graph>";
+        XDocument xmlDoc = XDocument.Parse(xml);
+        // Process the XML as needed
+        // For demonstration, we're returning a simple JSON string
+        return await Task.FromResult(xmlDoc.ToString());
     }
 }
