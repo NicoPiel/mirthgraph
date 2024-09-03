@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using mirthgraph.Components;
+using Radzen;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddRadzenComponents();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<DbService>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

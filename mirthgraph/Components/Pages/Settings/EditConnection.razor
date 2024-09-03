@@ -1,0 +1,53 @@
+﻿@page "/settings/edit/{ConnectionId:int}"
+@inject DbService DbService
+@inject NavigationManager Navigation
+
+<RadzenTemplateForm Data="@mirthConnection" TItem="MirthConnection" Submit="@SaveConnection">
+    <ChildContent>
+        <RadzenFieldset Text="Connection Details">
+            <RadzenLabel Text="Name" />
+            <RadzenTextBox @bind-Value="mirthConnection.Name" />
+            <RadzenRequiredValidator Component="Name" Text="Name is required" />
+
+            <RadzenLabel Text="Server URL" />
+            <RadzenTextBox @bind-Value="mirthConnection.ServerUrl" />
+            <RadzenRequiredValidator Component="ServerUrl" Text="Server URL is required" />
+
+            <RadzenLabel Text="Username" />
+            <RadzenTextBox @bind-Value="mirthConnection.Username" />
+            <RadzenRequiredValidator Component="Username" Text="Username is required" />
+
+            <RadzenLabel Text="Password" />
+            <RadzenPassword @bind-Value="mirthConnection.Password" />
+            <RadzenRequiredValidator Component="Password" Text="Password is required" />
+        </RadzenFieldset>
+        <RadzenButton Text="Save" Type="Submit" Style="margin-top: 10px;" />
+        <RadzenButton Text="Cancel" Click="Cancel" Style="margin-top: 10px; margin-left: 10px;" />
+    </ChildContent>
+</RadzenTemplateForm>
+
+@code {
+    [Parameter] public int ConnectionId { get; set; }
+    private MirthConnection mirthConnection = new MirthConnection();
+
+    protected override async Task OnInitializedAsync()
+    {
+        mirthConnection = await DbService.MirthConnections.FindAsync(ConnectionId);
+        if (mirthConnection == null)
+        {
+            Navigation.NavigateTo("/settings");
+        }
+    }
+
+    private async Task SaveConnection()
+    {
+        DbService.MirthConnections.Update(mirthConnection);
+        await DbService.SaveChangesAsync();
+        Navigation.NavigateTo("/settings");
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/settings");
+    }
+}

@@ -1,0 +1,61 @@
+﻿@page "/settings"
+@using Microsoft.EntityFrameworkCore
+
+@inject DbService DbContext
+@inject NavigationManager Navigation
+
+<h3>Manage Mirth Connections</h3>
+
+@if (mirthConnections == null || !mirthConnections.Any())
+{
+    <div>
+        <p>No Mirth connections available. Please add a new connection.</p>
+        <RadzenButton Text="Add New Connection" Click="@AddNewConnection" Style="margin-top: 20px;" />
+    </div>
+}
+else
+{
+    <RadzenButton Text="Add New Connection" Click="@AddNewConnection" Style="margin-top: 20px;" />
+
+    <RadzenDataGrid Data="@mirthConnections" TItem="MirthConnection" ColumnWidth="200px" @ref="grid">
+        <Columns>
+            <RadzenDataGridColumn TItem="MirthConnection" Property="Name" Title="Connection Name" />
+            <RadzenDataGridColumn TItem="MirthConnection" Property="ServerUrl" Title="Server URL" />
+            <RadzenDataGridColumn TItem="MirthConnection" Context="mirth">
+                <Template Context="mirth">
+                    <RadzenButton Text="Edit" Click="@(() => EditConnection(mirth))" />
+                    <RadzenButton Text="Delete" Click="@(() => DeleteConnection(mirth))" Style="margin-left: 10px;" />
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+    private List<MirthConnection> mirthConnections;
+
+    protected override async Task OnInitializedAsync()
+    {
+        mirthConnections = await DbContext.MirthConnections.ToListAsync();
+    }
+
+    private void AddNewConnection()
+    {
+        Navigation.NavigateTo("/settings/new");
+    }
+
+    private void EditConnection(MirthConnection mirth)
+    {
+        Navigation.NavigateTo($"/settings/edit/{mirth.Id}");
+    }
+
+    private async Task DeleteConnection(MirthConnection mirth)
+    {
+        DbContext.MirthConnections.Remove(mirth);
+        await DbContext.SaveChangesAsync();
+        mirthConnections.Remove(mirth);
+        await grid.Reload();
+    }
+
+    RadzenDataGrid<MirthConnection> grid;
+}
