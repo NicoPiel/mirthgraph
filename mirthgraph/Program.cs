@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using mirthgraph.Components;
 using StackExchange.Redis;
 
@@ -9,15 +10,23 @@ builder.Services.AddRazorComponents()
 builder.Services.AddServerSideBlazor();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
+builder.Services.AddDbContext<DbService>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var redisConnection = builder.Configuration.GetConnectionString("RedisConnection");
 var redis = ConnectionMultiplexer.Connect(redisConnection);
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
-
+builder.Services.AddSingleton<CacheService>();
+builder.Services.AddSingleton<MirthConfigService>();
 builder.Services.AddScoped<GraphsService>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbService = scope.ServiceProvider.GetRequiredService<DbService>();
+    dbService.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -6,12 +6,15 @@
 <pre>@configContent</pre>
 
 @code {
+
     [Parameter]
-    public required string configName { get; set; }
+    public string configName { get; set; }
 
     private string configContent;
 
     protected override async Task OnParametersSetAsync() {
+
+        configName = "Test";
         configContent = await ConfigService.GetMirthConfigAsync(configName);
     }
 }
