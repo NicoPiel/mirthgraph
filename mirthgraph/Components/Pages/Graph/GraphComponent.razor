@@ -1,12 +1,9 @@
-﻿@page "/config/{configName}"
-
-@inject MirthConfigService ConfigService
+﻿@inject MirthConfigService ConfigService
 
 <h3>@configName</h3>
 <pre>@configContent</pre>
 
 @code {
-
     [Parameter]
     public string configName { get; set; }
 
