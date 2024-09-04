@@ -1,9 +1,20 @@
 ﻿@page "/"
 
+@inject MirthConfigService ConfigService
+
 <RadzenSidebar @bind-Expanded="_drawerLeft" Width="250px" Breakpoint="Breakpoint.Sm" Style="position: fixed;">
     <RadzenPanelMenu>
-        <RadzenPanelMenuItem Text="Option 1" Icon="database" />
-        <RadzenPanelMenuItem Text="Option 2" Icon="storage" />
+        @if (mirthConfigs != null)
+        {
+            @foreach (var config in mirthConfigs)
+            {
+                <RadzenPanelMenuItem Text="@config" Icon="settings" Click="() => LoadGraph(config)" />
+            }
+        }
+        else
+        {
+            <RadzenPanelMenuItem Text="Loading..." Icon="hourglass_empty" />
+        }
     </RadzenPanelMenu>
 </RadzenSidebar>
 
@@ -12,15 +23,28 @@
 <div class="content" style="padding-left: 260px; padding-top: 20px;">
     <h3>Graph Visualization</h3>
     <div id="graph-container" style="height: 500px;">
-        <GraphComponent />
+        <GraphComponent configName="@selectedConfig" />
     </div>
 </div>
 
 @code {
     private bool _drawerLeft = false;
+    private List<string>? mirthConfigs;
+    private string selectedConfig;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _drawerLeft = false;
+        mirthConfigs = ConfigService.GetAllMirthConfigs();
+    }
 
     void ToggleSidebar()
     {
         _drawerLeft = !_drawerLeft;
+    }
+
+    void LoadGraph(string configName)
+    {
+        selectedConfig = configName;
     }
 }

@@ -11,7 +11,7 @@ public class CacheService
 
     public async Task CacheMirthConfigAsync(string key, string configJson)
     {
-        if (String.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");
+        if (string.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");
 
         var db = _redis.GetDatabase();
         await db.StringSetAsync(key, configJson);
@@ -19,7 +19,7 @@ public class CacheService
 
     public async Task<string?> GetCachedMirthConfigAsync(string key)
     {
-        if (String.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");
+        if (string.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");
 
         var db = _redis.GetDatabase();
         var result = await db.StringGetAsync(key);
@@ -28,13 +28,13 @@ public class CacheService
 
     public async Task<bool> MirthConfigExistsAsync(string key)
     {
-        if (String.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");
+        if (string.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");
 
         var db = _redis.GetDatabase();
         return await db.KeyExistsAsync(key);
     }
 
-    public IEnumerable<string> GetAllKeysAsync()
+    public IEnumerable<string> GetAllKeys()
     {
         var server = _redis.GetServer(_redis.GetEndPoints().First());
         return server.Keys().Select(key => (string)key!).Where(key => key != null)!;

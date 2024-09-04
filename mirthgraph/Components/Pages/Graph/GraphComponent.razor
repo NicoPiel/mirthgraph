@@ -1,17 +1,26 @@
-﻿@inject MirthConfigService ConfigService
+﻿@page "/graph/{configName}"
+@using Microsoft.EntityFrameworkCore
+@inject MirthConfigService ConfigService
+@inject DbService DbContext
+@inject GraphsService GraphsService
+@inject IJSRuntime JSRuntime
 
 <h3>@configName</h3>
-<pre>@configContent</pre>
+<div id="graph" style="width: 100%; height: 600px;"></div>
 
 @code {
     [Parameter]
     public string configName { get; set; }
-
     private string configContent;
+    private MirthConnection? firstConnection;
 
-    protected override async Task OnParametersSetAsync() {
+    protected override async Task OnParametersSetAsync()
+    {
+        if (!string.IsNullOrEmpty(configName))
+        {
+            var graphData = await GraphsService.GetGraphDataAsync(configName);
 
-        configName = "Test";
-        configContent = await ConfigService.GetMirthConfigAsync(configName);
+            await JSRuntime.InvokeVoidAsync("graphInterop.initializeGraph", "graph", graphData);
+        }
     }
 }

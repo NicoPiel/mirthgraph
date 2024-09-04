@@ -1,50 +1,107 @@
-﻿using StackExchange.Redis;
-using System.Xml.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using StackExchange.Redis;
 
 public class GraphsService
 {
     private readonly IConnectionMultiplexer _redis;
     private readonly ILogger<GraphsService> _logger;
     private readonly IDatabase _db;
+    private readonly MirthConfigService _mirthConfigService;
 
-    public GraphsService(IConnectionMultiplexer redis, ILogger<GraphsService> logger)
+    public GraphsService(IConnectionMultiplexer redis, ILogger<GraphsService> logger, MirthConfigService mirthConfigService)
     {
         _redis = redis;
         _logger = logger;
         _db = _redis.GetDatabase();
+        _mirthConfigService = mirthConfigService;
     }
 
-    public async Task<string> GetGraphDataAsync(string serverType)
+    public async Task<string> GetGraphDataAsync(string connectionName)
     {
-        string cacheKey = $"GraphData_{serverType}";
-        string graphData = await _db.StringGetAsync(cacheKey);
-
-        if (graphData == null)
+        var cachedGraph = await _db.StringGetAsync(connectionName);
+        if (!cachedGraph.IsNullOrEmpty)
         {
-            _logger.LogInformation("Cache missing, building new graph data.");
-            graphData = await BuildGraphDataAsync(serverType);
-            await _db.StringSetAsync(cacheKey, graphData, TimeSpan.FromHours(12)); // Cache for 12 hours
+            return cachedGraph;
+        }
+
+        return await BuildGraphDataAsync(connectionName);
+    }
+
+    public async Task<string> BuildGraphDataAsync(string connectionName)
+    {
+        var configContent = await _mirthConfigService.GetMirthConfigAsync(connectionName);
+        var graphData = ParseMirthConfig(configContent);
+        var graphJson = JsonConvert.SerializeObject(graphData);
+
+        await _db.StringSetAsync(connectionName, graphJson);
+        return graphJson;
+    }
+
+    private GraphData ParseMirthConfig(string jsonString)
+    {
+        var graphData = new GraphData();
+        var json = JObject.Parse(jsonString);
+
+        var channels = json["list"]?["channel"];
+        if (channels == null) return graphData;
+
+        foreach (var channel in channels)
+        {
+            var channelId = channel["id"]?.ToString();
+            var channelName = channel["name"]?.ToString();
+
+            if (channelId != null)
+            {
+                graphData.Nodes.Add(new Node { Id = channelId, Group = "Channel" });
+
+                var sourceConnector = channel["sourceConnector"];
+                if (sourceConnector != null)
+                {
+                    var sourceConnectorId = sourceConnector["metaDataId"]?.ToString();
+                    if (sourceConnectorId != null)
+                    {
+                        graphData.Nodes.Add(new Node { Id = sourceConnectorId, Group = "SourceConnector" });
+                        graphData.Links.Add(new Link { Source = channelId, Target = sourceConnectorId });
+                    }
+                }
+
+                var destinationConnectors = channel["destinationConnectors"];
+                if (destinationConnectors != null)
+                {
+                    foreach (var destinationConnector in destinationConnectors)
+                    {
+                        var destinationConnectorId = destinationConnector["metaDataId"]?.ToString();
+                        if (destinationConnectorId != null)
+                        {
+                            graphData.Nodes.Add(new Node { Id = destinationConnectorId, Group = "DestinationConnector" });
+                            graphData.Links.Add(new Link { Source = channelId, Target = destinationConnectorId });
+                        }
+                    }
+                }
+            }
         }
 
         return graphData;
     }
+}
 
-    public async Task<string> ForceRebuildGraphDataAsync(string serverType)
-    {
-        _logger.LogWarning("Forcing graph data rebuild.");
-        string graphData = await BuildGraphDataAsync(serverType);
-        await _db.StringSetAsync($"GraphData_{serverType}", graphData, TimeSpan.FromHours(12));
-        return graphData;
-    }
+public class GraphData
+{
+    public List<Node> Nodes { get; set; } = new List<Node>();
+    public List<Link> Links { get; set; } = new List<Link>();
+}
 
-    private async Task<string> BuildGraphDataAsync(string serverType)
-    {
-        // Simulate reading and processing XML data
-        // Replace with actual XML processing logic
-        var xml = "<Graph><Node id='1' /><Node id='2' /></Graph>";
-        XDocument xmlDoc = XDocument.Parse(xml);
-        // Process the XML as needed
-        // For demonstration, we're returning a simple JSON string
-        return await Task.FromResult(xmlDoc.ToString());
-    }
+public class Node
+{
+    public string Id { get; set; }
+    public string Group { get; set; }
+    // Add other properties as needed
+}
+
+public class Link
+{
+    public string Source { get; set; }
+    public string Target { get; set; }
+    // Add other properties as needed
 }

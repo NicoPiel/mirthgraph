@@ -1,6 +1,9 @@
 ﻿@page "/settings/edit/{ConnectionId:int}"
 @inject DbService DbService
 @inject NavigationManager Navigation
+@inject MirthConfigService ConfigService
+@inject CacheService CacheService
+@inject GraphsService GraphsService
 
 <RadzenTemplateForm Data="@mirthConnection" TItem="MirthConnection" Submit="@SaveConnection">
     <RadzenFieldset Text="Connection Details">
@@ -41,6 +44,16 @@
     {
         DbService.MirthConnections.Update(mirthConnection);
         await DbService.SaveChangesAsync();
+
+        // Fetch configuration from Mirth Connect
+        var configContent = await ConfigService.FetchFromMirthAsync(mirthConnection, mirthConnection.Name);
+
+        // Cache the configuration
+        await CacheService.CacheMirthConfigAsync(mirthConnection.Name, configContent);
+
+        // Build graph data
+        await GraphsService.BuildGraphDataAsync(mirthConnection.Name);
+
         Navigation.NavigateTo("/settings");
     }
 

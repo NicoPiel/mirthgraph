@@ -1,24 +1,27 @@
 ﻿@page "/settings/new"
 @inject DbService DbService
 @inject NavigationManager Navigation
+@inject MirthConfigService ConfigService
+@inject CacheService CacheService
+@inject GraphsService GraphsService
 
 <RadzenTemplateForm Data="@mirthConnection" TItem="MirthConnection" Submit="@SaveConnection">
     <RadzenFieldset Text="Connection Details">
-        <RadzenLabel Text="ServerName"/>
-        <RadzenTextBox @bind-Value="mirthConnection.Name" Name="Name"/>
+        <RadzenLabel Text="ServerName" />
+        <RadzenTextBox @bind-Value="mirthConnection.Name" Name="Name" />
         <RadzenRequiredValidator Component="Name" Text="Name is required" />
 
         <RadzenLabel Text="Server URL" />
         <RadzenTextBox @bind-Value="mirthConnection.ServerUrl" Name="ServerUrl" />
-        <RadzenRequiredValidator Component="ServerUrl" Text="Server URL is required"  />
+        <RadzenRequiredValidator Component="ServerUrl" Text="Server URL is required" />
 
         <RadzenLabel Text="Username" />
         <RadzenTextBox @bind-Value="mirthConnection.Username" Name="Username" />
-        <RadzenRequiredValidator Component="Username" Text="Username is required"  />
+        <RadzenRequiredValidator Component="Username" Text="Username is required" />
 
         <RadzenLabel Text="Password" />
         <RadzenPassword @bind-Value="mirthConnection.Password" Name="Password" />
-        <RadzenRequiredValidator Component="Password" Text="Password is required"  />
+        <RadzenRequiredValidator Component="Password" Text="Password is required" />
     </RadzenFieldset>
     <RadzenButton Text="Save" Type="Submit" Style="margin-top: 10px;" />
     <RadzenButton Text="Cancel" Click="Cancel" Style="margin-top: 10px; margin-left: 10px;" />
@@ -31,6 +34,16 @@
     {
         DbService.MirthConnections.Add(mirthConnection);
         await DbService.SaveChangesAsync();
+
+        // Fetch configuration from Mirth Connect
+        var configContent = await ConfigService.FetchFromMirthAsync(mirthConnection, mirthConnection.Name);
+
+        // Cache the configuration
+        await CacheService.CacheMirthConfigAsync(mirthConnection.Name, configContent);
+
+        // Build graph data
+        await GraphsService.BuildGraphDataAsync(mirthConnection.Name);
+
         Navigation.NavigateTo("/settings");
     }
 
