@@ -1,0 +1,2934 @@
+2024-09-05 19:05:56.378 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:05:56.378 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:06:18.784 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:06:18.784 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:08:21.607 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:08:21.607 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:10:02.246 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:10:02.246 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:10:56.716 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:10:56.716 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:11:48.486 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:11:48.486 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:15:12.181 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:15:12.181 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:15:39.713 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:15:39.713 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:24:07.040 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:24:07.040 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:26:09.452 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:26:09.452 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:30:51.359 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:30:51.359 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:31:34.095 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:31:34.095 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:37:24.884 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:37:24.884 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:40:52.506 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:40:52.506 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:58:24.803 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 19:58:24.803 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:02:17.907 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:02:17.907 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:04:18.364 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:04:18.364 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:42:21.783 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:42:21.783 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:44:15.291 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:44:15.291 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:59:50.041 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 20:59:50.041 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:01:55.691 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:01:55.691 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:05:11.303 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:05:11.303 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:05:57.055 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:06:16.787 +00:00 [WRN] Unhandled exception ren2024-09-05 21:06:16.787 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:06:16.810 +00:00 [ERR] Unhandled exception in 2024-09-05 21:06:16.810 +00:00 [ERR] Unhandled exception in circuit 'f8GSgDTNfVvqLCBBCj3t-lW3-65Rbhod3Q0YXuLylLo'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:13:01.034 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:13:04.752 +00:00 [WRN] Unhandled exception ren2024-09-05 21:13:04.752 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:13:04.772 +00:00 [ERR] Unhandled exception in 2024-09-05 21:13:04.772 +00:00 [ERR] Unhandled exception in circuit 'Q93nSCLqsOfX-BbNyXer6EfZ4xr-L3ArzIpj-xPzLLg'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:15:42.798 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:15:48.458 +00:00 [WRN] Unhandled exception ren2024-09-05 21:15:48.458 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:15:48.480 +00:00 [ERR] Unhandled exception in 2024-09-05 21:15:48.480 +00:00 [ERR] Unhandled exception in circuit '-IkTwpudoWyGSYJ68RHGn2eEkF_UUXHIxgil-fW7bmw'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:19:43.435 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:21:46.600 +00:00 [WRN] Unhandled exception ren2024-09-05 21:21:46.600 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:21:46.622 +00:00 [ERR] Unhandled exception in 2024-09-05 21:21:46.622 +00:00 [ERR] Unhandled exception in circuit 'vIatliK-30m3xmKlQJFu34KtfFcuj7w029FbQxV0gtE'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:23:37.252 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:23:44.378 +00:00 [WRN] Unhandled exception ren2024-09-05 21:23:44.378 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:23:44.398 +00:00 [ERR] Unhandled exception in 2024-09-05 21:23:44.398 +00:00 [ERR] Unhandled exception in circuit 'QyseWOoasS14l61fWdWciME529JV1lGJ-CuIErwgFDA'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:24:17.262 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:24:17.262 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:27:31.668 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:27:40.311 +00:00 [WRN] Unhandled exception ren2024-09-05 21:27:40.311 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:27:40.331 +00:00 [ERR] Unhandled exception in 2024-09-05 21:27:40.331 +00:00 [ERR] Unhandled exception in circuit 'kFxfhJKTtKcic1ZMeD2pU3qOFVwD_bYkrMiwpjLohhU'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:28:18.134 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:28:34.305 +00:00 [WRN] Unhandled exception ren2024-09-05 21:28:34.305 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:28:34.328 +00:00 [ERR] Unhandled exception in 2024-09-05 21:28:34.328 +00:00 [ERR] Unhandled exception in circuit 'D23oGJ_EQ4l2F-bX0lxvBtLdB4ywQ6DOYm8ybsNUR94'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:32:14.923 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:32:14.923 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:38:57.024 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:38:57.024 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:40:29.423 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:40:29.589 +00:00 [INF] Graph data for localhos2024-09-05 21:40:29.589 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "Id": "OTHER",
+      "Name": "OTHER",
+      "Group": "OTHER",
+      "Description": "Unhandled connectors",
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "Name": "Channel: Channel 1",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "Name": "Channel: Channel 2",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "Name": "Channel: Channel 3",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "0.0.0.0:6661",
+      "Name": "TCP Listener: 0.0.0.0:6661",
+      "Group": "TCP Listener",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "Name": "Channel: Channel 4",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "localhost:5432",
+      "Name": "Database Host: localhost:5432",
+      "Group": "Host",
+      "Description": "DB Host\nDriver: org.postgresql.Driver",
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "Group": "Database Reader",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "Name": "Channel: Channel 5",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "/dev/mirthgraph/mirthgraph/logs",
+      "Name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "Group": "File Reader",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    }
+  ],
+  "links": [
+    {
+      "Source": "0.0.0.0:6661",
+      "Target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "Group": "TCP Listener",
+      "Enabled": 1
+    },
+    {
+      "Source": "localhost:5432",
+      "Target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Group": "Database Reader",
+      "Enabled": 1
+    },
+    {
+      "Source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "Group": "Database Reader",
+      "Enabled": 1
+    },
+    {
+      "Source": "/dev/mirthgraph/mirthgraph/logs",
+      "Target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 21:40:40.136 +00:00 [WRN] Unhandled exception ren2024-09-05 21:40:40.136 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:40:40.160 +00:00 [ERR] Unhandled exception in 2024-09-05 21:40:40.160 +00:00 [ERR] Unhandled exception in circuit 'PqAK5c6ZVMt1BIyUbwD2ag9zG98cD1dV6tpNHR3_CVc'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:41:08.756 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:41:08.756 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:50:26.887 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:50:27.025 +00:00 [INF] Graph data for localhos2024-09-05 21:50:27.025 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "Id": "OTHER",
+      "Name": "OTHER",
+      "Group": "OTHER",
+      "Description": "Unhandled connectors",
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "Name": "Channel: Channel 1",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "Name": "Channel: Channel 2",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "Name": "Channel: Channel 3",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "0.0.0.0:6661",
+      "Name": "TCP Listener: 0.0.0.0:6661",
+      "Group": "TCP Listener",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "Name": "Channel: Channel 4",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "localhost:5432",
+      "Name": "Database Host: localhost:5432",
+      "Group": "Host",
+      "Description": "DB Host\nDriver: org.postgresql.Driver",
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "Group": "Database Reader",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "Name": "Channel: Channel 5",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "/dev/mirthgraph/mirthgraph/logs",
+      "Name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "Group": "File Reader",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    }
+  ],
+  "links": [
+    {
+      "Source": "0.0.0.0:6661",
+      "Target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "Group": "TCP Listener",
+      "Enabled": 1
+    },
+    {
+      "Source": "localhost:5432",
+      "Target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Group": "Database Reader",
+      "Enabled": 1
+    },
+    {
+      "Source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "Group": "Database Reader",
+      "Enabled": 1
+    },
+    {
+      "Source": "/dev/mirthgraph/mirthgraph/logs",
+      "Target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 21:52:00.253 +00:00 [WRN] Unhandled exception ren2024-09-05 21:52:00.253 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:52:00.275 +00:00 [ERR] Unhandled exception in 2024-09-05 21:52:00.275 +00:00 [ERR] Unhandled exception in circuit 'KNGnvw-e1hOmNEEgcJXvI7ZzEYxBOmndT7q1VFxlBKY'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 23
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:52:47.752 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:52:47.886 +00:00 [INF] Graph data for localhos2024-09-05 21:52:47.886 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "Id": "OTHER",
+      "Name": "OTHER",
+      "Group": "OTHER",
+      "Description": "Unhandled connectors",
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "Name": "Channel: Channel 1",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "Name": "Channel: Channel 2",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "Name": "Channel: Channel 3",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "0.0.0.0:6661",
+      "Name": "TCP Listener: 0.0.0.0:6661",
+      "Group": "TCP Listener",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "Name": "Channel: Channel 4",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "localhost:5432",
+      "Name": "Database Host: localhost:5432",
+      "Group": "Host",
+      "Description": "DB Host\nDriver: org.postgresql.Driver",
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "Group": "Database Reader",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    },
+    {
+      "Id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "Name": "Channel: Channel 5",
+      "Group": "Channel",
+      "Description": "",
+      "Val": 1,
+      "Enabled": 1,
+      "Tags": []
+    },
+    {
+      "Id": "/dev/mirthgraph/mirthgraph/logs",
+      "Name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "Group": "File Reader",
+      "Description": null,
+      "Val": 1,
+      "Enabled": 0,
+      "Tags": []
+    }
+  ],
+  "links": [
+    {
+      "Source": "0.0.0.0:6661",
+      "Target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "Group": "TCP Listener",
+      "Enabled": 1
+    },
+    {
+      "Source": "localhost:5432",
+      "Target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Group": "Database Reader",
+      "Enabled": 1
+    },
+    {
+      "Source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "Target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "Group": "Database Reader",
+      "Enabled": 1
+    },
+    {
+      "Source": "/dev/mirthgraph/mirthgraph/logs",
+      "Target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "Group": "File Reader",
+      "Enabled": 1
+    }
+  ]
+}
+2024-09-05 21:55:27.189 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:55:27.328 +00:00 [INF] Graph data for localhos2024-09-05 21:55:27.328 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 21:55:49.528 +00:00 [WRN] Unhandled exception ren2024-09-05 21:55:49.528 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:55:49.552 +00:00 [ERR] Unhandled exception in 2024-09-05 21:55:49.552 +00:00 [ERR] Unhandled exception in circuit 'R7JrGCU0_FfGGhGfbftJddDOI8chAJAxBwH9N-3KLvA'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 21:59:43.550 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 21:59:43.701 +00:00 [INF] Graph data for localhos2024-09-05 21:59:43.701 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 21:59:46.360 +00:00 [INF] Graph data for localhos2024-09-05 21:59:46.360 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 21:59:52.811 +00:00 [WRN] Unhandled exception ren2024-09-05 21:59:52.811 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 21:59:52.833 +00:00 [ERR] Unhandled exception in 2024-09-05 21:59:52.833 +00:00 [ERR] Unhandled exception in circuit 'hPymJoboKUazhM7gJ-_xmFW55SAbl2rF7fE4K_qLWwo'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 22:07:03.285 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 22:07:03.438 +00:00 [INF] Graph data for localhos2024-09-05 22:07:03.438 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 22:07:32.291 +00:00 [WRN] Unhandled exception ren2024-09-05 22:07:32.291 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 22:07:32.311 +00:00 [ERR] Unhandled exception in 2024-09-05 22:07:32.311 +00:00 [ERR] Unhandled exception in circuit '1yI2aacs_C21pPICX7jj_nsf2KBONsQBG2SY9RTAGJY'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 22:11:13.783 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 22:11:13.916 +00:00 [INF] Graph data for localhos2024-09-05 22:11:13.916 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 22:11:31.391 +00:00 [WRN] Unhandled exception ren2024-09-05 22:11:31.391 +00:00 [WRN] Unhandled exception rendering component: Could not find 'graphInterop.initializeGraph' ('graphInterop' was undefined).
+findFunction/<@https://localhost:9001/_framework/blazor.web.js:1:734
+findFunction@https://localhost:9001/_framework/blazor.web.js:1:702
+b@https://localhost:9001/_framework/blazor.web.js:1:5445
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3238
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: Could not find 'graphInterop.initializeGraph' ('graphInterop' was undefined).
+findFunction/<@https://localhost:9001/_framework/blazor.web.js:1:734
+findFunction@https://localhost:9001/_framework/blazor.web.js:1:702
+b@https://localhost:9001/_framework/blazor.web.js:1:5445
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3238
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 22:11:31.414 +00:00 [ERR] Unhandled exception in 2024-09-05 22:11:31.414 +00:00 [ERR] Unhandled exception in circuit '-H3hlXS0oW_coAUmE5tkNaQ5GSk752h9Pwsi-iNll4k'.
+Microsoft.JSInterop.JSException: Could not find 'graphInterop.initializeGraph' ('graphInterop' was undefined).
+findFunction/<@https://localhost:9001/_framework/blazor.web.js:1:734
+findFunction@https://localhost:9001/_framework/blazor.web.js:1:702
+b@https://localhost:9001/_framework/blazor.web.js:1:5445
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3238
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 22:12:16.516 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 22:12:16.662 +00:00 [INF] Graph data for localhos2024-09-05 22:12:16.662 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 22:12:22.236 +00:00 [WRN] Unhandled exception ren2024-09-05 22:12:22.236 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 22:12:22.262 +00:00 [ERR] Unhandled exception in 2024-09-05 22:12:22.262 +00:00 [ERR] Unhandled exception in circuit 'oVn1jN2qeAFEOH6xA4PMjj_EGvvq6E4TzJiA_z_xqpU'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-05 22:14:00.885 +00:00 [INF] HTTP Response Code: OK
+2024-09-05 22:14:01.020 +00:00 [INF] Graph data for localhos2024-09-05 22:14:01.020 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-05 22:14:07.356 +00:00 [WRN] Unhandled exception ren2024-09-05 22:14:07.356 +00:00 [WRN] Unhandled exception rendering component: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-05 22:14:07.380 +00:00 [ERR] Unhandled exception in 2024-09-05 22:14:07.380 +00:00 [ERR] Unhandled exception in circuit 'gUif02bl8bGjAKhOQC421bWHOpiQR9IqB8mLYHompmg'.
+Microsoft.JSInterop.JSException: t.objs is undefined
+onChange/<@https://unpkg.com/force-graph:5:68642
+onChange@https://unpkg.com/force-graph:5:68608
+Jr/</</i[t.name]@https://unpkg.com/force-graph:2:70052
+initializeGraph@https://localhost:9001/js/graphInterop.js:4:14
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3244
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+EventHandlerNonNull*connect/<@https://localhost:9001/_framework/blazor.web.js:1:82026
+connect@https://localhost:9001/_framework/blazor.web.js:1:81268
+_startTransport@https://localhost:9001/_framework/blazor.web.js:1:91654
+_createTransport@https://localhost:9001/_framework/blazor.web.js:1:89988
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:87752
+async*start@https://localhost:9001/_framework/blazor.web.js:1:84888
+_startInternal@https://localhost:9001/_framework/blazor.web.js:1:55857
+_startWithStateTransitions@https://localhost:9001/_framework/blazor.web.js:1:55260
+start@https://localhost:9001/_framework/blazor.web.js:1:54924
+startConnection@https://localhost:9001/_framework/blazor.web.js:1:137844
+startCore@https://localhost:9001/_framework/blazor.web.js:1:135781
+start@https://localhost:9001/_framework/blazor.web.js:1:135434
+nr@https://localhost:9001/_framework/blazor.web.js:1:151449
+async*tr@https://localhost:9001/_framework/blazor.web.js:1:150218
+startCircutIfNotStarted@https://localhost:9001/_framework/blazor.web.js:1:180962
+resolveRendererIdForDescriptor@https://localhost:9001/_framework/blazor.web.js:1:183303
+determinePendingOperation@https://localhost:9001/_framework/blazor.web.js:1:183868
+refreshRootComponents@https://localhost:9001/_framework/blazor.web.js:1:182283
+rootComponentsMayRequireRefresh/<@https://localhost:9001/_framework/blazor.web.js:1:181283
+setTimeout handler*rootComponentsMayRequireRefresh@https://localhost:9001/_framework/blazor.web.js:1:181226
+onDocumentUpdated@https://localhost:9001/_framework/blazor.web.js:1:179722
+Ji@https://localhost:9001/_framework/blazor.web.js:1:187185
+EventListener.handleEvent*qi@https://localhost:9001/_framework/blazor.web.js:1:186516
+@https://localhost:9001/_framework/blazor.web.js:1:187445
+@https://localhost:9001/_framework/blazor.web.js:1:187451
+@https://localhost:9001/_framework/blazor.web.js:1:187455
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)

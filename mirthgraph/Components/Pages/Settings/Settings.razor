@@ -41,19 +41,16 @@ else
 
     public void AddNewConnection()
     {
-        Console.WriteLine("AddNewConnection clicked");
         Navigation.NavigateTo("/settings/new");
     }
 
     private void EditConnection(MirthConnection mirth)
     {
-        Console.WriteLine($"EditConnection clicked for {mirth.Id}");
         Navigation.NavigateTo($"/settings/edit/{mirth.Id}");
     }
 
     private async Task DeleteConnection(MirthConnection mirth)
     {
-        Console.WriteLine($"DeleteConnection clicked for {mirth.Id}");
         DbContext.MirthConnections.Remove(mirth);
         await DbContext.SaveChangesAsync();
         mirthConnections.Remove(mirth);

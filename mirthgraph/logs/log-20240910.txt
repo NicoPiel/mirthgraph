@@ -1,0 +1,238 @@
+2024-09-10 21:57:19.310 +00:00 [INF] HTTP Response Code: OK
+2024-09-10 21:57:19.545 +00:00 [INF] Graph data for localhos2024-09-10 21:57:19.545 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+ 2024-09-10 21:57:58.779 +00:00 [INF] Graph data for localhos2024-09-10 21:57:58.779 +00:00 [INF] Graph data for localhost:
+{
+  "nodes": [
+    {
+      "id": "OTHER",
+      "name": "OTHER",
+      "group": "OTHER",
+      "description": "Unhandled connectors",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "c7c70fb0-81c2-46ff-b766-b95cbc3eb7bb",
+      "name": "Channel: Channel 1",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "9e7957e4-0e16-4bbe-9cef-0062dc8da55b",
+      "name": "Channel: Channel 2",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "name": "Channel: Channel 3",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "0.0.0.0:6661",
+      "name": "TCP Listener: 0.0.0.0:6661",
+      "group": "TCP Listener",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "name": "Channel: Channel 4",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "localhost:5432",
+      "name": "Database Host: localhost:5432",
+      "group": "Host",
+      "description": "DB Host\nDriver: org.postgresql.Driver",
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "name": "Database Reader: jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    },
+    {
+      "id": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "name": "Channel: Channel 5",
+      "group": "Channel",
+      "description": "",
+      "val": 1,
+      "enabled": 1,
+      "tags": []
+    },
+    {
+      "id": "/dev/mirthgraph/mirthgraph/logs",
+      "name": "File Reader: /dev/mirthgraph/mirthgraph/logs",
+      "group": "File Reader",
+      "description": null,
+      "val": 1,
+      "enabled": 0,
+      "tags": []
+    }
+  ],
+  "links": [
+    {
+      "source": "0.0.0.0:6661",
+      "target": "fc397ddc-1bcd-43d7-a275-f34d1b04e776",
+      "group": "TCP Listener",
+      "enabled": 1
+    },
+    {
+      "source": "localhost:5432",
+      "target": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "jdbc:postgresql://localhost:5432/mirthgraph",
+      "target": "dc337477-a450-442a-90bd-c4ee01cd5595",
+      "group": "Database Reader",
+      "enabled": 1
+    },
+    {
+      "source": "/dev/mirthgraph/mirthgraph/logs",
+      "target": "85d5ec2a-395e-4fea-9784-92f96345eada",
+      "group": "File Reader",
+      "enabled": 1
+    }
+  ]
+}

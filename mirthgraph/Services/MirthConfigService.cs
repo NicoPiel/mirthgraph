@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Headers;
 using System.Text;
 
 public class MirthConfigService
@@ -51,6 +52,13 @@ public class MirthConfigService
         return _cacheService.GetAllKeys().ToList();
     }
 
+    public async Task<List<MirthConnection>> GetAllMirthConnectionsAsync()
+    {
+        using var scope = _serviceProvider.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<DbService>();
+        return await dbContext.MirthConnections.ToListAsync();
+    }
+
 
     public async Task<string> FetchFromMirthAsync(MirthConnection connection, string configName)
     {
@@ -60,7 +68,6 @@ public class MirthConfigService
         var authToken = Encoding.ASCII.GetBytes($"{connection.Username}:{connection.Password}");
         request.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(authToken));
         request.Headers.Add("X-Requested-With", "MirthGraph");
-        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
         try
         {

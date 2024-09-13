@@ -23,4 +23,16 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mirthgraph
       POSTGRES_DB: mirthgraph
-
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - "9003:5540"
+    depends_on:
+    - redis
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9002:8080
+    depends_on:
+    - postgres

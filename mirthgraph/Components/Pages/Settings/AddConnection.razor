@@ -25,26 +25,40 @@
     </RadzenFieldset>
     <RadzenButton Text="Save" Type="Submit" Style="margin-top: 10px;" />
     <RadzenButton Text="Cancel" Click="Cancel" Style="margin-top: 10px; margin-left: 10px;" />
+    <div style="margin-top: 10px;">
+        @if (!string.IsNullOrEmpty(statusMessage))
+        {
+            <RadzenAlert Severity="@(statusMessage.StartsWith("Error") ? "Error" : "Success")" Summary="@statusMessage" />
+        }
+    </div>
 </RadzenTemplateForm>
 
 @code {
     private MirthConnection mirthConnection = new MirthConnection();
+    private string statusMessage = string.Empty;
 
     private async Task SaveConnection()
     {
-        DbService.MirthConnections.Add(mirthConnection);
-        await DbService.SaveChangesAsync();
+        try
+        {
+            DbService.MirthConnections.Add(mirthConnection);
+            await DbService.SaveChangesAsync();
 
-        // Fetch configuration from Mirth Connect
-        var configContent = await ConfigService.FetchFromMirthAsync(mirthConnection, mirthConnection.Name);
+            // Fetch configuration from Mirth Connect
+            var configContent = await ConfigService.FetchFromMirthAsync(mirthConnection, mirthConnection.Name);
 
-        // Cache the configuration
-        await CacheService.CacheMirthConfigAsync(mirthConnection.Name, configContent);
+            // Cache the configuration
+            await CacheService.CacheMirthConfigAsync(mirthConnection.Name, configContent);
 
-        // Build graph data
-        await GraphsService.BuildGraphDataAsync(mirthConnection.Name);
+            // Build graph data
+            await GraphsService.BuildGraphDataAsync(mirthConnection.Name);
 
-        Navigation.NavigateTo("/settings");
+            statusMessage = "Connection added successfully!";
+        }
+        catch (Exception ex)
+        {
+            statusMessage = "Error adding connection.";
+        }
     }
 
     private void Cancel()

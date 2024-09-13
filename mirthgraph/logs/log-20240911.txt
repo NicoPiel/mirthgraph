@@ -1,0 +1,62 @@
+2024-09-11 11:19:22.104 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:19:22.104 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:21:18.162 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:21:18.162 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:22:29.004 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:22:29.004 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:23:51.494 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:23:51.494 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 11:26:31.549 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 14:52:41.044 +00:00 [WRN] Unhandled exception ren2024-09-11 14:52:41.044 +00:00 [WRN] Unhandled exception rendering component: Could not find 'graphInterop.initializeGraph' ('graphInterop' was undefined).
+findFunction/<@https://localhost:9001/_framework/blazor.web.js:1:734
+findFunction@https://localhost:9001/_framework/blazor.web.js:1:702
+b@https://localhost:9001/_framework/blazor.web.js:1:5445
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3238
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+Microsoft.JSInterop.JSException: Could not find 'graphInterop.initializeGraph' ('graphInterop' was undefined).
+findFunction/<@https://localhost:9001/_framework/blazor.web.js:1:734
+findFunction@https://localhost:9001/_framework/blazor.web.js:1:702
+b@https://localhost:9001/_framework/blazor.web.js:1:5445
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3238
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-11 14:52:41.091 +00:00 [ERR] Unhandled exception in 2024-09-11 14:52:41.091 +00:00 [ERR] Unhandled exception in circuit 'bb2sHWPqsmnjCPR-Xp1Nk3G73DS91szQ4BkSX35nYR0'.
+Microsoft.JSInterop.JSException: Could not find 'graphInterop.initializeGraph' ('graphInterop' was undefined).
+findFunction/<@https://localhost:9001/_framework/blazor.web.js:1:734
+findFunction@https://localhost:9001/_framework/blazor.web.js:1:702
+b@https://localhost:9001/_framework/blazor.web.js:1:5445
+beginInvokeJSFromDotNet/i<@https://localhost:9001/_framework/blazor.web.js:1:3238
+beginInvokeJSFromDotNet@https://localhost:9001/_framework/blazor.web.js:1:3201
+_invokeClientMethod@https://localhost:9001/_framework/blazor.web.js:1:62914
+_processIncomingData@https://localhost:9001/_framework/blazor.web.js:1:60389
+fn/this.connection.onreceive@https://localhost:9001/_framework/blazor.web.js:1:54030
+connect/</i.onmessage@https://localhost:9001/_framework/blazor.web.js:1:82175
+
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync(IJSRuntime jsRuntime, String identifier, Object[] args)
+   at mirthgraph.Components.Pages.Graph.GraphComponent.OnParametersSetAsync() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Graph\GraphComponent.razor:line 22
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-11 14:57:30.902 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 14:57:30.902 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 15:07:21.533 +00:00 [INF] HTTP Response Code: OK
+2024-09-11 15:21:03.926 +00:00 [WRN] Unhandled exception ren2024-09-11 15:21:03.926 +00:00 [WRN] Unhandled exception rendering component: InvalidCharacterError: String contains an invalid character
+System.InvalidOperationException: InvalidCharacterError: String contains an invalid character
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.InvokeRenderCompletedCallsAfterUpdateDis2024-09-11 15:21:03.946 +00:00 [ERR] Unhandled exception in 2024-09-11 15:21:03.946 +00:00 [ERR] Unhandled exception in circuit 'LnCNJe7TSPUJmnoLQiqEHMqf4i4STPsygyfEFbU_yjQ'.
+System.AggregateException: One or more errors occurred. (InvalidCharacterError: String contains an invalid character)
+ ---> System.InvalidOperationException: InvalidCharacterError: String contains an invalid character
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.InvokeRenderCompletedCallsAfterUpdateDisplayTask(Task updateDisplayTask, Int32[] updatedComponents)
+   --- End of inner exception stack trace ---

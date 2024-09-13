@@ -9,6 +9,12 @@ public class CacheService
         _redis = redis;
     }
 
+    public void FlushRedisDatabase()
+    {
+        var server = _redis.GetServer(_redis.GetEndPoints().First());
+        server.FlushDatabase();
+    }
+
     public async Task CacheMirthConfigAsync(string key, string configJson)
     {
         if (string.IsNullOrEmpty(key)) throw new RedisCommandException("Key cannot be null or empty.");

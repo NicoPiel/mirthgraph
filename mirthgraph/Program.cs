@@ -62,7 +62,8 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     var logger = sp.GetRequiredService<ILogger<Program>>();
     try
     {
-        return ConnectionMultiplexer.Connect(redisConnection);
+        if (builder.Environment.IsDevelopment()) return ConnectionMultiplexer.Connect(redisConnection + ", allowAdmin=true");
+        else return ConnectionMultiplexer.Connect(redisConnection);
     }
     catch (Exception ex)
     {
@@ -118,12 +119,14 @@ using (var scope = app.Services.CreateScope())
     var graphsService = services.GetRequiredService<GraphsService>();
     var dbContext = services.GetRequiredService<DbService>();
 
+    if (app.Environment.IsDevelopment()) cacheService.FlushRedisDatabase();
+
     var connections = await dbContext.MirthConnections.ToListAsync();
     foreach (var connection in connections)
     {
         var configContent = await configService.FetchFromMirthAsync(connection, connection.Name);
         await cacheService.CacheMirthConfigAsync(connection.Name, configContent);
-        await graphsService.BuildGraphDataAsync(connection.Name);
+        await graphsService.GetGraphDataAsync(connection.Name);
     }
 }
 

@@ -6,7 +6,7 @@
 @inject IJSRuntime JSRuntime
 
 <h3>@configName</h3>
-<div id="graph" style="width: 100%; height: 600px;"></div>
+<div id="graph"></div>
 
 @code {
     [Parameter]
@@ -19,7 +19,6 @@
         if (!string.IsNullOrEmpty(configName))
         {
             var graphData = await GraphsService.GetGraphDataAsync(configName);
-
             await JSRuntime.InvokeVoidAsync("graphInterop.initializeGraph", "graph", graphData);
         }
     }

@@ -1,0 +1,119 @@
+2024-09-12 11:17:56.884 +00:00 [INF] HTTP Response Code: OK
+2024-09-12 11:19:02.235 +00:00 [WRN] Unhandled exception ren2024-09-12 11:19:02.235 +00:00 [WRN] Unhandled exception rendering component: Cannot find component with Name Name
+System.InvalidOperationException: Cannot find component with Name Name
+   at Radzen.Blazor.ValidatorBase.ValidateModel(Object sender, ValidationRequestedEventArgs args)
+   at Microsoft.AspNetCore.Components.Forms.EditContext.Validate()
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 11:19:02.252 +00:00 [ERR] Unhandled exception in 2024-09-12 11:19:02.252 +00:00 [ERR] Unhandled exception in circuit 'XJRZXlmJLBlXf4cDSe3-OWkEuSyL6KGDpTGzSKql95w'.
+System.InvalidOperationException: Cannot find component with Name Name
+   at Radzen.Blazor.ValidatorBase.ValidateModel(Object sender, ValidationRequestedEventArgs args)
+   at Microsoft.AspNetCore.Components.Forms.EditContext.Validate()
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 11:19:59.228 +00:00 [WRN] Unhandled exception ren2024-09-12 11:19:59.228 +00:00 [WRN] Unhandled exception rendering component: Cannot find component with Name Name
+System.InvalidOperationException: Cannot find component with Name Name
+   at Radzen.Blazor.ValidatorBase.ValidateModel(Object sender, ValidationRequestedEventArgs args)
+   at Microsoft.AspNetCore.Components.Forms.EditContext.Validate()
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 11:19:59.229 +00:00 [ERR] Unhandled exception in 2024-09-12 11:19:59.229 +00:00 [ERR] Unhandled exception in circuit 'BjaI5pTyE76yrB_XED5EA6WQ1CJ7Ej-sIivJskh6S-U'.
+System.InvalidOperationException: Cannot find component with Name Name
+   at Radzen.Blazor.ValidatorBase.ValidateModel(Object sender, ValidationRequestedEventArgs args)
+   at Microsoft.AspNetCore.Components.Forms.EditContext.Validate()
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-12 11:20:13.104 +00:00 [INF] HTTP Response Code: OK
+2024-09-12 11:20:18.215 +00:00 [WRN] Unhandled exception ren2024-09-12 11:20:18.215 +00:00 [WRN] Unhandled exception rendering component: Failed to fetch config from Mirth Connect
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.EditConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\EditConnection.razor:line 49
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 11:20:18.236 +00:00 [ERR] Unhandled exception in 2024-09-12 11:20:18.236 +00:00 [ERR] Unhandled exception in circuit 'mzQRL9CaHGSGQxoPZH3iIwZv9LeXNxZg_oK0zR_ZLew'.
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.EditConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\EditConnection.razor:line 49
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-09-12 19:21:31.440 +00:00 [INF] HTTP Response Code: OK
+2024-09-12 19:21:48.998 +00:00 [WRN] Unhandled exception ren2024-09-12 19:21:48.998 +00:00 [WRN] Unhandled exception rendering component: Failed to fetch config from Mirth Connect
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.EditConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\EditConnection.razor:line 48
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 19:21:49.014 +00:00 [ERR] Unhandled exception in 2024-09-12 19:21:49.014 +00:00 [ERR] Unhandled exception in circuit 'GY0yeDnRTr4SBf8JSZYoVNrTzWswl7VlIprSKDVipok'.
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.EditConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\EditConnection.razor:line 48
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 19:22:13.951 +00:00 [INF] HTTP Response Code: OK
+2024-09-12 19:26:07.620 +00:00 [WRN] Unhandled exception ren2024-09-12 19:26:07.620 +00:00 [WRN] Unhandled exception rendering component: Failed to fetch config from Mirth Connect
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.AddConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\AddConnection.razor:line 39
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 19:26:07.623 +00:00 [ERR] Unhandled exception in 2024-09-12 19:26:07.623 +00:00 [ERR] Unhandled exception in circuit 'yTSjjMWtKvrCsEeUSBH_e9CDh1EFtVIDO9cazchWMLA'.
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.AddConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\AddConnection.razor:line 39
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 19:27:15.311 +00:00 [WRN] Unhandled exception ren2024-09-12 19:27:15.311 +00:00 [WRN] Unhandled exception rendering component: Failed to fetch config from Mirth Connect
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.AddConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\AddConnection.razor:line 39
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledT2024-09-12 19:27:15.313 +00:00 [ERR] Unhandled exception in 2024-09-12 19:27:15.313 +00:00 [ERR] Unhandled exception in circuit 'hJeztHLgTVzq-fyR6Jo2kBLsPxyfPAAQG1BUHWw7xlM'.
+System.Exception: Failed to fetch config from Mirth Connect
+ ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 401 (Unauthorized).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 76
+   --- End of inner exception stack trace ---
+   at MirthConfigService.FetchFromMirthAsync(MirthConnection connection, String configName) in C:\dev\mirthgraph\mirthgraph\Services\MirthConfigService.cs:line 86
+   at mirthgraph.Components.Pages.Settings.AddConnection.SaveConnection() in C:\dev\mirthgraph\mirthgraph\Components\Pages\Settings\AddConnection.razor:line 39
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Radzen.Blazor.RadzenTemplateForm`1.OnSubmit()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)

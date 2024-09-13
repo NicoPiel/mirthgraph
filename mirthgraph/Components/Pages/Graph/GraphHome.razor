@@ -2,40 +2,45 @@
 
 @inject MirthConfigService ConfigService
 
-<RadzenSidebar @bind-Expanded="_drawerLeft" Width="250px" Breakpoint="Breakpoint.Sm" Style="position: fixed;">
-    <RadzenPanelMenu>
-        @if (mirthConfigs != null)
-        {
-            @foreach (var config in mirthConfigs)
+<RadzenLayout Style="position: relative">
+    <RadzenHeader Style="background-color: #343a40; color: white;">
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <RadzenSidebarToggle Click="@ToggleSidebar" />
+        </RadzenStack>
+    </RadzenHeader>
+    <RadzenSidebar @bind-Expanded="_drawerLeft">
+        <RadzenPanelMenu>
+            @if (mirthConnections != null)
             {
-                <RadzenPanelMenuItem Text="@config" Icon="settings" Click="() => LoadGraph(config)" />
+                @foreach (var connection in mirthConnections)
+                {
+                    <RadzenPanelMenuItem Text="@connection.Name" Icon="settings" Click="() => LoadGraph(connection.Name)" />
+                }
             }
-        }
-        else
-        {
-            <RadzenPanelMenuItem Text="Loading..." Icon="hourglass_empty" />
-        }
-    </RadzenPanelMenu>
-</RadzenSidebar>
+            else
+            {
+                <RadzenPanelMenuItem Text="Loading..." Icon="hourglass_empty" />
+            }
+        </RadzenPanelMenu>
+    </RadzenSidebar>
 
-<RadzenSidebarToggle Click="ToggleSidebar" />
-
-<div class="content" style="padding-left: 260px; padding-top: 20px;">
-    <h3>Graph Visualization</h3>
-    <div id="graph-container" style="height: 500px;">
-        <GraphComponent configName="@selectedConfig" />
-    </div>
-</div>
+    <RadzenBody>
+        <h3>Graph Visualization</h3>
+        <div id="graph-container">
+            <GraphComponent configName="@selectedConnection" />
+        </div>
+    </RadzenBody>
+</RadzenLayout>
 
 @code {
     private bool _drawerLeft = false;
-    private List<string>? mirthConfigs;
-    private string selectedConfig;
+    private List<MirthConnection>? mirthConnections;
+    private string selectedConnection;
 
     protected override async Task OnInitializedAsync()
     {
         _drawerLeft = false;
-        mirthConfigs = ConfigService.GetAllMirthConfigs();
+        mirthConnections = await ConfigService.GetAllMirthConnectionsAsync();
     }
 
     void ToggleSidebar()
@@ -43,8 +48,8 @@
         _drawerLeft = !_drawerLeft;
     }
 
-    void LoadGraph(string configName)
+    void LoadGraph(string connectionName)
     {
-        selectedConfig = configName;
+        selectedConnection = connectionName;
     }
 }
