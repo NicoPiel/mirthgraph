@@ -2,52 +2,68 @@
 
 @inject MirthConfigService ConfigService
 
+<!-- RadzenLayout provides the overall layout structure -->
 <RadzenLayout Style="position: relative">
+    <!-- RadzenHeader displays the header with a sidebar toggle -->
     <RadzenHeader Style="background-color: #343a40; color: white;">
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <!-- RadzenSidebarToggle is the button to toggle the sidebar -->
             <RadzenSidebarToggle Click="@ToggleSidebar" />
         </RadzenStack>
     </RadzenHeader>
+    <!-- RadzenSidebar is the left-hand navigation sidebar -->
     <RadzenSidebar @bind-Expanded="_drawerLeft">
         <RadzenPanelMenu>
+            <!-- Dynamically renders a menu item for each Mirth connection -->
             @if (mirthConnections != null)
             {
                 @foreach (var connection in mirthConnections)
                 {
+                    <!-- Each menu item loads the graph for the selected connection -->
                     <RadzenPanelMenuItem Text="@connection.Name" Icon="settings" Click="() => LoadGraph(connection.Name)" />
                 }
             }
             else
             {
+                <!-- Displays a loading indicator while fetching connections -->
                 <RadzenPanelMenuItem Text="Loading..." Icon="hourglass_empty" />
             }
         </RadzenPanelMenu>
     </RadzenSidebar>
 
+    <!-- RadzenBody contains the main content area -->
     <RadzenBody>
         <h3>Graph Visualization</h3>
+        <!-- Container for the graph visualization component -->
         <div id="graph-container">
+            <!-- GraphComponent displays the graph data -->
             <GraphComponent configName="@selectedConnection" />
         </div>
     </RadzenBody>
 </RadzenLayout>
 
 @code {
+    // Variable to track the sidebar's expanded state
     private bool _drawerLeft = false;
+    // List to store the Mirth connections
     private List<MirthConnection>? mirthConnections;
+    // Stores the currently selected connection name
     private string selectedConnection;
 
+    // Fetches Mirth connections on component initialization
     protected override async Task OnInitializedAsync()
     {
         _drawerLeft = false;
         mirthConnections = await ConfigService.GetAllMirthConnectionsAsync();
     }
 
+    // Toggles the sidebar's expanded state
     void ToggleSidebar()
     {
         _drawerLeft = !_drawerLeft;
     }
 
+    // Sets the selected connection and updates the graph
     void LoadGraph(string connectionName)
     {
         selectedConnection = connectionName;
