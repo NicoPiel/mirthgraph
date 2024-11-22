@@ -1,6 +1,6 @@
 ﻿window.graphInterop = {
     initializeGraph: function (elementId, graphData) {
-        // console.log("Initializing graph with data:", graphData); // Debugging statement
+        console.log("Initializing graph with data:", graphData); // Debugging statement
         if (!graphData || !graphData.nodes || !graphData.links) {
             graphData = JSON.parse(graphData);
             if (!graphData) console.error("graphData empty", graphData);
@@ -8,6 +8,9 @@
             if (!graphData.links) console.error("graphData.links empty", graphData.links);
             // console.error("Invalid graphData structure:\n", graphData);
             return;
+        }
+        else {
+            graphData = JSON.parse(graphData);
         }
 
         const Graph = ForceGraph()(document.getElementById(elementId))

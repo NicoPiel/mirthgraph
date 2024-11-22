@@ -5,12 +5,12 @@ services:
       context: mirthgraph
       dockerfile: Dockerfile
     ports:
-    - "9001:8081"
+      - "9001:8081"
     depends_on:
-    - redis
-    - postgres
+      - redis
+      - postgres
     extra_hosts:
-    - "host.docker.internal:host-gateway"
+      - "host.docker.internal:host-gateway"
   redis:
     image: redis:latest
     ports:
@@ -28,11 +28,10 @@ services:
     ports:
       - "9003:5540"
     depends_on:
-    - redis
+      - redis
   adminer:
     image: adminer
-    restart: always
     ports:
-      - 9002:8080
+      - "9002:8080"
     depends_on:
-    - postgres
+      - postgres

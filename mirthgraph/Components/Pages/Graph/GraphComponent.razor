@@ -1,20 +1,20 @@
 ﻿@page "/graph/{configName}"
 @using Microsoft.EntityFrameworkCore
-@inject MirthConfigService ConfigService // Inject the MirthConfigService
-@inject DbService DbContext // Inject the database service
-@inject GraphsService GraphsService // Inject the graph service
-@inject IJSRuntime JSRuntime // Inject the IJSRuntime for interoperability with JavaScript
+@inject MirthConfigService ConfigService
+@inject DbService DbContext
+@inject GraphsService GraphsService
+@inject IJSRuntime JSRuntime
 
 <h3>@configName</h3>
 <div id="graph"></div>
 
 @code {
+
     // Parameter to receive the configName from the route
-    [Parameter]
-    public string configName { get; set; } 
+    [Parameter] public string configName { get; set; }
 
     // Variable to store the config content (not currently used)
-    private string configContent; 
+    private string configContent;
 
     // Variable to store the first connection (not currently used)
     private MirthConnection? firstConnection;
@@ -31,4 +31,5 @@
             await JSRuntime.InvokeVoidAsync("graphInterop.initializeGraph", "graph", graphData);
         }
     }
+
 }
