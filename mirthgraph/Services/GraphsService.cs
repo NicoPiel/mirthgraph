@@ -3,13 +3,15 @@ using Newtonsoft.Json.Serialization;
 using StackExchange.Redis;
 using System.Xml.Linq;
 
-class GraphsService
+// Service for retrieving and processing graph data from Mirth Connect configurations.
+public class GraphsService
 {
-    private readonly IConnectionMultiplexer _redis;
-    private readonly ILogger<GraphsService> _logger;
-    private readonly IDatabase _db;
-    private readonly MirthConfigService _mirthConfigService;
+    private readonly IConnectionMultiplexer _redis; // Redis connection multiplexer
+    private readonly ILogger<GraphsService> _logger; // Logger for logging messages
+    private readonly IDatabase _db; // Redis database instance
+    private readonly MirthConfigService _mirthConfigService; // Service for retrieving Mirth Connect configurations
 
+    // Constructor for the GraphsService class.
     public GraphsService(IConnectionMultiplexer redis, ILogger<GraphsService> logger, MirthConfigService mirthConfigService)
     {
         _redis = redis;
@@ -18,23 +20,32 @@ class GraphsService
         _mirthConfigService = mirthConfigService;
     }
 
+    // Retrieves graph data for a given connection name.  Checks the cache first.
     public async Task<string> GetGraphDataAsync(string connectionName)
     {
+        // Check if graph data is already cached.
         var cachedData = await _db.StringGetAsync($"graphData:{connectionName}");
         if (!cachedData.IsNullOrEmpty)
         {
+            // Return cached data if available.
             return cachedData;
         }
 
+        // Build graph data if not cached.
         var graphData = await BuildGraphDataAsync(connectionName);
+        // Cache the built graph data.
         await _db.StringSetAsync($"graphData:{connectionName}", graphData);
         return graphData;
     }
 
+    // Builds graph data from a Mirth Connect configuration.
     public async Task<string> BuildGraphDataAsync(string connectionName)
     {
+        // Retrieve Mirth Connect configuration for the given connection name.
         var xmlConfig = await _mirthConfigService.GetMirthConfigAsync(connectionName);
+        // Parse the XML configuration to extract graph data.
         var graphData = ParseMirthConfig(xmlConfig);
+        // Configure JSON serializer settings for camel case naming.
         var serializerSettings = new JsonSerializerSettings();
         serializerSettings.ContractResolver = new DefaultContractResolver
         {
@@ -44,21 +55,25 @@ class GraphsService
                 OverrideSpecifiedNames = true
             }
         };
+        // Serialize the graph data to JSON.
         var json = JsonConvert.SerializeObject(graphData, Formatting.Indented, serializerSettings);
 
-        // _logger.LogDebug($"Graph data for {connectionName}:\n{json}");
+        // _logger.LogDebug($"Graph data for {connectionName}:\n{json}"); // Uncomment for debugging
 
         return json;
     }
 
+    // Parses Mirth Connect XML configuration and extracts graph data.
     private GraphData ParseMirthConfig(string xmlString)
     {
+        // Create a new GraphData object to store the parsed data.
         var graphData = new GraphData
         {
             Nodes = new List<Node>(),
             Links = new List<Link>()
         };
 
+        // Add a default node for unhandled connectors.
         const string OTHER = "OTHER";
 
         graphData.Nodes.Add(new Node
@@ -71,17 +86,23 @@ class GraphsService
             Tags = new List<string>()
         });
 
+        // Parse the XML string into an XDocument.
         var xml = XDocument.Parse(xmlString);
+        // Select all channel elements from the XML document.
         var channels = xml.Descendants("channel");
 
+        // Iterate over each channel element.
         foreach (var channel in channels)
         {
+            // Extract channel information.
             var channelId = channel.Element("id")?.Value;
             var channelName = channel.Element("name")?.Value;
             var channelDescription = channel.Element("description")?.Value;
 
+            // Check if channel ID is available.
             if (channelId != null)
             {
+                // Add a node for the channel.
                 graphData.Nodes.Add(new Node
                 {
                     Id = channelId,
@@ -93,12 +114,14 @@ class GraphsService
                     Tags = new List<string>()
                 });
 
+                // Process source connectors for the channel.
                 var sourceConnectors = channel.Elements("sourceConnector");
                 foreach (var sourceConnector in sourceConnectors)
                 {
                     var sourceConnectorProperties = sourceConnector.Element("properties");
                     var transportName = sourceConnector.Element("transportName")?.Value;
 
+                    // Handle different transport types.
                     switch (transportName)
                     {
                         case "TCP Listener":
@@ -132,13 +155,16 @@ class GraphsService
         return graphData;
     }
 
+    // Adds a TCP Listener node and link to the graph data.
     private void TcpListenerNodeAndLink(GraphData graphData, string channelId, XElement sourceConnectorProperties, XElement sourceConnector)
     {
+        // Extract TCP Listener properties.
         var tcpListenerConnectorProperties = sourceConnectorProperties?.Element("listenerConnectorProperties");
         var tcpListenerHost = tcpListenerConnectorProperties?.Element("host")?.Value;
         var tcpListenerPort = tcpListenerConnectorProperties?.Element("port")?.Value;
         var tcpListenerID = $"{tcpListenerHost}:{tcpListenerPort}";
 
+        // Add TCP Listener node if it doesn't exist.
         if (!graphData.Nodes.Any(node => node.Id == tcpListenerID))
         {
             graphData.Nodes.Add(new Node
@@ -151,6 +177,7 @@ class GraphsService
             });
         }
 
+        // Add a link from the TCP Listener to the channel.
         graphData.Links.Add(new Link
         {
             Source = tcpListenerID,
@@ -160,13 +187,16 @@ class GraphsService
         });
     }
 
+    // Adds an HTTP Listener node and link to the graph data.
     private void HttpListenerNodeAndLink(GraphData graphData, string channelId, XElement sourceConnectorProperties, XElement sourceConnector)
     {
+        // Extract HTTP Listener properties.
         var httpListenerConnectorProperties = sourceConnectorProperties?.Element("listenerConnectorProperties");
         var httpListenerHost = httpListenerConnectorProperties?.Element("host")?.Value;
         var httpListenerPort = httpListenerConnectorProperties?.Element("port")?.Value;
         var httpListenerID = $"{httpListenerHost}:{httpListenerPort}";
 
+        // Add HTTP Listener node if it doesn't exist.
         if (!graphData.Nodes.Any(node => node.Id == httpListenerID))
         {
             graphData.Nodes.Add(new Node
@@ -179,6 +209,7 @@ class GraphsService
             });
         }
 
+        // Add a link from the HTTP Listener to the channel.
         graphData.Links.Add(new Link
         {
             Source = httpListenerID,
@@ -188,11 +219,14 @@ class GraphsService
         });
     }
 
+    // Adds a Database Reader node and link to the graph data.
     private void DatabaseReaderNodeAndLink(GraphData graphData, string channelId, XElement sourceConnectorProperties, XElement sourceConnector)
     {
+        // Extract Database Reader properties.
         var dbReaderID = sourceConnectorProperties?.Element("url")?.Value;
         var dbHost = dbReaderID?.Split(new[] { '@', '/' }, StringSplitOptions.RemoveEmptyEntries).ElementAtOrDefault(1);
 
+        // Add Database Host node if it doesn't exist.
         if (!graphData.Nodes.Any(node => node.Id == dbHost))
         {
             graphData.Nodes.Add(new Node
@@ -206,6 +240,7 @@ class GraphsService
             });
         }
 
+        // Add Database Reader node if it doesn't exist.
         if (!graphData.Nodes.Any(node => node.Id == dbReaderID))
         {
             graphData.Nodes.Add(new Node
@@ -218,6 +253,7 @@ class GraphsService
             });
         }
 
+        // Add links from the Database Host to the Database Reader and from the Database Reader to the channel.
         graphData.Links.Add(new Link
         {
             Source = dbHost,
@@ -235,10 +271,13 @@ class GraphsService
         });
     }
 
+    // Adds a File Reader node and link to the graph data.
     private void FileReaderNodeAndLink(GraphData graphData, string channelId, XElement sourceConnectorProperties, XElement sourceConnector)
     {
+        // Extract File Reader properties.
         var fileReaderPath = sourceConnectorProperties?.Element("host")?.Value;
 
+        // Add File Reader node if it doesn't exist.
         if (!graphData.Nodes.Any(node => node.Id == fileReaderPath))
         {
             graphData.Nodes.Add(new Node
@@ -251,6 +290,7 @@ class GraphsService
             });
         }
 
+        // Add a link from the File Reader to the channel.
         graphData.Links.Add(new Link
         {
             Source = fileReaderPath,
@@ -260,11 +300,14 @@ class GraphsService
         });
     }
 
+    // Adds a DICOM Listener node and link to the graph data.
     private void DicomListenerNodeAndLink(GraphData graphData, string channelId, XElement sourceConnectorProperties, XElement sourceConnector)
     {
+        // Extract DICOM Listener properties.
         var dicomListenerConnectorProperties = sourceConnectorProperties?.Element("listenerConnectorProperties");
         var dicomListenerID = $"{sourceConnectorProperties?.Element("applicationEntity")?.Value}:{dicomListenerConnectorProperties?.Element("port")?.Value}";
 
+        // Add DICOM Listener node if it doesn't exist.
         if (!graphData.Nodes.Any(node => node.Id == dicomListenerID))
         {
             graphData.Nodes.Add(new Node
@@ -277,6 +320,7 @@ class GraphsService
             });
         }
 
+        // Add a link from the DICOM Listener to the channel.
         graphData.Links.Add(new Link
         {
             Source = dicomListenerID,
@@ -287,13 +331,15 @@ class GraphsService
     }
 }
 
-class GraphData
+// Represents the graph data structure.
+public class GraphData
 {
     public List<Node> Nodes { get; set; }
     public List<Link> Links { get; set; }
 }
 
-class Node
+// Represents a node in the graph.
+public class Node
 {
     public string Id { get; set; }
     public string Name { get; set; }
@@ -304,7 +350,8 @@ class Node
     public List<string> Tags { get; set; }
 }
 
-class Link
+// Represents a link between nodes in the graph.
+public class Link
 {
     public string Source { get; set; }
     public string Target { get; set; }
