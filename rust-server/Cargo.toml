@@ -13,8 +13,8 @@ chrono = { version = "0.4", features = ["serde"] }
 uuid = { version = "1", features = ["serde", "v4"] }
 regress = "0.10"
 api = { path = "api" }
-axum = "0.8.7"
-tokio = "1.48.0"
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1.48", features = ["full"] }
 
 [build-dependencies]
 prettyplease = "0.2"
