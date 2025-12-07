@@ -31,8 +31,6 @@ Mirth Graph is a web application that uses force graphs to visualise a Mirth's c
   - If desired, also replace DEV with PROD.
 - In the root directory (NOT in `/server` or `/frontend`) deploy with `docker compose -f docker-compose.yml up -d --build`.
 
-
-
 ## GERMAN
 
 ### DEV SETUP
