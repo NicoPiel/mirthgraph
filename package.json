@@ -1,0 +1,12 @@
+{
+  "name": "mirthgraph",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Nico Piel <nicopiel@mailbox.org>",
+  "private": true,
+  "license": "UNLICENSED",
+  "workspaces": [
+    "frontend/*",
+    "server/*"
+  ]
+}

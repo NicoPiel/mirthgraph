@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A Quasar Project",
   "productName": "MirthGraph",
-  "author": "Nico Piel",
+  "author": "Nico Piel <nicopiel@mailbox.org>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",

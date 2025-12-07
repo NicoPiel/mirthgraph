@@ -1,8 +1,9 @@
-import { CACHE_MANAGER, Inject, Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import * as xml2js from 'xml2js';
 import { Cache } from 'cache-manager';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
 
 @Injectable()
 export class PortsService {
@@ -95,7 +96,7 @@ export class PortsService {
     await this.cacheManager.set(
       `serverConfiguration:ports:${serverType}`,
       await this.buildPortsDataWithXMLCache(serverType),
-      { ttl: 43200 }, // 12 hours
+      43200, // 12 hours
     );
 
     Logger.log('Created new ports cache.');
@@ -115,7 +116,7 @@ export class PortsService {
     await this.cacheManager.set(
       `serverConfiguration:xml:${serverType}`,
       JSON.stringify(await this.getData(process.env[serverType])),
-      { ttl: 43200 }, // 12 hours
+      43200, // 12 hours
     );
 
     Logger.log('Created new XML cache.');
