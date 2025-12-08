@@ -1,5 +1,13 @@
 import { MirthInstance } from '../types';
 import { Trash2, Edit3 } from 'lucide-react';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface InstanceListProps {
     instances: MirthInstance[];
@@ -23,41 +31,41 @@ export function InstanceList({
     return (
         <div className="space-y-4">
             {instances.map((instance) => (
-                <div
+                <Card
                     key={instance.id}
-                    className="flex items-center justify-between rounded-2xl border bg-card/80 px-4 py-3 shadow-sm ring-1 ring-inset ring-border transition hover:border-primary"
+                    className="transition-colors hover:border-primary"
                 >
-                    <button
-                        type="button"
-                        className="flex-1 cursor-pointer space-y-0.5 text-left"
-                        onClick={() => onEdit(instance)}
-                    >
-                        <p className="text-base font-semibold text-foreground">
-                            {instance.name}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                            {instance.url}
-                        </p>
-                    </button>
-                    <div className="flex items-center gap-2">
-                        <button
-                            type="button"
-                            className="rounded-full p-2 text-slate-500 transition hover:text-slate-900 dark:hover:text-white"
-                            aria-label="Edit instance"
+                    <CardContent className="flex items-center justify-between p-6">
+                        <div
+                            className="flex-1 cursor-pointer space-y-1"
                             onClick={() => onEdit(instance)}
                         >
-                            <Edit3 className="h-4 w-4" />
-                        </button>
-                        <button
-                            type="button"
-                            className="rounded-full p-2 text-slate-500 transition hover:text-red-500"
-                            aria-label="Delete instance"
-                            onClick={() => onDelete(instance.id)}
-                        >
-                            <Trash2 className="h-4 w-4" />
-                        </button>
-                    </div>
-                </div>
+                            <CardTitle className="text-base">
+                                {instance.name}
+                            </CardTitle>
+                            <CardDescription>{instance.url}</CardDescription>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => onEdit(instance)}
+                                aria-label="Edit instance"
+                            >
+                                <Edit3 className="h-4 w-4" />
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className="text-muted-foreground hover:text-destructive"
+                                onClick={() => onDelete(instance.id)}
+                                aria-label="Delete instance"
+                            >
+                                <Trash2 className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
             ))}
         </div>
     );

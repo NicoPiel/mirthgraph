@@ -1,8 +1,16 @@
 import React from 'react';
 import { useGraphStore } from '../store/useGraphStore';
 import { GraphData } from '../domain/types';
-import { X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import {
+    Sheet,
+    SheetContent,
+    SheetHeader,
+    SheetTitle,
+    SheetDescription,
+} from '@/components/ui/sheet';
+import { Badge } from '@/components/ui/badge';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Separator } from '@/components/ui/separator';
 
 interface NodeDetailsProps {
     data: GraphData;
@@ -12,85 +20,86 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
     const { selectedNodeId, isSidebarOpen, setSidebarOpen, setSelectedNodeId } =
         useGraphStore();
 
-    if (!isSidebarOpen || !selectedNodeId) {
-        return null;
-    }
+    const node = selectedNodeId
+        ? data.nodes.find((n) => n.id === selectedNodeId)
+        : null;
 
-    const node = data.nodes.find((n) => n.id === selectedNodeId);
+    const handleOpenChange = (open: boolean) => {
+        setSidebarOpen(open);
+        if (!open) {
+            setSelectedNodeId(null);
+        }
+    };
 
     if (!node) {
         return null;
     }
 
-    const handleClose = () => {
-        setSidebarOpen(false);
-        setSelectedNodeId(null);
-    };
-
     return (
-        <div className="absolute top-0 right-0 h-full w-80 bg-white dark:bg-gray-800 shadow-lg border-l border-gray-200 dark:border-gray-700 overflow-y-auto z-10">
-            <div className="p-4">
-                <div className="flex justify-between items-center mb-4">
-                    <h2
-                        className="text-xl font-bold text-gray-900 dark:text-white truncate"
-                        title={node.name}
-                    >
-                        {node.name}
-                    </h2>
-                    <Button variant="ghost" size="icon" onClick={handleClose}>
-                        <X className="h-4 w-4" />
-                    </Button>
-                </div>
+        <Sheet
+            open={isSidebarOpen}
+            onOpenChange={handleOpenChange}
+            modal={false}
+        >
+            <SheetContent
+                side="right"
+                className="w-[400px] sm:w-[540px] p-0"
+                onInteractOutside={(e) => e.preventDefault()}
+            >
+                <ScrollArea className="h-full">
+                    <div className="p-6">
+                        <SheetHeader className="mb-6">
+                            <SheetTitle className="text-2xl font-bold break-words">
+                                {node.name}
+                            </SheetTitle>
+                            <SheetDescription>{node.group}</SheetDescription>
+                        </SheetHeader>
 
-                <div className="space-y-4">
-                    <div>
-                        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            Group
-                        </h3>
-                        <p className="text-gray-900 dark:text-white">
-                            {node.group}
-                        </p>
-                    </div>
+                        <div className="space-y-6">
+                            {node.description && (
+                                <div className="space-y-2">
+                                    <h3 className="text-sm font-medium text-muted-foreground">
+                                        Description
+                                    </h3>
+                                    <p className="text-sm whitespace-pre-wrap leading-relaxed">
+                                        {node.description}
+                                    </p>
+                                </div>
+                            )}
 
-                    {node.description && (
-                        <div>
-                            <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                Description
-                            </h3>
-                            <p className="text-gray-900 dark:text-white whitespace-pre-wrap">
-                                {node.description}
-                            </p>
-                        </div>
-                    )}
+                            {node.tags && node.tags.length > 0 && (
+                                <div className="space-y-2">
+                                    <h3 className="text-sm font-medium text-muted-foreground">
+                                        Tags
+                                    </h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {node.tags.map((tag) => (
+                                            <Badge
+                                                key={tag}
+                                                variant="secondary"
+                                                className="px-2 py-1"
+                                            >
+                                                {tag}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
 
-                    {node.tags && node.tags.length > 0 && (
-                        <div>
-                            <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                Tags
-                            </h3>
-                            <div className="flex flex-wrap gap-2 mt-1">
-                                {node.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full dark:bg-blue-900 dark:text-blue-200"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
+                            <Separator />
+
+                            <div className="space-y-2">
+                                <h3 className="text-sm font-medium text-muted-foreground">
+                                    System ID
+                                </h3>
+                                <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-semibold">
+                                    {node.id}
+                                </code>
                             </div>
                         </div>
-                    )}
-
-                    <div>
-                        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            ID
-                        </h3>
-                        <p className="text-xs text-gray-500 font-mono break-all">
-                            {node.id}
-                        </p>
                     </div>
-                </div>
-            </div>
-        </div>
+                </ScrollArea>
+            </SheetContent>
+        </Sheet>
     );
 };

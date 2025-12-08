@@ -3,6 +3,8 @@ import { zodValidator } from '@tanstack/zod-form-adapter';
 import { z } from 'zod';
 import { MirthInstance } from '../types';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 const instanceSchema = z.object({
     name: z.string().min(1, 'Name is required'),
@@ -52,19 +54,13 @@ export function InstanceForm({
                 name="name"
                 children={(field) => (
                     <div className="space-y-2">
-                        <label
-                            htmlFor={field.name}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            Name
-                        </label>
-                        <input
+                        <Label htmlFor={field.name}>Name</Label>
+                        <Input
                             id={field.name}
                             name={field.name}
                             value={field.state.value}
                             onBlur={field.handleBlur}
                             onChange={(e) => field.handleChange(e.target.value)}
-                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                         />
                         {field.state.meta.errors ? (
                             <p className="text-sm font-medium text-destructive">
@@ -79,19 +75,13 @@ export function InstanceForm({
                 name="url"
                 children={(field) => (
                     <div className="space-y-2">
-                        <label
-                            htmlFor={field.name}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            URL
-                        </label>
-                        <input
+                        <Label htmlFor={field.name}>URL</Label>
+                        <Input
                             id={field.name}
                             name={field.name}
                             value={field.state.value}
                             onBlur={field.handleBlur}
                             onChange={(e) => field.handleChange(e.target.value)}
-                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                         />
                         {field.state.meta.errors ? (
                             <p className="text-sm font-medium text-destructive">
@@ -106,19 +96,13 @@ export function InstanceForm({
                 name="username"
                 children={(field) => (
                     <div className="space-y-2">
-                        <label
-                            htmlFor={field.name}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            Username
-                        </label>
-                        <input
+                        <Label htmlFor={field.name}>Username</Label>
+                        <Input
                             id={field.name}
                             name={field.name}
                             value={field.state.value}
                             onBlur={field.handleBlur}
                             onChange={(e) => field.handleChange(e.target.value)}
-                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                         />
                         {field.state.meta.errors ? (
                             <p className="text-sm font-medium text-destructive">
@@ -133,20 +117,14 @@ export function InstanceForm({
                 name="password"
                 children={(field) => (
                     <div className="space-y-2">
-                        <label
-                            htmlFor={field.name}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            Password
-                        </label>
-                        <input
+                        <Label htmlFor={field.name}>Password</Label>
+                        <Input
                             id={field.name}
                             name={field.name}
                             type="password"
                             value={field.state.value}
                             onBlur={field.handleBlur}
                             onChange={(e) => field.handleChange(e.target.value)}
-                            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                         />
                         {field.state.meta.errors ? (
                             <p className="text-sm font-medium text-destructive">

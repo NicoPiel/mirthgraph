@@ -1,6 +1,15 @@
 import React from 'react';
 import { useGraphStore } from '../store/useGraphStore';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
+import { Slider } from '@/components/ui/slider';
+import { Label } from '@/components/ui/label';
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover';
 import { Settings2, Search, X } from 'lucide-react';
 
 export const GraphControls: React.FC = () => {
@@ -12,17 +21,15 @@ export const GraphControls: React.FC = () => {
         resetFilters,
     } = useGraphStore();
 
-    const [showSettings, setShowSettings] = React.useState(false);
-
     return (
         <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
-            <div className="bg-white dark:bg-gray-800 p-2 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 flex items-center gap-2">
-                <div className="relative">
-                    <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                    <input
+            <div className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-2 rounded-lg shadow-md border flex items-center gap-2">
+                <div className="relative w-64">
+                    <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
                         type="text"
                         placeholder="Search nodes..."
-                        className="pl-8 pr-4 py-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        className="pl-8 pr-8 h-9"
                         value={filterCriteria.searchTerm}
                         onChange={(e) =>
                             setFilterCriteria({ searchTerm: e.target.value })
@@ -33,99 +40,106 @@ export const GraphControls: React.FC = () => {
                             onClick={() =>
                                 setFilterCriteria({ searchTerm: '' })
                             }
-                            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
                         >
                             <X className="h-3 w-3" />
                         </button>
                     )}
                 </div>
 
-                <Button
-                    variant={showSettings ? 'secondary' : 'ghost'}
-                    size="icon"
-                    onClick={() => setShowSettings(!showSettings)}
-                    title="Graph Settings"
-                >
-                    <Settings2 className="h-4 w-4" />
-                </Button>
-            </div>
+                <Popover>
+                    <PopoverTrigger asChild>
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            title="Graph Settings"
+                        >
+                            <Settings2 className="h-4 w-4" />
+                        </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-80" align="start">
+                        <div className="grid gap-4">
+                            <div className="space-y-2">
+                                <h4 className="font-medium leading-none">
+                                    Display Settings
+                                </h4>
+                                <p className="text-sm text-muted-foreground">
+                                    Customize how the graph looks.
+                                </p>
+                            </div>
+                            <div className="grid gap-4">
+                                <div className="flex items-center justify-between">
+                                    <Label htmlFor="show-labels">
+                                        Show Labels
+                                    </Label>
+                                    <Switch
+                                        id="show-labels"
+                                        checked={graphSettings.showLabels}
+                                        onCheckedChange={(checked) =>
+                                            setGraphSettings({
+                                                showLabels: checked,
+                                            })
+                                        }
+                                    />
+                                </div>
 
-            {showSettings && (
-                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 w-64">
-                    <h3 className="font-medium mb-3 text-sm text-gray-900 dark:text-white">
-                        Display Settings
-                    </h3>
+                                <div className="flex items-center justify-between">
+                                    <Label htmlFor="show-directionality">
+                                        Show Directionality
+                                    </Label>
+                                    <Switch
+                                        id="show-directionality"
+                                        checked={
+                                            graphSettings.showDirectionality
+                                        }
+                                        onCheckedChange={(checked) =>
+                                            setGraphSettings({
+                                                showDirectionality: checked,
+                                            })
+                                        }
+                                    />
+                                </div>
 
-                    <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-700 dark:text-gray-300">
-                                Show Labels
-                            </label>
-                            <input
-                                type="checkbox"
-                                checked={graphSettings.showLabels}
-                                onChange={(e) =>
-                                    setGraphSettings({
-                                        showLabels: e.target.checked,
-                                    })
-                                }
-                                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                            />
-                        </div>
+                                <div className="space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        <Label>Node Size</Label>
+                                        <span className="text-xs text-muted-foreground">
+                                            {graphSettings.nodeSize}px
+                                        </span>
+                                    </div>
+                                    <Slider
+                                        min={1}
+                                        max={20}
+                                        step={1}
+                                        value={[graphSettings.nodeSize]}
+                                        onValueChange={(value) =>
+                                            setGraphSettings({
+                                                nodeSize: value[0],
+                                            })
+                                        }
+                                    />
+                                </div>
 
-                        <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-700 dark:text-gray-300">
-                                Show Directionality
-                            </label>
-                            <input
-                                type="checkbox"
-                                checked={graphSettings.showDirectionality}
-                                onChange={(e) =>
-                                    setGraphSettings({
-                                        showDirectionality: e.target.checked,
-                                    })
-                                }
-                                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="text-sm text-gray-700 dark:text-gray-300 block mb-1">
-                                Node Size
-                            </label>
-                            <input
-                                type="range"
-                                min="1"
-                                max="20"
-                                value={graphSettings.nodeSize}
-                                onChange={(e) =>
-                                    setGraphSettings({
-                                        nodeSize: parseInt(e.target.value),
-                                    })
-                                }
-                                className="w-full"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="text-sm text-gray-700 dark:text-gray-300 block mb-1">
-                                Link Thickness
-                            </label>
-                            <input
-                                type="range"
-                                min="1"
-                                max="10"
-                                value={graphSettings.linkThickness}
-                                onChange={(e) =>
-                                    setGraphSettings({
-                                        linkThickness: parseInt(e.target.value),
-                                    })
-                                }
-                                className="w-full"
-                            />
-                        </div>
-
-                        <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+                                <div className="space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        <Label>Link Thickness</Label>
+                                        <span className="text-xs text-muted-foreground">
+                                            {graphSettings.linkThickness}px
+                                        </span>
+                                    </div>
+                                    <Slider
+                                        min={1}
+                                        max={10}
+                                        step={1}
+                                        value={[graphSettings.linkThickness]}
+                                        onValueChange={(value) =>
+                                            setGraphSettings({
+                                                linkThickness: value[0],
+                                            })
+                                        }
+                                    />
+                                </div>
+                            </div>
                             <Button
                                 variant="outline"
                                 size="sm"
@@ -135,9 +149,9 @@ export const GraphControls: React.FC = () => {
                                 Reset All
                             </Button>
                         </div>
-                    </div>
-                </div>
-            )}
+                    </PopoverContent>
+                </Popover>
+            </div>
         </div>
     );
 };
