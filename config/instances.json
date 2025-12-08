@@ -1,11 +1,3 @@
 {
-  "instances": [
-    {
-      "id": "local-dev",
-      "name": "Local Development",
-      "url": "https://localhost:8443/api",
-      "username": "admin",
-      "password": "admin"
-    }
-  ]
+  "instances": []
 }
