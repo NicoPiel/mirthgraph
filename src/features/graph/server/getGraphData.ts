@@ -24,7 +24,8 @@ export const getGraphData = createServerFn({ method: 'GET' })
                 throw new Error('No data received from server configuration');
             }
 
-            return transformer.buildGraphData(data as ServerConfiguration);
+            const normalizedConfig = normalizeServerConfiguration(data);
+            return transformer.buildGraphData(normalizedConfig);
         } catch (error) {
             console.error('Error in getGraphData:', error);
             // Return empty graph data or rethrow depending on desired error handling
@@ -32,3 +33,51 @@ export const getGraphData = createServerFn({ method: 'GET' })
             throw error;
         }
     });
+
+function normalizeServerConfiguration(data: any): ServerConfiguration {
+    // Handle the case where the response is wrapped in "serverConfiguration"
+    const config = data.serverConfiguration ? data.serverConfiguration : data;
+
+    // Helper to normalize array fields that might be wrapped in an object
+    const normalizeArray = (field: any, itemKey: string) => {
+        if (!field) return [];
+        if (Array.isArray(field)) return field;
+        if (field[itemKey]) {
+            if (Array.isArray(field[itemKey])) {
+                return field[itemKey];
+            } else {
+                return [field[itemKey]];
+            }
+        }
+        return [];
+    };
+
+    // Create a shallow copy to avoid mutating the original data if it matters
+    const normalized = { ...config };
+
+    normalized.channels = normalizeArray(config.channels, 'channel');
+
+    // Normalize destinationConnectors for each channel
+    if (normalized.channels) {
+        normalized.channels.forEach((channel: any) => {
+            channel.destinationConnectors = normalizeArray(
+                channel.destinationConnectors,
+                'connector',
+            );
+        });
+    }
+
+    normalized.channelTags = normalizeArray(config.channelTags, 'channelTag');
+    normalized.channelGroups = normalizeArray(
+        config.channelGroups,
+        'channelGroup',
+    );
+    normalized.alerts = normalizeArray(config.alerts, 'alert');
+    normalized.users = normalizeArray(config.users, 'user');
+    normalized.codeTemplateLibraries = normalizeArray(
+        config.codeTemplateLibraries,
+        'codeTemplateLibrary',
+    );
+
+    return normalized as ServerConfiguration;
+}
