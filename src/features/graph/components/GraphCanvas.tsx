@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useGraphStore } from '../store/useGraphStore';
 import { ForceGraphMethods } from 'react-force-graph-2d';
+import { useTheme } from '@/components/theme-provider';
 
 // Dynamically import ForceGraph2D to avoid SSR issues
 const ForceGraph2D = React.lazy(() =>
@@ -25,6 +26,7 @@ interface ForceGraphNode extends GraphNode {
 export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
     const { setSelectedNodeId, setSidebarOpen, graphSettings } =
         useGraphStore();
+    const { theme } = useTheme();
 
     const graphRef = useRef<ForceGraphMethods | undefined>(undefined);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -107,10 +109,16 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
         return { nodes, links };
     }, [data, filterCriteria]);
 
+    const isDark =
+        theme === 'dark' ||
+        (theme === 'system' &&
+            typeof window !== 'undefined' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches);
+
     return (
         <div
             ref={containerRef}
-            className="w-full h-full bg-gray-50 dark:bg-gray-900 overflow-hidden"
+            className="w-full h-full bg-background overflow-hidden"
         >
             <React.Suspense fallback={<div>Loading graph...</div>}>
                 <ForceGraph2D
@@ -146,8 +154,9 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
                     }}
                     nodeRelSize={graphSettings.nodeSize}
                     linkWidth={graphSettings.linkThickness}
-                    linkDirectionalParticles={
-                        graphSettings.showDirectionality ? 2 : 0
+                    linkColor={() => (isDark ? '#555' : '#999')}
+                    linkDirectionalArrowLength={
+                        graphSettings.showDirectionality ? 10 : 0
                     }
                     linkDirectionalParticleSpeed={0.005}
                     onNodeClick={handleNodeClick}
@@ -155,6 +164,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
                     cooldownTicks={100}
                     d3AlphaDecay={0.02}
                     d3VelocityDecay={0.3}
+                    backgroundColor={isDark ? '#000000' : '#ffffff'}
                 />
             </React.Suspense>
         </div>

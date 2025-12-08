@@ -8,6 +8,8 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { TanStackDevtools } from '@tanstack/react-devtools';
 import { InstanceSwitcher } from '@/app/components/InstanceSwitcher';
+import { ThemeProvider } from '@/components/theme-provider';
+import { ModeToggle } from '@/components/mode-toggle';
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
 
@@ -83,6 +85,7 @@ function RootComponent() {
                             <div className="w-full flex-1 md:w-auto md:flex-none">
                                 <InstanceSwitcher />
                             </div>
+                            <ModeToggle />
                         </div>
                     </div>
                 </header>
@@ -96,25 +99,27 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className="dark">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <HeadContent />
             </head>
             <body>
-                {children}
-                <TanStackDevtools
-                    config={{
-                        position: 'bottom-right',
-                    }}
-                    plugins={[
-                        {
-                            name: 'Tanstack Router',
-                            render: <TanStackRouterDevtoolsPanel />,
-                        },
-                        TanStackQueryDevtools,
-                    ]}
-                />
-                <Scripts />
+                <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+                    {children}
+                    <TanStackDevtools
+                        config={{
+                            position: 'bottom-right',
+                        }}
+                        plugins={[
+                            {
+                                name: 'Tanstack Router',
+                                render: <TanStackRouterDevtoolsPanel />,
+                            },
+                            TanStackQueryDevtools,
+                        ]}
+                    />
+                    <Scripts />
+                </ThemeProvider>
             </body>
         </html>
     );
