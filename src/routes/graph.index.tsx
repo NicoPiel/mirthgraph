@@ -3,6 +3,7 @@ import { getGraphData } from '@/features/graph/server/getGraphData';
 import { GraphCanvas } from '@/features/graph/components/GraphCanvas';
 import { NodeDetails } from '@/features/graph/components/NodeDetails';
 import { GraphControls } from '@/features/graph/components/GraphControls';
+import { ClientOnly } from '@/app/components/ClientOnly';
 
 export const Route = createFileRoute('/graph/')({
     component: GraphComponent,
@@ -16,7 +17,9 @@ function GraphComponent() {
 
     return (
         <div className="relative w-full h-[calc(100vh-4rem)] overflow-hidden">
-            <GraphCanvas data={data} />
+            <ClientOnly>
+                <GraphCanvas data={data} />
+            </ClientOnly>
             <GraphControls />
             <NodeDetails data={data} />
         </div>

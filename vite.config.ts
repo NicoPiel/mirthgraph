@@ -6,6 +6,12 @@ import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 import { nitro } from 'nitro/vite'
 
+// Only apply this in development to avoid security risks in production
+if (process.env.NODE_ENV === 'development') {
+  // Disables SSL verification for the Node process (Server Functions)
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+}
+
 const config = defineConfig({
   plugins: [
     devtools(),
@@ -15,7 +21,7 @@ const config = defineConfig({
       projects: ['./tsconfig.json'],
     }),
     tailwindcss(),
-    tanstackStart(),
+    process.env.VITEST ? undefined : tanstackStart(),
     viteReact({
       babel: {
         plugins: ['babel-plugin-react-compiler'],

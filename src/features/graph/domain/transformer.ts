@@ -261,19 +261,19 @@ function processConnector(
         }
         case 'SMTP Sender': {
             const to = properties.to?.toLowerCase();
-            const regex =
-                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            // Simple regex for email validation
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (to) {
                 const emails = to.split(',');
                 emails.forEach((email: string) => {
                     email = email.trim().toLowerCase();
-                    if (email.search(regex) !== -1) {
+                    if (regex.test(email)) {
                         addNodeIfNotExists({
                             id: email,
                             name: 'SMTP: ' + email,
                             val: 1,
-                            group: transportName,
+                            group: 'SMTP Sender',
                             tags: [],
                         });
 

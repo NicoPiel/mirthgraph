@@ -5,7 +5,8 @@ import { join } from 'path';
 import type { paths as EngineApi } from '@/lib/index';
 import type { InstanceConfig, MirthInstance } from '@/features/settings/types';
 
-const instancesFile = join(process.cwd(), 'server', 'config', 'instances.json');
+const instancesFile = join(process.cwd(), 'config', 'instances.json');
+console.log('Loading instances from:', instancesFile);
 
 const clientCache = new Map<
     string,
@@ -15,8 +16,11 @@ const clientCache = new Map<
 async function loadInstanceConfig(): Promise<InstanceConfig> {
     try {
         const file = await readFile(instancesFile, 'utf-8');
-        return JSON.parse(file) as InstanceConfig;
+        const config = JSON.parse(file) as InstanceConfig;
+        console.log('Loaded config:', JSON.stringify(config, null, 2));
+        return config;
     } catch (error: unknown) {
+        console.error('Error loading config:', error);
         if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
             return { instances: [] };
         }

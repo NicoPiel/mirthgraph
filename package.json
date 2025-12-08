@@ -62,6 +62,7 @@
     "prettier": "^3.5.3",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
+    "vite-plugin-mkcert": "^1.17.9",
     "vitest": "^3.0.5",
     "web-vitals": "^5.1.0"
   },
