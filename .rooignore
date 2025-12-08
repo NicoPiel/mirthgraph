@@ -1,6 +1,5 @@
 node_modules/
+**/node_modules/
 *.log
-server/
-frontend/
-build/
+**/build/
 dist/
