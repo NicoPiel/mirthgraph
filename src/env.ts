@@ -37,3 +37,16 @@ export const env = createEnv({
    */
   emptyStringAsUndefined: true,
 })
+
+// Server-side environment variables
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      readonly USER: string,
+      readonly PASSWORD: string,
+      readonly INSTANCE_URL: string
+    }
+  }
+}
+
+export {}
