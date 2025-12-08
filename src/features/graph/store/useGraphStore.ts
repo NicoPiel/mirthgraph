@@ -18,7 +18,7 @@ interface GraphState {
     isSidebarOpen: boolean;
     filterCriteria: FilterCriteria;
     graphSettings: GraphSettings;
-    
+
     // Actions
     setSelectedNodeId: (id: string | null) => void;
     setSidebarOpen: (isOpen: boolean) => void;
@@ -48,7 +48,7 @@ export const useGraphStore = create<GraphState>((set) => ({
 
     setSelectedNodeId: (id) => set({ selectedNodeId: id }),
     setSidebarOpen: (isOpen) => set({ isSidebarOpen: isOpen }),
-    setFilterCriteria: (criteria) => 
+    setFilterCriteria: (criteria) =>
         set((state) => ({
             filterCriteria: { ...state.filterCriteria, ...criteria },
         })),

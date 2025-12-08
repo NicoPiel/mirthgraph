@@ -297,7 +297,7 @@ function processConnector(
                             target: to,
                             enabled: enabled,
                             group: 'Unreadable ' + transportName,
-                            });
+                        });
                     }
                 });
             }
@@ -400,35 +400,39 @@ function addRouterNodesAndLinks(
         // TODO: Implement full parsing logic if needed, for now just basic regex matching
         // The original code had more complex logic to parse the script line by line
         // For this migration, we'll stick to the core logic structure.
-        
+
         // Simplified implementation for now to match the structure
         let match;
         while ((match = regexName.exec(script)) !== null) {
-             const targetChannelName = match[1];
-             const targetChannel = allChannels.find(c => c.name === targetChannelName);
-             if (targetChannel) {
-                 gData.links.push({
-                     source: sourceId,
-                     target: targetChannel.id!,
-                     group: 'Router',
-                     enabled: 1
-                 });
-             }
+            const targetChannelName = match[1];
+            const targetChannel = allChannels.find(
+                (c) => c.name === targetChannelName,
+            );
+            if (targetChannel) {
+                gData.links.push({
+                    source: sourceId,
+                    target: targetChannel.id!,
+                    group: 'Router',
+                    enabled: 1,
+                });
+            }
         }
 
         while ((match = regexID.exec(script)) !== null) {
             const targetChannelId = match[1];
-             const targetChannel = allChannels.find(c => c.id === targetChannelId);
-             if (targetChannel) {
-                 gData.links.push({
-                     source: sourceId,
-                     target: targetChannelId,
-                     group: 'Router',
-                     enabled: 1
-                 });
-             }
+            const targetChannel = allChannels.find(
+                (c) => c.id === targetChannelId,
+            );
+            if (targetChannel) {
+                gData.links.push({
+                    source: sourceId,
+                    target: targetChannelId,
+                    group: 'Router',
+                    enabled: 1,
+                });
+            }
         }
     };
-    
+
     getChannelNameOrID();
 }

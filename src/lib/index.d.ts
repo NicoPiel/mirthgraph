@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    "/connectors/doc/_testWrite": {
+    '/connectors/doc/_testWrite': {
         parameters: {
             query?: never;
             header?: never;
@@ -14,14 +14,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Tests whether a file can be written to the specified directory. */
-        post: operations["testWrite"];
+        post: operations['testWrite'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/file/_testRead": {
+    '/connectors/file/_testRead': {
         parameters: {
             query?: never;
             header?: never;
@@ -31,14 +31,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Tests whether a file can be read from the specified directory. */
-        post: operations["testRead"];
+        post: operations['testRead'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/file/_testWrite": {
+    '/connectors/file/_testWrite': {
         parameters: {
             query?: never;
             header?: never;
@@ -48,14 +48,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Tests whether a file can be written to the specified directory. */
-        post: operations["testWrite_1"];
+        post: operations['testWrite_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/http/_testConnection": {
+    '/connectors/http/_testConnection': {
         parameters: {
             query?: never;
             header?: never;
@@ -65,14 +65,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Tests whether a connection can be successfully established to the destination endpoint. */
-        post: operations["testConnection"];
+        post: operations['testConnection'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/jdbc/_getTables": {
+    '/connectors/jdbc/_getTables': {
         parameters: {
             query?: never;
             header?: never;
@@ -82,14 +82,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Executes a query to retrieve database table metadata. */
-        post: operations["getTables"];
+        post: operations['getTables'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/jms/templates": {
+    '/connectors/jms/templates': {
         parameters: {
             query?: never;
             header?: never;
@@ -97,7 +97,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves JMS connector settings templates. */
-        get: operations["getTemplates"];
+        get: operations['getTemplates'];
         put?: never;
         post?: never;
         delete?: never;
@@ -106,7 +106,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/connectors/jms/templates/{templateName}": {
+    '/connectors/jms/templates/{templateName}': {
         parameters: {
             query?: never;
             header?: never;
@@ -114,18 +114,18 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves a single JMS connector settings template. */
-        get: operations["getTemplate"];
+        get: operations['getTemplate'];
         /** Creates or updates a JMS connector settings template. */
-        put: operations["saveTemplate"];
+        put: operations['saveTemplate'];
         post?: never;
         /** Creates or updates a JMS connector settings template. */
-        delete: operations["deleteTemplate"];
+        delete: operations['deleteTemplate'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/smtp/_sendTestEmail": {
+    '/connectors/smtp/_sendTestEmail': {
         parameters: {
             query?: never;
             header?: never;
@@ -135,14 +135,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Sends a test e-mail, replacing any connector properties first. */
-        post: operations["sendTestEmail"];
+        post: operations['sendTestEmail'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/tcp/_testConnection": {
+    '/connectors/tcp/_testConnection': {
         parameters: {
             query?: never;
             header?: never;
@@ -152,14 +152,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Tests whether a connection can be successfully established to the destination endpoint. */
-        post: operations["testConnection_1"];
+        post: operations['testConnection_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/ws/_testConnection": {
+    '/connectors/ws/_testConnection': {
         parameters: {
             query?: never;
             header?: never;
@@ -169,14 +169,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Tests whether a connection can be successfully established to the destination endpoint. */
-        post: operations["testConnection_2"];
+        post: operations['testConnection_2'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/ws/_cacheWsdlFromUrl": {
+    '/connectors/ws/_cacheWsdlFromUrl': {
         parameters: {
             query?: never;
             header?: never;
@@ -186,14 +186,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Downloads the WSDL at the specified URL and caches the web service definition tree. */
-        post: operations["cacheWsdlFromUrl"];
+        post: operations['cacheWsdlFromUrl'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/ws/_isWsdlCached": {
+    '/connectors/ws/_isWsdlCached': {
         parameters: {
             query?: never;
             header?: never;
@@ -203,14 +203,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns true if the definition tree for the WSDL is cached by the server. */
-        post: operations["isWsdlCached"];
+        post: operations['isWsdlCached'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/ws/_generateEnvelope": {
+    '/connectors/ws/_generateEnvelope': {
         parameters: {
             query?: never;
             header?: never;
@@ -220,14 +220,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Generate SOAP envelope for a given WSDL operation. */
-        post: operations["generateEnvelope"];
+        post: operations['generateEnvelope'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/ws/_getSoapAction": {
+    '/connectors/ws/_getSoapAction': {
         parameters: {
             query?: never;
             header?: never;
@@ -237,14 +237,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieves the default SOAP Action (URI string) for a given WSDL operation. */
-        post: operations["getSoapAction"];
+        post: operations['getSoapAction'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/connectors/ws/_getDefinition": {
+    '/connectors/ws/_getDefinition': {
         parameters: {
             query?: never;
             header?: never;
@@ -254,14 +254,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieves the definition service map corresponding to the specified WSDL. */
-        post: operations["getDefinition"];
+        post: operations['getDefinition'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/dashboardstatus/connectorStates": {
+    '/extensions/dashboardstatus/connectorStates': {
         parameters: {
             query?: never;
             header?: never;
@@ -269,7 +269,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves all dashboard connector states. */
-        get: operations["getConnectorStateMap"];
+        get: operations['getConnectorStateMap'];
         put?: never;
         post?: never;
         delete?: never;
@@ -278,7 +278,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/dashboardstatus/connectionLogs/{channelId}": {
+    '/extensions/dashboardstatus/connectionLogs/{channelId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -286,7 +286,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves connection logs for a specific channel. */
-        get: operations["getChannelLog"];
+        get: operations['getChannelLog'];
         put?: never;
         post?: never;
         delete?: never;
@@ -295,7 +295,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/dashboardstatus/channelStates": {
+    '/extensions/dashboardstatus/channelStates': {
         parameters: {
             query?: never;
             header?: never;
@@ -303,7 +303,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves all dashboard channel states. */
-        get: operations["getChannelStates"];
+        get: operations['getChannelStates'];
         put?: never;
         post?: never;
         delete?: never;
@@ -312,7 +312,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/dashboardstatus/channelStates/{channelId}": {
+    '/extensions/dashboardstatus/channelStates/{channelId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -320,7 +320,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves a single dashboard channel state. */
-        get: operations["getChannelState"];
+        get: operations['getChannelState'];
         put?: never;
         post?: never;
         delete?: never;
@@ -329,7 +329,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/dashboardstatus/connectionLogs": {
+    '/extensions/dashboardstatus/connectionLogs': {
         parameters: {
             query?: never;
             header?: never;
@@ -337,7 +337,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves connection logs for all channels. */
-        get: operations["getAllChannelLogs"];
+        get: operations['getAllChannelLogs'];
         put?: never;
         post?: never;
         delete?: never;
@@ -346,7 +346,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/datapruner/status": {
+    '/extensions/datapruner/status': {
         parameters: {
             query?: never;
             header?: never;
@@ -354,7 +354,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves the current data pruner status. */
-        get: operations["getStatusMap"];
+        get: operations['getStatusMap'];
         put?: never;
         post?: never;
         delete?: never;
@@ -363,7 +363,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/datapruner/_start": {
+    '/extensions/datapruner/_start': {
         parameters: {
             query?: never;
             header?: never;
@@ -373,14 +373,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Starts the data pruner on-demand. */
-        post: operations["start"];
+        post: operations['start'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/datapruner/_stop": {
+    '/extensions/datapruner/_stop': {
         parameters: {
             query?: never;
             header?: never;
@@ -390,14 +390,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Stops the data pruner if currently running. */
-        post: operations["stop"];
+        post: operations['stop'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/directoryresource/resources/{resourceId}/libraries": {
+    '/extensions/directoryresource/resources/{resourceId}/libraries': {
         parameters: {
             query?: never;
             header?: never;
@@ -405,7 +405,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves all library URLs for the given directory resource. */
-        get: operations["getLibraries"];
+        get: operations['getLibraries'];
         put?: never;
         post?: never;
         delete?: never;
@@ -414,7 +414,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/globalmapviewer/maps/all": {
+    '/extensions/globalmapviewer/maps/all': {
         parameters: {
             query?: never;
             header?: never;
@@ -422,7 +422,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves global and/or global channel map information. */
-        get: operations["getAllMaps"];
+        get: operations['getAllMaps'];
         put?: never;
         post?: never;
         delete?: never;
@@ -431,7 +431,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/globalmapviewer/maps/_getAllMaps": {
+    '/extensions/globalmapviewer/maps/_getAllMaps': {
         parameters: {
             query?: never;
             header?: never;
@@ -441,14 +441,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieves global and/or global channel map information. This is a POST request alternative to GET /maps/all that may be used when there are too many channel IDs to include in the query parameters. */
-        post: operations["getAllMapsPost"];
+        post: operations['getAllMapsPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/globalmapviewer/maps/{channelId}": {
+    '/extensions/globalmapviewer/maps/{channelId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -456,7 +456,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves global channel map information for a single channel. */
-        get: operations["getGlobalChannelMap"];
+        get: operations['getGlobalChannelMap'];
         put?: never;
         post?: never;
         delete?: never;
@@ -465,7 +465,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/globalmapviewer/maps/global": {
+    '/extensions/globalmapviewer/maps/global': {
         parameters: {
             query?: never;
             header?: never;
@@ -473,7 +473,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves global map information. */
-        get: operations["getGlobalMap"];
+        get: operations['getGlobalMap'];
         put?: never;
         post?: never;
         delete?: never;
@@ -482,7 +482,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/serverlog": {
+    '/extensions/serverlog': {
         parameters: {
             query?: never;
             header?: never;
@@ -490,7 +490,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves server log entries. */
-        get: operations["getServerLogs"];
+        get: operations['getServerLogs'];
         put?: never;
         post?: never;
         delete?: never;
@@ -499,7 +499,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/alerts/_getAlerts": {
+    '/alerts/_getAlerts': {
         parameters: {
             query?: never;
             header?: never;
@@ -509,14 +509,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieves multiple alerts by ID, or all alerts if not specified. This is a POST request alternative to GET /alerts that may be used when there are too many alert IDs to include in the query parameters. */
-        post: operations["getAlertsPost"];
+        post: operations['getAlertsPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/alerts/_getInfo": {
+    '/alerts/_getInfo': {
         parameters: {
             query?: never;
             header?: never;
@@ -526,14 +526,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns an AlertInfo object containing alert protocol options and any updated channel summaries. */
-        post: operations["getAlertInfo"];
+        post: operations['getAlertInfo'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/alerts/{alertId}/_getInfo": {
+    '/alerts/{alertId}/_getInfo': {
         parameters: {
             query?: never;
             header?: never;
@@ -543,14 +543,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns an AlertInfo object containing the alert model, alert protocol options, and any updated channel summaries. */
-        post: operations["getAlertInfo_1"];
+        post: operations['getAlertInfo_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/alerts/options": {
+    '/alerts/options': {
         parameters: {
             query?: never;
             header?: never;
@@ -558,7 +558,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all alert protocol options. */
-        get: operations["getAlertProtocolOptions"];
+        get: operations['getAlertProtocolOptions'];
         put?: never;
         post?: never;
         delete?: never;
@@ -567,7 +567,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/alerts": {
+    '/alerts': {
         parameters: {
             query?: never;
             header?: never;
@@ -575,17 +575,17 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves multiple alerts by ID, or all alerts if not specified. */
-        get: operations["getAlerts"];
+        get: operations['getAlerts'];
         put?: never;
         /** Creates a new alert. */
-        post: operations["createAlert"];
+        post: operations['createAlert'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/alerts/statuses": {
+    '/alerts/statuses': {
         parameters: {
             query?: never;
             header?: never;
@@ -593,7 +593,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all alert dashboard statuses. */
-        get: operations["getAlertStatusList"];
+        get: operations['getAlertStatusList'];
         put?: never;
         post?: never;
         delete?: never;
@@ -602,7 +602,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/alerts/{alertId}/_enable": {
+    '/alerts/{alertId}/_enable': {
         parameters: {
             query?: never;
             header?: never;
@@ -612,14 +612,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Enables the specified alert. */
-        post: operations["enableAlert"];
+        post: operations['enableAlert'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/alerts/{alertId}/_disable": {
+    '/alerts/{alertId}/_disable': {
         parameters: {
             query?: never;
             header?: never;
@@ -629,14 +629,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Disables the specified alert. */
-        post: operations["disableAlert"];
+        post: operations['disableAlert'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/alerts/{alertId}": {
+    '/alerts/{alertId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -644,18 +644,18 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves an alert by ID. */
-        get: operations["getAlert"];
+        get: operations['getAlert'];
         /** Updates the specified alert. */
-        put: operations["updateAlert"];
+        put: operations['updateAlert'];
         post?: never;
         /** Removes the specified alert. */
-        delete: operations["removeAlert"];
+        delete: operations['removeAlert'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channelgroups/_getChannelGroups": {
+    '/channelgroups/_getChannelGroups': {
         parameters: {
             query?: never;
             header?: never;
@@ -665,14 +665,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieve a list of all channel groups, or multiple channel groups by ID. This is a POST request alternative to GET /channelgroups that may be used when there are too many channel group IDs to include in the query parameters. */
-        post: operations["getChannelGroupsPost"];
+        post: operations['getChannelGroupsPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channelgroups": {
+    '/channelgroups': {
         parameters: {
             query?: never;
             header?: never;
@@ -680,7 +680,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieve a list of all channel groups, or multiple channel groups by ID. */
-        get: operations["getChannelGroups"];
+        get: operations['getChannelGroups'];
         put?: never;
         post?: never;
         delete?: never;
@@ -689,7 +689,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channelgroups/_bulkUpdate": {
+    '/channelgroups/_bulkUpdate': {
         parameters: {
             query?: never;
             header?: never;
@@ -699,14 +699,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Updates all channel groups in one request. ("Try it out" doesn't work for this endpoint, but the descriptions are valid. Please use another tool for testing.) */
-        post: operations["updateChannelGroups"];
+        post: operations['updateChannelGroups'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_getChannels": {
+    '/channels/_getChannels': {
         parameters: {
             query?: never;
             header?: never;
@@ -716,14 +716,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieve a list of all channels, or multiple channels by ID. This is a POST request alternative to GET /channels that may be used when there are too many channel IDs to include in the query parameters. */
-        post: operations["getChannelsPost"];
+        post: operations['getChannelsPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/idsAndNames": {
+    '/channels/idsAndNames': {
         parameters: {
             query?: never;
             header?: never;
@@ -731,7 +731,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a map of all channel IDs and names. */
-        get: operations["getChannelIdsAndNames"];
+        get: operations['getChannelIdsAndNames'];
         put?: never;
         post?: never;
         delete?: never;
@@ -740,7 +740,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/portsInUse": {
+    '/channels/portsInUse': {
         parameters: {
             query?: never;
             header?: never;
@@ -748,7 +748,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a list of all listener ports in use throughout the channels. */
-        get: operations["getChannelPortsInUse"];
+        get: operations['getChannelPortsInUse'];
         put?: never;
         post?: never;
         delete?: never;
@@ -757,7 +757,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/_removeChannels": {
+    '/channels/_removeChannels': {
         parameters: {
             query?: never;
             header?: never;
@@ -767,14 +767,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Removes the channels with the specified IDs. This is a POST request alternative to DELETE /channels that may be used when there are too many channel IDs to include in the query parameters. */
-        post: operations["removeChannelsPost"];
+        post: operations['removeChannelsPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}": {
+    '/channels/{channelId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -782,18 +782,18 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieve a single channel by ID. */
-        get: operations["getChannel"];
+        get: operations['getChannel'];
         /** Updates the specified channel. */
-        put: operations["updateChannel"];
+        put: operations['updateChannel'];
         post?: never;
         /** Removes the channel with the specified ID. */
-        delete: operations["removeChannel"];
+        delete: operations['removeChannel'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels": {
+    '/channels': {
         parameters: {
             query?: never;
             header?: never;
@@ -801,18 +801,18 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieve a list of all channels, or multiple channels by ID. */
-        get: operations["getChannels"];
+        get: operations['getChannels'];
         put?: never;
         /** Creates a new channel. */
-        post: operations["createChannel"];
+        post: operations['createChannel'];
         /** Removes the channels with the specified IDs. */
-        delete: operations["removeChannels"];
+        delete: operations['removeChannels'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/metaDataColumns": {
+    '/channels/{channelId}/metaDataColumns': {
         parameters: {
             query?: never;
             header?: never;
@@ -820,7 +820,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all metadata columns for a channel. */
-        get: operations["getMetaDataColumns"];
+        get: operations['getMetaDataColumns'];
         put?: never;
         post?: never;
         delete?: never;
@@ -829,7 +829,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/_getSummary": {
+    '/channels/_getSummary': {
         parameters: {
             query?: never;
             header?: never;
@@ -839,14 +839,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns a list of channel summaries, indicating to a client which channels have changed (been updated, deleted, undeployed, etc.). If a channel was modified, the entire Channel object will be returned. */
-        post: operations["getChannelSummary"];
+        post: operations['getChannelSummary'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/enabled/{enabled}": {
+    '/channels/{channelId}/enabled/{enabled}': {
         parameters: {
             query?: never;
             header?: never;
@@ -856,14 +856,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Enables/disables the specified channel. */
-        post: operations["setChannelEnabled"];
+        post: operations['setChannelEnabled'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_setEnabled": {
+    '/channels/_setEnabled': {
         parameters: {
             query?: never;
             header?: never;
@@ -873,14 +873,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Enables/disables the specified channels. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["setChannelEnabled_1"];
+        post: operations['setChannelEnabled_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/initialState/{initialState}": {
+    '/channels/{channelId}/initialState/{initialState}': {
         parameters: {
             query?: never;
             header?: never;
@@ -890,14 +890,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Sets the initial state for a single channel. */
-        post: operations["setChannelInitialState"];
+        post: operations['setChannelInitialState'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_setInitialState": {
+    '/channels/_setInitialState': {
         parameters: {
             query?: never;
             header?: never;
@@ -907,14 +907,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Sets the initial state for the specified channels. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["setChannelInitialState_1"];
+        post: operations['setChannelInitialState_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/connectorNames": {
+    '/channels/{channelId}/connectorNames': {
         parameters: {
             query?: never;
             header?: never;
@@ -922,7 +922,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all connector names for a channel. */
-        get: operations["getConnectorNames"];
+        get: operations['getConnectorNames'];
         put?: never;
         post?: never;
         delete?: never;
@@ -931,7 +931,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/statistics/_getStatistics": {
+    '/channels/statistics/_getStatistics': {
         parameters: {
             query?: never;
             header?: never;
@@ -941,14 +941,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns the Statistics for all channels. This is a POST request alternative to GET /statistics that may be used when there are too many channel IDs to include in the query parameters. */
-        post: operations["getStatisticsPost"];
+        post: operations['getStatisticsPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_clearAllStatistics": {
+    '/channels/_clearAllStatistics': {
         parameters: {
             query?: never;
             header?: never;
@@ -958,14 +958,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Clears all statistics (including lifetime) for all channels/connectors. */
-        post: operations["clearAllStatistics"];
+        post: operations['clearAllStatistics'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/statistics": {
+    '/channels/statistics': {
         parameters: {
             query?: never;
             header?: never;
@@ -973,7 +973,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the Statistics for all channels. */
-        get: operations["getStatistics"];
+        get: operations['getStatistics'];
         put?: never;
         post?: never;
         delete?: never;
@@ -982,7 +982,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/statistics": {
+    '/channels/{channelId}/statistics': {
         parameters: {
             query?: never;
             header?: never;
@@ -990,7 +990,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the Statistics for the channel with the specified id. */
-        get: operations["getStatistics_1"];
+        get: operations['getStatistics_1'];
         put?: never;
         post?: never;
         delete?: never;
@@ -999,7 +999,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/_clearStatistics": {
+    '/channels/_clearStatistics': {
         parameters: {
             query?: never;
             header?: never;
@@ -1009,14 +1009,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Clears the statistics for the given channels and/or connectors. */
-        post: operations["clearStatistics"];
+        post: operations['clearStatistics'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/statuses/initial": {
+    '/channels/statuses/initial': {
         parameters: {
             query?: never;
             header?: never;
@@ -1024,7 +1024,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a DashboardChannelInfo object containing a partial channel status list and a set of remaining channel IDs. */
-        get: operations["getDashboardChannelInfo"];
+        get: operations['getDashboardChannelInfo'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1033,7 +1033,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_start": {
+    '/channels/{channelId}/_start': {
         parameters: {
             query?: never;
             header?: never;
@@ -1043,14 +1043,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Starts the channel with the specified ID. */
-        post: operations["startChannel"];
+        post: operations['startChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_stop": {
+    '/channels/{channelId}/_stop': {
         parameters: {
             query?: never;
             header?: never;
@@ -1060,14 +1060,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Stops the channel with the specified ID. */
-        post: operations["stopChannel"];
+        post: operations['stopChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_halt": {
+    '/channels/{channelId}/_halt': {
         parameters: {
             query?: never;
             header?: never;
@@ -1077,14 +1077,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Halts the channel with the specified ID. */
-        post: operations["haltChannel"];
+        post: operations['haltChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/statuses/_getChannelStatusList": {
+    '/channels/statuses/_getChannelStatusList': {
         parameters: {
             query?: never;
             header?: never;
@@ -1094,14 +1094,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns all channel dashboard statuses, or multiple statuses by channel ID. This is a POST request alternative to GET /statuses that may be used when there are too many channel IDs to include in the query parameters. */
-        post: operations["getChannelStatusListPost"];
+        post: operations['getChannelStatusListPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_pause": {
+    '/channels/{channelId}/_pause': {
         parameters: {
             query?: never;
             header?: never;
@@ -1111,14 +1111,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Pauses the channel with the specified ID. */
-        post: operations["pauseChannel"];
+        post: operations['pauseChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_resume": {
+    '/channels/{channelId}/_resume': {
         parameters: {
             query?: never;
             header?: never;
@@ -1128,14 +1128,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Resumes the channel with the specified ID. */
-        post: operations["resumeChannel"];
+        post: operations['resumeChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_startConnectors": {
+    '/channels/_startConnectors': {
         parameters: {
             query?: never;
             header?: never;
@@ -1145,14 +1145,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Starts the connectors with the specified channel and metadata IDs. */
-        post: operations["startConnectors"];
+        post: operations['startConnectors'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_stopConnectors": {
+    '/channels/_stopConnectors': {
         parameters: {
             query?: never;
             header?: never;
@@ -1162,14 +1162,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Stops the connectors with the specified channel and metadata IDs. */
-        post: operations["stopConnectors"];
+        post: operations['stopConnectors'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/statuses": {
+    '/channels/statuses': {
         parameters: {
             query?: never;
             header?: never;
@@ -1177,7 +1177,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all channel dashboard statuses, or multiple statuses by channel ID. */
-        get: operations["getChannelStatusList"];
+        get: operations['getChannelStatusList'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1186,7 +1186,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/_start": {
+    '/channels/_start': {
         parameters: {
             query?: never;
             header?: never;
@@ -1196,14 +1196,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Starts the channels with the specified IDs. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["startChannels"];
+        post: operations['startChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_stop": {
+    '/channels/_stop': {
         parameters: {
             query?: never;
             header?: never;
@@ -1213,14 +1213,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Stops the channels with the specified IDs. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["stopChannels"];
+        post: operations['stopChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_pause": {
+    '/channels/_pause': {
         parameters: {
             query?: never;
             header?: never;
@@ -1230,14 +1230,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Pauses the channels with the specified IDs. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["pauseChannels"];
+        post: operations['pauseChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_resume": {
+    '/channels/_resume': {
         parameters: {
             query?: never;
             header?: never;
@@ -1247,14 +1247,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Resume the channels with the specified IDs. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["resumeChannels"];
+        post: operations['resumeChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/connector/{metaDataId}/_start": {
+    '/channels/{channelId}/connector/{metaDataId}/_start': {
         parameters: {
             query?: never;
             header?: never;
@@ -1264,14 +1264,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Starts the connector with the specified channel and metadata ID. */
-        post: operations["startConnector"];
+        post: operations['startConnector'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/connector/{metaDataId}/_stop": {
+    '/channels/{channelId}/connector/{metaDataId}/_stop': {
         parameters: {
             query?: never;
             header?: never;
@@ -1281,14 +1281,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Stops the connector with the specified channel and metadata ID. */
-        post: operations["stopConnector"];
+        post: operations['stopConnector'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_halt": {
+    '/channels/_halt': {
         parameters: {
             query?: never;
             header?: never;
@@ -1298,14 +1298,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Halts the channels with the specified IDs. ("Try it Out" only works when submitting an array containing one element for this endpoint, but the descriptions are valid. If you want to modify multiple items at once, please use another tool for testing.) */
-        post: operations["haltChannels"];
+        post: operations['haltChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/status": {
+    '/channels/{channelId}/status': {
         parameters: {
             query?: never;
             header?: never;
@@ -1313,7 +1313,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the dashboard status for a single channel ID. */
-        get: operations["getChannelStatus"];
+        get: operations['getChannelStatus'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1322,7 +1322,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/codeTemplateLibraries/_getCodeTemplateLibraries": {
+    '/codeTemplateLibraries/_getCodeTemplateLibraries': {
         parameters: {
             query?: never;
             header?: never;
@@ -1332,14 +1332,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieves multiple code template libraries by ID, or all libraries if not specified. This is a POST request alternative to GET /codeTemplateLibraries that may be used when there are too many library IDs to include in the query parameters. */
-        post: operations["getCodeTemplateLibrariesPost"];
+        post: operations['getCodeTemplateLibrariesPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/codeTemplateLibraries/{libraryId}": {
+    '/codeTemplateLibraries/{libraryId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -1347,7 +1347,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves a single code template library. */
-        get: operations["getCodeTemplateLibrary"];
+        get: operations['getCodeTemplateLibrary'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1356,7 +1356,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/codeTemplateLibraries": {
+    '/codeTemplateLibraries': {
         parameters: {
             query?: never;
             header?: never;
@@ -1364,9 +1364,9 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves multiple code template libraries by ID, or all libraries if not specified. */
-        get: operations["getCodeTemplateLibraries"];
+        get: operations['getCodeTemplateLibraries'];
         /** Replaces all code template libraries. */
-        put: operations["updateCodeTemplateLibraries"];
+        put: operations['updateCodeTemplateLibraries'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1374,7 +1374,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/codeTemplates/_getCodeTemplates": {
+    '/codeTemplates/_getCodeTemplates': {
         parameters: {
             query?: never;
             header?: never;
@@ -1384,14 +1384,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Retrieves multiple code templates by ID, or all templates if not specified. This is a POST request alternative to GET /codeTemplates that may be used when there are too many code template IDs to include in the query parameters. */
-        post: operations["getCodeTemplatesPost"];
+        post: operations['getCodeTemplatesPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/codeTemplates/{codeTemplateId}": {
+    '/codeTemplates/{codeTemplateId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -1399,18 +1399,18 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves a single code template. */
-        get: operations["getCodeTemplate"];
+        get: operations['getCodeTemplate'];
         /** Updates a single code template. */
-        put: operations["updateCodeTemplate"];
+        put: operations['updateCodeTemplate'];
         post?: never;
         /** Removes a single code template. */
-        delete: operations["removeCodeTemplate"];
+        delete: operations['removeCodeTemplate'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/codeTemplates": {
+    '/codeTemplates': {
         parameters: {
             query?: never;
             header?: never;
@@ -1418,7 +1418,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves multiple code templates by ID, or all templates if not specified. */
-        get: operations["getCodeTemplates"];
+        get: operations['getCodeTemplates'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1427,7 +1427,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/codeTemplates/_getSummary": {
+    '/codeTemplates/_getSummary': {
         parameters: {
             query?: never;
             header?: never;
@@ -1437,14 +1437,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns a list of code template summaries, indicating to a client which code templates have changed. If a code template was modified, the entire CodeTemplate object will be returned. */
-        post: operations["getCodeTemplateSummary"];
+        post: operations['getCodeTemplateSummary'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/codeTemplateLibraries/_bulkUpdate": {
+    '/codeTemplateLibraries/_bulkUpdate': {
         parameters: {
             query?: never;
             header?: never;
@@ -1454,14 +1454,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Updates all libraries and updates/removes selected code templates in one request. ("Try it out" doesn't work for this endpoint, but the descriptions are valid. Please use another tool for testing.) */
-        post: operations["updateLibrariesAndTemplates"];
+        post: operations['updateLibrariesAndTemplates'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/server/jvm": {
+    '/server/jvm': {
         parameters: {
             query?: never;
             header?: never;
@@ -1469,7 +1469,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the name of the JVM running the server. */
-        get: operations["getJVMName"];
+        get: operations['getJVMName'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1478,7 +1478,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/about": {
+    '/server/about': {
         parameters: {
             query?: never;
             header?: never;
@@ -1486,7 +1486,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a map of common information about the server. */
-        get: operations["getAbout"];
+        get: operations['getAbout'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1495,7 +1495,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/licenseInfo": {
+    '/server/licenseInfo': {
         parameters: {
             query?: never;
             header?: never;
@@ -1503,7 +1503,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a LicenseInfo object with the expiration date and other information. */
-        get: operations["getLicenseInfo"];
+        get: operations['getLicenseInfo'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1512,7 +1512,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/_generateGUID": {
+    '/server/_generateGUID': {
         parameters: {
             query?: never;
             header?: never;
@@ -1522,14 +1522,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Returns a globally unique id. */
-        post: operations["getGuid"];
+        post: operations['getGuid'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/server/protocolsAndCipherSuites": {
+    '/server/protocolsAndCipherSuites': {
         parameters: {
             query?: never;
             header?: never;
@@ -1537,7 +1537,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a map containing all supported and enabled TLS protocols and cipher suites. */
-        get: operations["getProtocolsAndCipherSuites"];
+        get: operations['getProtocolsAndCipherSuites'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1546,7 +1546,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/property": {
+    '/server/property': {
         parameters: {
             query?: never;
             header?: never;
@@ -1554,7 +1554,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a property from the configuration table. */
-        get: operations["getProperty"];
+        get: operations['getProperty'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1563,7 +1563,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/resources": {
+    '/server/resources': {
         parameters: {
             query?: never;
             header?: never;
@@ -1571,9 +1571,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all resources for the server. */
-        get: operations["getResources"];
+        get: operations['getResources'];
         /** Updates all resources for the server. */
-        put: operations["setResources"];
+        put: operations['setResources'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1581,7 +1581,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/version": {
+    '/server/version': {
         parameters: {
             query?: never;
             header?: never;
@@ -1589,7 +1589,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the version of the server. */
-        get: operations["getVersion"];
+        get: operations['getVersion'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1598,7 +1598,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/status": {
+    '/server/status': {
         parameters: {
             query?: never;
             header?: never;
@@ -1606,7 +1606,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the status of the server. */
-        get: operations["getStatus"];
+        get: operations['getStatus'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1615,7 +1615,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/id": {
+    '/server/id': {
         parameters: {
             query?: never;
             header?: never;
@@ -1623,7 +1623,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the server id. */
-        get: operations["getServerId"];
+        get: operations['getServerId'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1632,7 +1632,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/settings": {
+    '/server/settings': {
         parameters: {
             query?: never;
             header?: never;
@@ -1640,9 +1640,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a ServerSettings object with all server settings. */
-        get: operations["getServerSettings"];
+        get: operations['getServerSettings'];
         /** Updates the server configuration settings. */
-        put: operations["setServerSettings"];
+        put: operations['setServerSettings'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1650,7 +1650,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/channelMetadata": {
+    '/server/channelMetadata': {
         parameters: {
             query?: never;
             header?: never;
@@ -1658,9 +1658,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all channel metadata for the server. */
-        get: operations["getChannelMetadata"];
+        get: operations['getChannelMetadata'];
         /** Updates all channel metadata for the server. */
-        put: operations["setChannelMetadata"];
+        put: operations['setChannelMetadata'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1668,7 +1668,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/configurationMap": {
+    '/server/configurationMap': {
         parameters: {
             query?: never;
             header?: never;
@@ -1676,9 +1676,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all entries in the configuration map. */
-        get: operations["getConfigurationMap"];
+        get: operations['getConfigurationMap'];
         /** Updates all entries in the configuration map. */
-        put: operations["setConfigurationMap"];
+        put: operations['setConfigurationMap'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1686,7 +1686,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/channelTags": {
+    '/server/channelTags': {
         parameters: {
             query?: never;
             header?: never;
@@ -1694,9 +1694,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a set containing all channel tags for the server. */
-        get: operations["getChannelTags"];
+        get: operations['getChannelTags'];
         /** Updates all channel tags. */
-        put: operations["setChannelTags"];
+        put: operations['setChannelTags'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1704,7 +1704,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/updateSettings": {
+    '/server/updateSettings': {
         parameters: {
             query?: never;
             header?: never;
@@ -1712,9 +1712,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns an UpdateSettings object with all update settings. */
-        get: operations["getUpdateSettings"];
+        get: operations['getUpdateSettings'];
         /** Updates the update settings. */
-        put: operations["setUpdateSettings"];
+        put: operations['setUpdateSettings'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1722,7 +1722,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/globalScripts": {
+    '/server/globalScripts': {
         parameters: {
             query?: never;
             header?: never;
@@ -1730,9 +1730,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a map containing all of the global scripts. */
-        get: operations["getGlobalScripts"];
+        get: operations['getGlobalScripts'];
         /** Updates all of the global scripts. */
-        put: operations["setGlobalScripts"];
+        put: operations['setGlobalScripts'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1740,7 +1740,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/channelDependencies": {
+    '/server/channelDependencies': {
         parameters: {
             query?: never;
             header?: never;
@@ -1748,9 +1748,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all channel dependencies for the server. */
-        get: operations["getChannelDependencies"];
+        get: operations['getChannelDependencies'];
         /** Updates all channel dependencies for the server. */
-        put: operations["setChannelDependencies"];
+        put: operations['setChannelDependencies'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1758,7 +1758,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/rhinoLanguageVersion": {
+    '/server/rhinoLanguageVersion': {
         parameters: {
             query?: never;
             header?: never;
@@ -1766,7 +1766,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the language version that the Rhino engine should use. */
-        get: operations["getRhinoLanguageVersion"];
+        get: operations['getRhinoLanguageVersion'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1775,7 +1775,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/encryption": {
+    '/server/encryption': {
         parameters: {
             query?: never;
             header?: never;
@@ -1783,7 +1783,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns an EncryptionSettings object with all encryption settings. */
-        get: operations["getEncryptionSettings"];
+        get: operations['getEncryptionSettings'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1792,7 +1792,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/timezone": {
+    '/server/timezone': {
         parameters: {
             query?: never;
             header?: never;
@@ -1800,7 +1800,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the time zone of the server. */
-        get: operations["getServerTimezone"];
+        get: operations['getServerTimezone'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1809,7 +1809,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/time": {
+    '/server/time': {
         parameters: {
             query?: never;
             header?: never;
@@ -1817,7 +1817,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the time of the server. */
-        get: operations["getServerTime"];
+        get: operations['getServerTime'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1826,7 +1826,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/charsets": {
+    '/server/charsets': {
         parameters: {
             query?: never;
             header?: never;
@@ -1834,7 +1834,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a List of all of the charset encodings supported by the server. */
-        get: operations["getAvailableCharsetEncodings"];
+        get: operations['getAvailableCharsetEncodings'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1843,7 +1843,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/publicSettings": {
+    '/server/publicSettings': {
         parameters: {
             query?: never;
             header?: never;
@@ -1851,7 +1851,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a PublicServerSettings object containing server settings available to all users. */
-        get: operations["getPublicServerSettings"];
+        get: operations['getPublicServerSettings'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1860,7 +1860,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/databaseDrivers": {
+    '/server/databaseDrivers': {
         parameters: {
             query?: never;
             header?: never;
@@ -1868,9 +1868,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the database driver list. */
-        get: operations["getDatabaseDrivers"];
+        get: operations['getDatabaseDrivers'];
         /** Updates the list of database drivers. */
-        put: operations["setDatabaseDrivers"];
+        put: operations['setDatabaseDrivers'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1878,7 +1878,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/buildDate": {
+    '/server/buildDate': {
         parameters: {
             query?: never;
             header?: never;
@@ -1886,7 +1886,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the build date of the server. */
-        get: operations["getBuildDate"];
+        get: operations['getBuildDate'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1895,7 +1895,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/configuration": {
+    '/server/configuration': {
         parameters: {
             query?: never;
             header?: never;
@@ -1903,9 +1903,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a ServerConfiguration object which contains all of the channels, alerts, configuration map, and properties stored on the server. */
-        get: operations["getServerConfiguration"];
+        get: operations['getServerConfiguration'];
         /** Updates all of the channels, alerts and properties stored on the server. */
-        put: operations["setServerConfiguration"];
+        put: operations['setServerConfiguration'];
         post?: never;
         delete?: never;
         options?: never;
@@ -1913,7 +1913,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/passwordRequirements": {
+    '/server/passwordRequirements': {
         parameters: {
             query?: never;
             header?: never;
@@ -1921,7 +1921,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all password requirements for the server. */
-        get: operations["getPasswordRequirements"];
+        get: operations['getPasswordRequirements'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1930,7 +1930,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/server/_testEmail": {
+    '/server/_testEmail': {
         parameters: {
             query?: never;
             header?: never;
@@ -1940,14 +1940,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Sends a test e-mail. */
-        post: operations["sendTestEmail_1"];
+        post: operations['sendTestEmail_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/server/resources/{resourceId}/_reload": {
+    '/server/resources/{resourceId}/_reload': {
         parameters: {
             query?: never;
             header?: never;
@@ -1957,14 +1957,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Reloads a resource and all libraries associated with it. */
-        post: operations["reloadResource"];
+        post: operations['reloadResource'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/databaseTasks": {
+    '/databaseTasks': {
         parameters: {
             query?: never;
             header?: never;
@@ -1972,7 +1972,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves all current database tasks. */
-        get: operations["getDatabaseTasks"];
+        get: operations['getDatabaseTasks'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1981,7 +1981,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/databaseTasks/{databaseTaskId}": {
+    '/databaseTasks/{databaseTaskId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -1989,7 +1989,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves a single database task. */
-        get: operations["getDatabaseTask"];
+        get: operations['getDatabaseTask'];
         put?: never;
         post?: never;
         delete?: never;
@@ -1998,7 +1998,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/databaseTasks/{databaseTaskId}/_run": {
+    '/databaseTasks/{databaseTaskId}/_run': {
         parameters: {
             query?: never;
             header?: never;
@@ -2008,14 +2008,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Executes the specified database task. */
-        post: operations["runDatabaseTask"];
+        post: operations['runDatabaseTask'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/databaseTasks/{databaseTaskId}/_cancel": {
+    '/databaseTasks/{databaseTaskId}/_cancel': {
         parameters: {
             query?: never;
             header?: never;
@@ -2025,14 +2025,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Cancels execution of the specified database task. */
-        post: operations["cancelDatabaseTask"];
+        post: operations['cancelDatabaseTask'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_deploy": {
+    '/channels/{channelId}/_deploy': {
         parameters: {
             query?: never;
             header?: never;
@@ -2042,14 +2042,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Deploys (or redeploys) a single channel. */
-        post: operations["deployChannel"];
+        post: operations['deployChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/_undeploy": {
+    '/channels/{channelId}/_undeploy': {
         parameters: {
             query?: never;
             header?: never;
@@ -2059,14 +2059,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Undeploys a single channel. */
-        post: operations["undeployChannel"];
+        post: operations['undeployChannel'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_undeploy": {
+    '/channels/_undeploy': {
         parameters: {
             query?: never;
             header?: never;
@@ -2076,14 +2076,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Undeploys selected channels. */
-        post: operations["undeployChannels"];
+        post: operations['undeployChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_deploy": {
+    '/channels/_deploy': {
         parameters: {
             query?: never;
             header?: never;
@@ -2093,14 +2093,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Deploys (or redeploys) selected channels. */
-        post: operations["deployChannels"];
+        post: operations['deployChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_redeployAll": {
+    '/channels/_redeployAll': {
         parameters: {
             query?: never;
             header?: never;
@@ -2110,14 +2110,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Redeploys all channels. */
-        post: operations["redeployAllChannels"];
+        post: operations['redeployAllChannels'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/events/{eventId}": {
+    '/events/{eventId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -2125,7 +2125,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieves an event by ID. */
-        get: operations["getEvent"];
+        get: operations['getEvent'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2134,7 +2134,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/events/maxEventId": {
+    '/events/maxEventId': {
         parameters: {
             query?: never;
             header?: never;
@@ -2142,7 +2142,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the maximum event ID currently in the database. */
-        get: operations["getMaxEventId"];
+        get: operations['getMaxEventId'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2151,7 +2151,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/events": {
+    '/events': {
         parameters: {
             query?: never;
             header?: never;
@@ -2159,7 +2159,7 @@ export interface paths {
             cookie?: never;
         };
         /** Search for events by specific filter criteria. */
-        get: operations["getEvents"];
+        get: operations['getEvents'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2168,7 +2168,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/events/_search": {
+    '/events/_search': {
         parameters: {
             query?: never;
             header?: never;
@@ -2178,14 +2178,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Search for events by specific filter criteria. */
-        post: operations["getEvents_1"];
+        post: operations['getEvents_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/events/_export": {
+    '/events/_export': {
         parameters: {
             query?: never;
             header?: never;
@@ -2195,14 +2195,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Exports all events to the application data directory on the server. */
-        post: operations["exportAllEvents"];
+        post: operations['exportAllEvents'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/events/count": {
+    '/events/count': {
         parameters: {
             query?: never;
             header?: never;
@@ -2210,7 +2210,7 @@ export interface paths {
             cookie?: never;
         };
         /** Count number for events by specific filter criteria. */
-        get: operations["getEventCount"];
+        get: operations['getEventCount'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2219,7 +2219,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/events/count/_search": {
+    '/events/count/_search': {
         parameters: {
             query?: never;
             header?: never;
@@ -2229,14 +2229,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Count number for events by specific filter criteria. */
-        post: operations["getEventCount_1"];
+        post: operations['getEventCount_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/_install": {
+    '/extensions/_install': {
         parameters: {
             query?: never;
             header?: never;
@@ -2246,14 +2246,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Installs an extension. */
-        post: operations["installExtension"];
+        post: operations['installExtension'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/_uninstall": {
+    '/extensions/_uninstall': {
         parameters: {
             query?: never;
             header?: never;
@@ -2263,14 +2263,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Uninstalls an extension. */
-        post: operations["uninstallExtension"];
+        post: operations['uninstallExtension'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/extensions/{extensionName}": {
+    '/extensions/{extensionName}': {
         parameters: {
             query?: never;
             header?: never;
@@ -2278,7 +2278,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns extension metadata by name. */
-        get: operations["getExtensionMetaData"];
+        get: operations['getExtensionMetaData'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2287,7 +2287,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/connectors": {
+    '/extensions/connectors': {
         parameters: {
             query?: never;
             header?: never;
@@ -2295,7 +2295,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all active connector metadata. */
-        get: operations["getConnectorMetaData"];
+        get: operations['getConnectorMetaData'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2304,7 +2304,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/plugins": {
+    '/extensions/plugins': {
         parameters: {
             query?: never;
             header?: never;
@@ -2312,7 +2312,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns all active plugin metadata. */
-        get: operations["getPluginMetaData"];
+        get: operations['getPluginMetaData'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2321,7 +2321,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/{extensionName}/properties": {
+    '/extensions/{extensionName}/properties': {
         parameters: {
             query?: never;
             header?: never;
@@ -2329,9 +2329,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns filtered properties for a specified extension. */
-        get: operations["getPluginProperties"];
+        get: operations['getPluginProperties'];
         /** Sets properties for a specified extension. */
-        put: operations["setPluginProperties"];
+        put: operations['setPluginProperties'];
         post?: never;
         delete?: never;
         options?: never;
@@ -2339,7 +2339,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/{extensionName}/enabled": {
+    '/extensions/{extensionName}/enabled': {
         parameters: {
             query?: never;
             header?: never;
@@ -2347,7 +2347,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the enabled status of an extension. */
-        get: operations["isExtensionEnabled"];
+        get: operations['isExtensionEnabled'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2356,7 +2356,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/extensions/{extensionName}/_setEnabled": {
+    '/extensions/{extensionName}/_setEnabled': {
         parameters: {
             query?: never;
             header?: never;
@@ -2366,14 +2366,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Enables or disables an extension. */
-        post: operations["setExtensionEnabled"];
+        post: operations['setExtensionEnabled'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messagesWithObj": {
+    '/channels/{channelId}/messagesWithObj': {
         parameters: {
             query?: never;
             header?: never;
@@ -2383,14 +2383,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Processes a new message through a channel, using the RawMessage object. */
-        post: operations["processMessage"];
+        post: operations['processMessage'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages": {
+    '/channels/{channelId}/messages': {
         parameters: {
             query?: never;
             header?: never;
@@ -2398,18 +2398,18 @@ export interface paths {
             cookie?: never;
         };
         /** Search for messages by specific filter criteria. */
-        get: operations["getMessages_1"];
+        get: operations['getMessages_1'];
         put?: never;
         /** Processes a new message through a channel. */
-        post: operations["processMessage_1"];
+        post: operations['processMessage_1'];
         /** Remove messages by specific filter criteria. */
-        delete: operations["removeMessages_1"];
+        delete: operations['removeMessages_1'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/{messageId}/attachments": {
+    '/channels/{channelId}/messages/{messageId}/attachments': {
         parameters: {
             query?: never;
             header?: never;
@@ -2417,7 +2417,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieve a list of attachments by message ID. */
-        get: operations["getAttachmentsByMessageId"];
+        get: operations['getAttachmentsByMessageId'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2426,7 +2426,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/{messageId}/_getDICOMMessage": {
+    '/channels/{channelId}/messages/{messageId}/_getDICOMMessage': {
         parameters: {
             query?: never;
             header?: never;
@@ -2436,14 +2436,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Given a ConnectorMessage object, reattaches any DICOM attachment data and returns the raw Base64 encoded message data. */
-        post: operations["getDICOMMessage"];
+        post: operations['getDICOMMessage'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/count/_search": {
+    '/channels/{channelId}/messages/count/_search': {
         parameters: {
             query?: never;
             header?: never;
@@ -2453,14 +2453,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Count number for messages by specific filter criteria. */
-        post: operations["getMessageCount"];
+        post: operations['getMessageCount'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/count": {
+    '/channels/{channelId}/messages/count': {
         parameters: {
             query?: never;
             header?: never;
@@ -2468,7 +2468,7 @@ export interface paths {
             cookie?: never;
         };
         /** Count number for messages by specific filter criteria. */
-        get: operations["getMessageCount_1"];
+        get: operations['getMessageCount_1'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2477,7 +2477,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_reprocessWithFilter": {
+    '/channels/{channelId}/messages/_reprocessWithFilter': {
         parameters: {
             query?: never;
             header?: never;
@@ -2487,14 +2487,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Reprocesses messages through a channel filtering with a MessageFilter. */
-        post: operations["reprocessMessages"];
+        post: operations['reprocessMessages'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_reprocess": {
+    '/channels/{channelId}/messages/_reprocess': {
         parameters: {
             query?: never;
             header?: never;
@@ -2504,14 +2504,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Reprocesses messages through a channel by specific filter criteria. */
-        post: operations["reprocessMessages_1"];
+        post: operations['reprocessMessages_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/{messageId}/_reprocess": {
+    '/channels/{channelId}/messages/{messageId}/_reprocess': {
         parameters: {
             query?: never;
             header?: never;
@@ -2521,14 +2521,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Reprocesses and overwrites a single message. */
-        post: operations["reprocessMessage"];
+        post: operations['reprocessMessage'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/{messageId}": {
+    '/channels/{channelId}/messages/{messageId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -2536,17 +2536,17 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieve a message by ID. */
-        get: operations["getMessageContent"];
+        get: operations['getMessageContent'];
         put?: never;
         post?: never;
         /** Remove a single message by ID. */
-        delete: operations["removeMessage"];
+        delete: operations['removeMessage'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_removeAllMessagesPost": {
+    '/channels/_removeAllMessagesPost': {
         parameters: {
             query?: never;
             header?: never;
@@ -2556,14 +2556,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Removes all messages for multiple specified channels. This is a POST request alternative to DELETE /_removeAllMessages that may be used when there are too many channel IDs to include in the query parameters. */
-        post: operations["removeAllMessagesPost"];
+        post: operations['removeAllMessagesPost'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_import": {
+    '/channels/{channelId}/messages/_import': {
         parameters: {
             query?: never;
             header?: never;
@@ -2573,14 +2573,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Imports a Message object into a channel. The message will not actually be processed through the channel, only imported. */
-        post: operations["importMessage"];
+        post: operations['importMessage'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_importFromPath": {
+    '/channels/{channelId}/messages/_importFromPath': {
         parameters: {
             query?: never;
             header?: never;
@@ -2590,14 +2590,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Imports messages into a channel from a path accessible by the server. The messages will not actually be processed through the channel, only imported. */
-        post: operations["importMessagesServer"];
+        post: operations['importMessagesServer'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_export": {
+    '/channels/{channelId}/messages/_export': {
         parameters: {
             query?: never;
             header?: never;
@@ -2607,14 +2607,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Exports messages into a specific directory path accessible by the server. */
-        post: operations["exportMessagesServer"];
+        post: operations['exportMessagesServer'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_exportUsingFilter": {
+    '/channels/{channelId}/messages/_exportUsingFilter': {
         parameters: {
             query?: never;
             header?: never;
@@ -2624,14 +2624,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Exports messages into a specific directory path accessible by the server. ("Try it out" doesn't work for this endpoint, but the descriptions are valid. Please use another tool for testing.) */
-        post: operations["exportMessagesServer_1"];
+        post: operations['exportMessagesServer_1'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/{messageId}/attachments/{attachmentId}/_export": {
+    '/channels/{channelId}/messages/{messageId}/attachments/{attachmentId}/_export': {
         parameters: {
             query?: never;
             header?: never;
@@ -2641,14 +2641,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Exports a message attachment into a specific file path accessible by the server. */
-        post: operations["exportAttachmentServer"];
+        post: operations['exportAttachmentServer'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_auditAccessedPHIMessage": {
+    '/channels/_auditAccessedPHIMessage': {
         parameters: {
             query?: never;
             header?: never;
@@ -2658,14 +2658,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Audit that the user has accessed a channel message that contains PHI. */
-        post: operations["auditAccessedPHIMessage"];
+        post: operations['auditAccessedPHIMessage'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_auditQueriedPHIMessage": {
+    '/channels/_auditQueriedPHIMessage': {
         parameters: {
             query?: never;
             header?: never;
@@ -2675,14 +2675,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Audit that the user has queried the channel messages panel that contains PHI. */
-        post: operations["auditQueriedPHIMessage"];
+        post: operations['auditQueriedPHIMessage'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_auditExportMessages": {
+    '/channels/_auditExportMessages': {
         parameters: {
             query?: never;
             header?: never;
@@ -2692,14 +2692,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Audit that the user has exported channel messages. */
-        post: operations["auditExportMessages"];
+        post: operations['auditExportMessages'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_auditExportMessagesSuccess": {
+    '/channels/_auditExportMessagesSuccess': {
         parameters: {
             query?: never;
             header?: never;
@@ -2709,14 +2709,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Audit that the user has successfully exported channel messages. */
-        post: operations["auditExportMessagesSuccess"];
+        post: operations['auditExportMessagesSuccess'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_search": {
+    '/channels/{channelId}/messages/_search': {
         parameters: {
             query?: never;
             header?: never;
@@ -2726,14 +2726,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Search for messages by specific filter criteria. */
-        post: operations["getMessages"];
+        post: operations['getMessages'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_remove": {
+    '/channels/{channelId}/messages/_remove': {
         parameters: {
             query?: never;
             header?: never;
@@ -2743,14 +2743,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Remove messages by specific filter criteria. */
-        post: operations["removeMessages"];
+        post: operations['removeMessages'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/_removeAllMessages": {
+    '/channels/_removeAllMessages': {
         parameters: {
             query?: never;
             header?: never;
@@ -2761,13 +2761,13 @@ export interface paths {
         put?: never;
         post?: never;
         /** Removes all messages for multiple specified channels. */
-        delete: operations["removeAllMessages"];
+        delete: operations['removeAllMessages'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/_removeAll": {
+    '/channels/{channelId}/messages/_removeAll': {
         parameters: {
             query?: never;
             header?: never;
@@ -2778,13 +2778,13 @@ export interface paths {
         put?: never;
         post?: never;
         /** Removes all messages for the specified channel. */
-        delete: operations["removeAllMessages_1"];
+        delete: operations['removeAllMessages_1'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/maxMessageId": {
+    '/channels/{channelId}/messages/maxMessageId': {
         parameters: {
             query?: never;
             header?: never;
@@ -2792,7 +2792,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the maximum message ID for the given channel. */
-        get: operations["getMaxMessageId"];
+        get: operations['getMaxMessageId'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2801,7 +2801,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/channels/{channelId}/messages/{messageId}/attachments/{attachmentId}": {
+    '/channels/{channelId}/messages/{messageId}/attachments/{attachmentId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -2809,7 +2809,7 @@ export interface paths {
             cookie?: never;
         };
         /** Retrieve a message attachment by ID. */
-        get: operations["getAttachment"];
+        get: operations['getAttachment'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2818,7 +2818,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/system/stats": {
+    '/system/stats': {
         parameters: {
             query?: never;
             header?: never;
@@ -2826,7 +2826,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns statistics for the underlying system. */
-        get: operations["getStats"];
+        get: operations['getStats'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2835,7 +2835,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/system/info": {
+    '/system/info': {
         parameters: {
             query?: never;
             header?: never;
@@ -2843,7 +2843,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns information about the underlying system. */
-        get: operations["getInfo"];
+        get: operations['getInfo'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2852,7 +2852,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/usageData/_generate": {
+    '/usageData/_generate': {
         parameters: {
             query?: never;
             header?: never;
@@ -2862,14 +2862,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Generates usage document using data from both the client and server. */
-        post: operations["getUsageData"];
+        post: operations['getUsageData'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/_login": {
+    '/users/_login': {
         parameters: {
             query?: never;
             header?: never;
@@ -2879,14 +2879,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Logs in to the server using the specified name and password. */
-        post: operations["login"];
+        post: operations['login'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/_logout": {
+    '/users/_logout': {
         parameters: {
             query?: never;
             header?: never;
@@ -2896,14 +2896,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Logs out of the server. */
-        post: operations["logout"];
+        post: operations['logout'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/current": {
+    '/users/current': {
         parameters: {
             query?: never;
             header?: never;
@@ -2911,7 +2911,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns the current logged in user. */
-        get: operations["getCurrentUser"];
+        get: operations['getCurrentUser'];
         put?: never;
         post?: never;
         delete?: never;
@@ -2920,7 +2920,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/_inactivityLogout": {
+    '/users/_inactivityLogout': {
         parameters: {
             query?: never;
             header?: never;
@@ -2930,14 +2930,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** User has been inactive and automatically logged out. */
-        post: operations["inactivityLogout"];
+        post: operations['inactivityLogout'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users": {
+    '/users': {
         parameters: {
             query?: never;
             header?: never;
@@ -2945,17 +2945,17 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a List of all users. */
-        get: operations["getAllUsers"];
+        get: operations['getAllUsers'];
         put?: never;
         /** Creates a new user. */
-        post: operations["createUser"];
+        post: operations['createUser'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/_checkPassword": {
+    '/users/_checkPassword': {
         parameters: {
             query?: never;
             header?: never;
@@ -2965,14 +2965,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Checks the password against the configured password policies. */
-        post: operations["checkUserPassword"];
+        post: operations['checkUserPassword'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/{userId}/password": {
+    '/users/{userId}/password': {
         parameters: {
             query?: never;
             header?: never;
@@ -2981,7 +2981,7 @@ export interface paths {
         };
         get?: never;
         /** Updates a user's password. */
-        put: operations["updateUserPassword"];
+        put: operations['updateUserPassword'];
         post?: never;
         delete?: never;
         options?: never;
@@ -2989,7 +2989,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/{userId}/notificationAcknowledged": {
+    '/users/{userId}/notificationAcknowledged': {
         parameters: {
             query?: never;
             header?: never;
@@ -2999,14 +2999,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** User notification has been acknowledged. */
-        post: operations["setUserNotificationAcknowledged"];
+        post: operations['setUserNotificationAcknowledged'];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/{userId}/preferences/{name}": {
+    '/users/{userId}/preferences/{name}': {
         parameters: {
             query?: never;
             header?: never;
@@ -3014,9 +3014,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a specific user preference. */
-        get: operations["getUserPreference"];
+        get: operations['getUserPreference'];
         /** Updates a user preference. */
-        put: operations["setUserPreference"];
+        put: operations['setUserPreference'];
         post?: never;
         delete?: never;
         options?: never;
@@ -3024,7 +3024,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/{userId}": {
+    '/users/{userId}': {
         parameters: {
             query?: never;
             header?: never;
@@ -3033,16 +3033,16 @@ export interface paths {
         };
         get?: never;
         /** Updates a specified user. */
-        put: operations["updateUser"];
+        put: operations['updateUser'];
         post?: never;
         /** Removes a specific user. */
-        delete: operations["removeUser"];
+        delete: operations['removeUser'];
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/users/{userId}/loggedIn": {
+    '/users/{userId}/loggedIn': {
         parameters: {
             query?: never;
             header?: never;
@@ -3050,7 +3050,7 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a true if the specified user is logged in to the server. */
-        get: operations["isUserLoggedIn"];
+        get: operations['isUserLoggedIn'];
         put?: never;
         post?: never;
         delete?: never;
@@ -3059,7 +3059,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/{userId}/preferences": {
+    '/users/{userId}/preferences': {
         parameters: {
             query?: never;
             header?: never;
@@ -3067,9 +3067,9 @@ export interface paths {
             cookie?: never;
         };
         /** Returns a Map of user preferences, optionally filtered by a set of property names. */
-        get: operations["getUserPreferences"];
+        get: operations['getUserPreferences'];
         /** Updates multiple user preferences. */
-        put: operations["setUserPreferences"];
+        put: operations['setUserPreferences'];
         post?: never;
         delete?: never;
         options?: never;
@@ -3083,7 +3083,7 @@ export interface components {
     schemas: {
         ConnectionTestResponse: {
             /** @enum {string} */
-            type?: "SUCCESS" | "TIME_OUT" | "FAILURE";
+            type?: 'SUCCESS' | 'TIME_OUT' | 'FAILURE';
             message?: string;
             connectionInfo?: string;
         };
@@ -3098,12 +3098,12 @@ export interface components {
             expression?: string;
         };
         FileReceiverProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
-            pollConnectorProperties?: components["schemas"]["PollConnectorProperties"];
-            sourceConnectorProperties?: components["schemas"]["SourceConnectorProperties"];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
+            pollConnectorProperties?: components['schemas']['PollConnectorProperties'];
+            sourceConnectorProperties?: components['schemas']['SourceConnectorProperties'];
             /** @enum {string} */
-            scheme?: "file" | "ftp" | "sftp" | "Amazon S3" | "smb" | "webdav";
-            schemeProperties?: components["schemas"]["SchemeProperties"];
+            scheme?: 'file' | 'ftp' | 'sftp' | 'Amazon S3' | 'smb' | 'webdav';
+            schemeProperties?: components['schemas']['SchemeProperties'];
             host?: string;
             fileFilter?: string;
             regex?: boolean;
@@ -3117,13 +3117,25 @@ export interface components {
             passive?: boolean;
             validateConnection?: boolean;
             /** @enum {string} */
-            afterProcessingAction?: "None" | "Move" | "Delete" | "After Processing Action";
+            afterProcessingAction?:
+                | 'None'
+                | 'Move'
+                | 'Delete'
+                | 'After Processing Action';
             moveToDirectory?: string;
             moveToFileName?: string;
             /** @enum {string} */
-            errorReadingAction?: "None" | "Move" | "Delete" | "After Processing Action";
+            errorReadingAction?:
+                | 'None'
+                | 'Move'
+                | 'Delete'
+                | 'After Processing Action';
             /** @enum {string} */
-            errorResponseAction?: "None" | "Move" | "Delete" | "After Processing Action";
+            errorResponseAction?:
+                | 'None'
+                | 'Move'
+                | 'Delete'
+                | 'After Processing Action';
             errorMoveToDirectory?: string;
             errorMoveToFileName?: string;
             checkFileAge?: boolean;
@@ -3142,7 +3154,7 @@ export interface components {
         };
         PollConnectorProperties: {
             /** @enum {string} */
-            pollingType?: "INTERVAL" | "TIME" | "CRON";
+            pollingType?: 'INTERVAL' | 'TIME' | 'CRON';
             pollOnStart?: boolean;
             /** Format: int32 */
             pollingFrequency?: number;
@@ -3150,8 +3162,8 @@ export interface components {
             pollingHour?: number;
             /** Format: int32 */
             pollingMinute?: number;
-            cronJobs?: components["schemas"]["CronProperty"][];
-            pollConnectorPropertiesAdvanced?: components["schemas"]["PollConnectorPropertiesAdvanced"];
+            cronJobs?: components['schemas']['CronProperty'][];
+            pollConnectorPropertiesAdvanced?: components['schemas']['PollConnectorPropertiesAdvanced'];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3177,7 +3189,7 @@ export interface components {
         };
         SchemeProperties: {
             summaryText?: string;
-            fileSchemeProperties?: components["schemas"]["SchemeProperties"];
+            fileSchemeProperties?: components['schemas']['SchemeProperties'];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3218,17 +3230,17 @@ export interface components {
             /** Format: int32 */
             queueBufferSize?: number;
             reattachAttachments?: boolean;
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
         };
         FileDispatcherProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
-            destinationConnectorProperties?: components["schemas"]["DestinationConnectorProperties"];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
+            destinationConnectorProperties?: components['schemas']['DestinationConnectorProperties'];
             /** @enum {string} */
-            scheme?: "file" | "ftp" | "sftp" | "Amazon S3" | "smb" | "webdav";
-            schemeProperties?: components["schemas"]["SchemeProperties"];
+            scheme?: 'file' | 'ftp' | 'sftp' | 'Amazon S3' | 'smb' | 'webdav';
+            schemeProperties?: components['schemas']['SchemeProperties'];
             host?: string;
             outputPattern?: string;
             anonymous?: boolean;
@@ -3253,8 +3265,8 @@ export interface components {
             };
         };
         HttpDispatcherProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
-            destinationConnectorProperties?: components["schemas"]["DestinationConnectorProperties"];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
+            destinationConnectorProperties?: components['schemas']['DestinationConnectorProperties'];
             host?: string;
             useProxyServer?: boolean;
             proxyAddress?: string;
@@ -3300,10 +3312,10 @@ export interface components {
         };
         Table: {
             name?: string;
-            columns?: components["schemas"]["Column"][];
+            columns?: components['schemas']['Column'][];
         };
         JmsConnectorProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
             useJndi?: boolean;
             jndiProviderUrl?: string;
             jndiInitialContextFactory?: string;
@@ -3332,8 +3344,8 @@ export interface components {
             encrypted?: boolean;
         };
         SmtpDispatcherProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
-            destinationConnectorProperties?: components["schemas"]["DestinationConnectorProperties"];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
+            destinationConnectorProperties?: components['schemas']['DestinationConnectorProperties'];
             smtpHost?: string;
             smtpPort?: string;
             overrideLocalBinding?: boolean;
@@ -3360,7 +3372,7 @@ export interface components {
             headersMap?: {
                 [key: string]: string;
             };
-            attachmentsList?: components["schemas"]["Attachment"][];
+            attachmentsList?: components['schemas']['Attachment'][];
             name?: string;
             protocol?: string;
             purgedProperties?: {
@@ -3368,9 +3380,9 @@ export interface components {
             };
         };
         TcpDispatcherProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
-            destinationConnectorProperties?: components["schemas"]["DestinationConnectorProperties"];
-            transmissionModeProperties?: components["schemas"]["TransmissionModeProperties"];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
+            destinationConnectorProperties?: components['schemas']['DestinationConnectorProperties'];
+            transmissionModeProperties?: components['schemas']['TransmissionModeProperties'];
             serverMode?: boolean;
             remoteAddress?: string;
             remotePort?: string;
@@ -3402,12 +3414,12 @@ export interface components {
         };
         DefinitionPortMap: {
             map?: {
-                [key: string]: components["schemas"]["PortInformation"];
+                [key: string]: components['schemas']['PortInformation'];
             };
         };
         DefinitionServiceMap: {
             map?: {
-                [key: string]: components["schemas"]["DefinitionPortMap"];
+                [key: string]: components['schemas']['DefinitionPortMap'];
             };
         };
         PortInformation: {
@@ -3416,8 +3428,8 @@ export interface components {
             locationURI?: string;
         };
         WebServiceDispatcherProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
-            destinationConnectorProperties?: components["schemas"]["DestinationConnectorProperties"];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
+            destinationConnectorProperties?: components['schemas']['DestinationConnectorProperties'];
             wsdlUrl?: string;
             service?: string;
             port?: string;
@@ -3436,7 +3448,7 @@ export interface components {
             attachmentTypes?: string[];
             attachmentsVariable?: string;
             soapAction?: string;
-            wsdlDefinitionMap?: components["schemas"]["DefinitionServiceMap"];
+            wsdlDefinitionMap?: components['schemas']['DefinitionServiceMap'];
             useHeadersVariable?: boolean;
             useAttachmentsVariable?: boolean;
             headersMap?: {
@@ -3482,7 +3494,7 @@ export interface components {
             };
         };
         AlertActionGroup: {
-            actions?: components["schemas"]["AlertAction"][];
+            actions?: components['schemas']['AlertAction'][];
             subject?: string;
             template?: string;
             purgedProperties?: {
@@ -3493,8 +3505,8 @@ export interface components {
             id?: string;
             name?: string;
             enabled?: boolean;
-            trigger?: components["schemas"]["AlertTrigger"];
-            actionGroups?: components["schemas"]["AlertActionGroup"][];
+            trigger?: components['schemas']['AlertTrigger'];
+            actionGroups?: components['schemas']['AlertActionGroup'][];
             properties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3506,13 +3518,13 @@ export interface components {
             name?: string;
         };
         AlertInfo: {
-            model?: components["schemas"]["AlertModel"];
+            model?: components['schemas']['AlertModel'];
             protocolOptions?: {
                 [key: string]: {
                     [key: string]: string;
                 };
             };
-            changedChannels?: components["schemas"]["ChannelSummary"][];
+            changedChannels?: components['schemas']['ChannelSummary'][];
         };
         AttachmentHandlerProperties: {
             className?: string;
@@ -3530,7 +3542,9 @@ export interface components {
                 [key: string]: Record<string, never>;
             };
             propertyDescriptors?: {
-                [key: string]: components["schemas"]["DataTypePropertyDescriptor"];
+                [
+                    key: string
+                ]: components['schemas']['DataTypePropertyDescriptor'];
             };
             purgedProperties?: {
                 [key: string]: Record<string, never>;
@@ -3544,25 +3558,25 @@ export interface components {
             description?: string;
             /** Format: int32 */
             revision?: number;
-            sourceConnector?: components["schemas"]["Connector"];
-            destinationConnectors?: components["schemas"]["Connector"][];
+            sourceConnector?: components['schemas']['Connector'];
+            destinationConnectors?: components['schemas']['Connector'][];
             preprocessingScript?: string;
             postprocessingScript?: string;
             deployScript?: string;
             undeployScript?: string;
-            properties?: components["schemas"]["ChannelProperties"];
-            exportData?: components["schemas"]["ChannelExportData"];
+            properties?: components['schemas']['ChannelProperties'];
+            exportData?: components['schemas']['ChannelExportData'];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
-            enabledDestinationConnectors?: components["schemas"]["Connector"][];
+            enabledDestinationConnectors?: components['schemas']['Connector'][];
         };
         ChannelExportData: {
-            metadata?: components["schemas"]["ChannelMetadata"];
-            codeTemplateLibraries?: components["schemas"]["CodeTemplateLibrary"][];
+            metadata?: components['schemas']['ChannelMetadata'];
+            codeTemplateLibraries?: components['schemas']['CodeTemplateLibrary'][];
             dependentIds?: string[];
             dependencyIds?: string[];
-            channelTags?: components["schemas"]["ChannelTag"][];
+            channelTags?: components['schemas']['ChannelTag'][];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3571,7 +3585,7 @@ export interface components {
             enabled?: boolean;
             /** Format: date-time */
             lastModified?: string;
-            pruningSettings?: components["schemas"]["ChannelPruningSettings"];
+            pruningSettings?: components['schemas']['ChannelPruningSettings'];
             /** Format: int32 */
             userId?: number;
             purgedProperties?: {
@@ -3581,17 +3595,33 @@ export interface components {
         ChannelProperties: {
             clearGlobalChannelMap?: boolean;
             /** @enum {string} */
-            messageStorageMode?: "DEVELOPMENT" | "PRODUCTION" | "RAW" | "METADATA" | "DISABLED";
+            messageStorageMode?:
+                | 'DEVELOPMENT'
+                | 'PRODUCTION'
+                | 'RAW'
+                | 'METADATA'
+                | 'DISABLED';
             encryptAttachments?: boolean;
             encryptCustomMetaData?: boolean;
             removeContentOnCompletion?: boolean;
             removeOnlyFilteredOnCompletion?: boolean;
             removeAttachmentsOnCompletion?: boolean;
             /** @enum {string} */
-            initialState?: "Undeployed" | "Deploying" | "Undeploying" | "Starting" | "Started" | "Pausing" | "Paused" | "Stopping" | "Stopped" | "Syncing" | "Unknown";
+            initialState?:
+                | 'Undeployed'
+                | 'Deploying'
+                | 'Undeploying'
+                | 'Starting'
+                | 'Started'
+                | 'Pausing'
+                | 'Paused'
+                | 'Stopping'
+                | 'Stopped'
+                | 'Syncing'
+                | 'Unknown';
             storeAttachments?: boolean;
-            metaDataColumns?: components["schemas"]["MetaDataColumn"][];
-            attachmentProperties?: components["schemas"]["AttachmentHandlerProperties"];
+            metaDataColumns?: components['schemas']['MetaDataColumn'][];
+            attachmentProperties?: components['schemas']['AttachmentHandlerProperties'];
             resourceIds?: {
                 [key: string]: string;
             };
@@ -3612,7 +3642,7 @@ export interface components {
             };
         };
         ChannelStatus: {
-            channel?: components["schemas"]["Channel"];
+            channel?: components['schemas']['Channel'];
             /** Format: date-time */
             deployedDate?: string;
             /** Format: int32 */
@@ -3625,7 +3655,7 @@ export interface components {
             channelId?: string;
             deleted?: boolean;
             undeployed?: boolean;
-            channelStatus?: components["schemas"]["ChannelStatus"];
+            channelStatus?: components['schemas']['ChannelStatus'];
         };
         ChannelTag: {
             id?: string;
@@ -3663,22 +3693,57 @@ export interface components {
             revision?: number;
             /** Format: date-time */
             lastModified?: string;
-            contextSet?: ("Global Deploy" | "Global Undeploy" | "Global Preprocessor" | "Global Postprocessor" | "Channel Deploy" | "Channel Undeploy" | "Channel Preprocessor" | "Channel Postprocessor" | "Channel Attachment" | "Channel Batch" | "Source Receiver" | "Source Filter Transformer" | "Destination Filter Transformer" | "Destination Dispatcher" | "Destination Response Transformer")[];
-            properties?: components["schemas"]["CodeTemplateProperties"];
+            contextSet?: (
+                | 'Global Deploy'
+                | 'Global Undeploy'
+                | 'Global Preprocessor'
+                | 'Global Postprocessor'
+                | 'Channel Deploy'
+                | 'Channel Undeploy'
+                | 'Channel Preprocessor'
+                | 'Channel Postprocessor'
+                | 'Channel Attachment'
+                | 'Channel Batch'
+                | 'Source Receiver'
+                | 'Source Filter Transformer'
+                | 'Destination Filter Transformer'
+                | 'Destination Dispatcher'
+                | 'Destination Response Transformer'
+            )[];
+            properties?: components['schemas']['CodeTemplateProperties'];
             /** @enum {string} */
-            type?: "Function" | "Drag-and-Drop Code Block" | "Compiled Code Block";
+            type?:
+                | 'Function'
+                | 'Drag-and-Drop Code Block'
+                | 'Compiled Code Block';
             code?: string;
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
-            functionDefinition?: components["schemas"]["CodeTemplateFunctionDefinition"];
+            functionDefinition?: components['schemas']['CodeTemplateFunctionDefinition'];
             addToScripts?: boolean;
             description?: string;
         };
-        CodeTemplateContextSet: ("Global Deploy" | "Global Undeploy" | "Global Preprocessor" | "Global Postprocessor" | "Channel Deploy" | "Channel Undeploy" | "Channel Preprocessor" | "Channel Postprocessor" | "Channel Attachment" | "Channel Batch" | "Source Receiver" | "Source Filter Transformer" | "Destination Filter Transformer" | "Destination Dispatcher" | "Destination Response Transformer")[];
+        CodeTemplateContextSet: (
+            | 'Global Deploy'
+            | 'Global Undeploy'
+            | 'Global Preprocessor'
+            | 'Global Postprocessor'
+            | 'Channel Deploy'
+            | 'Channel Undeploy'
+            | 'Channel Preprocessor'
+            | 'Channel Postprocessor'
+            | 'Channel Attachment'
+            | 'Channel Batch'
+            | 'Source Receiver'
+            | 'Source Filter Transformer'
+            | 'Destination Filter Transformer'
+            | 'Destination Dispatcher'
+            | 'Destination Response Transformer'
+        )[];
         CodeTemplateFunctionDefinition: {
             name?: string;
-            parameters?: components["schemas"]["Parameter"][];
+            parameters?: components['schemas']['Parameter'][];
             returnType?: string;
             returnDescription?: string;
             transferData?: string;
@@ -3694,16 +3759,19 @@ export interface components {
             includeNewChannels?: boolean;
             enabledChannelIds?: string[];
             disabledChannelIds?: string[];
-            codeTemplates?: components["schemas"]["CodeTemplate"][];
+            codeTemplates?: components['schemas']['CodeTemplate'][];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
         };
         CodeTemplateProperties: {
             /** @enum {string} */
-            type?: "Function" | "Drag-and-Drop Code Block" | "Compiled Code Block";
+            type?:
+                | 'Function'
+                | 'Drag-and-Drop Code Block'
+                | 'Compiled Code Block';
             description?: string;
-            functionDefinition?: components["schemas"]["CodeTemplateFunctionDefinition"];
+            functionDefinition?: components['schemas']['CodeTemplateFunctionDefinition'];
             code?: string;
             pluginPointName?: string;
             purgedProperties?: {
@@ -3714,13 +3782,13 @@ export interface components {
             /** Format: int32 */
             metaDataId?: number;
             name?: string;
-            properties?: components["schemas"]["ConnectorProperties"];
-            transformer?: components["schemas"]["Transformer"];
-            responseTransformer?: components["schemas"]["Transformer"];
-            filter?: components["schemas"]["Filter"];
+            properties?: components['schemas']['ConnectorProperties'];
+            transformer?: components['schemas']['Transformer'];
+            responseTransformer?: components['schemas']['Transformer'];
+            filter?: components['schemas']['Filter'];
             transportName?: string;
             /** @enum {string} */
-            mode?: "SOURCE" | "DESTINATION";
+            mode?: 'SOURCE' | 'DESTINATION';
             enabled?: boolean;
             waitForPrevious?: boolean;
             purgedProperties?: {
@@ -3728,7 +3796,7 @@ export interface components {
             };
         };
         ConnectorProperties: {
-            pluginProperties?: components["schemas"]["ConnectorPluginProperties"][];
+            pluginProperties?: components['schemas']['ConnectorPluginProperties'][];
             name?: string;
             protocol?: string;
             purgedProperties?: {
@@ -3736,12 +3804,12 @@ export interface components {
             };
         };
         DataTypeProperties: {
-            serializationProperties?: components["schemas"]["SerializationProperties"];
-            deserializationProperties?: components["schemas"]["DeserializationProperties"];
-            batchProperties?: components["schemas"]["BatchProperties"];
-            responseGenerationProperties?: components["schemas"]["ResponseGenerationProperties"];
-            responseValidationProperties?: components["schemas"]["ResponseValidationProperties"];
-            serializerProperties?: components["schemas"]["SerializerProperties"];
+            serializationProperties?: components['schemas']['SerializationProperties'];
+            deserializationProperties?: components['schemas']['DeserializationProperties'];
+            batchProperties?: components['schemas']['BatchProperties'];
+            responseGenerationProperties?: components['schemas']['ResponseGenerationProperties'];
+            responseValidationProperties?: components['schemas']['ResponseValidationProperties'];
+            serializerProperties?: components['schemas']['SerializerProperties'];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3751,25 +3819,27 @@ export interface components {
             displayName?: string;
             description?: string;
             /** @enum {string} */
-            editorType?: "STRING" | "BOOLEAN" | "JAVASCRIPT" | "OPTION";
+            editorType?: 'STRING' | 'BOOLEAN' | 'JAVASCRIPT' | 'OPTION';
             options?: Record<string, never>[];
         };
         DeserializationProperties: {
             /** @enum {string} */
-            serializationType?: "RAW" | "XML" | "JSON";
+            serializationType?: 'RAW' | 'XML' | 'JSON';
             properties?: {
                 [key: string]: Record<string, never>;
             };
             propertyDescriptors?: {
-                [key: string]: components["schemas"]["DataTypePropertyDescriptor"];
+                [
+                    key: string
+                ]: components['schemas']['DataTypePropertyDescriptor'];
             };
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
         };
         Filter: {
-            elements?: components["schemas"]["Rule"][];
-            enabledElements?: components["schemas"]["Rule"][];
+            elements?: components['schemas']['Rule'][];
+            enabledElements?: components['schemas']['Rule'][];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3777,7 +3847,7 @@ export interface components {
         MetaDataColumn: {
             name?: string;
             /** @enum {string} */
-            type?: "STRING" | "NUMBER" | "BOOLEAN" | "TIMESTAMP";
+            type?: 'STRING' | 'NUMBER' | 'BOOLEAN' | 'TIMESTAMP';
             mappingName?: string;
             purgedProperties?: {
                 [key: string]: Record<string, never>;
@@ -3793,7 +3863,9 @@ export interface components {
                 [key: string]: Record<string, never>;
             };
             propertyDescriptors?: {
-                [key: string]: components["schemas"]["DataTypePropertyDescriptor"];
+                [
+                    key: string
+                ]: components['schemas']['DataTypePropertyDescriptor'];
             };
             purgedProperties?: {
                 [key: string]: Record<string, never>;
@@ -3804,7 +3876,9 @@ export interface components {
                 [key: string]: Record<string, never>;
             };
             propertyDescriptors?: {
-                [key: string]: components["schemas"]["DataTypePropertyDescriptor"];
+                [
+                    key: string
+                ]: components['schemas']['DataTypePropertyDescriptor'];
             };
             purgedProperties?: {
                 [key: string]: Record<string, never>;
@@ -3815,7 +3889,7 @@ export interface components {
             sequenceNumber?: string;
             enabled?: boolean;
             /** @enum {string} */
-            operator?: "AND" | "OR" | "NONE";
+            operator?: 'AND' | 'OR' | 'NONE';
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3824,21 +3898,23 @@ export interface components {
         };
         SerializationProperties: {
             /** @enum {string} */
-            serializationType?: "RAW" | "XML" | "JSON";
+            serializationType?: 'RAW' | 'XML' | 'JSON';
             properties?: {
                 [key: string]: Record<string, never>;
             };
             propertyDescriptors?: {
-                [key: string]: components["schemas"]["DataTypePropertyDescriptor"];
+                [
+                    key: string
+                ]: components['schemas']['DataTypePropertyDescriptor'];
             };
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
         };
         SerializerProperties: {
-            serializationProperties?: components["schemas"]["SerializationProperties"];
-            deserializationProperties?: components["schemas"]["DeserializationProperties"];
-            batchProperties?: components["schemas"]["BatchProperties"];
+            serializationProperties?: components['schemas']['SerializationProperties'];
+            deserializationProperties?: components['schemas']['DeserializationProperties'];
+            batchProperties?: components['schemas']['BatchProperties'];
         };
         Step: {
             name?: string;
@@ -3851,17 +3927,17 @@ export interface components {
             responseVariables?: string[];
         };
         Transformer: {
-            elements?: components["schemas"]["Step"][];
+            elements?: components['schemas']['Step'][];
             inboundTemplate?: string;
             outboundTemplate?: string;
             inboundDataType?: string;
             outboundDataType?: string;
-            inboundProperties?: components["schemas"]["DataTypeProperties"];
-            outboundProperties?: components["schemas"]["DataTypeProperties"];
+            inboundProperties?: components['schemas']['DataTypeProperties'];
+            outboundProperties?: components['schemas']['DataTypeProperties'];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
-            enabledElements?: components["schemas"]["Step"][];
+            enabledElements?: components['schemas']['Step'][];
         };
         ChannelHeader: {
             /** Format: int32 */
@@ -3885,7 +3961,7 @@ export interface components {
             /** Format: date-time */
             lastModified?: string;
             description?: string;
-            channels?: components["schemas"]["Channel"][];
+            channels?: components['schemas']['Channel'][];
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -3910,7 +3986,7 @@ export interface components {
             queued?: number;
         };
         DashboardChannelInfo: {
-            dashboardStatuses?: components["schemas"]["DashboardStatus"][];
+            dashboardStatuses?: components['schemas']['DashboardStatus'][];
             remainingChannelIds?: string[];
             /** Format: int32 */
             deployedChannelCount?: number;
@@ -3921,7 +3997,18 @@ export interface components {
             channelId?: string;
             name?: string;
             /** @enum {string} */
-            state?: "Undeployed" | "Deploying" | "Undeploying" | "Starting" | "Started" | "Pausing" | "Paused" | "Stopping" | "Stopped" | "Syncing" | "Unknown";
+            state?:
+                | 'Undeployed'
+                | 'Deploying'
+                | 'Undeploying'
+                | 'Starting'
+                | 'Started'
+                | 'Pausing'
+                | 'Paused'
+                | 'Stopping'
+                | 'Stopped'
+                | 'Syncing'
+                | 'Unknown';
             /** Format: int32 */
             deployedRevisionDelta?: number;
             /** Format: date-time */
@@ -3933,7 +4020,7 @@ export interface components {
             lifetimeStatistics?: {
                 [key: string]: number;
             };
-            childStatuses?: components["schemas"]["DashboardStatus"][];
+            childStatuses?: components['schemas']['DashboardStatus'][];
             /** Format: int32 */
             metaDataId?: number;
             queueEnabled?: boolean;
@@ -3941,13 +4028,17 @@ export interface components {
             queued?: number;
             waitForPrevious?: boolean;
             /** @enum {string} */
-            statusType?: "CHANNEL" | "CHAIN" | "SOURCE_CONNECTOR" | "DESTINATION_CONNECTOR";
+            statusType?:
+                | 'CHANNEL'
+                | 'CHAIN'
+                | 'SOURCE_CONNECTOR'
+                | 'DESTINATION_CONNECTOR';
             key?: string;
         };
         CodeTemplateSummary: {
             codeTemplateId?: string;
             deleted?: boolean;
-            codeTemplate?: components["schemas"]["CodeTemplate"];
+            codeTemplate?: components['schemas']['CodeTemplate'];
         };
         CodeTemplateLibrarySaveResult: {
             overrideNeeded?: boolean;
@@ -3983,10 +4074,12 @@ export interface components {
                 localizedMessage?: string;
             };
             libraryResults?: {
-                [key: string]: components["schemas"]["LibraryUpdateResult"];
+                [key: string]: components['schemas']['LibraryUpdateResult'];
             };
             codeTemplateResults?: {
-                [key: string]: components["schemas"]["CodeTemplateUpdateResult"];
+                [
+                    key: string
+                ]: components['schemas']['CodeTemplateUpdateResult'];
             };
         };
         CodeTemplateUpdateResult: {
@@ -4072,7 +4165,7 @@ export interface components {
             clearGlobalMap?: boolean;
             /** Format: int32 */
             queueBufferSize?: number;
-            defaultMetaDataColumns?: components["schemas"]["MetaDataColumn"][];
+            defaultMetaDataColumns?: components['schemas']['MetaDataColumn'][];
             defaultAdministratorBackgroundColor?: {
                 /** Format: int32 */
                 red?: number;
@@ -4171,7 +4264,7 @@ export interface components {
             clearGlobalMap?: boolean;
             /** Format: int32 */
             queueBufferSize?: number;
-            defaultMetaDataColumns?: components["schemas"]["MetaDataColumn"][];
+            defaultMetaDataColumns?: components['schemas']['MetaDataColumn'][];
             defaultAdministratorBackgroundColor?: {
                 /** Format: int32 */
                 red?: number;
@@ -4221,18 +4314,18 @@ export interface components {
             alternativeClassNames?: string[];
         };
         ResourcePropertiesList: {
-            list?: components["schemas"]["ResourceProperties"][];
+            list?: components['schemas']['ResourceProperties'][];
         };
         ServerConfiguration: {
             date?: string;
-            channelGroups?: components["schemas"]["ChannelGroup"][];
-            channels?: components["schemas"]["Channel"][];
-            channelTags?: components["schemas"]["ChannelTag"][];
-            users?: components["schemas"]["User"][];
-            alerts?: components["schemas"]["AlertModel"][];
-            codeTemplateLibraries?: components["schemas"]["CodeTemplateLibrary"][];
-            serverSettings?: components["schemas"]["ServerSettings"];
-            updateSettings?: components["schemas"]["UpdateSettings"];
+            channelGroups?: components['schemas']['ChannelGroup'][];
+            channels?: components['schemas']['Channel'][];
+            channelTags?: components['schemas']['ChannelTag'][];
+            users?: components['schemas']['User'][];
+            alerts?: components['schemas']['AlertModel'][];
+            codeTemplateLibraries?: components['schemas']['CodeTemplateLibrary'][];
+            serverSettings?: components['schemas']['ServerSettings'];
+            updateSettings?: components['schemas']['UpdateSettings'];
             globalScripts?: {
                 [key: string]: string;
             };
@@ -4241,10 +4334,10 @@ export interface components {
                     [key: string]: string;
                 };
             };
-            resourceProperties?: components["schemas"]["ResourcePropertiesList"];
-            channelDependencies?: components["schemas"]["ChannelDependency"][];
+            resourceProperties?: components['schemas']['ResourcePropertiesList'];
+            channelDependencies?: components['schemas']['ChannelDependency'][];
             configurationMap?: {
-                [key: string]: components["schemas"]["ConfigurationProperty"];
+                [key: string]: components['schemas']['ConfigurationProperty'];
             };
         };
         User: {
@@ -4298,7 +4391,7 @@ export interface components {
         DatabaseTask: {
             id?: string;
             /** @enum {string} */
-            status?: "Idle" | "Running";
+            status?: 'Idle' | 'Running';
             name?: string;
             description?: string;
             confirmationMessage?: string;
@@ -4318,13 +4411,13 @@ export interface components {
             /** Format: date-time */
             eventTime?: string;
             /** @enum {string} */
-            level?: "INFORMATION" | "WARNING" | "ERROR";
+            level?: 'INFORMATION' | 'WARNING' | 'ERROR';
             name?: string;
             attributes?: {
                 [key: string]: string;
             };
             /** @enum {string} */
-            outcome?: "SUCCESS" | "FAILURE";
+            outcome?: 'SUCCESS' | 'FAILURE';
             /** Format: int32 */
             userId?: number;
             patientId?: string;
@@ -4342,14 +4435,14 @@ export interface components {
             minEventId?: number;
             /** Format: int32 */
             id?: number;
-            levels?: ("INFORMATION" | "WARNING" | "ERROR")[];
+            levels?: ('INFORMATION' | 'WARNING' | 'ERROR')[];
             /** Format: date-time */
             startDate?: string;
             /** Format: date-time */
             endDate?: string;
             name?: string;
             /** @enum {string} */
-            outcome?: "SUCCESS" | "FAILURE";
+            outcome?: 'SUCCESS' | 'FAILURE';
             /** Format: int32 */
             userId?: number;
             attributeSearch?: string;
@@ -4358,7 +4451,13 @@ export interface components {
         };
         ApiProvider: {
             /** @enum {string} */
-            type?: "SERVLET_INTERFACE_PACKAGE" | "SERVLET_INTERFACE" | "CORE_PACKAGE" | "SERVER_PACKAGE" | "CORE_CLASS" | "SERVER_CLASS";
+            type?:
+                | 'SERVLET_INTERFACE_PACKAGE'
+                | 'SERVLET_INTERFACE'
+                | 'CORE_PACKAGE'
+                | 'SERVER_PACKAGE'
+                | 'CORE_CLASS'
+                | 'SERVER_CLASS';
             name?: string;
             minVersion?: string;
             maxVersion?: string;
@@ -4366,7 +4465,7 @@ export interface components {
         ExtensionLibrary: {
             path?: string;
             /** @enum {string} */
-            type?: "SERVER" | "CLIENT" | "SHARED";
+            type?: 'SERVER' | 'CLIENT' | 'SHARED';
         };
         MetaData: {
             path?: string;
@@ -4376,8 +4475,8 @@ export interface components {
             pluginVersion?: string;
             url?: string;
             description?: string;
-            apiProviders?: components["schemas"]["ApiProvider"][];
-            libraries?: components["schemas"]["ExtensionLibrary"][];
+            apiProviders?: components['schemas']['ApiProvider'][];
+            libraries?: components['schemas']['ExtensionLibrary'][];
             templateClassName?: string;
             userutilPackages?: string[];
             notify?: boolean;
@@ -4390,8 +4489,8 @@ export interface components {
             pluginVersion?: string;
             url?: string;
             description?: string;
-            apiProviders?: components["schemas"]["ApiProvider"][];
-            libraries?: components["schemas"]["ExtensionLibrary"][];
+            apiProviders?: components['schemas']['ApiProvider'][];
+            libraries?: components['schemas']['ExtensionLibrary'][];
             templateClassName?: string;
             userutilPackages?: string[];
             notify?: boolean;
@@ -4401,7 +4500,7 @@ export interface components {
             transformers?: string;
             protocol?: string;
             /** @enum {string} */
-            type?: "SOURCE" | "DESTINATION";
+            type?: 'SOURCE' | 'DESTINATION';
             purgedProperties?: {
                 [key: string]: Record<string, never>;
             };
@@ -4420,14 +4519,14 @@ export interface components {
             pluginVersion?: string;
             url?: string;
             description?: string;
-            apiProviders?: components["schemas"]["ApiProvider"][];
-            libraries?: components["schemas"]["ExtensionLibrary"][];
+            apiProviders?: components['schemas']['ApiProvider'][];
+            libraries?: components['schemas']['ExtensionLibrary'][];
             templateClassName?: string;
             userutilPackages?: string[];
             notify?: boolean;
-            serverClasses?: components["schemas"]["PluginClass"][];
-            clientClasses?: components["schemas"]["PluginClass"][];
-            controllerClasses?: components["schemas"]["PluginClass"][];
+            serverClasses?: components['schemas']['PluginClass'][];
+            clientClasses?: components['schemas']['PluginClass'][];
+            controllerClasses?: components['schemas']['PluginClass'][];
             migratorClass?: string;
             sqlScript?: string;
             sqlMapConfigs?: {
@@ -4449,7 +4548,7 @@ export interface components {
                 [key: string]: Record<string, never>;
             };
             binary?: boolean;
-            attachments?: components["schemas"]["Attachment"][];
+            attachments?: components['schemas']['Attachment'][];
         };
         ConnectorMessage: {
             /** Format: int64 */
@@ -4463,25 +4562,32 @@ export interface components {
             /** Format: date-time */
             receivedDate?: string;
             /** @enum {string} */
-            status?: "RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING";
-            raw?: components["schemas"]["MessageContent"];
-            processedRaw?: components["schemas"]["MessageContent"];
-            transformed?: components["schemas"]["MessageContent"];
-            encoded?: components["schemas"]["MessageContent"];
-            sent?: components["schemas"]["MessageContent"];
-            response?: components["schemas"]["MessageContent"];
-            responseTransformed?: components["schemas"]["MessageContent"];
-            processedResponse?: components["schemas"]["MessageContent"];
-            sourceMapContent?: components["schemas"]["MapContent"];
-            connectorMapContent?: components["schemas"]["MapContent"];
-            channelMapContent?: components["schemas"]["MapContent"];
-            responseMapContent?: components["schemas"]["MapContent"];
+            status?:
+                | 'RECEIVED'
+                | 'FILTERED'
+                | 'TRANSFORMED'
+                | 'SENT'
+                | 'QUEUED'
+                | 'ERROR'
+                | 'PENDING';
+            raw?: components['schemas']['MessageContent'];
+            processedRaw?: components['schemas']['MessageContent'];
+            transformed?: components['schemas']['MessageContent'];
+            encoded?: components['schemas']['MessageContent'];
+            sent?: components['schemas']['MessageContent'];
+            response?: components['schemas']['MessageContent'];
+            responseTransformed?: components['schemas']['MessageContent'];
+            processedResponse?: components['schemas']['MessageContent'];
+            sourceMapContent?: components['schemas']['MapContent'];
+            connectorMapContent?: components['schemas']['MapContent'];
+            channelMapContent?: components['schemas']['MapContent'];
+            responseMapContent?: components['schemas']['MapContent'];
             metaDataMap?: {
                 [key: string]: Record<string, never>;
             };
-            processingErrorContent?: components["schemas"]["ErrorContent"];
-            postProcessorErrorContent?: components["schemas"]["ErrorContent"];
-            responseErrorContent?: components["schemas"]["ErrorContent"];
+            processingErrorContent?: components['schemas']['ErrorContent'];
+            postProcessorErrorContent?: components['schemas']['ErrorContent'];
+            responseErrorContent?: components['schemas']['ErrorContent'];
             /** Format: int32 */
             errorCode?: number;
             /** Format: int32 */
@@ -4494,7 +4600,7 @@ export interface components {
             chainId?: number;
             /** Format: int32 */
             orderId?: number;
-            sentProperties?: components["schemas"]["ConnectorProperties"];
+            sentProperties?: components['schemas']['ConnectorProperties'];
             /** Format: int32 */
             queueBucket?: number;
             attemptedFirst?: boolean;
@@ -4515,7 +4621,7 @@ export interface components {
                 [key: string]: Record<string, never>;
             };
             postProcessorError?: string;
-            messageContent?: components["schemas"]["MessageContent"];
+            messageContent?: components['schemas']['MessageContent'];
         };
         ErrorContent: {
             encrypted?: boolean;
@@ -4538,7 +4644,22 @@ export interface components {
             /** Format: int32 */
             metaDataId?: number;
             /** @enum {string} */
-            contentType?: "Raw" | "Processed Raw" | "Transformed" | "Encoded" | "Sent" | "Response" | "Response Transformed" | "Processed Response" | "Connector Map" | "Channel Map" | "Response Map" | "Processing Error" | "Postprocessor Error" | "Response Error" | "Source Map";
+            contentType?:
+                | 'Raw'
+                | 'Processed Raw'
+                | 'Transformed'
+                | 'Encoded'
+                | 'Sent'
+                | 'Response'
+                | 'Response Transformed'
+                | 'Processed Response'
+                | 'Connector Map'
+                | 'Channel Map'
+                | 'Response Map'
+                | 'Processing Error'
+                | 'Postprocessor Error'
+                | 'Response Error'
+                | 'Source Map';
             content?: string;
             dataType?: string;
         };
@@ -4566,12 +4687,20 @@ export interface components {
             endDate?: string;
             textSearch?: string;
             textSearchRegex?: boolean;
-            statuses?: ("RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING")[];
+            statuses?: (
+                | 'RECEIVED'
+                | 'FILTERED'
+                | 'TRANSFORMED'
+                | 'SENT'
+                | 'QUEUED'
+                | 'ERROR'
+                | 'PENDING'
+            )[];
             includedMetaDataIds?: number[];
             excludedMetaDataIds?: number[];
             serverId?: string;
-            contentSearch?: components["schemas"]["ContentSearchElement"][];
-            metaDataSearch?: components["schemas"]["MetaDataSearchElement"][];
+            contentSearch?: components['schemas']['ContentSearchElement'][];
+            metaDataSearch?: components['schemas']['MetaDataSearchElement'][];
             textSearchMetaDataColumns?: string[];
             /** Format: int32 */
             sendAttemptsLower?: number;
@@ -4589,7 +4718,19 @@ export interface components {
         MetaDataSearch: {
             columnName?: string;
             /** @enum {string} */
-            operator?: "=" | "!=" | "<" | "<=" | ">" | ">=" | "CONTAINS" | "DOES NOT CONTAIN" | "STARTS WITH" | "DOES NOT START WITH" | "ENDS WITH" | "DOES NOT END WITH";
+            operator?:
+                | '='
+                | '!='
+                | '<'
+                | '<='
+                | '>'
+                | '>='
+                | 'CONTAINS'
+                | 'DOES NOT CONTAIN'
+                | 'STARTS WITH'
+                | 'DOES NOT START WITH'
+                | 'ENDS WITH'
+                | 'DOES NOT END WITH';
             value?: string;
         };
         Message: {
@@ -4606,11 +4747,11 @@ export interface components {
             /** Format: int64 */
             importId?: number;
             importChannelId?: string;
-            attachments?: components["schemas"]["Attachment"][];
+            attachments?: components['schemas']['Attachment'][];
             connectorMessages?: {
-                [key: string]: components["schemas"]["ConnectorMessage"];
+                [key: string]: components['schemas']['ConnectorMessage'];
             };
-            mergedConnectorMessage?: components["schemas"]["ConnectorMessage"];
+            mergedConnectorMessage?: components['schemas']['ConnectorMessage'];
         };
         MessageImportResult: {
             /** Format: int32 */
@@ -4620,7 +4761,22 @@ export interface components {
         };
         MessageWriterOptions: {
             /** @enum {string} */
-            contentType?: "Raw" | "Processed Raw" | "Transformed" | "Encoded" | "Sent" | "Response" | "Response Transformed" | "Processed Response" | "Connector Map" | "Channel Map" | "Response Map" | "Processing Error" | "Postprocessor Error" | "Response Error" | "Source Map";
+            contentType?:
+                | 'Raw'
+                | 'Processed Raw'
+                | 'Transformed'
+                | 'Encoded'
+                | 'Sent'
+                | 'Response'
+                | 'Response Transformed'
+                | 'Processed Response'
+                | 'Connector Map'
+                | 'Channel Map'
+                | 'Response Map'
+                | 'Processing Error'
+                | 'Postprocessor Error'
+                | 'Response Error'
+                | 'Source Map';
             destinationContent?: boolean;
             encrypt?: boolean;
             includeAttachments?: boolean;
@@ -4633,7 +4789,7 @@ export interface components {
             passwordEnabled?: boolean;
             password?: string;
             /** @enum {string} */
-            encryptionType?: "STANDARD" | "AES128" | "AES256";
+            encryptionType?: 'STANDARD' | 'AES128' | 'AES256';
         };
         SystemStats: {
             /** Format: date-time */
@@ -4661,7 +4817,13 @@ export interface components {
         };
         LoginStatus: {
             /** @enum {string} */
-            status?: "SUCCESS" | "SUCCESS_GRACE_PERIOD" | "FAIL" | "FAIL_EXPIRED" | "FAIL_LOCKED_OUT" | "FAIL_VERSION_MISMATCH";
+            status?:
+                | 'SUCCESS'
+                | 'SUCCESS_GRACE_PERIOD'
+                | 'FAIL'
+                | 'FAIL_EXPIRED'
+                | 'FAIL_LOCKED_OUT'
+                | 'FAIL_VERSION_MISMATCH';
             message?: string;
             updatedUsername?: string;
             success?: boolean;
@@ -4691,7 +4853,7 @@ export interface operations {
         requestBody: {
             content: {
                 /** @example /some_folder */
-                "text/plain": string;
+                'text/plain': string;
             };
         };
         responses: {
@@ -4701,20 +4863,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -4734,9 +4896,9 @@ export interface operations {
         /** @description The File Reader properties to use. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["FileReceiverProperties"];
-                "application/json": components["schemas"]["FileReceiverProperties"];
-                "application/mirthapi+json": components["schemas"]["FileReceiverProperties"];
+                'application/xml': components['schemas']['FileReceiverProperties'];
+                'application/json': components['schemas']['FileReceiverProperties'];
+                'application/mirthapi+json': components['schemas']['FileReceiverProperties'];
             };
         };
         responses: {
@@ -4746,20 +4908,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -4779,9 +4941,9 @@ export interface operations {
         /** @description The File Writer properties to use. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["FileDispatcherProperties"];
-                "application/json": components["schemas"]["FileDispatcherProperties"];
-                "application/mirthapi+json": components["schemas"]["FileDispatcherProperties"];
+                'application/xml': components['schemas']['FileDispatcherProperties'];
+                'application/json': components['schemas']['FileDispatcherProperties'];
+                'application/mirthapi+json': components['schemas']['FileDispatcherProperties'];
             };
         };
         responses: {
@@ -4791,20 +4953,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -4824,9 +4986,9 @@ export interface operations {
         /** @description The HTTP Sender properties to use. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["HttpDispatcherProperties"];
-                "application/json": components["schemas"]["HttpDispatcherProperties"];
-                "application/mirthapi+json": components["schemas"]["HttpDispatcherProperties"];
+                'application/xml': components['schemas']['HttpDispatcherProperties'];
+                'application/json': components['schemas']['HttpDispatcherProperties'];
+                'application/mirthapi+json': components['schemas']['HttpDispatcherProperties'];
             };
         };
         responses: {
@@ -4836,20 +4998,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -4888,20 +5050,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Table"][];
-                    "application/json": components["schemas"]["Table"][];
-                    "application/mirthapi+json": components["schemas"]["Table"][];
+                    'application/xml': components['schemas']['Table'][];
+                    'application/json': components['schemas']['Table'][];
+                    'application/mirthapi+json': components['schemas']['Table'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Table"][];
-                    "application/json": components["schemas"]["Table"][];
-                    "application/mirthapi+json": components["schemas"]["Table"][];
+                    'application/xml': components['schemas']['Table'][];
+                    'application/json': components['schemas']['Table'][];
+                    'application/mirthapi+json': components['schemas']['Table'][];
                 };
             };
         };
@@ -4921,31 +5083,43 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["JmsConnectorProperties"];
+                    'application/xml': {
+                        [
+                            key: string
+                        ]: components['schemas']['JmsConnectorProperties'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["JmsConnectorProperties"];
+                    'application/json': {
+                        [
+                            key: string
+                        ]: components['schemas']['JmsConnectorProperties'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["JmsConnectorProperties"];
+                    'application/mirthapi+json': {
+                        [
+                            key: string
+                        ]: components['schemas']['JmsConnectorProperties'];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["JmsConnectorProperties"];
+                    'application/xml': {
+                        [
+                            key: string
+                        ]: components['schemas']['JmsConnectorProperties'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["JmsConnectorProperties"];
+                    'application/json': {
+                        [
+                            key: string
+                        ]: components['schemas']['JmsConnectorProperties'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["JmsConnectorProperties"];
+                    'application/mirthapi+json': {
+                        [
+                            key: string
+                        ]: components['schemas']['JmsConnectorProperties'];
                     };
                 };
             };
@@ -4969,20 +5143,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["JmsConnectorProperties"];
-                    "application/json": components["schemas"]["JmsConnectorProperties"];
-                    "application/mirthapi+json": components["schemas"]["JmsConnectorProperties"];
+                    'application/xml': components['schemas']['JmsConnectorProperties'];
+                    'application/json': components['schemas']['JmsConnectorProperties'];
+                    'application/mirthapi+json': components['schemas']['JmsConnectorProperties'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["JmsConnectorProperties"];
-                    "application/json": components["schemas"]["JmsConnectorProperties"];
-                    "application/mirthapi+json": components["schemas"]["JmsConnectorProperties"];
+                    'application/xml': components['schemas']['JmsConnectorProperties'];
+                    'application/json': components['schemas']['JmsConnectorProperties'];
+                    'application/mirthapi+json': components['schemas']['JmsConnectorProperties'];
                 };
             };
         };
@@ -5000,9 +5174,9 @@ export interface operations {
         /** @description The JMS connector properties to save. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["JmsConnectorProperties"];
-                "application/json": components["schemas"]["JmsConnectorProperties"];
-                "application/mirthapi+json": components["schemas"]["JmsConnectorProperties"];
+                'application/xml': components['schemas']['JmsConnectorProperties'];
+                'application/json': components['schemas']['JmsConnectorProperties'];
+                'application/mirthapi+json': components['schemas']['JmsConnectorProperties'];
             };
         };
         responses: {
@@ -5012,20 +5186,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
         };
@@ -5048,20 +5222,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
         };
@@ -5081,9 +5255,9 @@ export interface operations {
         /** @description The SMTP Sender properties to use. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["SmtpDispatcherProperties"];
-                "application/json": components["schemas"]["SmtpDispatcherProperties"];
-                "application/mirthapi+json": components["schemas"]["SmtpDispatcherProperties"];
+                'application/xml': components['schemas']['SmtpDispatcherProperties'];
+                'application/json': components['schemas']['SmtpDispatcherProperties'];
+                'application/mirthapi+json': components['schemas']['SmtpDispatcherProperties'];
             };
         };
         responses: {
@@ -5093,20 +5267,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -5126,9 +5300,9 @@ export interface operations {
         /** @description The TCP Sender properties to use. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["TcpDispatcherProperties"];
-                "application/json": components["schemas"]["TcpDispatcherProperties"];
-                "application/mirthapi+json": components["schemas"]["TcpDispatcherProperties"];
+                'application/xml': components['schemas']['TcpDispatcherProperties'];
+                'application/json': components['schemas']['TcpDispatcherProperties'];
+                'application/mirthapi+json': components['schemas']['TcpDispatcherProperties'];
             };
         };
         responses: {
@@ -5138,20 +5312,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -5171,9 +5345,9 @@ export interface operations {
         /** @description The Web Service Sender properties to use. These properties can be found in the exported channel's XML file. Copy the data from the opening tag &lt;destinationConnectorProperties&gt; to the closing tag &lt;/wsdlDefinitionMap&gt; (including the tags). Paste over the information below between the opening and closing tags for &lt;com.mirth.connect.connectors.ws.WebServiceDispatcherProperties&gt;. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["WebServiceDispatcherProperties"];
-                "application/json": components["schemas"]["WebServiceDispatcherProperties"];
-                "application/mirthapi+json": components["schemas"]["WebServiceDispatcherProperties"];
+                'application/xml': components['schemas']['WebServiceDispatcherProperties'];
+                'application/json': components['schemas']['WebServiceDispatcherProperties'];
+                'application/mirthapi+json': components['schemas']['WebServiceDispatcherProperties'];
             };
         };
         responses: {
@@ -5183,20 +5357,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -5216,9 +5390,9 @@ export interface operations {
         /** @description The Web Service Sender properties to use. These properties can be found in the exported channel's XML file. Copy the data from the opening tag &lt;destinationConnectorProperties&gt; to the closing tag &lt;/wsdlDefinitionMap&gt; (including the tags). Paste over the information below between the opening and closing tags for &lt;com.mirth.connect.connectors.ws.WebServiceDispatcherProperties&gt;. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["WebServiceDispatcherProperties"];
-                "application/json": components["schemas"]["WebServiceDispatcherProperties"];
-                "application/mirthapi+json": components["schemas"]["WebServiceDispatcherProperties"];
+                'application/xml': components['schemas']['WebServiceDispatcherProperties'];
+                'application/json': components['schemas']['WebServiceDispatcherProperties'];
+                'application/mirthapi+json': components['schemas']['WebServiceDispatcherProperties'];
             };
         };
         responses: {
@@ -5228,20 +5402,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": Record<string, never>;
-                    "application/json": Record<string, never>;
-                    "application/mirthapi+json": Record<string, never>;
+                    'application/xml': Record<string, never>;
+                    'application/json': Record<string, never>;
+                    'application/mirthapi+json': Record<string, never>;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": Record<string, never>;
-                    "application/json": Record<string, never>;
-                    "application/mirthapi+json": Record<string, never>;
+                    'application/xml': Record<string, never>;
+                    'application/json': Record<string, never>;
+                    'application/mirthapi+json': Record<string, never>;
                 };
             };
         };
@@ -5255,7 +5429,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     /** @description The ID of the channel. */
                     channelId: string;
                     /** @description The name of the channel. */
@@ -5276,20 +5450,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
         };
@@ -5303,7 +5477,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     /** @description The ID of the channel. */
                     channelId: string;
                     /** @description The name of the channel. */
@@ -5332,16 +5506,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -5355,7 +5529,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     /** @description The ID of the channel. */
                     channelId: string;
                     /** @description The name of the channel. */
@@ -5383,17 +5557,17 @@ export interface operations {
                 };
                 content: {
                     /** @example SomeAction */
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     /** @example SomeAction */
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -5407,7 +5581,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     /** @description The ID of the channel. */
                     channelId: string;
                     /** @description The name of the channel. */
@@ -5428,20 +5602,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DefinitionServiceMap"];
-                    "application/json": components["schemas"]["DefinitionServiceMap"];
-                    "application/mirthapi+json": components["schemas"]["DefinitionServiceMap"];
+                    'application/xml': components['schemas']['DefinitionServiceMap'];
+                    'application/json': components['schemas']['DefinitionServiceMap'];
+                    'application/mirthapi+json': components['schemas']['DefinitionServiceMap'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DefinitionServiceMap"];
-                    "application/json": components["schemas"]["DefinitionServiceMap"];
-                    "application/mirthapi+json": components["schemas"]["DefinitionServiceMap"];
+                    'application/xml': components['schemas']['DefinitionServiceMap'];
+                    'application/json': components['schemas']['DefinitionServiceMap'];
+                    'application/mirthapi+json': components['schemas']['DefinitionServiceMap'];
                 };
             };
         };
@@ -5464,30 +5638,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: Record<string, never>[];
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: Record<string, never>[];
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: Record<string, never>[];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: Record<string, never>[];
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: Record<string, never>[];
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: Record<string, never>[];
                     };
                 };
@@ -5519,20 +5693,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionLogItem"][];
-                    "application/json": components["schemas"]["ConnectionLogItem"][];
-                    "application/mirthapi+json": components["schemas"]["ConnectionLogItem"][];
+                    'application/xml': components['schemas']['ConnectionLogItem'][];
+                    'application/json': components['schemas']['ConnectionLogItem'][];
+                    'application/mirthapi+json': components['schemas']['ConnectionLogItem'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionLogItem"][];
-                    "application/json": components["schemas"]["ConnectionLogItem"][];
-                    "application/mirthapi+json": components["schemas"]["ConnectionLogItem"][];
+                    'application/xml': components['schemas']['ConnectionLogItem'][];
+                    'application/json': components['schemas']['ConnectionLogItem'][];
+                    'application/mirthapi+json': components['schemas']['ConnectionLogItem'][];
                 };
             };
         };
@@ -5552,30 +5726,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -5600,16 +5774,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -5636,20 +5810,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionLogItem"][];
-                    "application/json": components["schemas"]["ConnectionLogItem"][];
-                    "application/mirthapi+json": components["schemas"]["ConnectionLogItem"][];
+                    'application/xml': components['schemas']['ConnectionLogItem'][];
+                    'application/json': components['schemas']['ConnectionLogItem'][];
+                    'application/mirthapi+json': components['schemas']['ConnectionLogItem'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionLogItem"][];
-                    "application/json": components["schemas"]["ConnectionLogItem"][];
-                    "application/mirthapi+json": components["schemas"]["ConnectionLogItem"][];
+                    'application/xml': components['schemas']['ConnectionLogItem'][];
+                    'application/json': components['schemas']['ConnectionLogItem'][];
+                    'application/mirthapi+json': components['schemas']['ConnectionLogItem'][];
                 };
             };
         };
@@ -5669,30 +5843,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -5714,20 +5888,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": string;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': string;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": string;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': string;
                 };
             };
         };
@@ -5747,20 +5921,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -5783,20 +5957,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
         };
@@ -5821,21 +5995,21 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
@@ -5845,26 +6019,26 @@ export interface operations {
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
@@ -5888,9 +6062,9 @@ export interface operations {
         /** @description The ID of the channel to retrieve global channel map information for. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -5900,21 +6074,21 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
@@ -5924,26 +6098,26 @@ export interface operations {
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
                             };
                         };
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: {
                             [key: string]: {
                                 [key: string]: string;
@@ -5972,30 +6146,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "text/plain": {
+                    'text/plain': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "text/plain": {
+                    'text/plain': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -6017,30 +6191,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "text/plain": {
+                    'text/plain': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "text/plain": {
+                    'text/plain': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -6067,20 +6241,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerLogItem"][];
-                    "application/json": components["schemas"]["ServerLogItem"][];
-                    "application/mirthapi+json": components["schemas"]["ServerLogItem"][];
+                    'application/xml': components['schemas']['ServerLogItem'][];
+                    'application/json': components['schemas']['ServerLogItem'][];
+                    'application/mirthapi+json': components['schemas']['ServerLogItem'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerLogItem"][];
-                    "application/json": components["schemas"]["ServerLogItem"][];
-                    "application/mirthapi+json": components["schemas"]["ServerLogItem"][];
+                    'application/xml': components['schemas']['ServerLogItem'][];
+                    'application/json': components['schemas']['ServerLogItem'][];
+                    'application/mirthapi+json': components['schemas']['ServerLogItem'][];
                 };
             };
         };
@@ -6095,9 +6269,9 @@ export interface operations {
         /** @description The ID of the alert(s). If absent, all alerts will be returned. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -6107,20 +6281,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertModel"][];
-                    "application/json": components["schemas"]["AlertModel"][];
-                    "application/mirthapi+json": components["schemas"]["AlertModel"][];
+                    'application/xml': components['schemas']['AlertModel'][];
+                    'application/json': components['schemas']['AlertModel'][];
+                    'application/mirthapi+json': components['schemas']['AlertModel'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertModel"][];
-                    "application/json": components["schemas"]["AlertModel"][];
-                    "application/mirthapi+json": components["schemas"]["AlertModel"][];
+                    'application/xml': components['schemas']['AlertModel'][];
+                    'application/json': components['schemas']['AlertModel'][];
+                    'application/mirthapi+json': components['schemas']['AlertModel'][];
                 };
             };
         };
@@ -6135,14 +6309,14 @@ export interface operations {
         /** @description A map of ChannelHeader objects telling the server the state of the client-side channel cache. */
         requestBody: {
             content: {
-                "application/xml": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/xml': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
-                "application/json": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/json': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
-                "application/mirthapi+json": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/mirthapi+json': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
             };
         };
@@ -6153,20 +6327,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertInfo"];
-                    "application/json": components["schemas"]["AlertInfo"];
-                    "application/mirthapi+json": components["schemas"]["AlertInfo"];
+                    'application/xml': components['schemas']['AlertInfo'];
+                    'application/json': components['schemas']['AlertInfo'];
+                    'application/mirthapi+json': components['schemas']['AlertInfo'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertInfo"];
-                    "application/json": components["schemas"]["AlertInfo"];
-                    "application/mirthapi+json": components["schemas"]["AlertInfo"];
+                    'application/xml': components['schemas']['AlertInfo'];
+                    'application/json': components['schemas']['AlertInfo'];
+                    'application/mirthapi+json': components['schemas']['AlertInfo'];
                 };
             };
         };
@@ -6184,14 +6358,14 @@ export interface operations {
         /** @description A map of ChannelHeader objects telling the server the state of the client-side channel cache. */
         requestBody: {
             content: {
-                "application/xml": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/xml': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
-                "application/json": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/json': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
-                "application/mirthapi+json": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/mirthapi+json': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
             };
         };
@@ -6202,20 +6376,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertInfo"];
-                    "application/json": components["schemas"]["AlertInfo"];
-                    "application/mirthapi+json": components["schemas"]["AlertInfo"];
+                    'application/xml': components['schemas']['AlertInfo'];
+                    'application/json': components['schemas']['AlertInfo'];
+                    'application/mirthapi+json': components['schemas']['AlertInfo'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertInfo"];
-                    "application/json": components["schemas"]["AlertInfo"];
-                    "application/mirthapi+json": components["schemas"]["AlertInfo"];
+                    'application/xml': components['schemas']['AlertInfo'];
+                    'application/json': components['schemas']['AlertInfo'];
+                    'application/mirthapi+json': components['schemas']['AlertInfo'];
                 };
             };
         };
@@ -6235,17 +6409,17 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: {
                             [key: string]: string;
                         };
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: {
                             [key: string]: string;
                         };
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: {
                             [key: string]: string;
                         };
@@ -6253,22 +6427,22 @@ export interface operations {
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: {
                             [key: string]: string;
                         };
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: {
                             [key: string]: string;
                         };
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: {
                             [key: string]: string;
                         };
@@ -6295,20 +6469,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertModel"][];
-                    "application/json": components["schemas"]["AlertModel"][];
-                    "application/mirthapi+json": components["schemas"]["AlertModel"][];
+                    'application/xml': components['schemas']['AlertModel'][];
+                    'application/json': components['schemas']['AlertModel'][];
+                    'application/mirthapi+json': components['schemas']['AlertModel'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertModel"][];
-                    "application/json": components["schemas"]["AlertModel"][];
-                    "application/mirthapi+json": components["schemas"]["AlertModel"][];
+                    'application/xml': components['schemas']['AlertModel'][];
+                    'application/json': components['schemas']['AlertModel'][];
+                    'application/mirthapi+json': components['schemas']['AlertModel'][];
                 };
             };
         };
@@ -6323,9 +6497,9 @@ export interface operations {
         /** @description The alert to create. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["AlertModel"];
-                "application/json": components["schemas"]["AlertModel"];
-                "application/mirthapi+json": components["schemas"]["AlertModel"];
+                'application/xml': components['schemas']['AlertModel'];
+                'application/json': components['schemas']['AlertModel'];
+                'application/mirthapi+json': components['schemas']['AlertModel'];
             };
         };
         responses: {
@@ -6335,20 +6509,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -6368,20 +6542,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertStatus"][];
-                    "application/json": components["schemas"]["AlertStatus"][];
-                    "application/mirthapi+json": components["schemas"]["AlertStatus"][];
+                    'application/xml': components['schemas']['AlertStatus'][];
+                    'application/json': components['schemas']['AlertStatus'][];
+                    'application/mirthapi+json': components['schemas']['AlertStatus'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertStatus"][];
-                    "application/json": components["schemas"]["AlertStatus"][];
-                    "application/mirthapi+json": components["schemas"]["AlertStatus"][];
+                    'application/xml': components['schemas']['AlertStatus'][];
+                    'application/json': components['schemas']['AlertStatus'][];
+                    'application/mirthapi+json': components['schemas']['AlertStatus'][];
                 };
             };
         };
@@ -6404,20 +6578,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -6440,20 +6614,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -6476,20 +6650,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertModel"];
-                    "application/json": components["schemas"]["AlertModel"];
-                    "application/mirthapi+json": components["schemas"]["AlertModel"];
+                    'application/xml': components['schemas']['AlertModel'];
+                    'application/json': components['schemas']['AlertModel'];
+                    'application/mirthapi+json': components['schemas']['AlertModel'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["AlertModel"];
-                    "application/json": components["schemas"]["AlertModel"];
-                    "application/mirthapi+json": components["schemas"]["AlertModel"];
+                    'application/xml': components['schemas']['AlertModel'];
+                    'application/json': components['schemas']['AlertModel'];
+                    'application/mirthapi+json': components['schemas']['AlertModel'];
                 };
             };
         };
@@ -6507,9 +6681,9 @@ export interface operations {
         /** @description The alert to create. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["AlertModel"];
-                "application/json": components["schemas"]["AlertModel"];
-                "application/mirthapi+json": components["schemas"]["AlertModel"];
+                'application/xml': components['schemas']['AlertModel'];
+                'application/json': components['schemas']['AlertModel'];
+                'application/mirthapi+json': components['schemas']['AlertModel'];
             };
         };
         responses: {
@@ -6519,20 +6693,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -6555,20 +6729,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -6583,9 +6757,9 @@ export interface operations {
         /** @description The IDs of the channel groups to retrieve. If absent, all groups will be retrieved. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -6595,20 +6769,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelGroup"][];
-                    "application/json": components["schemas"]["ChannelGroup"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelGroup"][];
+                    'application/xml': components['schemas']['ChannelGroup'][];
+                    'application/json': components['schemas']['ChannelGroup'][];
+                    'application/mirthapi+json': components['schemas']['ChannelGroup'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelGroup"][];
-                    "application/json": components["schemas"]["ChannelGroup"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelGroup"][];
+                    'application/xml': components['schemas']['ChannelGroup'][];
+                    'application/json': components['schemas']['ChannelGroup'][];
+                    'application/mirthapi+json': components['schemas']['ChannelGroup'][];
                 };
             };
         };
@@ -6631,20 +6805,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelGroup"][];
-                    "application/json": components["schemas"]["ChannelGroup"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelGroup"][];
+                    'application/xml': components['schemas']['ChannelGroup'][];
+                    'application/json': components['schemas']['ChannelGroup'][];
+                    'application/mirthapi+json': components['schemas']['ChannelGroup'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelGroup"][];
-                    "application/json": components["schemas"]["ChannelGroup"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelGroup"][];
+                    'application/xml': components['schemas']['ChannelGroup'][];
+                    'application/json': components['schemas']['ChannelGroup'][];
+                    'application/mirthapi+json': components['schemas']['ChannelGroup'][];
                 };
             };
         };
@@ -6661,9 +6835,9 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "multipart/form-data": {
+                'multipart/form-data': {
                     /** @description The channel group object to update or create. */
-                    channelGroups?: components["schemas"]["ChannelGroup"][];
+                    channelGroups?: components['schemas']['ChannelGroup'][];
                     /** @description All channel group IDs known to be removed. */
                     removedChannelGroupIds?: string[];
                 };
@@ -6676,20 +6850,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
-                    "text/plain": boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
+                    'text/plain': boolean;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
-                    "text/plain": boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
+                    'text/plain': boolean;
                 };
             };
         };
@@ -6709,9 +6883,9 @@ export interface operations {
         /** @description The IDs of the channels to retrieve. If absent, all channels will be retrieved. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -6721,20 +6895,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Channel"][];
-                    "application/json": components["schemas"]["Channel"][];
-                    "application/mirthapi+json": components["schemas"]["Channel"][];
+                    'application/xml': components['schemas']['Channel'][];
+                    'application/json': components['schemas']['Channel'][];
+                    'application/mirthapi+json': components['schemas']['Channel'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Channel"][];
-                    "application/json": components["schemas"]["Channel"][];
-                    "application/mirthapi+json": components["schemas"]["Channel"][];
+                    'application/xml': components['schemas']['Channel'][];
+                    'application/json': components['schemas']['Channel'][];
+                    'application/mirthapi+json': components['schemas']['Channel'][];
                 };
             };
         };
@@ -6754,30 +6928,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -6799,20 +6973,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Ports"][];
-                    "application/json": components["schemas"]["Ports"][];
-                    "application/mirthapi+json": components["schemas"]["Ports"][];
+                    'application/xml': components['schemas']['Ports'][];
+                    'application/json': components['schemas']['Ports'][];
+                    'application/mirthapi+json': components['schemas']['Ports'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Ports"][];
-                    "application/json": components["schemas"]["Ports"][];
-                    "application/mirthapi+json": components["schemas"]["Ports"][];
+                    'application/xml': components['schemas']['Ports'][];
+                    'application/json': components['schemas']['Ports'][];
+                    'application/mirthapi+json': components['schemas']['Ports'][];
                 };
             };
         };
@@ -6827,9 +7001,9 @@ export interface operations {
         /** @description The IDs of the channels to remove. */
         requestBody: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -6839,20 +7013,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -6878,20 +7052,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Channel"];
-                    "application/json": components["schemas"]["Channel"];
-                    "application/mirthapi+json": components["schemas"]["Channel"];
+                    'application/xml': components['schemas']['Channel'];
+                    'application/json': components['schemas']['Channel'];
+                    'application/mirthapi+json': components['schemas']['Channel'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Channel"];
-                    "application/json": components["schemas"]["Channel"];
-                    "application/mirthapi+json": components["schemas"]["Channel"];
+                    'application/xml': components['schemas']['Channel'];
+                    'application/json': components['schemas']['Channel'];
+                    'application/mirthapi+json': components['schemas']['Channel'];
                 };
             };
         };
@@ -6914,9 +7088,9 @@ export interface operations {
         /** @description The Channel object to update with. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["Channel"];
-                "application/json": components["schemas"]["Channel"];
-                "application/mirthapi+json": components["schemas"]["Channel"];
+                'application/xml': components['schemas']['Channel'];
+                'application/json': components['schemas']['Channel'];
+                'application/mirthapi+json': components['schemas']['Channel'];
             };
         };
         responses: {
@@ -6926,20 +7100,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
-                    "text/plain": boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
+                    'text/plain': boolean;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
-                    "text/plain": boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
+                    'text/plain': boolean;
                 };
             };
         };
@@ -6962,20 +7136,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7002,20 +7176,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Channel"][];
-                    "application/json": components["schemas"]["Channel"][];
-                    "application/mirthapi+json": components["schemas"]["Channel"][];
+                    'application/xml': components['schemas']['Channel'][];
+                    'application/json': components['schemas']['Channel'][];
+                    'application/mirthapi+json': components['schemas']['Channel'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Channel"][];
-                    "application/json": components["schemas"]["Channel"][];
-                    "application/mirthapi+json": components["schemas"]["Channel"][];
+                    'application/xml': components['schemas']['Channel'][];
+                    'application/json': components['schemas']['Channel'][];
+                    'application/mirthapi+json': components['schemas']['Channel'][];
                 };
             };
         };
@@ -7030,9 +7204,9 @@ export interface operations {
         /** @description The Channel object to create. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["Channel"];
-                "application/json": components["schemas"]["Channel"];
-                "application/mirthapi+json": components["schemas"]["Channel"];
+                'application/xml': components['schemas']['Channel'];
+                'application/json': components['schemas']['Channel'];
+                'application/mirthapi+json': components['schemas']['Channel'];
             };
         };
         responses: {
@@ -7042,20 +7216,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
-                    "text/plain": boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
+                    'text/plain': boolean;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
-                    "text/plain": boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
+                    'text/plain': boolean;
                 };
             };
         };
@@ -7078,20 +7252,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7114,20 +7288,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["MetaDataColumn"][];
-                    "application/json": components["schemas"]["MetaDataColumn"][];
-                    "application/mirthapi+json": components["schemas"]["MetaDataColumn"][];
+                    'application/xml': components['schemas']['MetaDataColumn'][];
+                    'application/json': components['schemas']['MetaDataColumn'][];
+                    'application/mirthapi+json': components['schemas']['MetaDataColumn'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["MetaDataColumn"][];
-                    "application/json": components["schemas"]["MetaDataColumn"][];
-                    "application/mirthapi+json": components["schemas"]["MetaDataColumn"][];
+                    'application/xml': components['schemas']['MetaDataColumn'][];
+                    'application/json': components['schemas']['MetaDataColumn'][];
+                    'application/mirthapi+json': components['schemas']['MetaDataColumn'][];
                 };
             };
         };
@@ -7145,14 +7319,14 @@ export interface operations {
         /** @description A map of ChannelHeader objects telling the server the state of the client-side channel cache. */
         requestBody: {
             content: {
-                "application/xml": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/xml': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
-                "application/json": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/json': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
-                "application/mirthapi+json": {
-                    [key: string]: components["schemas"]["ChannelHeader"];
+                'application/mirthapi+json': {
+                    [key: string]: components['schemas']['ChannelHeader'];
                 };
             };
         };
@@ -7163,20 +7337,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelSummary"][];
-                    "application/json": components["schemas"]["ChannelSummary"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelSummary"][];
+                    'application/xml': components['schemas']['ChannelSummary'][];
+                    'application/json': components['schemas']['ChannelSummary'][];
+                    'application/mirthapi+json': components['schemas']['ChannelSummary'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelSummary"][];
-                    "application/json": components["schemas"]["ChannelSummary"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelSummary"][];
+                    'application/xml': components['schemas']['ChannelSummary'][];
+                    'application/json': components['schemas']['ChannelSummary'][];
+                    'application/mirthapi+json': components['schemas']['ChannelSummary'][];
                 };
             };
         };
@@ -7201,20 +7375,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7228,7 +7402,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId?: string[];
                     enabled: boolean;
                 };
@@ -7241,20 +7415,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7267,7 +7441,7 @@ export interface operations {
                 /** @description The ID of the channel. */
                 channelId: string;
                 /** @description The initial state of the channel. */
-                initialState: "STARTED" | "PAUSED" | "STOPPED";
+                initialState: 'STARTED' | 'PAUSED' | 'STOPPED';
             };
             cookie?: never;
         };
@@ -7279,20 +7453,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7306,10 +7480,10 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId?: string[];
                     /** @enum {string} */
-                    initialState: "STARTED" | "PAUSED" | "STOPPED";
+                    initialState: 'STARTED' | 'PAUSED' | 'STOPPED';
                 };
             };
         };
@@ -7320,20 +7494,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7356,30 +7530,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -7395,7 +7569,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "multipart/form-data": {
+                'multipart/form-data': {
                     channelIds?: string[];
                     includeUndeployed?: boolean;
                     includeMetadataIds?: number[];
@@ -7411,20 +7585,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelStatistics"][];
-                    "application/json": components["schemas"]["ChannelStatistics"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelStatistics"][];
+                    'application/xml': components['schemas']['ChannelStatistics'][];
+                    'application/json': components['schemas']['ChannelStatistics'][];
+                    'application/mirthapi+json': components['schemas']['ChannelStatistics'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelStatistics"][];
-                    "application/json": components["schemas"]["ChannelStatistics"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelStatistics"][];
+                    'application/xml': components['schemas']['ChannelStatistics'][];
+                    'application/json': components['schemas']['ChannelStatistics'][];
+                    'application/mirthapi+json': components['schemas']['ChannelStatistics'][];
                 };
             };
         };
@@ -7444,20 +7618,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7488,20 +7662,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelStatistics"][];
-                    "application/json": components["schemas"]["ChannelStatistics"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelStatistics"][];
+                    'application/xml': components['schemas']['ChannelStatistics'][];
+                    'application/json': components['schemas']['ChannelStatistics'][];
+                    'application/mirthapi+json': components['schemas']['ChannelStatistics'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelStatistics"][];
-                    "application/json": components["schemas"]["ChannelStatistics"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelStatistics"][];
+                    'application/xml': components['schemas']['ChannelStatistics'][];
+                    'application/json': components['schemas']['ChannelStatistics'][];
+                    'application/mirthapi+json': components['schemas']['ChannelStatistics'][];
                 };
             };
         };
@@ -7524,20 +7698,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelStatistics"];
-                    "application/json": components["schemas"]["ChannelStatistics"];
-                    "application/mirthapi+json": components["schemas"]["ChannelStatistics"];
+                    'application/xml': components['schemas']['ChannelStatistics'];
+                    'application/json': components['schemas']['ChannelStatistics'];
+                    'application/mirthapi+json': components['schemas']['ChannelStatistics'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelStatistics"];
-                    "application/json": components["schemas"]["ChannelStatistics"];
-                    "application/mirthapi+json": components["schemas"]["ChannelStatistics"];
+                    'application/xml': components['schemas']['ChannelStatistics'];
+                    'application/json': components['schemas']['ChannelStatistics'];
+                    'application/mirthapi+json': components['schemas']['ChannelStatistics'];
                 };
             };
         };
@@ -7561,13 +7735,13 @@ export interface operations {
         /** @description Channel IDs mapped to lists of metaDataIds (connectors). If the metaDataId list is null, then all statistics for the channel will be cleared. */
         requestBody: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: number[];
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: number[];
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: number[];
                 };
             };
@@ -7579,20 +7753,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7617,20 +7791,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardChannelInfo"];
-                    "application/json": components["schemas"]["DashboardChannelInfo"];
-                    "application/mirthapi+json": components["schemas"]["DashboardChannelInfo"];
+                    'application/xml': components['schemas']['DashboardChannelInfo'];
+                    'application/json': components['schemas']['DashboardChannelInfo'];
+                    'application/mirthapi+json': components['schemas']['DashboardChannelInfo'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardChannelInfo"];
-                    "application/json": components["schemas"]["DashboardChannelInfo"];
-                    "application/mirthapi+json": components["schemas"]["DashboardChannelInfo"];
+                    'application/xml': components['schemas']['DashboardChannelInfo'];
+                    'application/json': components['schemas']['DashboardChannelInfo'];
+                    'application/mirthapi+json': components['schemas']['DashboardChannelInfo'];
                 };
             };
         };
@@ -7656,20 +7830,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7695,20 +7869,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7734,20 +7908,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7767,9 +7941,9 @@ export interface operations {
         /** @description The channel IDs to return dashboard statuses for. If absent, all statuses will be returned. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -7779,20 +7953,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardStatus"][];
-                    "application/json": components["schemas"]["DashboardStatus"][];
-                    "application/mirthapi+json": components["schemas"]["DashboardStatus"][];
+                    'application/xml': components['schemas']['DashboardStatus'][];
+                    'application/json': components['schemas']['DashboardStatus'][];
+                    'application/mirthapi+json': components['schemas']['DashboardStatus'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardStatus"][];
-                    "application/json": components["schemas"]["DashboardStatus"][];
-                    "application/mirthapi+json": components["schemas"]["DashboardStatus"][];
+                    'application/xml': components['schemas']['DashboardStatus'][];
+                    'application/json': components['schemas']['DashboardStatus'][];
+                    'application/mirthapi+json': components['schemas']['DashboardStatus'][];
                 };
             };
         };
@@ -7818,20 +7992,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7857,20 +8031,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7888,13 +8062,13 @@ export interface operations {
         /** @description A map of channel and metadata IDs to start connectors for. */
         requestBody: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: number[];
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: number[];
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: number[];
                 };
             };
@@ -7906,20 +8080,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7937,13 +8111,13 @@ export interface operations {
         /** @description A map of channel and metadata IDs to stop connectors for. */
         requestBody: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: number[];
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: number[];
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: number[];
                 };
             };
@@ -7955,20 +8129,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -7995,20 +8169,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardStatus"][];
-                    "application/json": components["schemas"]["DashboardStatus"][];
-                    "application/mirthapi+json": components["schemas"]["DashboardStatus"][];
+                    'application/xml': components['schemas']['DashboardStatus'][];
+                    'application/json': components['schemas']['DashboardStatus'][];
+                    'application/mirthapi+json': components['schemas']['DashboardStatus'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardStatus"][];
-                    "application/json": components["schemas"]["DashboardStatus"][];
-                    "application/mirthapi+json": components["schemas"]["DashboardStatus"][];
+                    'application/xml': components['schemas']['DashboardStatus'][];
+                    'application/json': components['schemas']['DashboardStatus'][];
+                    'application/mirthapi+json': components['schemas']['DashboardStatus'][];
                 };
             };
         };
@@ -8025,7 +8199,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId: string[];
                 };
             };
@@ -8037,20 +8211,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8067,7 +8241,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId: string[];
                 };
             };
@@ -8079,20 +8253,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8109,7 +8283,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId: string[];
                 };
             };
@@ -8121,20 +8295,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8151,7 +8325,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId: string[];
                 };
             };
@@ -8163,20 +8337,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8204,20 +8378,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8245,20 +8419,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8275,7 +8449,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     channelId: string[];
                 };
             };
@@ -8287,20 +8461,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8323,20 +8497,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardStatus"];
-                    "application/json": components["schemas"]["DashboardStatus"];
-                    "application/mirthapi+json": components["schemas"]["DashboardStatus"];
+                    'application/xml': components['schemas']['DashboardStatus'];
+                    'application/json': components['schemas']['DashboardStatus'];
+                    'application/mirthapi+json': components['schemas']['DashboardStatus'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DashboardStatus"];
-                    "application/json": components["schemas"]["DashboardStatus"];
-                    "application/mirthapi+json": components["schemas"]["DashboardStatus"];
+                    'application/xml': components['schemas']['DashboardStatus'];
+                    'application/json': components['schemas']['DashboardStatus'];
+                    'application/mirthapi+json': components['schemas']['DashboardStatus'];
                 };
             };
         };
@@ -8354,9 +8528,9 @@ export interface operations {
         /** @description The ID of the library(s) to retrieve. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -8366,20 +8540,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/json": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"][];
+                    'application/xml': components['schemas']['CodeTemplateLibrary'][];
+                    'application/json': components['schemas']['CodeTemplateLibrary'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/json": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"][];
+                    'application/xml': components['schemas']['CodeTemplateLibrary'][];
+                    'application/json': components['schemas']['CodeTemplateLibrary'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'][];
                 };
             };
         };
@@ -8405,20 +8579,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrary"];
-                    "application/json": components["schemas"]["CodeTemplateLibrary"];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"];
+                    'application/xml': components['schemas']['CodeTemplateLibrary'];
+                    'application/json': components['schemas']['CodeTemplateLibrary'];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrary"];
-                    "application/json": components["schemas"]["CodeTemplateLibrary"];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"];
+                    'application/xml': components['schemas']['CodeTemplateLibrary'];
+                    'application/json': components['schemas']['CodeTemplateLibrary'];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'];
                 };
             };
         };
@@ -8443,20 +8617,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/json": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"][];
+                    'application/xml': components['schemas']['CodeTemplateLibrary'][];
+                    'application/json': components['schemas']['CodeTemplateLibrary'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/json": components["schemas"]["CodeTemplateLibrary"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"][];
+                    'application/xml': components['schemas']['CodeTemplateLibrary'][];
+                    'application/json': components['schemas']['CodeTemplateLibrary'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'][];
                 };
             };
         };
@@ -8474,9 +8648,9 @@ export interface operations {
         /** @description The list of code template libraries to replace with. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["CodeTemplateLibrary"][];
-                "application/json": components["schemas"]["CodeTemplateLibrary"][];
-                "application/mirthapi+json": components["schemas"]["CodeTemplateLibrary"][];
+                'application/xml': components['schemas']['CodeTemplateLibrary'][];
+                'application/json': components['schemas']['CodeTemplateLibrary'][];
+                'application/mirthapi+json': components['schemas']['CodeTemplateLibrary'][];
             };
         };
         responses: {
@@ -8486,20 +8660,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
         };
@@ -8514,9 +8688,9 @@ export interface operations {
         /** @description The ID of the code template(s) to retrieve. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -8526,20 +8700,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplate"][];
-                    "application/json": components["schemas"]["CodeTemplate"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplate"][];
+                    'application/xml': components['schemas']['CodeTemplate'][];
+                    'application/json': components['schemas']['CodeTemplate'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplate'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplate"][];
-                    "application/json": components["schemas"]["CodeTemplate"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplate"][];
+                    'application/xml': components['schemas']['CodeTemplate'][];
+                    'application/json': components['schemas']['CodeTemplate'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplate'][];
                 };
             };
         };
@@ -8562,20 +8736,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplate"];
-                    "application/json": components["schemas"]["CodeTemplate"];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplate"];
+                    'application/xml': components['schemas']['CodeTemplate'];
+                    'application/json': components['schemas']['CodeTemplate'];
+                    'application/mirthapi+json': components['schemas']['CodeTemplate'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplate"];
-                    "application/json": components["schemas"]["CodeTemplate"];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplate"];
+                    'application/xml': components['schemas']['CodeTemplate'];
+                    'application/json': components['schemas']['CodeTemplate'];
+                    'application/mirthapi+json': components['schemas']['CodeTemplate'];
                 };
             };
         };
@@ -8596,9 +8770,9 @@ export interface operations {
         /** @description The CodeTemplate object to update with. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["CodeTemplate"];
-                "application/json": components["schemas"]["CodeTemplate"];
-                "application/mirthapi+json": components["schemas"]["CodeTemplate"];
+                'application/xml': components['schemas']['CodeTemplate'];
+                'application/json': components['schemas']['CodeTemplate'];
+                'application/mirthapi+json': components['schemas']['CodeTemplate'];
             };
         };
         responses: {
@@ -8608,20 +8782,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
         };
@@ -8644,20 +8818,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -8680,20 +8854,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplate"][];
-                    "application/json": components["schemas"]["CodeTemplate"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplate"][];
+                    'application/xml': components['schemas']['CodeTemplate'][];
+                    'application/json': components['schemas']['CodeTemplate'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplate'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplate"][];
-                    "application/json": components["schemas"]["CodeTemplate"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplate"][];
+                    'application/xml': components['schemas']['CodeTemplate'][];
+                    'application/json': components['schemas']['CodeTemplate'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplate'][];
                 };
             };
         };
@@ -8708,13 +8882,13 @@ export interface operations {
         /** @description A map of revisions telling the server the state of the client-side code template cache. */
         requestBody: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: number;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: number;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: number;
                 };
             };
@@ -8726,20 +8900,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateSummary"][];
-                    "application/json": components["schemas"]["CodeTemplateSummary"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateSummary"][];
+                    'application/xml': components['schemas']['CodeTemplateSummary'][];
+                    'application/json': components['schemas']['CodeTemplateSummary'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateSummary'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateSummary"][];
-                    "application/json": components["schemas"]["CodeTemplateSummary"][];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateSummary"][];
+                    'application/xml': components['schemas']['CodeTemplateSummary'][];
+                    'application/json': components['schemas']['CodeTemplateSummary'][];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateSummary'][];
                 };
             };
         };
@@ -8756,13 +8930,13 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "multipart/form-data": {
+                'multipart/form-data': {
                     /** @description The set of code template libraries to replace with. */
-                    libraries?: components["schemas"]["CodeTemplateLibrary"][];
+                    libraries?: components['schemas']['CodeTemplateLibrary'][];
                     /** @description All library IDs known to be removed. */
                     removedLibraryIds?: string[];
                     /** @description The set of code templates to update. */
-                    updatedCodeTemplates?: components["schemas"]["CodeTemplate"][];
+                    updatedCodeTemplates?: components['schemas']['CodeTemplate'][];
                     /** @description All code template IDs known to be removed. */
                     removedCodeTemplateIds?: string[];
                 };
@@ -8775,20 +8949,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrarySaveResult"];
-                    "application/json": components["schemas"]["CodeTemplateLibrarySaveResult"];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrarySaveResult"];
+                    'application/xml': components['schemas']['CodeTemplateLibrarySaveResult'];
+                    'application/json': components['schemas']['CodeTemplateLibrarySaveResult'];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrarySaveResult'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["CodeTemplateLibrarySaveResult"];
-                    "application/json": components["schemas"]["CodeTemplateLibrarySaveResult"];
-                    "application/mirthapi+json": components["schemas"]["CodeTemplateLibrarySaveResult"];
+                    'application/xml': components['schemas']['CodeTemplateLibrarySaveResult'];
+                    'application/json': components['schemas']['CodeTemplateLibrarySaveResult'];
+                    'application/mirthapi+json': components['schemas']['CodeTemplateLibrarySaveResult'];
                 };
             };
         };
@@ -8808,16 +8982,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -8837,30 +9011,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: Record<string, never>;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: Record<string, never>;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: Record<string, never>;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: Record<string, never>;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: Record<string, never>;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: Record<string, never>;
                     };
                 };
@@ -8882,20 +9056,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["LicenseInfo"];
-                    "application/json": components["schemas"]["LicenseInfo"];
-                    "application/mirthapi+json": components["schemas"]["LicenseInfo"];
+                    'application/xml': components['schemas']['LicenseInfo'];
+                    'application/json': components['schemas']['LicenseInfo'];
+                    'application/mirthapi+json': components['schemas']['LicenseInfo'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["LicenseInfo"];
-                    "application/json": components["schemas"]["LicenseInfo"];
-                    "application/mirthapi+json": components["schemas"]["LicenseInfo"];
+                    'application/xml': components['schemas']['LicenseInfo'];
+                    'application/json': components['schemas']['LicenseInfo'];
+                    'application/mirthapi+json': components['schemas']['LicenseInfo'];
                 };
             };
         };
@@ -8915,16 +9089,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -8944,30 +9118,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string[];
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string[];
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string[];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string[];
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string[];
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string[];
                     };
                 };
@@ -8994,16 +9168,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -9023,20 +9197,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ResourceProperties"][];
-                    "application/json": components["schemas"]["ResourceProperties"][];
-                    "application/mirthapi+json": components["schemas"]["ResourceProperties"][];
+                    'application/xml': components['schemas']['ResourceProperties'][];
+                    'application/json': components['schemas']['ResourceProperties'][];
+                    'application/mirthapi+json': components['schemas']['ResourceProperties'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ResourceProperties"][];
-                    "application/json": components["schemas"]["ResourceProperties"][];
-                    "application/mirthapi+json": components["schemas"]["ResourceProperties"][];
+                    'application/xml': components['schemas']['ResourceProperties'][];
+                    'application/json': components['schemas']['ResourceProperties'][];
+                    'application/mirthapi+json': components['schemas']['ResourceProperties'][];
                 };
             };
         };
@@ -9051,9 +9225,9 @@ export interface operations {
         /** @description The new list of resource properties to update with. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["ResourceProperties"][];
-                "application/json": components["schemas"]["ResourceProperties"][];
-                "application/mirthapi+json": components["schemas"]["ResourceProperties"][];
+                'application/xml': components['schemas']['ResourceProperties'][];
+                'application/json': components['schemas']['ResourceProperties'][];
+                'application/mirthapi+json': components['schemas']['ResourceProperties'][];
             };
         };
         responses: {
@@ -9063,20 +9237,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9096,16 +9270,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -9125,20 +9299,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -9158,16 +9332,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -9187,20 +9361,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerSettings"];
-                    "application/json": components["schemas"]["ServerSettings"];
-                    "application/mirthapi+json": components["schemas"]["ServerSettings"];
+                    'application/xml': components['schemas']['ServerSettings'];
+                    'application/json': components['schemas']['ServerSettings'];
+                    'application/mirthapi+json': components['schemas']['ServerSettings'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerSettings"];
-                    "application/json": components["schemas"]["ServerSettings"];
-                    "application/mirthapi+json": components["schemas"]["ServerSettings"];
+                    'application/xml': components['schemas']['ServerSettings'];
+                    'application/json': components['schemas']['ServerSettings'];
+                    'application/mirthapi+json': components['schemas']['ServerSettings'];
                 };
             };
         };
@@ -9215,9 +9389,9 @@ export interface operations {
         /** @description The ServerSettings object containing all of the settings to update. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["ServerSettings"];
-                "application/json": components["schemas"]["ServerSettings"];
-                "application/mirthapi+json": components["schemas"]["ServerSettings"];
+                'application/xml': components['schemas']['ServerSettings'];
+                'application/json': components['schemas']['ServerSettings'];
+                'application/mirthapi+json': components['schemas']['ServerSettings'];
             };
         };
         responses: {
@@ -9227,20 +9401,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9260,31 +9434,31 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["ChannelMetadata"];
+                    'application/xml': {
+                        [key: string]: components['schemas']['ChannelMetadata'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["ChannelMetadata"];
+                    'application/json': {
+                        [key: string]: components['schemas']['ChannelMetadata'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["ChannelMetadata"];
+                    'application/mirthapi+json': {
+                        [key: string]: components['schemas']['ChannelMetadata'];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["ChannelMetadata"];
+                    'application/xml': {
+                        [key: string]: components['schemas']['ChannelMetadata'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["ChannelMetadata"];
+                    'application/json': {
+                        [key: string]: components['schemas']['ChannelMetadata'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["ChannelMetadata"];
+                    'application/mirthapi+json': {
+                        [key: string]: components['schemas']['ChannelMetadata'];
                     };
                 };
             };
@@ -9300,14 +9474,14 @@ export interface operations {
         /** @description The map of channel metadata to set. */
         requestBody: {
             content: {
-                "application/xml": {
-                    [key: string]: components["schemas"]["ChannelMetadata"];
+                'application/xml': {
+                    [key: string]: components['schemas']['ChannelMetadata'];
                 };
-                "application/json": {
-                    [key: string]: components["schemas"]["ChannelMetadata"];
+                'application/json': {
+                    [key: string]: components['schemas']['ChannelMetadata'];
                 };
-                "application/mirthapi+json": {
-                    [key: string]: components["schemas"]["ChannelMetadata"];
+                'application/mirthapi+json': {
+                    [key: string]: components['schemas']['ChannelMetadata'];
                 };
             };
         };
@@ -9318,20 +9492,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9351,31 +9525,43 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["ConfigurationProperty"];
+                    'application/xml': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConfigurationProperty'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["ConfigurationProperty"];
+                    'application/json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConfigurationProperty'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["ConfigurationProperty"];
+                    'application/mirthapi+json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConfigurationProperty'];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["ConfigurationProperty"];
+                    'application/xml': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConfigurationProperty'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["ConfigurationProperty"];
+                    'application/json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConfigurationProperty'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["ConfigurationProperty"];
+                    'application/mirthapi+json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConfigurationProperty'];
                     };
                 };
             };
@@ -9391,14 +9577,20 @@ export interface operations {
         /** @description The new configuration map to update with. */
         requestBody: {
             content: {
-                "application/xml": {
-                    [key: string]: components["schemas"]["ConfigurationProperty"];
+                'application/xml': {
+                    [
+                        key: string
+                    ]: components['schemas']['ConfigurationProperty'];
                 };
-                "application/json": {
-                    [key: string]: components["schemas"]["ConfigurationProperty"];
+                'application/json': {
+                    [
+                        key: string
+                    ]: components['schemas']['ConfigurationProperty'];
                 };
-                "application/mirthapi+json": {
-                    [key: string]: components["schemas"]["ConfigurationProperty"];
+                'application/mirthapi+json': {
+                    [
+                        key: string
+                    ]: components['schemas']['ConfigurationProperty'];
                 };
             };
         };
@@ -9409,20 +9601,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9442,20 +9634,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelTag"][];
-                    "application/json": components["schemas"]["ChannelTag"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelTag"][];
+                    'application/xml': components['schemas']['ChannelTag'][];
+                    'application/json': components['schemas']['ChannelTag'][];
+                    'application/mirthapi+json': components['schemas']['ChannelTag'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelTag"][];
-                    "application/json": components["schemas"]["ChannelTag"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelTag"][];
+                    'application/xml': components['schemas']['ChannelTag'][];
+                    'application/json': components['schemas']['ChannelTag'][];
+                    'application/mirthapi+json': components['schemas']['ChannelTag'][];
                 };
             };
         };
@@ -9470,9 +9662,9 @@ export interface operations {
         /** @description The channel tags to set. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["ChannelTag"][];
-                "application/json": components["schemas"]["ChannelTag"][];
-                "application/mirthapi+json": components["schemas"]["ChannelTag"][];
+                'application/xml': components['schemas']['ChannelTag'][];
+                'application/json': components['schemas']['ChannelTag'][];
+                'application/mirthapi+json': components['schemas']['ChannelTag'][];
             };
         };
         responses: {
@@ -9482,20 +9674,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9515,20 +9707,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["UpdateSettings"];
-                    "application/json": components["schemas"]["UpdateSettings"];
-                    "application/mirthapi+json": components["schemas"]["UpdateSettings"];
+                    'application/xml': components['schemas']['UpdateSettings'];
+                    'application/json': components['schemas']['UpdateSettings'];
+                    'application/mirthapi+json': components['schemas']['UpdateSettings'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["UpdateSettings"];
-                    "application/json": components["schemas"]["UpdateSettings"];
-                    "application/mirthapi+json": components["schemas"]["UpdateSettings"];
+                    'application/xml': components['schemas']['UpdateSettings'];
+                    'application/json': components['schemas']['UpdateSettings'];
+                    'application/mirthapi+json': components['schemas']['UpdateSettings'];
                 };
             };
         };
@@ -9543,9 +9735,9 @@ export interface operations {
         /** @description The UpdateSettings object containing all of the settings to update. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["UpdateSettings"];
-                "application/json": components["schemas"]["UpdateSettings"];
-                "application/mirthapi+json": components["schemas"]["UpdateSettings"];
+                'application/xml': components['schemas']['UpdateSettings'];
+                'application/json': components['schemas']['UpdateSettings'];
+                'application/mirthapi+json': components['schemas']['UpdateSettings'];
             };
         };
         responses: {
@@ -9555,20 +9747,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9588,30 +9780,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -9628,13 +9820,13 @@ export interface operations {
         /** @description The map of global scripts to update with. Script keys: Deploy, Undeploy, Preprocessor, Postprocessor */
         requestBody: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: string;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: string;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -9646,20 +9838,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9679,20 +9871,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelDependency"][];
-                    "application/json": components["schemas"]["ChannelDependency"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelDependency"][];
+                    'application/xml': components['schemas']['ChannelDependency'][];
+                    'application/json': components['schemas']['ChannelDependency'][];
+                    'application/mirthapi+json': components['schemas']['ChannelDependency'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ChannelDependency"][];
-                    "application/json": components["schemas"]["ChannelDependency"][];
-                    "application/mirthapi+json": components["schemas"]["ChannelDependency"][];
+                    'application/xml': components['schemas']['ChannelDependency'][];
+                    'application/json': components['schemas']['ChannelDependency'][];
+                    'application/mirthapi+json': components['schemas']['ChannelDependency'][];
                 };
             };
         };
@@ -9707,9 +9899,9 @@ export interface operations {
         /** @description The channel dependencies to set. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["ChannelDependency"][];
-                "application/json": components["schemas"]["ChannelDependency"][];
-                "application/mirthapi+json": components["schemas"]["ChannelDependency"][];
+                'application/xml': components['schemas']['ChannelDependency'][];
+                'application/json': components['schemas']['ChannelDependency'][];
+                'application/mirthapi+json': components['schemas']['ChannelDependency'][];
             };
         };
         responses: {
@@ -9719,20 +9911,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -9752,20 +9944,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -9785,20 +9977,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["EncryptionSettings"];
-                    "application/json": components["schemas"]["EncryptionSettings"];
-                    "application/mirthapi+json": components["schemas"]["EncryptionSettings"];
+                    'application/xml': components['schemas']['EncryptionSettings'];
+                    'application/json': components['schemas']['EncryptionSettings'];
+                    'application/mirthapi+json': components['schemas']['EncryptionSettings'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["EncryptionSettings"];
-                    "application/json": components["schemas"]["EncryptionSettings"];
-                    "application/mirthapi+json": components["schemas"]["EncryptionSettings"];
+                    'application/xml': components['schemas']['EncryptionSettings'];
+                    'application/json': components['schemas']['EncryptionSettings'];
+                    'application/mirthapi+json': components['schemas']['EncryptionSettings'];
                 };
             };
         };
@@ -9818,16 +10010,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -9847,20 +10039,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": string;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': string;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": string;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': string;
                 };
             };
         };
@@ -9880,20 +10072,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
         };
@@ -9913,20 +10105,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["PublicServerSettings"];
-                    "application/json": components["schemas"]["PublicServerSettings"];
-                    "application/mirthapi+json": components["schemas"]["PublicServerSettings"];
+                    'application/xml': components['schemas']['PublicServerSettings'];
+                    'application/json': components['schemas']['PublicServerSettings'];
+                    'application/mirthapi+json': components['schemas']['PublicServerSettings'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["PublicServerSettings"];
-                    "application/json": components["schemas"]["PublicServerSettings"];
-                    "application/mirthapi+json": components["schemas"]["PublicServerSettings"];
+                    'application/xml': components['schemas']['PublicServerSettings'];
+                    'application/json': components['schemas']['PublicServerSettings'];
+                    'application/mirthapi+json': components['schemas']['PublicServerSettings'];
                 };
             };
         };
@@ -9946,20 +10138,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DriverInfo"][];
-                    "application/json": components["schemas"]["DriverInfo"][];
-                    "application/mirthapi+json": components["schemas"]["DriverInfo"][];
+                    'application/xml': components['schemas']['DriverInfo'][];
+                    'application/json': components['schemas']['DriverInfo'][];
+                    'application/mirthapi+json': components['schemas']['DriverInfo'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DriverInfo"][];
-                    "application/json": components["schemas"]["DriverInfo"][];
-                    "application/mirthapi+json": components["schemas"]["DriverInfo"][];
+                    'application/xml': components['schemas']['DriverInfo'][];
+                    'application/json': components['schemas']['DriverInfo'][];
+                    'application/mirthapi+json': components['schemas']['DriverInfo'][];
                 };
             };
         };
@@ -9974,9 +10166,9 @@ export interface operations {
         /** @description The new list of database drivers to update. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["DriverInfo"][];
-                "application/json": components["schemas"]["DriverInfo"][];
-                "application/mirthapi+json": components["schemas"]["DriverInfo"][];
+                'application/xml': components['schemas']['DriverInfo'][];
+                'application/json': components['schemas']['DriverInfo'][];
+                'application/mirthapi+json': components['schemas']['DriverInfo'][];
             };
         };
         responses: {
@@ -9986,20 +10178,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10019,16 +10211,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -10037,7 +10229,7 @@ export interface operations {
         parameters: {
             query?: {
                 /** @description The initial state to set all channels in the configuration to. */
-                initialState?: "STARTED" | "PAUSED" | "STOPPED";
+                initialState?: 'STARTED' | 'PAUSED' | 'STOPPED';
                 /** @description If true, and the initialState parameter is set, only channels with polling source connectors will have their initial states overwritten in the returned server configuration. */
                 pollingOnly?: boolean;
                 /** @description If true, all alerts returned in the server configuration will be disabled. */
@@ -10055,20 +10247,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerConfiguration"];
-                    "application/json": components["schemas"]["ServerConfiguration"];
-                    "application/mirthapi+json": components["schemas"]["ServerConfiguration"];
+                    'application/xml': components['schemas']['ServerConfiguration'];
+                    'application/json': components['schemas']['ServerConfiguration'];
+                    'application/mirthapi+json': components['schemas']['ServerConfiguration'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerConfiguration"];
-                    "application/json": components["schemas"]["ServerConfiguration"];
-                    "application/mirthapi+json": components["schemas"]["ServerConfiguration"];
+                    'application/xml': components['schemas']['ServerConfiguration'];
+                    'application/json': components['schemas']['ServerConfiguration'];
+                    'application/mirthapi+json': components['schemas']['ServerConfiguration'];
                 };
             };
         };
@@ -10088,9 +10280,9 @@ export interface operations {
         /** @description The ServerConfiguration object containing all channels, users, alerts, and properties to update. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["ServerConfiguration"];
-                "application/json": components["schemas"]["ServerConfiguration"];
-                "application/mirthapi+json": components["schemas"]["ServerConfiguration"];
+                'application/xml': components['schemas']['ServerConfiguration'];
+                'application/json': components['schemas']['ServerConfiguration'];
+                'application/mirthapi+json': components['schemas']['ServerConfiguration'];
             };
         };
         responses: {
@@ -10100,20 +10292,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10133,20 +10325,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["PasswordRequirements"];
-                    "application/json": components["schemas"]["PasswordRequirements"];
-                    "application/mirthapi+json": components["schemas"]["PasswordRequirements"];
+                    'application/xml': components['schemas']['PasswordRequirements'];
+                    'application/json': components['schemas']['PasswordRequirements'];
+                    'application/mirthapi+json': components['schemas']['PasswordRequirements'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["PasswordRequirements"];
-                    "application/json": components["schemas"]["PasswordRequirements"];
-                    "application/mirthapi+json": components["schemas"]["PasswordRequirements"];
+                    'application/xml': components['schemas']['PasswordRequirements'];
+                    'application/json': components['schemas']['PasswordRequirements'];
+                    'application/mirthapi+json': components['schemas']['PasswordRequirements'];
                 };
             };
         };
@@ -10161,9 +10353,9 @@ export interface operations {
         /** @description Contains all properties needed to send the e-mail. Properties include: port, encryption, host, timeout, authentication, username, password, toAddress, fromAddress */
         requestBody: {
             content: {
-                "application/xml": string;
-                "application/json": string;
-                "application/mirthapi+json": {
+                'application/xml': string;
+                'application/json': string;
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -10175,20 +10367,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ConnectionTestResponse"];
-                    "application/json": components["schemas"]["ConnectionTestResponse"];
-                    "application/mirthapi+json": components["schemas"]["ConnectionTestResponse"];
+                    'application/xml': components['schemas']['ConnectionTestResponse'];
+                    'application/json': components['schemas']['ConnectionTestResponse'];
+                    'application/mirthapi+json': components['schemas']['ConnectionTestResponse'];
                 };
             };
         };
@@ -10211,20 +10403,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10244,31 +10436,31 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["DatabaseTask"];
+                    'application/xml': {
+                        [key: string]: components['schemas']['DatabaseTask'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["DatabaseTask"];
+                    'application/json': {
+                        [key: string]: components['schemas']['DatabaseTask'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["DatabaseTask"];
+                    'application/mirthapi+json': {
+                        [key: string]: components['schemas']['DatabaseTask'];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["DatabaseTask"];
+                    'application/xml': {
+                        [key: string]: components['schemas']['DatabaseTask'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["DatabaseTask"];
+                    'application/json': {
+                        [key: string]: components['schemas']['DatabaseTask'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["DatabaseTask"];
+                    'application/mirthapi+json': {
+                        [key: string]: components['schemas']['DatabaseTask'];
                     };
                 };
             };
@@ -10292,20 +10484,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DatabaseTask"];
-                    "application/json": components["schemas"]["DatabaseTask"];
-                    "application/mirthapi+json": components["schemas"]["DatabaseTask"];
+                    'application/xml': components['schemas']['DatabaseTask'];
+                    'application/json': components['schemas']['DatabaseTask'];
+                    'application/mirthapi+json': components['schemas']['DatabaseTask'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["DatabaseTask"];
-                    "application/json": components["schemas"]["DatabaseTask"];
-                    "application/mirthapi+json": components["schemas"]["DatabaseTask"];
+                    'application/xml': components['schemas']['DatabaseTask'];
+                    'application/json': components['schemas']['DatabaseTask'];
+                    'application/mirthapi+json': components['schemas']['DatabaseTask'];
                 };
             };
         };
@@ -10329,17 +10521,17 @@ export interface operations {
                 };
                 content: {
                     /** @example Table SOME_TABLE successfully dropped. */
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     /** @example Table SOME_TABLE successfully dropped. */
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -10362,20 +10554,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10406,20 +10598,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10445,20 +10637,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10476,9 +10668,9 @@ export interface operations {
         /** @description The IDs of the channels to retrieve. If absent, all channels will be retrieved. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -10488,20 +10680,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10519,9 +10711,9 @@ export interface operations {
         /** @description The ID of the channel(s) to deploy. If absent, all channels will be deployed. */
         requestBody?: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -10531,20 +10723,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10567,20 +10759,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10603,20 +10795,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerEvent"];
-                    "application/json": components["schemas"]["ServerEvent"];
-                    "application/mirthapi+json": components["schemas"]["ServerEvent"];
+                    'application/xml': components['schemas']['ServerEvent'];
+                    'application/json': components['schemas']['ServerEvent'];
+                    'application/mirthapi+json': components['schemas']['ServerEvent'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerEvent"];
-                    "application/json": components["schemas"]["ServerEvent"];
-                    "application/mirthapi+json": components["schemas"]["ServerEvent"];
+                    'application/xml': components['schemas']['ServerEvent'];
+                    'application/json': components['schemas']['ServerEvent'];
+                    'application/mirthapi+json': components['schemas']['ServerEvent'];
                 };
             };
         };
@@ -10636,20 +10828,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": number;
-                    "application/mirthapi+json": number;
-                    "text/plain": number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
+                    'text/plain': number;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": number;
-                    "application/mirthapi+json": number;
-                    "text/plain": number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
+                    'text/plain': number;
                 };
             };
         };
@@ -10662,7 +10854,7 @@ export interface operations {
                 /** @description The minimum event ID to query. */
                 minEventId?: number;
                 /** @description The type of events to query. */
-                level?: ("INFORMATION" | "WARNING" | "ERROR")[];
+                level?: ('INFORMATION' | 'WARNING' | 'ERROR')[];
                 /** @description The earliest event date to query by. Example: 1985-10-26T09:00:00.000-0700 */
                 startDate?: string;
                 /** @description The latest event date to query by. Example: 2015-10-21T07:28:00.000-0700 */
@@ -10670,7 +10862,7 @@ export interface operations {
                 /** @description Searches the event name for this string. */
                 name?: string;
                 /** @description Searches on whether the event outcome was successful or not. */
-                outcome?: "SUCCESS" | "FAILURE";
+                outcome?: 'SUCCESS' | 'FAILURE';
                 /** @description The user ID to query events by. */
                 userId?: number;
                 /** @description Searches the attributes for this string. */
@@ -10696,20 +10888,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerEvent"][];
-                    "application/json": components["schemas"]["ServerEvent"][];
-                    "application/mirthapi+json": components["schemas"]["ServerEvent"][];
+                    'application/xml': components['schemas']['ServerEvent'][];
+                    'application/json': components['schemas']['ServerEvent'][];
+                    'application/mirthapi+json': components['schemas']['ServerEvent'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerEvent"][];
-                    "application/json": components["schemas"]["ServerEvent"][];
-                    "application/mirthapi+json": components["schemas"]["ServerEvent"][];
+                    'application/xml': components['schemas']['ServerEvent'][];
+                    'application/json': components['schemas']['ServerEvent'][];
+                    'application/mirthapi+json': components['schemas']['ServerEvent'][];
                 };
             };
         };
@@ -10729,9 +10921,9 @@ export interface operations {
         /** @description The EventFilter object to use to query events by. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["EventFilter"];
-                "application/json": components["schemas"]["EventFilter"];
-                "application/mirthapi+json": components["schemas"]["EventFilter"];
+                'application/xml': components['schemas']['EventFilter'];
+                'application/json': components['schemas']['EventFilter'];
+                'application/mirthapi+json': components['schemas']['EventFilter'];
             };
         };
         responses: {
@@ -10741,20 +10933,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerEvent"][];
-                    "application/json": components["schemas"]["ServerEvent"][];
-                    "application/mirthapi+json": components["schemas"]["ServerEvent"][];
+                    'application/xml': components['schemas']['ServerEvent'][];
+                    'application/json': components['schemas']['ServerEvent'][];
+                    'application/mirthapi+json': components['schemas']['ServerEvent'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["ServerEvent"][];
-                    "application/json": components["schemas"]["ServerEvent"][];
-                    "application/mirthapi+json": components["schemas"]["ServerEvent"][];
+                    'application/xml': components['schemas']['ServerEvent'][];
+                    'application/json': components['schemas']['ServerEvent'][];
+                    'application/mirthapi+json': components['schemas']['ServerEvent'][];
                 };
             };
         };
@@ -10774,16 +10966,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -10796,7 +10988,7 @@ export interface operations {
                 /** @description The minimum event ID to query. */
                 minEventId?: number;
                 /** @description The type of events to query. */
-                level?: ("INFORMATION" | "WARNING" | "ERROR")[];
+                level?: ('INFORMATION' | 'WARNING' | 'ERROR')[];
                 /** @description The earliest event date to query by. Example: 1985-10-26T09:00:00.000-0700 */
                 startDate?: string;
                 /** @description The latest event date to query by. Example: 2015-10-21T07:28:00.000-0700 */
@@ -10804,7 +10996,7 @@ export interface operations {
                 /** @description Searches the event name for this string. */
                 name?: string;
                 /** @description Searches on whether the event outcome was successful or not. */
-                outcome?: "SUCCESS" | "FAILURE";
+                outcome?: 'SUCCESS' | 'FAILURE';
                 /** @description The user ID to query events by. */
                 userId?: number;
                 /** @description Searches the attributes for this string. */
@@ -10826,20 +11018,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": number;
-                    "application/mirthapi+json": number;
-                    "text/plain": number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
+                    'text/plain': number;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": number;
-                    "application/mirthapi+json": number;
-                    "text/plain": number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
+                    'text/plain': number;
                 };
             };
         };
@@ -10854,9 +11046,9 @@ export interface operations {
         /** @description The EventFilter object to use to query events by. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["EventFilter"];
-                "application/json": components["schemas"]["EventFilter"];
-                "application/mirthapi+json": components["schemas"]["EventFilter"];
+                'application/xml': components['schemas']['EventFilter'];
+                'application/json': components['schemas']['EventFilter'];
+                'application/mirthapi+json': components['schemas']['EventFilter'];
             };
         };
         responses: {
@@ -10866,20 +11058,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": number;
-                    "application/mirthapi+json": number;
-                    "text/plain": number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
+                    'text/plain': number;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": number;
-                    "application/mirthapi+json": number;
-                    "text/plain": number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
+                    'text/plain': number;
                 };
             };
         };
@@ -10893,7 +11085,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "multipart/form-data": {
+                'multipart/form-data': {
                     /**
                      * Format: binary
                      * @description The extension file to upload.
@@ -10909,20 +11101,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10937,9 +11129,9 @@ export interface operations {
         /** @description The path attribute of the extension to uninstall. */
         requestBody: {
             content: {
-                "application/xml": string;
-                "application/json": string;
-                "application/mirthapi+json": string;
+                'application/xml': string;
+                'application/json': string;
+                'application/mirthapi+json': string;
             };
         };
         responses: {
@@ -10949,20 +11141,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -10985,20 +11177,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["MetaData"];
-                    "application/json": components["schemas"]["MetaData"];
-                    "application/mirthapi+json": components["schemas"]["MetaData"];
+                    'application/xml': components['schemas']['MetaData'];
+                    'application/json': components['schemas']['MetaData'];
+                    'application/mirthapi+json': components['schemas']['MetaData'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["MetaData"];
-                    "application/json": components["schemas"]["MetaData"];
-                    "application/mirthapi+json": components["schemas"]["MetaData"];
+                    'application/xml': components['schemas']['MetaData'];
+                    'application/json': components['schemas']['MetaData'];
+                    'application/mirthapi+json': components['schemas']['MetaData'];
                 };
             };
         };
@@ -11018,31 +11210,43 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["ConnectorMetaData"];
+                    'application/xml': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConnectorMetaData'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["ConnectorMetaData"];
+                    'application/json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConnectorMetaData'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["ConnectorMetaData"];
+                    'application/mirthapi+json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConnectorMetaData'];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["ConnectorMetaData"];
+                    'application/xml': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConnectorMetaData'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["ConnectorMetaData"];
+                    'application/json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConnectorMetaData'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["ConnectorMetaData"];
+                    'application/mirthapi+json': {
+                        [
+                            key: string
+                        ]: components['schemas']['ConnectorMetaData'];
                     };
                 };
             };
@@ -11063,31 +11267,31 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["PluginMetaData"];
+                    'application/xml': {
+                        [key: string]: components['schemas']['PluginMetaData'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["PluginMetaData"];
+                    'application/json': {
+                        [key: string]: components['schemas']['PluginMetaData'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["PluginMetaData"];
+                    'application/mirthapi+json': {
+                        [key: string]: components['schemas']['PluginMetaData'];
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
-                        [key: string]: components["schemas"]["PluginMetaData"];
+                    'application/xml': {
+                        [key: string]: components['schemas']['PluginMetaData'];
                     };
-                    "application/json": {
-                        [key: string]: components["schemas"]["PluginMetaData"];
+                    'application/json': {
+                        [key: string]: components['schemas']['PluginMetaData'];
                     };
-                    "application/mirthapi+json": {
-                        [key: string]: components["schemas"]["PluginMetaData"];
+                    'application/mirthapi+json': {
+                        [key: string]: components['schemas']['PluginMetaData'];
                     };
                 };
             };
@@ -11114,30 +11318,30 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": {
+                    'application/xml': {
                         [key: string]: string;
                     };
-                    "application/json": {
+                    'application/json': {
                         [key: string]: string;
                     };
-                    "application/mirthapi+json": {
+                    'application/mirthapi+json': {
                         [key: string]: string;
                     };
                 };
@@ -11159,9 +11363,9 @@ export interface operations {
         /** @description description */
         requestBody?: {
             content: {
-                "application/xml": string;
-                "application/json": string;
-                "application/mirthapi+json": {
+                'application/xml': string;
+                'application/json': string;
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -11173,20 +11377,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -11209,20 +11413,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
         };
@@ -11248,20 +11452,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -11279,9 +11483,9 @@ export interface operations {
         /** @description The RawMessage object to process. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["RawMessage"];
-                "application/json": components["schemas"]["RawMessage"];
-                "application/mirthapi+json": components["schemas"]["RawMessage"];
+                'application/xml': components['schemas']['RawMessage'];
+                'application/json': components['schemas']['RawMessage'];
+                'application/mirthapi+json': components['schemas']['RawMessage'];
             };
         };
         responses: {
@@ -11291,20 +11495,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -11333,7 +11537,15 @@ export interface operations {
                 /** @description If true, text search input will be considered a regular expression pattern to be matched. Only supported by PostgreSQL, MySQL and Oracle databases. */
                 textSearchRegex?: boolean;
                 /** @description Determines which message statuses to query by. */
-                status?: ("RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING")[];
+                status?: (
+                    | 'RECEIVED'
+                    | 'FILTERED'
+                    | 'TRANSFORMED'
+                    | 'SENT'
+                    | 'QUEUED'
+                    | 'ERROR'
+                    | 'PENDING'
+                )[];
                 /** @description If present, only connector metadata IDs in this list will be queried. */
                 includedMetaDataId?: number[];
                 /** @description If present, connector metadata IDs in this list will not be queried. */
@@ -11371,9 +11583,9 @@ export interface operations {
                 /** @description Searches the response error content of messages. */
                 responseErrorContentSearch?: string[];
                 /** @description Searches a custom metadata column. Value should be in the form: COLUMN_NAME &lt;operator&gt; value, where operator is one of the following: =, !=, <, <=, >, >=, CONTAINS, DOES NOT CONTAIN, STARTS WITH, DOES NOT START WITH, ENDS WITH, DOES NOT END WITH */
-                metaDataSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description Searches a custom metadata column, ignoring case. Value should be in the form: COLUMN_NAME &lt;operator&gt; value. */
-                metaDataCaseInsensitiveSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataCaseInsensitiveSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description When using a text search, these custom metadata columns will also be searched. */
                 textSearchMetaDataColumn?: string[];
                 /** @description The minimum number of send attempts for connector messages. */
@@ -11406,20 +11618,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Message"][];
-                    "application/json": components["schemas"]["Message"][];
-                    "application/mirthapi+json": components["schemas"]["Message"][];
+                    'application/xml': components['schemas']['Message'][];
+                    'application/json': components['schemas']['Message'][];
+                    'application/mirthapi+json': components['schemas']['Message'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Message"][];
-                    "application/json": components["schemas"]["Message"][];
-                    "application/mirthapi+json": components["schemas"]["Message"][];
+                    'application/xml': components['schemas']['Message'][];
+                    'application/json': components['schemas']['Message'][];
+                    'application/mirthapi+json': components['schemas']['Message'][];
                 };
             };
         };
@@ -11448,7 +11660,7 @@ export interface operations {
         /** @description The raw message data to process. */
         requestBody: {
             content: {
-                "text/plain": string;
+                'text/plain': string;
             };
         };
         responses: {
@@ -11458,20 +11670,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -11500,7 +11712,15 @@ export interface operations {
                 /** @description If true, text search input will be considered a regular expression pattern to be matched. Only supported by PostgreSQL, MySQL and Oracle databases. */
                 textSearchRegex?: boolean;
                 /** @description Determines which message statuses to query by. */
-                status?: ("RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING")[];
+                status?: (
+                    | 'RECEIVED'
+                    | 'FILTERED'
+                    | 'TRANSFORMED'
+                    | 'SENT'
+                    | 'QUEUED'
+                    | 'ERROR'
+                    | 'PENDING'
+                )[];
                 /** @description If present, only connector metadata IDs in this list will be queried. */
                 includedMetaDataId?: number[];
                 /** @description If present, connector metadata IDs in this list will not be queried. */
@@ -11538,9 +11758,9 @@ export interface operations {
                 /** @description Searches the response error content of messages. */
                 responseErrorContentSearch?: string[];
                 /** @description Searches a custom metadata column. Value should be in the form: COLUMN_NAME &lt;operator&gt; value, where operator is one of the following: =, !=, <, <=, >, >=, CONTAINS, DOES NOT CONTAIN, STARTS WITH, DOES NOT START WITH, ENDS WITH, DOES NOT END WITH */
-                metaDataSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description Searches a custom metadata column, ignoring case. Value should be in the form: COLUMN_NAME &lt;operator&gt; value. */
-                metaDataCaseInsensitiveSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataCaseInsensitiveSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description When using a text search, these custom metadata columns will also be searched. */
                 textSearchMetaDataColumn?: string[];
                 /** @description The minimum number of send attempts for connector messages. */
@@ -11567,20 +11787,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -11608,20 +11828,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Attachment"][];
-                    "application/json": components["schemas"]["Attachment"][];
-                    "application/mirthapi+json": components["schemas"]["Attachment"][];
+                    'application/xml': components['schemas']['Attachment'][];
+                    'application/json': components['schemas']['Attachment'][];
+                    'application/mirthapi+json': components['schemas']['Attachment'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Attachment"][];
-                    "application/json": components["schemas"]["Attachment"][];
-                    "application/mirthapi+json": components["schemas"]["Attachment"][];
+                    'application/xml': components['schemas']['Attachment'][];
+                    'application/json': components['schemas']['Attachment'][];
+                    'application/mirthapi+json': components['schemas']['Attachment'][];
                 };
             };
         };
@@ -11641,9 +11861,9 @@ export interface operations {
         /** @description The ConnectorMessage to retrieve DICOM data for. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["ConnectorMessage"];
-                "application/json": components["schemas"]["ConnectorMessage"];
-                "application/mirthapi+json": components["schemas"]["ConnectorMessage"];
+                'application/xml': components['schemas']['ConnectorMessage'];
+                'application/json': components['schemas']['ConnectorMessage'];
+                'application/mirthapi+json': components['schemas']['ConnectorMessage'];
             };
         };
         responses: {
@@ -11653,16 +11873,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -11680,9 +11900,9 @@ export interface operations {
         /** @description The MessageFilter object to use to query messages by. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["MessageFilter"];
-                "application/json": components["schemas"]["MessageFilter"];
-                "application/mirthapi+json": components["schemas"]["MessageFilter"];
+                'application/xml': components['schemas']['MessageFilter'];
+                'application/json': components['schemas']['MessageFilter'];
+                'application/mirthapi+json': components['schemas']['MessageFilter'];
             };
         };
         responses: {
@@ -11692,20 +11912,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -11734,7 +11954,15 @@ export interface operations {
                 /** @description If true, text search input will be considered a regular expression pattern to be matched. Only supported by PostgreSQL, MySQL and Oracle databases. */
                 textSearchRegex?: boolean;
                 /** @description Determines which message statuses to query by. */
-                status?: ("RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING")[];
+                status?: (
+                    | 'RECEIVED'
+                    | 'FILTERED'
+                    | 'TRANSFORMED'
+                    | 'SENT'
+                    | 'QUEUED'
+                    | 'ERROR'
+                    | 'PENDING'
+                )[];
                 /** @description If present, only connector metadata IDs in this list will be queried. */
                 includedMetaDataId?: number[];
                 /** @description If present, connector metadata IDs in this list will not be queried. */
@@ -11772,9 +12000,9 @@ export interface operations {
                 /** @description Searches the response error content of messages. */
                 responseErrorContentSearch?: string[];
                 /** @description Searches a custom metadata column. Value should be in the form: COLUMN_NAME &lt;operator&gt; value, where operator is one of the following: =, !=, <, <=, >, >=, CONTAINS, DOES NOT CONTAIN, STARTS WITH, DOES NOT START WITH, ENDS WITH, DOES NOT END WITH */
-                metaDataSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description Searches a custom metadata column, ignoring case. Value should be in the form: COLUMN_NAME &lt;operator&gt; value. */
-                metaDataCaseInsensitiveSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataCaseInsensitiveSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description When using a text search, these custom metadata columns will also be searched. */
                 textSearchMetaDataColumn?: string[];
                 /** @description The minimum number of send attempts for connector messages. */
@@ -11801,20 +12029,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -11839,9 +12067,9 @@ export interface operations {
         /** @description The MessageFilter object to use to query messages by. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["MessageFilter"];
-                "application/json": components["schemas"]["MessageFilter"];
-                "application/mirthapi+json": components["schemas"]["MessageFilter"];
+                'application/xml': components['schemas']['MessageFilter'];
+                'application/json': components['schemas']['MessageFilter'];
+                'application/mirthapi+json': components['schemas']['MessageFilter'];
             };
         };
         responses: {
@@ -11851,20 +12079,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -11893,7 +12121,15 @@ export interface operations {
                 /** @description If true, text search input will be considered a regular expression pattern to be matched. Only supported by PostgreSQL, MySQL and Oracle databases. */
                 textSearchRegex?: boolean;
                 /** @description Determines which message statuses to query by. */
-                status?: ("RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING")[];
+                status?: (
+                    | 'RECEIVED'
+                    | 'FILTERED'
+                    | 'TRANSFORMED'
+                    | 'SENT'
+                    | 'QUEUED'
+                    | 'ERROR'
+                    | 'PENDING'
+                )[];
                 /** @description If present, only connector metadata IDs in this list will be queried. */
                 includedMetaDataId?: number[];
                 /** @description If present, connector metadata IDs in this list will not be queried. */
@@ -11931,9 +12167,9 @@ export interface operations {
                 /** @description Searches the response error content of messages. */
                 responseErrorContentSearch?: string[];
                 /** @description Searches a custom metadata column. Value should be in the form: COLUMN_NAME &lt;operator&gt; value, where operator is one of the following: =, !=, <, <=, >, >=, CONTAINS, DOES NOT CONTAIN, STARTS WITH, DOES NOT START WITH, ENDS WITH, DOES NOT END WITH */
-                metaDataSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description Searches a custom metadata column, ignoring case. Value should be in the form: COLUMN_NAME &lt;operator&gt; value. */
-                metaDataCaseInsensitiveSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataCaseInsensitiveSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description When using a text search, these custom metadata columns will also be searched. */
                 textSearchMetaDataColumn?: string[];
                 /** @description The minimum number of send attempts for connector messages. */
@@ -11966,20 +12202,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12011,20 +12247,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12052,20 +12288,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Message"];
-                    "application/json": components["schemas"]["Message"];
-                    "application/mirthapi+json": components["schemas"]["Message"];
+                    'application/xml': components['schemas']['Message'];
+                    'application/json': components['schemas']['Message'];
+                    'application/mirthapi+json': components['schemas']['Message'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Message"];
-                    "application/json": components["schemas"]["Message"];
-                    "application/mirthapi+json": components["schemas"]["Message"];
+                    'application/xml': components['schemas']['Message'];
+                    'application/json': components['schemas']['Message'];
+                    'application/mirthapi+json': components['schemas']['Message'];
                 };
             };
         };
@@ -12095,20 +12331,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12128,9 +12364,9 @@ export interface operations {
         /** @description The IDs of the channels. */
         requestBody: {
             content: {
-                "application/xml": string[];
-                "application/json": string[];
-                "application/mirthapi+json": string[];
+                'application/xml': string[];
+                'application/json': string[];
+                'application/mirthapi+json': string[];
             };
         };
         responses: {
@@ -12140,20 +12376,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12171,9 +12407,9 @@ export interface operations {
         /** @description The Message object to import. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["Message"];
-                "application/json": components["schemas"]["Message"];
-                "application/mirthapi+json": components["schemas"]["Message"];
+                'application/xml': components['schemas']['Message'];
+                'application/json': components['schemas']['Message'];
+                'application/mirthapi+json': components['schemas']['Message'];
             };
         };
         responses: {
@@ -12183,20 +12419,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12217,7 +12453,7 @@ export interface operations {
         /** @description The directory path on the server side to import messages from. */
         requestBody: {
             content: {
-                "text/plain": string;
+                'text/plain': string;
             };
         };
         responses: {
@@ -12227,20 +12463,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["MessageImportResult"];
-                    "application/json": components["schemas"]["MessageImportResult"];
-                    "application/mirthapi+json": components["schemas"]["MessageImportResult"];
+                    'application/xml': components['schemas']['MessageImportResult'];
+                    'application/json': components['schemas']['MessageImportResult'];
+                    'application/mirthapi+json': components['schemas']['MessageImportResult'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["MessageImportResult"];
-                    "application/json": components["schemas"]["MessageImportResult"];
-                    "application/mirthapi+json": components["schemas"]["MessageImportResult"];
+                    'application/xml': components['schemas']['MessageImportResult'];
+                    'application/json': components['schemas']['MessageImportResult'];
+                    'application/mirthapi+json': components['schemas']['MessageImportResult'];
                 };
             };
         };
@@ -12269,7 +12505,15 @@ export interface operations {
                 /** @description If true, text search input will be considered a regular expression pattern to be matched. Only supported by PostgreSQL, MySQL and Oracle databases. */
                 textSearchRegex?: boolean;
                 /** @description Determines which message statuses to query by. */
-                status?: ("RECEIVED" | "FILTERED" | "TRANSFORMED" | "SENT" | "QUEUED" | "ERROR" | "PENDING")[];
+                status?: (
+                    | 'RECEIVED'
+                    | 'FILTERED'
+                    | 'TRANSFORMED'
+                    | 'SENT'
+                    | 'QUEUED'
+                    | 'ERROR'
+                    | 'PENDING'
+                )[];
                 /** @description If present, only connector metadata IDs in this list will be queried. */
                 includedMetaDataId?: number[];
                 /** @description If present, connector metadata IDs in this list will not be queried. */
@@ -12307,9 +12551,9 @@ export interface operations {
                 /** @description Searches the response error content of messages. */
                 responseErrorContentSearch?: string[];
                 /** @description Searches a custom metadata column. Value should be in the form: COLUMN_NAME &lt;operator&gt; value, where operator is one of the following: =, !=, <, <=, >, >=, CONTAINS, DOES NOT CONTAIN, STARTS WITH, DOES NOT START WITH, ENDS WITH, DOES NOT END WITH */
-                metaDataSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description Searches a custom metadata column, ignoring case. Value should be in the form: COLUMN_NAME &lt;operator&gt; value. */
-                metaDataCaseInsensitiveSearch?: components["schemas"]["MetaDataSearch"][];
+                metaDataCaseInsensitiveSearch?: components['schemas']['MetaDataSearch'][];
                 /** @description When using a text search, these custom metadata columns will also be searched. */
                 textSearchMetaDataColumn?: string[];
                 /** @description The minimum number of send attempts for connector messages. */
@@ -12323,7 +12567,22 @@ export interface operations {
                 /** @description The maximum number of messages that will be queried at a time. Default Value: 100 */
                 pageSize?: number;
                 /** @description The ContentType that will be extracted from the message for writing. If null or not provided, the entire message will be written in serialized format. */
-                contentType?: "Raw" | "Processed Raw" | "Transformed" | "Encoded" | "Sent" | "Response" | "Response Transformed" | "Processed Response" | "Connector Map" | "Channel Map" | "Response Map" | "Processing Error" | "Postprocessor Error" | "Response Error" | "Source Map";
+                contentType?:
+                    | 'Raw'
+                    | 'Processed Raw'
+                    | 'Transformed'
+                    | 'Encoded'
+                    | 'Sent'
+                    | 'Response'
+                    | 'Response Transformed'
+                    | 'Processed Response'
+                    | 'Connector Map'
+                    | 'Channel Map'
+                    | 'Response Map'
+                    | 'Processing Error'
+                    | 'Postprocessor Error'
+                    | 'Response Error'
+                    | 'Source Map';
                 /** @description If true, the content to write will be extracted from the destination message(s), rather than the source message. */
                 destinationContent?: boolean;
                 /** @description If true, message content will be encrypted before writing. */
@@ -12345,7 +12604,7 @@ export interface operations {
                 /** @description The password used to protect the archive file. Only valid when using the ZIP archive format. */
                 password?: string;
                 /** @description The algorithm used to encrypt the password-protected archive file. Only valid when using the ZIP archive format. Valid values: STANDARD, AES128, AES256 */
-                encryptionType?: "STANDARD" | "AES128" | "AES256";
+                encryptionType?: 'STANDARD' | 'AES128' | 'AES256';
             };
             header?: never;
             path: {
@@ -12362,20 +12621,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -12395,9 +12654,9 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "multipart/form-data": {
-                    filter: components["schemas"]["MessageFilter"];
-                    writerOptions?: components["schemas"]["MessageWriterOptions"];
+                'multipart/form-data': {
+                    filter: components['schemas']['MessageFilter'];
+                    writerOptions?: components['schemas']['MessageWriterOptions'];
                 };
             };
         };
@@ -12408,20 +12667,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -12446,7 +12705,7 @@ export interface operations {
         /** @description The file path to export the attachment to. */
         requestBody: {
             content: {
-                "application/xml": string;
+                'application/xml': string;
             };
         };
         responses: {
@@ -12456,20 +12715,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12484,13 +12743,13 @@ export interface operations {
         /** @description The attributes map of the channel message. */
         requestBody?: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: string;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: string;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -12502,20 +12761,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12530,13 +12789,13 @@ export interface operations {
         /** @description The attributes map of the channel messages filter. */
         requestBody?: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: string;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: string;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -12548,20 +12807,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12576,13 +12835,13 @@ export interface operations {
         /** @description The attributes map of the channel messages export. */
         requestBody?: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: string;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: string;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -12594,20 +12853,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12622,13 +12881,13 @@ export interface operations {
         /** @description The attributes map of the channel messages export. */
         requestBody?: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: string;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: string;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -12640,20 +12899,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12678,9 +12937,9 @@ export interface operations {
         /** @description The MessageFilter object to use to query messages by. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["MessageFilter"];
-                "application/json": components["schemas"]["MessageFilter"];
-                "application/mirthapi+json": components["schemas"]["MessageFilter"];
+                'application/xml': components['schemas']['MessageFilter'];
+                'application/json': components['schemas']['MessageFilter'];
+                'application/mirthapi+json': components['schemas']['MessageFilter'];
             };
         };
         responses: {
@@ -12690,20 +12949,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Message"][];
-                    "application/json": components["schemas"]["Message"][];
-                    "application/mirthapi+json": components["schemas"]["Message"][];
+                    'application/xml': components['schemas']['Message'][];
+                    'application/json': components['schemas']['Message'][];
+                    'application/mirthapi+json': components['schemas']['Message'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Message"][];
-                    "application/json": components["schemas"]["Message"][];
-                    "application/mirthapi+json": components["schemas"]["Message"][];
+                    'application/xml': components['schemas']['Message'][];
+                    'application/json': components['schemas']['Message'][];
+                    'application/mirthapi+json': components['schemas']['Message'][];
                 };
             };
         };
@@ -12721,9 +12980,9 @@ export interface operations {
         /** @description The MessageFilter object to use to query messages by. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["MessageFilter"];
-                "application/json": components["schemas"]["MessageFilter"];
-                "application/mirthapi+json": components["schemas"]["MessageFilter"];
+                'application/xml': components['schemas']['MessageFilter'];
+                'application/json': components['schemas']['MessageFilter'];
+                'application/mirthapi+json': components['schemas']['MessageFilter'];
             };
         };
         responses: {
@@ -12733,20 +12992,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12773,20 +13032,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12814,20 +13073,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -12850,20 +13109,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": number;
-                    "application/json": number;
-                    "application/mirthapi+json": number;
+                    'application/xml': number;
+                    'application/json': number;
+                    'application/mirthapi+json': number;
                 };
             };
         };
@@ -12890,20 +13149,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Attachment"];
-                    "application/json": components["schemas"]["Attachment"];
-                    "application/mirthapi+json": components["schemas"]["Attachment"];
+                    'application/xml': components['schemas']['Attachment'];
+                    'application/json': components['schemas']['Attachment'];
+                    'application/mirthapi+json': components['schemas']['Attachment'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["Attachment"];
-                    "application/json": components["schemas"]["Attachment"];
-                    "application/mirthapi+json": components["schemas"]["Attachment"];
+                    'application/xml': components['schemas']['Attachment'];
+                    'application/json': components['schemas']['Attachment'];
+                    'application/mirthapi+json': components['schemas']['Attachment'];
                 };
             };
         };
@@ -12923,20 +13182,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["SystemStats"];
-                    "application/json": components["schemas"]["SystemStats"];
-                    "application/mirthapi+json": components["schemas"]["SystemStats"];
+                    'application/xml': components['schemas']['SystemStats'];
+                    'application/json': components['schemas']['SystemStats'];
+                    'application/mirthapi+json': components['schemas']['SystemStats'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["SystemStats"];
-                    "application/json": components["schemas"]["SystemStats"];
-                    "application/mirthapi+json": components["schemas"]["SystemStats"];
+                    'application/xml': components['schemas']['SystemStats'];
+                    'application/json': components['schemas']['SystemStats'];
+                    'application/mirthapi+json': components['schemas']['SystemStats'];
                 };
             };
         };
@@ -12956,20 +13215,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["SystemInfo"];
-                    "application/json": components["schemas"]["SystemInfo"];
-                    "application/mirthapi+json": components["schemas"]["SystemInfo"];
+                    'application/xml': components['schemas']['SystemInfo'];
+                    'application/json': components['schemas']['SystemInfo'];
+                    'application/mirthapi+json': components['schemas']['SystemInfo'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["SystemInfo"];
-                    "application/json": components["schemas"]["SystemInfo"];
-                    "application/mirthapi+json": components["schemas"]["SystemInfo"];
+                    'application/xml': components['schemas']['SystemInfo'];
+                    'application/json': components['schemas']['SystemInfo'];
+                    'application/mirthapi+json': components['schemas']['SystemInfo'];
                 };
             };
         };
@@ -12984,13 +13243,13 @@ export interface operations {
         /** @description The map of client usage data to use. */
         requestBody: {
             content: {
-                "application/xml": {
+                'application/xml': {
                     [key: string]: Record<string, never>;
                 };
-                "application/json": {
+                'application/json': {
                     [key: string]: Record<string, never>;
                 };
-                "application/mirthapi+json": {
+                'application/mirthapi+json': {
                     [key: string]: Record<string, never>;
                 };
             };
@@ -13002,20 +13261,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": string;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': string;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": string;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': string;
                 };
             };
         };
@@ -13029,7 +13288,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/x-www-form-urlencoded": {
+                'application/x-www-form-urlencoded': {
                     /** @default admin */
                     username: string;
                     /** @default admin */
@@ -13044,20 +13303,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["LoginStatus"];
-                    "application/json": components["schemas"]["LoginStatus"];
-                    "application/mirthapi+json": components["schemas"]["LoginStatus"];
+                    'application/xml': components['schemas']['LoginStatus'];
+                    'application/json': components['schemas']['LoginStatus'];
+                    'application/mirthapi+json': components['schemas']['LoginStatus'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["LoginStatus"];
-                    "application/json": components["schemas"]["LoginStatus"];
-                    "application/mirthapi+json": components["schemas"]["LoginStatus"];
+                    'application/xml': components['schemas']['LoginStatus'];
+                    'application/json': components['schemas']['LoginStatus'];
+                    'application/mirthapi+json': components['schemas']['LoginStatus'];
                 };
             };
         };
@@ -13077,20 +13336,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13110,20 +13369,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["User"];
-                    "application/json": components["schemas"]["User"];
-                    "application/mirthapi+json": components["schemas"]["User"];
+                    'application/xml': components['schemas']['User'];
+                    'application/json': components['schemas']['User'];
+                    'application/mirthapi+json': components['schemas']['User'];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["User"];
-                    "application/json": components["schemas"]["User"];
-                    "application/mirthapi+json": components["schemas"]["User"];
+                    'application/xml': components['schemas']['User'];
+                    'application/json': components['schemas']['User'];
+                    'application/mirthapi+json': components['schemas']['User'];
                 };
             };
         };
@@ -13143,20 +13402,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13176,20 +13435,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["User"][];
-                    "application/json": components["schemas"]["User"][];
-                    "application/mirthapi+json": components["schemas"]["User"][];
+                    'application/xml': components['schemas']['User'][];
+                    'application/json': components['schemas']['User'][];
+                    'application/mirthapi+json': components['schemas']['User'][];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": components["schemas"]["User"][];
-                    "application/json": components["schemas"]["User"][];
-                    "application/mirthapi+json": components["schemas"]["User"][];
+                    'application/xml': components['schemas']['User'][];
+                    'application/json': components['schemas']['User'][];
+                    'application/mirthapi+json': components['schemas']['User'][];
                 };
             };
         };
@@ -13204,9 +13463,9 @@ export interface operations {
         /** @description The User object to create. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["User"];
-                "application/json": components["schemas"]["User"];
-                "application/mirthapi+json": components["schemas"]["User"];
+                'application/xml': components['schemas']['User'];
+                'application/json': components['schemas']['User'];
+                'application/mirthapi+json': components['schemas']['User'];
             };
         };
         responses: {
@@ -13216,20 +13475,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13244,7 +13503,7 @@ export interface operations {
         /** @description The plaintext password to check. */
         requestBody: {
             content: {
-                "text/plain": string;
+                'text/plain': string;
             };
         };
         responses: {
@@ -13254,20 +13513,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
         };
@@ -13285,7 +13544,7 @@ export interface operations {
         /** @description The plaintext password to update with. */
         requestBody: {
             content: {
-                "text/plain": string;
+                'text/plain': string;
             };
         };
         responses: {
@@ -13295,20 +13554,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string[];
-                    "application/json": string[];
-                    "application/mirthapi+json": string[];
+                    'application/xml': string[];
+                    'application/json': string[];
+                    'application/mirthapi+json': string[];
                 };
             };
         };
@@ -13331,20 +13590,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13369,16 +13628,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/plain": string;
+                    'text/plain': string;
                 };
             };
         };
@@ -13398,7 +13657,7 @@ export interface operations {
         /** @description The value to update the property with. */
         requestBody: {
             content: {
-                "text/plain": string;
+                'text/plain': string;
             };
         };
         responses: {
@@ -13408,20 +13667,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13439,9 +13698,9 @@ export interface operations {
         /** @description The User object to update. */
         requestBody: {
             content: {
-                "application/xml": components["schemas"]["User"];
-                "application/json": components["schemas"]["User"];
-                "application/mirthapi+json": components["schemas"]["User"];
+                'application/xml': components['schemas']['User'];
+                'application/json': components['schemas']['User'];
+                'application/mirthapi+json': components['schemas']['User'];
             };
         };
         responses: {
@@ -13451,20 +13710,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13487,20 +13746,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13523,20 +13782,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
             /** @description Successful response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": boolean;
-                    "application/json": boolean;
-                    "application/mirthapi+json": boolean;
+                    'application/xml': boolean;
+                    'application/json': boolean;
+                    'application/mirthapi+json': boolean;
                 };
             };
         };
@@ -13562,9 +13821,9 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": string;
-                    "application/json": string;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': string;
+                    'application/json': string;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };
@@ -13582,9 +13841,9 @@ export interface operations {
         /** @description The properties to update for the user. */
         requestBody: {
             content: {
-                "application/xml": string;
-                "application/json": string;
-                "application/mirthapi+json": {
+                'application/xml': string;
+                'application/json': string;
+                'application/mirthapi+json': {
                     [key: string]: string;
                 };
             };
@@ -13596,20 +13855,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
             /** @description default response */
-            "2XX": {
+            '2XX': {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/xml": unknown;
-                    "application/json": unknown;
-                    "application/mirthapi+json": unknown;
+                    'application/xml': unknown;
+                    'application/json': unknown;
+                    'application/mirthapi+json': unknown;
                 };
             };
         };

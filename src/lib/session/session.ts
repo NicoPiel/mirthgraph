@@ -1,9 +1,9 @@
-import { createContext, useContext } from "react";
-import { Client } from "./services";
-import { components } from "@/lib/index";
+import { createContext, useContext } from 'react';
+import { Client } from './services';
+import { components } from '@/lib/index';
 
 interface SessionContextType {
-    user: components["schemas"]["User"];
+    user: components['schemas']['User'];
 }
 
 export interface AppContext extends SessionContextType {}
@@ -14,7 +14,7 @@ export function useSession(): AppContext {
     const context = useContext(SessionContext);
 
     if (!context) {
-        throw new Error("useSession must be used within a SessionProvider");
+        throw new Error('useSession must be used within a SessionProvider');
     }
 
     return context;
@@ -23,7 +23,7 @@ export function useSession(): AppContext {
 export async function createSession(): Promise<AppContext> {
     const { data: user } = await Client.GET('/users/current');
 
-    if(!user) {
+    if (!user) {
         throw new Error('Not authenticated');
     }
 
@@ -32,7 +32,7 @@ export async function createSession(): Promise<AppContext> {
     } as AppContext;
 }
 
-export async function logout () {
+export async function logout() {
     await Client.POST('/users/_logout');
     window.location.reload();
 }

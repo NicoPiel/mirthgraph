@@ -49,13 +49,15 @@ describe('transformer', () => {
         const result = transformer.buildGraphData(config);
 
         expect(result.nodes).toHaveLength(3); // OTHER, Channel, TCP Listener
-        
-        const channelNode = result.nodes.find(n => n.id === 'channel-1');
+
+        const channelNode = result.nodes.find((n) => n.id === 'channel-1');
         expect(channelNode).toBeDefined();
         expect(channelNode?.name).toBe('Channel: Test Channel');
         expect(channelNode?.group).toBe('Channel');
 
-        const listenerNode = result.nodes.find(n => n.id === '127.0.0.1:6661');
+        const listenerNode = result.nodes.find(
+            (n) => n.id === '127.0.0.1:6661',
+        );
         expect(listenerNode).toBeDefined();
         expect(listenerNode?.group).toBe('TCP Listener');
 
@@ -86,8 +88,8 @@ describe('transformer', () => {
         };
 
         const result = transformer.buildGraphData(config);
-        const channelNode = result.nodes.find(n => n.id === 'channel-1');
-        
+        const channelNode = result.nodes.find((n) => n.id === 'channel-1');
+
         expect(channelNode?.tags).toContain('Tag1');
     });
 });

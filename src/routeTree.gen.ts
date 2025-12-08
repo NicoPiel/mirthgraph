@@ -8,97 +8,97 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as SettingsRouteImport } from './routes/settings'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as GraphIndexRouteImport } from './routes/graph.index'
+import { Route as rootRouteImport } from './routes/__root';
+import { Route as SettingsRouteImport } from './routes/settings';
+import { Route as IndexRouteImport } from './routes/index';
+import { Route as GraphIndexRouteImport } from './routes/graph.index';
 
 const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => rootRouteImport,
-} as any)
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => rootRouteImport,
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
+    id: '/',
+    path: '/',
+    getParentRoute: () => rootRouteImport,
+} as any);
 const GraphIndexRoute = GraphIndexRouteImport.update({
-  id: '/graph/',
-  path: '/graph/',
-  getParentRoute: () => rootRouteImport,
-} as any)
+    id: '/graph/',
+    path: '/graph/',
+    getParentRoute: () => rootRouteImport,
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/settings': typeof SettingsRoute
-  '/graph': typeof GraphIndexRoute
+    '/': typeof IndexRoute;
+    '/settings': typeof SettingsRoute;
+    '/graph': typeof GraphIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/settings': typeof SettingsRoute
-  '/graph': typeof GraphIndexRoute
+    '/': typeof IndexRoute;
+    '/settings': typeof SettingsRoute;
+    '/graph': typeof GraphIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/settings': typeof SettingsRoute
-  '/graph/': typeof GraphIndexRoute
+    __root__: typeof rootRouteImport;
+    '/': typeof IndexRoute;
+    '/settings': typeof SettingsRoute;
+    '/graph/': typeof GraphIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/settings' | '/graph'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/settings' | '/graph'
-  id: '__root__' | '/' | '/settings' | '/graph/'
-  fileRoutesById: FileRoutesById
+    fileRoutesByFullPath: FileRoutesByFullPath;
+    fullPaths: '/' | '/settings' | '/graph';
+    fileRoutesByTo: FileRoutesByTo;
+    to: '/' | '/settings' | '/graph';
+    id: '__root__' | '/' | '/settings' | '/graph/';
+    fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  SettingsRoute: typeof SettingsRoute
-  GraphIndexRoute: typeof GraphIndexRoute
+    IndexRoute: typeof IndexRoute;
+    SettingsRoute: typeof SettingsRoute;
+    GraphIndexRoute: typeof GraphIndexRoute;
 }
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
-      parentRoute: typeof rootRouteImport
+    interface FileRoutesByPath {
+        '/settings': {
+            id: '/settings';
+            path: '/settings';
+            fullPath: '/settings';
+            preLoaderRoute: typeof SettingsRouteImport;
+            parentRoute: typeof rootRouteImport;
+        };
+        '/': {
+            id: '/';
+            path: '/';
+            fullPath: '/';
+            preLoaderRoute: typeof IndexRouteImport;
+            parentRoute: typeof rootRouteImport;
+        };
+        '/graph/': {
+            id: '/graph/';
+            path: '/graph';
+            fullPath: '/graph';
+            preLoaderRoute: typeof GraphIndexRouteImport;
+            parentRoute: typeof rootRouteImport;
+        };
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/graph/': {
-      id: '/graph/'
-      path: '/graph'
-      fullPath: '/graph'
-      preLoaderRoute: typeof GraphIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  SettingsRoute: SettingsRoute,
-  GraphIndexRoute: GraphIndexRoute,
-}
+    IndexRoute: IndexRoute,
+    SettingsRoute: SettingsRoute,
+    GraphIndexRoute: GraphIndexRoute,
+};
 export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+    ._addFileChildren(rootRouteChildren)
+    ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
+import type { getRouter } from './router.tsx';
+import type { createStart } from '@tanstack/react-start';
 declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
+    interface Register {
+        ssr: true;
+        router: Awaited<ReturnType<typeof getRouter>>;
+    }
 }
