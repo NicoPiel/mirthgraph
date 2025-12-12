@@ -28,6 +28,11 @@ const config = defineConfig({
       },
     }),
   ],
+  server: {
+    allowedHosts: [
+      'localhost'
+    ]
+  }
 })
 
 export default config
