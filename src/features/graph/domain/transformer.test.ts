@@ -53,11 +53,6 @@ describe('transformer', () => {
         expect(dbReaderNode).toBeDefined();
         expect(dbReaderNode?.group).toBe('Database Reader');
 
-        // SMTP Sender Node
-        const smtpNode = result.nodes.find((n) => n.id === 'test@test.local');
-        // expect(smtpNode).toBeDefined();
-        // expect(smtpNode?.group).toBe('SMTP Sender');
-
         // Verify Links
         // Test1 Destination 1 (VM) -> Channel Writer -> Test2
         const channelWriterLink = result.links.find(
@@ -87,13 +82,7 @@ describe('transformer', () => {
 
         // TestDB Destination 1 (SMTP)
         // Channel -> Email
-        const smtpLink = result.links.find(
-            (l) =>
-                l.source === '03e5efd4-cb3f-415f-af8d-ded904f8d70b' &&
-                l.target === 'test@test.local' &&
-                l.group === 'SMTP Sender',
-        );
-        // expect(smtpLink).toBeDefined();
+        // SMTP sender behavior remains transport-dependent in fixture data.
     });
 
     it('should transform empty configuration correctly', () => {
@@ -182,5 +171,78 @@ describe('transformer', () => {
         const channelNode = result.nodes.find((n) => n.id === 'channel-1');
 
         expect(channelNode?.tags).toContain('Tag1');
+    });
+
+    it('should handle wrapped step collections from OSM payloads', () => {
+        const config: ServerConfiguration = {
+            channels: [
+                {
+                    id: 'source-channel',
+                    name: 'Source Channel',
+                    exportData: {
+                        metadata: {
+                            enabled: true,
+                        },
+                    },
+                    sourceConnector: {
+                        transportName: 'TCP Listener',
+                        properties: {
+                            listenerConnectorProperties: {
+                                host: '127.0.0.1',
+                                port: '6661',
+                            },
+                        } as any,
+                        enabled: true,
+                        transformer: {
+                            elements: {
+                                step: {
+                                    type: 'JavaScript Transformer',
+                                    script: "router.routeMessageByChannelId('target-channel', msg);",
+                                },
+                            },
+                        } as any,
+                    },
+                    destinationConnectors: [
+                        {
+                            transportName: 'Channel Writer',
+                            enabled: true,
+                            properties: {
+                                channelId: 'target-channel',
+                            } as any,
+                            filter: {
+                                elements: {
+                                    rule: {
+                                        type: 'JavaScript Filter',
+                                        script: "router.routeMessageByChannelId('target-channel', msg);",
+                                    },
+                                },
+                            } as any,
+                        },
+                    ],
+                },
+                {
+                    id: 'target-channel',
+                    name: 'Target Channel',
+                    exportData: {
+                        metadata: {
+                            enabled: true,
+                        },
+                    },
+                    destinationConnectors: [],
+                },
+            ],
+            channelTags: [],
+        };
+
+        const result = transformer.buildGraphData(config);
+
+        const routerLink = result.links.find(
+            (link) =>
+                link.source === 'source-channel' &&
+                link.target === 'target-channel' &&
+                link.group === 'Router',
+        );
+
+        expect(routerLink).toBeDefined();
     });
 });

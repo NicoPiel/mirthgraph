@@ -41,7 +41,9 @@ describe('getGraphData', () => {
 
         expect(getAuthenticatedClient).toHaveBeenCalled();
         expect(mockClient.GET).toHaveBeenCalledWith('/server/configuration');
-        expect(transformer.buildGraphData).toHaveBeenCalledWith(mockServerConfig);
+        expect(transformer.buildGraphData).toHaveBeenCalledWith(
+            expect.objectContaining({ some: 'config' }),
+        );
         expect(result).toEqual(mockGraphData);
     });
 
@@ -55,5 +57,66 @@ describe('getGraphData', () => {
         mockClient.GET.mockResolvedValue({ data: null, error: null });
 
         await expect(getGraphData({} as any)).rejects.toThrow('No data received from server configuration');
+    });
+
+    it('should normalize wrapped OSM transformer and filter elements', async () => {
+        const mockGraphData = { nodes: [], links: [] };
+
+        mockClient.GET.mockResolvedValue({
+            data: {
+                serverConfiguration: {
+                    channels: {
+                        channel: {
+                            id: 'channel-1',
+                            name: 'Channel 1',
+                            sourceConnector: {
+                                transportName: 'TCP Listener',
+                                transformer: {
+                                    elements: {
+                                        step: {
+                                            type: 'JavaScript Transformer',
+                                            script: "router.routeMessageByChannelId('channel-2', msg);",
+                                        },
+                                    },
+                                },
+                            },
+                            destinationConnectors: {
+                                connector: {
+                                    transportName: 'Channel Writer',
+                                    properties: {
+                                        channelId: 'channel-2',
+                                    },
+                                    filter: {
+                                        elements: {
+                                            rule: {
+                                                type: 'JavaScript Filter',
+                                                script: "router.routeMessageByChannelId('channel-2', msg);",
+                                            },
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            error: null,
+        });
+
+        (transformer.buildGraphData as any).mockReturnValue(mockGraphData);
+
+        await getGraphData({} as any);
+
+        const normalizedConfig = (transformer.buildGraphData as any).mock.calls[0][0];
+        const sourceConnector = normalizedConfig.channels[0].sourceConnector;
+        const destinationConnector =
+            normalizedConfig.channels[0].destinationConnectors[0];
+
+        expect(Array.isArray(normalizedConfig.channels)).toBe(true);
+        expect(Array.isArray(normalizedConfig.channels[0].destinationConnectors)).toBe(
+            true,
+        );
+        expect(Array.isArray(sourceConnector.transformer.elements)).toBe(true);
+        expect(Array.isArray(destinationConnector.filter.elements)).toBe(true);
     });
 });

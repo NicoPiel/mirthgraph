@@ -6,6 +6,48 @@ type Channel = components['schemas']['Channel'];
 type Connector = components['schemas']['Connector'];
 type Step = components['schemas']['Step'];
 
+function toArray<T>(value: unknown): T[] {
+    if (!value) {
+        return [];
+    }
+
+    if (Array.isArray(value)) {
+        return value as T[];
+    }
+
+    return [value as T];
+}
+
+function normalizeStepElements(elements: unknown): Step[] {
+    if (!elements) {
+        return [];
+    }
+
+    if (Array.isArray(elements)) {
+        return elements as Step[];
+    }
+
+    if (typeof elements !== 'object') {
+        return [];
+    }
+
+    const wrapped = elements as Record<string, unknown>;
+
+    if ('elements' in wrapped) {
+        return normalizeStepElements(wrapped.elements);
+    }
+
+    if ('step' in wrapped) {
+        return toArray<Step>(wrapped.step);
+    }
+
+    if ('rule' in wrapped) {
+        return toArray<Step>(wrapped.rule);
+    }
+
+    return [wrapped as Step];
+}
+
 export const transformer = {
     buildGraphData(serverConfiguration: ServerConfiguration): GraphData {
         const gData: GraphData = {
@@ -352,9 +394,8 @@ function processConnector(
     }
 
     // Handle router nodes and links (JavaScript steps)
-    const processSteps = (steps: Step[] | undefined) => {
-        if (!steps) return;
-        steps.forEach((step) => {
+    const processSteps = (steps: unknown) => {
+        normalizeStepElements(steps).forEach((step) => {
             if (
                 step.type === 'JavaScript' ||
                 step.type === 'JavaScript Filter' ||
@@ -374,12 +415,9 @@ function processConnector(
         });
     };
 
-    if (connector.transformer?.elements)
-        processSteps(connector.transformer.elements);
-    if (connector.filter?.elements)
-        processSteps(connector.filter.elements as any);
-    if (connector.responseTransformer?.elements)
-        processSteps(connector.responseTransformer.elements);
+    processSteps(connector.transformer?.elements);
+    processSteps(connector.filter?.elements);
+    processSteps(connector.responseTransformer?.elements);
 }
 
 function addRouterNodesAndLinks(
