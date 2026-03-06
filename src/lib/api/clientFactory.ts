@@ -1,6 +1,7 @@
 import createClient from 'openapi-fetch';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
+import { getCookie } from '@tanstack/react-start/server';
 
 import type { paths as EngineApi } from '@/lib/index';
 import type { InstanceConfig, MirthInstance } from '@/features/settings/types';
@@ -108,15 +109,9 @@ function createAuthorizationHeader(
     return `Basic ${encoded}`;
 }
 
-type ClientContext = {
-    cookies?: {
-        get(name: string): string | undefined;
-    };
-};
-
-export async function getAuthenticatedClient(context: ClientContext) {
+export async function getAuthenticatedClient() {
     const config = await loadInstanceConfig();
-    const activeInstanceId = context.cookies?.get('mirth_instance_id');
+    const activeInstanceId = getCookie('mirth_instance_id');
     const instance = selectInstance(config, activeInstanceId);
     const baseUrl = normalizeInstanceUrl(instance.url);
     const cacheKey = `${instance.id}:${baseUrl}`;

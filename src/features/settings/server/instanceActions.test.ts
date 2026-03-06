@@ -13,9 +13,22 @@ vi.mock('@tanstack/react-start', () => ({
     }),
 }));
 
-import { addInstance, updateInstance, deleteInstance, getInstances } from './instanceActions';
+vi.mock('@tanstack/react-start/server', () => ({
+    getCookie: vi.fn(),
+    setCookie: vi.fn(),
+}));
+
+import {
+    addInstance,
+    updateInstance,
+    deleteInstance,
+    getInstances,
+    getActiveInstanceId,
+    setActiveInstance,
+} from './instanceActions';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
+import { getCookie, setCookie } from '@tanstack/react-start/server';
 
 // Mock fs/promises
 vi.mock('fs/promises');
@@ -38,6 +51,7 @@ describe('instanceActions', () => {
         vi.resetAllMocks();
         // Default mock implementation for readFile
         (readFile as any).mockResolvedValue(JSON.stringify(mockConfig));
+        (getCookie as any).mockReturnValue(undefined);
     });
 
     afterEach(() => {
@@ -133,6 +147,46 @@ describe('instanceActions', () => {
             const deleteData = { id: 'non-existent' };
 
             await expect(deleteInstance({ data: deleteData })).rejects.toThrow('Instance not found');
+        });
+    });
+
+    describe('setActiveInstance', () => {
+        it('should persist the selected instance id as a cookie', async () => {
+            const result = await setActiveInstance({ data: { id: '1' } });
+
+            expect(result).toEqual({ id: '1' });
+            expect(setCookie).toHaveBeenCalledWith('mirth_instance_id', '1', {
+                path: '/',
+                httpOnly: true,
+                sameSite: 'lax',
+                secure: false,
+                maxAge: 60 * 60 * 24 * 30,
+            });
+        });
+
+        it('should throw error if the instance does not exist', async () => {
+            await expect(
+                setActiveInstance({ data: { id: 'non-existent' } }),
+            ).rejects.toThrow('Instance not found');
+
+            expect(setCookie).not.toHaveBeenCalled();
+        });
+    });
+
+    describe('getActiveInstanceId', () => {
+        it('should return the active instance id from cookies', async () => {
+            (getCookie as any).mockReturnValue('instance-123');
+
+            const result = await getActiveInstanceId();
+
+            expect(getCookie).toHaveBeenCalledWith('mirth_instance_id');
+            expect(result).toBe('instance-123');
+        });
+
+        it('should return null when no active instance cookie is set', async () => {
+            const result = await getActiveInstanceId();
+
+            expect(result).toBeNull();
         });
     });
 });

@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'fs/promises'
 import { join } from 'path'
 import { createServerFn } from '@tanstack/react-start'
+import { getCookie, setCookie } from '@tanstack/react-start/server'
 import z from 'zod'
 
 import type { InstanceConfig, MirthInstance } from '../types'
@@ -100,36 +101,25 @@ export const deleteInstance = createServerFn()
     return data.id
   })
 
-export const setActiveInstance = createServerFn()
+export const setActiveInstance = createServerFn({ method: 'POST' })
   .inputValidator(InstanceIdPayload)
-  .handler(async (ctx) => {
-    const { data } = ctx
+  .handler(async ({ data }) => {
     const config = await loadConfig()
     const exists = config.instances.some((instance) => instance.id === data.id)
-  
+
     if (!exists) {
       throw new Error('Instance not found')
     }
-  
-    const cookies = (ctx as { cookies?: { set: (name: string, value: string, options: Record<string, unknown>) => void } })
-      .cookies
-  
-    if (!cookies?.set) {
-      throw new Error('Cookies are not available in this context')
-    }
-  
-    cookies.set('mirth_instance_id', data.id, {
+
+    setCookie('mirth_instance_id', data.id, {
       path: '/',
       httpOnly: true,
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production',
       maxAge: 60 * 60 * 24 * 30,
     })
-  
+
     return { id: data.id }
   })
 
-export const getActiveInstanceId = createServerFn().handler((ctx) => {
-  const cookies = (ctx as { cookies?: { get: (name: string) => string | undefined } }).cookies
-  return cookies?.get('mirth_instance_id') ?? null
-})
+export const getActiveInstanceId = createServerFn().handler(() => getCookie('mirth_instance_id') ?? null)

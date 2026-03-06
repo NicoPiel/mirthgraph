@@ -7,11 +7,9 @@ import { components } from '@/lib/index';
 type ServerConfiguration = components['schemas']['ServerConfiguration'];
 
 export const getGraphData = createServerFn({ method: 'GET' })
-    .handler(async (ctx): Promise<GraphData> => {
+    .handler(async (): Promise<GraphData> => {
         try {
-            // Cast ctx to any to bypass type mismatch with ClientContext
-            // The structure is compatible at runtime for cookie access
-            const client = await getAuthenticatedClient(ctx as any);
+            const client = await getAuthenticatedClient();
             
             const { data, error } = await client.GET('/server/configuration');
 
