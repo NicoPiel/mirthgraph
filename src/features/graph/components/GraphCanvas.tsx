@@ -187,7 +187,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
                     linkDirectionalParticleSpeed={0.005}
                     onNodeClick={handleNodeClick}
                     onBackgroundClick={handleBackgroundClick}
-                    warmupTicks={500}
                     //cooldownTicks={1000}
                     cooldownTime={5000}
                     d3AlphaDecay={0.02}
