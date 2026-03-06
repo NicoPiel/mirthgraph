@@ -1,29 +1,48 @@
 import { createServerFn } from '@tanstack/react-start';
-import { getAuthenticatedClient } from '@/lib/api/clientFactory';
+import {
+    getAuthenticatedClient,
+    getResolvedActiveInstance,
+} from '@/lib/api/clientFactory';
 import { transformer } from '../domain/transformer';
 import { GraphData } from '../domain/types';
 import { components } from '@/lib/index';
+import { getCachedGraphDataOrLoad } from './graphDataCache';
 
 type ServerConfiguration = components['schemas']['ServerConfiguration'];
 
 export const getGraphData = createServerFn({ method: 'GET' })
     .handler(async (): Promise<GraphData> => {
         try {
-            const client = await getAuthenticatedClient();
-            
-            const { data, error } = await client.GET('/server/configuration');
+            const resolvedInstance = await getResolvedActiveInstance();
 
-            if (error) {
-                console.error('Error fetching server configuration:', error);
-                throw new Error('Failed to fetch server configuration');
-            }
+            return await getCachedGraphDataOrLoad({
+                cacheKey: resolvedInstance.cacheKey,
+                invalidationKey: resolvedInstance.cachePrefix,
+                loader: async () => {
+                    const client = await getAuthenticatedClient(resolvedInstance);
 
-            if (!data) {
-                throw new Error('No data received from server configuration');
-            }
+                    const { data, error } = await client.GET(
+                        '/server/configuration',
+                    );
 
-            const normalizedConfig = normalizeServerConfiguration(data);
-            return transformer.buildGraphData(normalizedConfig);
+                    if (error) {
+                        console.error(
+                            'Error fetching server configuration:',
+                            error,
+                        );
+                        throw new Error('Failed to fetch server configuration');
+                    }
+
+                    if (!data) {
+                        throw new Error(
+                            'No data received from server configuration',
+                        );
+                    }
+
+                    const normalizedConfig = normalizeServerConfiguration(data);
+                    return transformer.buildGraphData(normalizedConfig);
+                },
+            });
         } catch (error) {
             console.error('Error in getGraphData:', error);
             // Return empty graph data or rethrow depending on desired error handling

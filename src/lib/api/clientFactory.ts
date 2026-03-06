@@ -7,21 +7,25 @@ import type { paths as EngineApi } from '@/lib/index';
 import type { InstanceConfig, MirthInstance } from '@/features/settings/types';
 
 const instancesFile = join(process.cwd(), 'config', 'instances.json');
-console.log('Loading instances from:', instancesFile);
 
-const clientCache = new Map<
-    string,
-    ReturnType<typeof createClient<EngineApi, 'application/json'>>
->();
+type AuthenticatedClient = ReturnType<
+    typeof createClient<EngineApi, 'application/json'>
+>;
+
+export type ResolvedMirthInstance = {
+    instance: MirthInstance;
+    baseUrl: string;
+    cacheKey: string;
+    cachePrefix: string;
+};
+
+const clientCache = new Map<string, AuthenticatedClient>();
 
 async function loadInstanceConfig(): Promise<InstanceConfig> {
     try {
         const file = await readFile(instancesFile, 'utf-8');
-        const config = JSON.parse(file) as InstanceConfig;
-        console.log('Loaded config:', JSON.stringify(config, null, 2));
-        return config;
+        return JSON.parse(file) as InstanceConfig;
     } catch (error: unknown) {
-        console.error('Error loading config:', error);
         if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
             return { instances: [] };
         }
@@ -109,18 +113,54 @@ function createAuthorizationHeader(
     return `Basic ${encoded}`;
 }
 
-export async function getAuthenticatedClient() {
+function hashCacheSegment(value: string): string {
+    let hash = 0;
+
+    for (let index = 0; index < value.length; index += 1) {
+        hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+    }
+
+    return hash.toString(16);
+}
+
+export function getInstanceCachePrefix(instanceId: string): string {
+    return `${instanceId}:`;
+}
+
+function getInstanceCacheKey(instance: MirthInstance, baseUrl: string): string {
+    const authorization = createAuthorizationHeader(instance) ?? 'anonymous';
+    return `${getInstanceCachePrefix(instance.id)}${baseUrl}:${hashCacheSegment(authorization)}`;
+}
+
+export function clearAuthenticatedClientCache() {
+    clientCache.clear();
+}
+
+export function invalidateAuthenticatedClientCache(instanceId: string) {
+    const cachePrefix = getInstanceCachePrefix(instanceId);
+
+    for (const cacheKey of clientCache.keys()) {
+        if (cacheKey.startsWith(cachePrefix)) {
+            clientCache.delete(cacheKey);
+        }
+    }
+}
+
+export async function getResolvedActiveInstance(): Promise<ResolvedMirthInstance> {
     const config = await loadInstanceConfig();
     const activeInstanceId = getCookie('mirth_instance_id');
     const instance = selectInstance(config, activeInstanceId);
     const baseUrl = normalizeInstanceUrl(instance.url);
-    const cacheKey = `${instance.id}:${baseUrl}`;
 
-    const cached = clientCache.get(cacheKey);
-    if (cached) {
-        return cached;
-    }
+    return {
+        instance,
+        baseUrl,
+        cacheKey: getInstanceCacheKey(instance, baseUrl),
+        cachePrefix: getInstanceCachePrefix(instance.id),
+    };
+}
 
+function createClientHeaders(instance: MirthInstance): Record<string, string> {
     const headers: Record<string, string> = {
         accept: 'application/json',
         'X-Requested-With': 'MirthGraph',
@@ -131,11 +171,24 @@ export async function getAuthenticatedClient() {
         headers.Authorization = authorization;
     }
 
+    return headers;
+}
+
+export async function getAuthenticatedClient(
+    resolvedInstance?: ResolvedMirthInstance,
+) {
+    const resolved = resolvedInstance ?? (await getResolvedActiveInstance());
+
+    const cached = clientCache.get(resolved.cacheKey);
+    if (cached) {
+        return cached;
+    }
+
     const client = createClient<EngineApi, 'application/json'>({
-        baseUrl,
-        headers,
+        baseUrl: resolved.baseUrl,
+        headers: createClientHeaders(resolved.instance),
     });
 
-    clientCache.set(cacheKey, client);
+    clientCache.set(resolved.cacheKey, client);
     return client;
 }

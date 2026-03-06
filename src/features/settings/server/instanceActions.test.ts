@@ -18,6 +18,14 @@ vi.mock('@tanstack/react-start/server', () => ({
     setCookie: vi.fn(),
 }));
 
+vi.mock('@/features/graph/server/graphDataCache', () => ({
+    invalidateGraphDataCache: vi.fn(),
+}));
+
+vi.mock('@/lib/api/clientFactory', () => ({
+    invalidateAuthenticatedClientCache: vi.fn(),
+}));
+
 import {
     addInstance,
     updateInstance,
@@ -29,6 +37,8 @@ import {
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 import { getCookie, setCookie } from '@tanstack/react-start/server';
+import { invalidateGraphDataCache } from '@/features/graph/server/graphDataCache';
+import { invalidateAuthenticatedClientCache } from '@/lib/api/clientFactory';
 
 // Mock fs/promises
 vi.mock('fs/promises');
@@ -114,6 +124,8 @@ describe('instanceActions', () => {
             expect(writeCall[0]).toBe(mockInstancesFile);
             const writtenConfig = JSON.parse(writeCall[1] as string);
             expect(writtenConfig.instances).toContainEqual(updateData);
+            expect(invalidateGraphDataCache).toHaveBeenCalledWith('1:');
+            expect(invalidateAuthenticatedClientCache).toHaveBeenCalledWith('1');
         });
 
         it('should throw error if instance not found', async () => {
@@ -141,6 +153,8 @@ describe('instanceActions', () => {
             expect(writeCall[0]).toBe(mockInstancesFile);
             const writtenConfig = JSON.parse(writeCall[1] as string);
             expect(writtenConfig.instances).not.toContainEqual(expect.objectContaining({ id: '1' }));
+            expect(invalidateGraphDataCache).toHaveBeenCalledWith('1:');
+            expect(invalidateAuthenticatedClientCache).toHaveBeenCalledWith('1');
         });
 
         it('should throw error if instance not found', async () => {

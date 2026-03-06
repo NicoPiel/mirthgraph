@@ -4,6 +4,8 @@ import { createServerFn } from '@tanstack/react-start'
 import { getCookie, setCookie } from '@tanstack/react-start/server'
 import z from 'zod'
 
+import { invalidateGraphDataCache } from '@/features/graph/server/graphDataCache'
+import { invalidateAuthenticatedClientCache } from '@/lib/api/clientFactory'
 import type { InstanceConfig, MirthInstance } from '../types'
 
 const instancesFile = join(process.cwd(), 'config', 'instances.json')
@@ -38,6 +40,11 @@ async function loadConfig(): Promise<InstanceConfig> {
 
 async function persistConfig(config: InstanceConfig) {
   await writeFile(instancesFile, JSON.stringify(config, null, 2) + '\n')
+}
+
+function invalidateInstanceCaches(instanceId: string) {
+  invalidateGraphDataCache(`${instanceId}:`)
+  invalidateAuthenticatedClientCache(instanceId)
 }
 
 export const getInstances = createServerFn().handler(async () => {
@@ -81,6 +88,7 @@ export const updateInstance = createServerFn()
 
     config.instances[index] = updatedInstance
     await persistConfig(config)
+    invalidateInstanceCaches(data.id)
 
     return updatedInstance
   })
@@ -97,6 +105,7 @@ export const deleteInstance = createServerFn()
 
     config.instances = remaining
     await persistConfig(config)
+    invalidateInstanceCaches(data.id)
 
     return data.id
   })
