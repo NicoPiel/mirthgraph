@@ -9,6 +9,8 @@ import { components } from '@/lib/index';
 import { getCachedGraphDataOrLoad } from './graphDataCache';
 
 type ServerConfiguration = components['schemas']['ServerConfiguration'];
+type Channel = components['schemas']['Channel'];
+type ChannelTag = components['schemas']['ChannelTag'];
 
 export const getGraphData = createServerFn({ method: 'GET' })
     .handler(async (): Promise<GraphData> => {
@@ -21,25 +23,40 @@ export const getGraphData = createServerFn({ method: 'GET' })
                 loader: async () => {
                     const client = await getAuthenticatedClient(resolvedInstance);
 
-                    const { data, error } = await client.GET(
-                        '/server/configuration',
-                    );
+                    const [channelsResponse, channelTagsResponse] =
+                        await Promise.all([
+                            client.GET('/channels'),
+                            client.GET('/server/channelTags'),
+                        ]);
 
-                    if (error) {
+                    const { data: channelsData, error: channelsError } =
+                        channelsResponse;
+                    const {
+                        data: channelTagsData,
+                        error: channelTagsError,
+                    } = channelTagsResponse;
+
+                    if (channelsError) {
+                        console.error('Error fetching channels:', channelsError);
+                        throw new Error('Failed to fetch channels');
+                    }
+
+                    if (!channelsData) {
+                        throw new Error('No data received from channels endpoint');
+                    }
+
+                    if (channelTagsError) {
                         console.error(
-                            'Error fetching server configuration:',
-                            error,
+                            'Error fetching channel tags:',
+                            channelTagsError,
                         );
-                        throw new Error('Failed to fetch server configuration');
+                        throw new Error('Failed to fetch channel tags');
                     }
 
-                    if (!data) {
-                        throw new Error(
-                            'No data received from server configuration',
-                        );
-                    }
-
-                    const normalizedConfig = normalizeServerConfiguration(data);
+                    const normalizedConfig = normalizeServerConfiguration(
+                        channelsData,
+                        channelTagsData,
+                    );
                     return transformer.buildGraphData(normalizedConfig);
                 },
             });
@@ -51,10 +68,10 @@ export const getGraphData = createServerFn({ method: 'GET' })
         }
     });
 
-function normalizeServerConfiguration(data: any): ServerConfiguration {
-    // Handle the case where the response is wrapped in "serverConfiguration"
-    const config = data?.serverConfiguration ? data.serverConfiguration : data;
-
+function normalizeServerConfiguration(
+    channels: unknown,
+    channelTags: unknown,
+): ServerConfiguration {
     // Helper to normalize array fields that might be wrapped in an object
     const normalizeArray = (field: any, itemKey: string) => {
         if (!field) return [];
@@ -159,10 +176,7 @@ function normalizeServerConfiguration(data: any): ServerConfiguration {
         return normalizedConnector;
     };
 
-    // Create a shallow copy to avoid mutating the original data if it matters
-    const normalized = { ...(config || {}) } as any;
-
-    normalized.channels = normalizeArray(config?.channels, 'channel').map(
+    const normalizedChannels = normalizeArray(channels, 'channel').map(
         (channel: any) => {
             const normalizedChannel = { ...channel };
 
@@ -182,25 +196,18 @@ function normalizeServerConfiguration(data: any): ServerConfiguration {
 
             return normalizedChannel;
         },
-    );
+    ) as Channel[];
 
-    normalized.channelTags = normalizeArray(config?.channelTags, 'channelTag')
+    const normalizedChannelTags = normalizeArray(channelTags, 'channelTag')
         .map((tag: any) => normalizeSingle(tag, 'channelTag'))
         .filter(Boolean)
         .map((tag: any) => ({
             ...tag,
             channelIds: normalizeStringArray(tag.channelIds),
-        }));
-    normalized.channelGroups = normalizeArray(
-        config?.channelGroups,
-        'channelGroup',
-    );
-    normalized.alerts = normalizeArray(config?.alerts, 'alert');
-    normalized.users = normalizeArray(config?.users, 'user');
-    normalized.codeTemplateLibraries = normalizeArray(
-        config?.codeTemplateLibraries,
-        'codeTemplateLibrary',
-    );
+        })) as ChannelTag[];
 
-    return normalized as ServerConfiguration;
+    return {
+        channels: normalizedChannels,
+        channelTags: normalizedChannelTags,
+    } as ServerConfiguration;
 }
