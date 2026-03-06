@@ -6,6 +6,13 @@ type Channel = components['schemas']['Channel'];
 type Connector = components['schemas']['Connector'];
 type Step = components['schemas']['Step'];
 
+type TransformerContext = {
+    graphData: GraphData;
+    nodeById: Map<string, GraphNode>;
+    channelById: Map<string, Channel>;
+    channelByName: Map<string, Channel>;
+};
+
 const OTHER_NODE_ID = 'OTHER';
 
 function toArray<T>(value: unknown): T[] {
@@ -84,30 +91,86 @@ function normalizeStringArray(value: unknown): string[] {
     return [];
 }
 
+function addNodeIfNotExists(
+    context: TransformerContext,
+    node: GraphNode,
+): GraphNode {
+    const existingNode = context.nodeById.get(node.id);
+
+    if (existingNode) {
+        return existingNode;
+    }
+
+    context.nodeById.set(node.id, node);
+    context.graphData.nodes.push(node);
+    return node;
+}
+
+function addLink(
+    context: TransformerContext,
+    source: string,
+    target: string,
+    group: string,
+    enabled: number,
+) {
+    context.graphData.links.push({
+        source,
+        target,
+        group,
+        enabled,
+    });
+}
+
+function buildTransformerContext(channels: Channel[]): TransformerContext {
+    const channelById = new Map<string, Channel>();
+    const channelByName = new Map<string, Channel>();
+
+    channels.forEach((channel) => {
+        if (channel.id) {
+            channelById.set(channel.id, channel);
+        }
+
+        if (channel.name) {
+            channelByName.set(channel.name, channel);
+        }
+    });
+
+    const graphData: GraphData = {
+        nodes: [],
+        links: [],
+    };
+
+    const nodeById = new Map<string, GraphNode>();
+    const context: TransformerContext = {
+        graphData,
+        nodeById,
+        channelById,
+        channelByName,
+    };
+
+    addNodeIfNotExists(context, {
+        id: OTHER_NODE_ID,
+        name: OTHER_NODE_ID,
+        group: OTHER_NODE_ID,
+        description: 'Unhandled connectors',
+        val: 1,
+        tags: [],
+    });
+
+    return context;
+}
+
 export const transformer = {
     buildGraphData(serverConfiguration: ServerConfiguration): GraphData {
-        const gData: GraphData = {
-            nodes: [],
-            links: [],
-        };
-
-        gData.nodes.push({
-            id: OTHER_NODE_ID,
-            name: OTHER_NODE_ID,
-            group: OTHER_NODE_ID,
-            description: 'Unhandled connectors',
-            val: 1,
-            tags: [],
-        });
-
         const channels = serverConfiguration.channels || [];
+        const context = buildTransformerContext(channels);
 
         channels.forEach((channel) => {
             const channelId = channel.id!;
             const channelName = channel.name!;
             const channelDescription = channel.description;
 
-            gData.nodes.push({
+            addNodeIfNotExists(context, {
                 id: channelId,
                 name: 'Channel: ' + channelName,
                 val: 1,
@@ -121,19 +184,19 @@ export const transformer = {
 
             const sourceConnector = channel.sourceConnector;
             if (sourceConnector) {
-                processConnector(sourceConnector, channelId, gData, channels);
+                processConnector(sourceConnector, channelId, context);
             }
 
             const destinationConnectors = channel.destinationConnectors || [];
             destinationConnectors.forEach((connector) => {
-                processConnector(connector, channelId, gData, channels);
+                processConnector(connector, channelId, context);
             });
         });
 
-        // Process tags
         const channelTags = toArray<Record<string, unknown>>(
             serverConfiguration.channelTags,
         );
+
         channelTags.forEach((tag) => {
             const tagName = typeof tag.name === 'string' ? tag.name : '';
             if (!tagName) {
@@ -143,33 +206,25 @@ export const transformer = {
             const channelIds = normalizeStringArray(tag.channelIds);
 
             channelIds.forEach((channelId) => {
-                const node = gData.nodes.find((n) => n.id === channelId);
+                const node = context.nodeById.get(channelId);
                 if (node) {
                     node.tags.push(tagName);
                 }
             });
         });
 
-        return gData;
+        return context.graphData;
     },
 };
 
 function processConnector(
     connector: Connector,
     channelId: string,
-    gData: GraphData,
-    allChannels: Channel[],
+    context: TransformerContext,
 ) {
     const transportName = connector.transportName;
-    const properties = connector.properties as any; // Type assertion needed as properties are generic
+    const properties = connector.properties as any;
     const enabled = connector.enabled ? 1 : 0;
-
-    // Helper to add node if not exists
-    const addNodeIfNotExists = (node: GraphNode) => {
-        if (!gData.nodes.find((n) => n.id === node.id)) {
-            gData.nodes.push(node);
-        }
-    };
 
     switch (transportName) {
         case 'TCP Listener': {
@@ -184,7 +239,7 @@ function processConnector(
 
             if (host && port) {
                 const tcpListenerID = `${host}:${port}`;
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: tcpListenerID,
                     name: `${transportName}: ${tcpListenerID}`,
                     val: 1,
@@ -192,12 +247,13 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: tcpListenerID,
-                    target: channelId,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(
+                    context,
+                    tcpListenerID,
+                    channelId,
+                    transportName,
+                    enabled,
+                );
             }
             break;
         }
@@ -211,7 +267,7 @@ function processConnector(
 
             if (host && port) {
                 const httpListenerID = `${host}:${port}`;
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: httpListenerID,
                     name: `${transportName}: ${httpListenerID}`,
                     val: 1,
@@ -219,12 +275,13 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: httpListenerID,
-                    target: channelId,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(
+                    context,
+                    httpListenerID,
+                    channelId,
+                    transportName,
+                    enabled,
+                );
             }
             break;
         }
@@ -233,7 +290,7 @@ function processConnector(
             if (url) {
                 const dbHost = url.split(/(@|\/\/)/)[2]?.split(':')[0] || url;
 
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: dbHost,
                     name: `Database Host: ${dbHost}`,
                     group: 'Host',
@@ -242,7 +299,7 @@ function processConnector(
                     tags: [],
                 });
 
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: url,
                     name: `${transportName}: ${url}`,
                     val: 1,
@@ -250,26 +307,15 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: dbHost,
-                    target: url,
-                    group: transportName,
-                    enabled: enabled,
-                });
-
-                gData.links.push({
-                    source: url,
-                    target: channelId,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(context, dbHost, url, transportName, enabled);
+                addLink(context, url, channelId, transportName, enabled);
             }
             break;
         }
         case 'File Reader': {
             const host = properties.host;
             if (host) {
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: host,
                     name: `${transportName}: ${host}`,
                     val: 1,
@@ -277,12 +323,7 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: host,
-                    target: channelId,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(context, host, channelId, transportName, enabled);
             }
             break;
         }
@@ -293,7 +334,7 @@ function processConnector(
 
             if (port && ae) {
                 const dicomListenerID = `${ae}:${port}`;
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: dicomListenerID,
                     name: `${transportName}: ${dicomListenerID}`,
                     val: 1,
@@ -301,47 +342,45 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: dicomListenerID,
-                    target: channelId,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(
+                    context,
+                    dicomListenerID,
+                    channelId,
+                    transportName,
+                    enabled,
+                );
             }
             break;
         }
         case 'Channel Writer': {
             const targetChannelId = properties.channelId;
-            let isTargetEnabled = false;
-
-            const targetChannel = allChannels.find(
-                (c) => c.id === targetChannelId,
-            );
-            if (targetChannel) {
-                isTargetEnabled =
-                    targetChannel.exportData?.metadata?.enabled || false;
-            }
+            const targetChannel = targetChannelId
+                ? context.channelById.get(targetChannelId)
+                : undefined;
+            const isTargetEnabled =
+                targetChannel?.exportData?.metadata?.enabled || false;
 
             if (!targetChannelId || targetChannelId === 'none') {
-                gData.links.push({
-                    source: channelId,
-                    target: OTHER_NODE_ID,
-                    enabled: enabled,
-                    group: 'Channel Writer',
-                });
+                addLink(
+                    context,
+                    channelId,
+                    OTHER_NODE_ID,
+                    'Channel Writer',
+                    enabled,
+                );
             } else if (isTargetEnabled) {
-                gData.links.push({
-                    source: channelId,
-                    target: targetChannelId,
-                    enabled: enabled,
-                    group: 'Channel Writer',
-                });
+                addLink(
+                    context,
+                    channelId,
+                    targetChannelId,
+                    'Channel Writer',
+                    enabled,
+                );
             }
             break;
         }
         case 'SMTP Sender': {
             const to = properties.to?.toLowerCase();
-            // Simple regex for email validation
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (to) {
@@ -349,7 +388,7 @@ function processConnector(
                 emails.forEach((email: string) => {
                     email = email.trim().toLowerCase();
                     if (regex.test(email)) {
-                        addNodeIfNotExists({
+                        addNodeIfNotExists(context, {
                             id: email,
                             name: 'SMTP: ' + email,
                             val: 1,
@@ -357,14 +396,15 @@ function processConnector(
                             tags: [],
                         });
 
-                        gData.links.push({
-                            source: channelId,
-                            target: email,
-                            group: 'SMTP Sender',
-                            enabled: enabled,
-                        });
+                        addLink(
+                            context,
+                            channelId,
+                            email,
+                            'SMTP Sender',
+                            enabled,
+                        );
                     } else {
-                        addNodeIfNotExists({
+                        addNodeIfNotExists(context, {
                             id: to,
                             name: 'SMTP: ' + to,
                             val: 1,
@@ -372,12 +412,13 @@ function processConnector(
                             tags: [],
                         });
 
-                        gData.links.push({
-                            source: channelId,
-                            target: to,
-                            enabled: enabled,
-                            group: 'Unreadable ' + transportName,
-                        });
+                        addLink(
+                            context,
+                            channelId,
+                            to,
+                            'Unreadable ' + transportName,
+                            enabled,
+                        );
                     }
                 });
             }
@@ -389,7 +430,7 @@ function processConnector(
 
             if (remoteAddress) {
                 const remoteAddressAndPort = remoteAddress + ':' + remotePort;
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: remoteAddressAndPort,
                     name: 'TCP Remote: ' + remoteAddressAndPort,
                     group: transportName,
@@ -397,19 +438,20 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: channelId,
-                    target: remoteAddressAndPort,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(
+                    context,
+                    channelId,
+                    remoteAddressAndPort,
+                    transportName,
+                    enabled,
+                );
             }
             break;
         }
         case 'File Writer': {
             const host = properties.host?.toLowerCase();
             if (host) {
-                addNodeIfNotExists({
+                addNodeIfNotExists(context, {
                     id: host,
                     name: 'File Host: ' + host,
                     group: transportName,
@@ -417,21 +459,14 @@ function processConnector(
                     tags: [],
                 });
 
-                gData.links.push({
-                    source: channelId,
-                    target: host,
-                    group: transportName,
-                    enabled: enabled,
-                });
+                addLink(context, channelId, host, transportName, enabled);
             }
             break;
         }
         default:
-            // Unknown connector
             break;
     }
 
-    // Handle router nodes and links (JavaScript steps)
     const processSteps = (steps: unknown) => {
         normalizeStepElements(steps).forEach((step) => {
             if (
@@ -441,13 +476,7 @@ function processConnector(
             ) {
                 const jsStep = step as any;
                 if (jsStep.script) {
-                    addRouterNodesAndLinks(
-                        connector,
-                        jsStep,
-                        channelId,
-                        gData,
-                        allChannels,
-                    );
+                    addRouterNodesAndLinks(jsStep, channelId, context);
                 }
             }
         });
@@ -459,56 +488,35 @@ function processConnector(
 }
 
 function addRouterNodesAndLinks(
-    _connector: Connector,
     jsStep: any,
     sourceId: string,
-    gData: GraphData,
-    allChannels: Channel[],
+    context: TransformerContext,
 ) {
     const script = jsStep.script;
-    if (!script) return;
+    if (!script) {
+        return;
+    }
 
-    const getChannelNameOrID = () => {
-        const regexName = /^\s*router\.routeMessage\(['"](\w+)['"],/gm;
-        const regexID =
-            /^\s*router\.routeMessageByChannelId\(['"]([\w\-]+)['"],/gm;
+    const regexName = /^\s*router\.routeMessage\(['"](\w+)['"],/gm;
+    const regexID = /^\s*router\.routeMessageByChannelId\(['"]([\w\-]+)['"],/gm;
 
-        // TODO: Implement full parsing logic if needed, for now just basic regex matching
-        // The original code had more complex logic to parse the script line by line
-        // For this migration, we'll stick to the core logic structure.
+    let match: RegExpExecArray | null;
 
-        // Simplified implementation for now to match the structure
-        let match;
-        while ((match = regexName.exec(script)) !== null) {
-            const targetChannelName = match[1];
-            const targetChannel = allChannels.find(
-                (c) => c.name === targetChannelName,
-            );
-            if (targetChannel) {
-                gData.links.push({
-                    source: sourceId,
-                    target: targetChannel.id!,
-                    group: 'Router',
-                    enabled: 1,
-                });
-            }
+    while ((match = regexName.exec(script)) !== null) {
+        const targetChannelName = match[1];
+        const targetChannel = context.channelByName.get(targetChannelName);
+
+        if (targetChannel?.id) {
+            addLink(context, sourceId, targetChannel.id, 'Router', 1);
         }
+    }
 
-        while ((match = regexID.exec(script)) !== null) {
-            const targetChannelId = match[1];
-            const targetChannel = allChannels.find(
-                (c) => c.id === targetChannelId,
-            );
-            if (targetChannel) {
-                gData.links.push({
-                    source: sourceId,
-                    target: targetChannelId,
-                    group: 'Router',
-                    enabled: 1,
-                });
-            }
+    while ((match = regexID.exec(script)) !== null) {
+        const targetChannelId = match[1];
+        const targetChannel = context.channelById.get(targetChannelId);
+
+        if (targetChannel?.id) {
+            addLink(context, sourceId, targetChannelId, 'Router', 1);
         }
-    };
-
-    getChannelNameOrID();
+    }
 }
