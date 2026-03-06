@@ -47,10 +47,18 @@ describe('getNodeRelationships', () => {
         const result = getNodeRelationships(data, 'channel-1');
 
         expect(result.sources).toEqual([
-            { id: 'source-1', label: 'TCP Listener: 127.0.0.1:6661' },
+            {
+                id: 'source-1',
+                label: 'TCP Listener: 127.0.0.1:6661',
+                group: 'TCP Listener',
+            },
         ]);
         expect(result.destinations).toEqual([
-            { id: 'dest-1', label: 'SMTP: alerts@example.com' },
+            {
+                id: 'dest-1',
+                label: 'SMTP: alerts@example.com',
+                group: 'SMTP Sender',
+            },
         ]);
     });
 
@@ -90,8 +98,14 @@ describe('getNodeRelationships', () => {
         const result = getNodeRelationships(data, 'channel-1');
 
         expect(result.sources).toEqual([
-            { id: 'upstream-system', label: 'upstream-system' },
+            {
+                id: 'upstream-system',
+                label: 'upstream-system',
+                group: undefined,
+            },
         ]);
-        expect(result.destinations).toEqual([{ id: 'OTHER', label: 'OTHER' }]);
+        expect(result.destinations).toEqual([
+            { id: 'OTHER', label: 'OTHER', group: undefined },
+        ]);
     });
 });

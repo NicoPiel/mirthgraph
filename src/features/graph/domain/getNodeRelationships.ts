@@ -3,6 +3,7 @@ import { GraphData } from './types';
 export interface NodeRelationship {
     id: string;
     label: string;
+    group?: string;
 }
 
 function toRelationships(
@@ -25,6 +26,7 @@ function toRelationships(
             {
                 id,
                 label: node?.name || id,
+                group: node?.group,
             },
         ];
     });

@@ -106,7 +106,14 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
                                                 key={source.id}
                                                 className="break-words"
                                             >
-                                                {source.label}
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    <span>{source.label}</span>
+                                                    {source.group && (
+                                                        <Badge variant="outline">
+                                                            {source.group}
+                                                        </Badge>
+                                                    )}
+                                                </div>
                                             </li>
                                         ))}
                                     </ul>
@@ -128,7 +135,16 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
                                                 key={destination.id}
                                                 className="break-words"
                                             >
-                                                {destination.label}
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    <span>
+                                                        {destination.label}
+                                                    </span>
+                                                    {destination.group && (
+                                                        <Badge variant="outline">
+                                                            {destination.group}
+                                                        </Badge>
+                                                    )}
+                                                </div>
                                             </li>
                                         ))}
                                     </ul>
