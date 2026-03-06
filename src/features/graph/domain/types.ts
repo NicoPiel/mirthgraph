@@ -8,9 +8,15 @@ export interface GraphNode {
     enabled?: number;
 }
 
+export type GraphLinkEndpoint = string | GraphNode;
+
+export function getGraphLinkEndpointId(endpoint: GraphLinkEndpoint): string {
+    return typeof endpoint === 'string' ? endpoint : endpoint.id;
+}
+
 export interface GraphLink {
-    source: string;
-    target: string;
+    source: GraphLinkEndpoint;
+    target: GraphLinkEndpoint;
     group: string;
     enabled: number;
 }

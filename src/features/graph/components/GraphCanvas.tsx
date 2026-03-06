@@ -9,7 +9,7 @@ const ForceGraph2D = React.lazy(() =>
         default: module.default,
     })),
 );
-import { GraphData, GraphNode } from '../domain/types';
+import { GraphData, GraphNode, getGraphLinkEndpointId } from '../domain/types';
 
 interface GraphCanvasProps {
     data: GraphData;
@@ -24,7 +24,7 @@ interface ForceGraphNode extends GraphNode {
 }
 
 export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
-    const { setSelectedNodeId, setSidebarOpen, graphSettings } =
+    const { selectedNodeId, setSelectedNodeId, setSidebarOpen, graphSettings } =
         useGraphStore();
     const { theme } = useTheme();
 
@@ -89,8 +89,8 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
             const nodeIds = new Set(nodes.map((n) => n.id));
             links = links.filter(
                 (l) =>
-                    nodeIds.has(l.source as string) &&
-                    nodeIds.has(l.target as string),
+                    nodeIds.has(getGraphLinkEndpointId(l.source)) &&
+                    nodeIds.has(getGraphLinkEndpointId(l.target)),
             );
         }
 
@@ -101,13 +101,34 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
             const nodeIds = new Set(nodes.map((n) => n.id));
             links = links.filter(
                 (l) =>
-                    nodeIds.has(l.source as string) &&
-                    nodeIds.has(l.target as string),
+                    nodeIds.has(getGraphLinkEndpointId(l.source)) &&
+                    nodeIds.has(getGraphLinkEndpointId(l.target)),
             );
         }
 
         return { nodes, links };
     }, [data, filterCriteria]);
+
+    useEffect(() => {
+        if (!selectedNodeId || !graphRef.current) {
+            return;
+        }
+
+        const selectedNode = filteredData.nodes.find(
+            (node) => node.id === selectedNodeId,
+        ) as ForceGraphNode | undefined;
+
+        if (
+            !selectedNode ||
+            typeof selectedNode.x !== 'number' ||
+            typeof selectedNode.y !== 'number'
+        ) {
+            return;
+        }
+
+        graphRef.current.centerAt(selectedNode.x, selectedNode.y, 1000);
+        graphRef.current.zoom(2, 2000);
+    }, [filteredData.nodes, selectedNodeId]);
 
     const isDark =
         theme === 'dark' ||

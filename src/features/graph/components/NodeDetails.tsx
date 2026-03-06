@@ -44,6 +44,11 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
         return null;
     }
 
+    const handleRelationshipClick = (relationshipId: string) => {
+        setSelectedNodeId(relationshipId);
+        setSidebarOpen(true);
+    };
+
     return (
         <Sheet
             open={isSidebarOpen}
@@ -107,7 +112,23 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
                                                 className="break-words"
                                             >
                                                 <div className="flex flex-wrap items-center gap-2">
-                                                    <span>{source.label}</span>
+                                                    {source.isNavigable ? (
+                                                        <button
+                                                            type="button"
+                                                            className="cursor-pointer text-left underline-offset-4 transition hover:underline"
+                                                            onClick={() =>
+                                                                handleRelationshipClick(
+                                                                    source.id,
+                                                                )
+                                                            }
+                                                        >
+                                                            {source.label}
+                                                        </button>
+                                                    ) : (
+                                                        <span>
+                                                            {source.label}
+                                                        </span>
+                                                    )}
                                                     {source.group && (
                                                         <Badge variant="outline">
                                                             {source.group}
@@ -136,9 +157,23 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
                                                 className="break-words"
                                             >
                                                 <div className="flex flex-wrap items-center gap-2">
-                                                    <span>
-                                                        {destination.label}
-                                                    </span>
+                                                    {destination.isNavigable ? (
+                                                        <button
+                                                            type="button"
+                                                            className="cursor-pointer text-left underline-offset-4 transition hover:underline"
+                                                            onClick={() =>
+                                                                handleRelationshipClick(
+                                                                    destination.id,
+                                                                )
+                                                            }
+                                                        >
+                                                            {destination.label}
+                                                        </button>
+                                                    ) : (
+                                                        <span>
+                                                            {destination.label}
+                                                        </span>
+                                                    )}
                                                     {destination.group && (
                                                         <Badge variant="outline">
                                                             {destination.group}

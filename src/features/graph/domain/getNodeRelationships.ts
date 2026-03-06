@@ -1,9 +1,10 @@
-import { GraphData } from './types';
+import { GraphData, getGraphLinkEndpointId } from './types';
 
 export interface NodeRelationship {
     id: string;
     label: string;
     group?: string;
+    isNavigable: boolean;
 }
 
 function toRelationships(
@@ -27,6 +28,7 @@ function toRelationships(
                 id,
                 label: node?.name || id,
                 group: node?.group,
+                isNavigable: Boolean(node),
             },
         ];
     });
@@ -36,14 +38,18 @@ export function getNodeRelationships(data: GraphData, nodeId: string) {
     return {
         sources: toRelationships(
             data.links
-                .filter((link) => link.target === nodeId)
-                .map((link) => link.source),
+                .filter(
+                    (link) => getGraphLinkEndpointId(link.target) === nodeId,
+                )
+                .map((link) => getGraphLinkEndpointId(link.source)),
             data,
         ),
         destinations: toRelationships(
             data.links
-                .filter((link) => link.source === nodeId)
-                .map((link) => link.target),
+                .filter(
+                    (link) => getGraphLinkEndpointId(link.source) === nodeId,
+                )
+                .map((link) => getGraphLinkEndpointId(link.target)),
             data,
         ),
     };
