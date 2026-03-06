@@ -64,6 +64,14 @@ export function normalizeInstanceUrl(rawUrl: string): string {
         );
     }
 
+    const normalizedPath = parsed.pathname.replace(/\/+$/, '');
+
+    if (/\/api$/i.test(normalizedPath)) {
+        parsed.pathname = normalizedPath || '/api';
+    } else {
+        parsed.pathname = normalizedPath ? `${normalizedPath}/api` : '/api';
+    }
+
     return parsed.toString();
 }
 
