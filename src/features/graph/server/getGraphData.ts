@@ -73,17 +73,43 @@ function normalizeServerConfiguration(
     channelTags: unknown,
 ): ServerConfiguration {
     // Helper to normalize array fields that might be wrapped in an object
-    const normalizeArray = (field: any, itemKey: string) => {
+    const normalizeArray = (
+        field: any,
+        itemKey: string,
+        containerKeys: string[] = [],
+    ): any[] => {
         if (!field) return [];
         if (Array.isArray(field)) return field;
+        if (typeof field !== 'object') return [];
+
         if (field[itemKey]) {
-            if (Array.isArray(field[itemKey])) {
-                return field[itemKey];
-            } else {
-                return [field[itemKey]];
+            return normalizeArray(field[itemKey], itemKey, containerKeys);
+        }
+
+        for (const key of containerKeys) {
+            if (field[key]) {
+                const normalized = normalizeArray(
+                    field[key],
+                    itemKey,
+                    containerKeys,
+                );
+
+                if (normalized.length > 0) {
+                    return normalized;
+                }
             }
         }
-        return [];
+
+        const values = Object.values(field);
+        if (values.length === 1) {
+            const normalized = normalizeArray(values[0], itemKey, containerKeys);
+
+            if (normalized.length > 0) {
+                return normalized;
+            }
+        }
+
+        return [field];
     };
 
     const normalizeSingle = (field: any, itemKey: string) => {
@@ -176,7 +202,11 @@ function normalizeServerConfiguration(
         return normalizedConnector;
     };
 
-    const normalizedChannels = normalizeArray(channels, 'channel').map(
+    const normalizedChannels = normalizeArray(channels, 'channel', [
+        'channels',
+        'list',
+        'items',
+    ]).map(
         (channel: any) => {
             const normalizedChannel = { ...channel };
 
@@ -187,6 +217,7 @@ function normalizeServerConfiguration(
             normalizedChannel.destinationConnectors = normalizeArray(
                 channel.destinationConnectors,
                 'connector',
+                ['destinationConnectors', 'connectors', 'list'],
             ).filter(Boolean);
 
             normalizedChannel.destinationConnectors =
@@ -198,7 +229,11 @@ function normalizeServerConfiguration(
         },
     ) as Channel[];
 
-    const normalizedChannelTags = normalizeArray(channelTags, 'channelTag')
+    const normalizedChannelTags = normalizeArray(channelTags, 'channelTag', [
+        'channelTags',
+        'list',
+        'items',
+    ])
         .map((tag: any) => normalizeSingle(tag, 'channelTag'))
         .filter(Boolean)
         .map((tag: any) => ({

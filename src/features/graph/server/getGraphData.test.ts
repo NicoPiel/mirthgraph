@@ -187,6 +187,37 @@ describe('getGraphData', () => {
         expect(Array.isArray(destinationConnector.filter.elements)).toBe(true);
     });
 
+    it('should normalize prod list wrapper channels', async () => {
+        const mockGraphData = { nodes: [], links: [] };
+
+        mockEndpointResponses({
+            channels: {
+                data: {
+                    list: {
+                        channel: {
+                            id: 'channel-1',
+                            name: 'Channel 1',
+                        },
+                    },
+                },
+                error: null,
+            },
+        });
+
+        (transformer.buildGraphData as any).mockReturnValue(mockGraphData);
+
+        await getGraphData();
+
+        const normalizedConfig = (transformer.buildGraphData as any).mock.calls[0][0];
+
+        expect(normalizedConfig.channels).toEqual([
+            expect.objectContaining({
+                id: 'channel-1',
+                name: 'Channel 1',
+            }),
+        ]);
+    });
+
     it('should normalize wrapped channelTag channelIds', async () => {
         const mockGraphData = { nodes: [], links: [] };
 
@@ -221,6 +252,39 @@ describe('getGraphData', () => {
 
         expect(normalizedConfig.channelTags[0].name).toBe('WrappedTag');
         expect(normalizedConfig.channelTags[0].channelIds).toEqual(['channel-1']);
+    });
+
+    it('should normalize prod list wrapper channel tags', async () => {
+        const mockGraphData = { nodes: [], links: [] };
+
+        mockEndpointResponses({
+            channelTags: {
+                data: {
+                    list: {
+                        channelTag: {
+                            name: 'WrappedTag',
+                            channelIds: {
+                                string: 'channel-1',
+                            },
+                        },
+                    },
+                },
+                error: null,
+            },
+        });
+
+        (transformer.buildGraphData as any).mockReturnValue(mockGraphData);
+
+        await getGraphData();
+
+        const normalizedConfig = (transformer.buildGraphData as any).mock.calls[0][0];
+
+        expect(normalizedConfig.channelTags).toEqual([
+            expect.objectContaining({
+                name: 'WrappedTag',
+                channelIds: ['channel-1'],
+            }),
+        ]);
     });
 
     it('returns cached graph data for repeated requests', async () => {
