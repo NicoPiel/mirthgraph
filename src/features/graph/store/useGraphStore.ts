@@ -3,6 +3,7 @@ import { create } from 'zustand';
 interface GraphSettings {
     showLabels: boolean;
     showDirectionality: boolean;
+    zoomOnSelect: boolean;
     nodeSize: number;
     linkThickness: number;
 }
@@ -36,6 +37,7 @@ const defaultFilterCriteria: FilterCriteria = {
 const defaultGraphSettings: GraphSettings = {
     showLabels: true,
     showDirectionality: true,
+    zoomOnSelect: false,
     nodeSize: 5,
     linkThickness: 1,
 };

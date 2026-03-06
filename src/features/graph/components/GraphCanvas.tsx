@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useGraphStore } from '../store/useGraphStore';
 import { ForceGraphMethods } from 'react-force-graph-2d';
 import { useTheme } from '@/components/theme-provider';
@@ -32,6 +32,25 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
+    const focusNode = useCallback(
+        (graphNode: ForceGraphNode) => {
+            if (
+                !graphRef.current ||
+                typeof graphNode.x !== 'number' ||
+                typeof graphNode.y !== 'number'
+            ) {
+                return;
+            }
+
+            graphRef.current.centerAt(graphNode.x, graphNode.y, 1000);
+
+            if (graphSettings.zoomOnSelect) {
+                graphRef.current.zoom(2, 2000);
+            }
+        },
+        [graphSettings.zoomOnSelect],
+    );
+
     useEffect(() => {
         if (typeof window === 'undefined') return;
 
@@ -54,16 +73,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
         const graphNode = node as ForceGraphNode;
         setSelectedNodeId(graphNode.id);
         setSidebarOpen(true);
-
-        // Center view on node
-        if (
-            graphRef.current &&
-            typeof graphNode.x === 'number' &&
-            typeof graphNode.y === 'number'
-        ) {
-            graphRef.current.centerAt(graphNode.x, graphNode.y, 1000);
-            graphRef.current.zoom(2, 2000);
-        }
+        focusNode(graphNode);
     };
 
     const handleBackgroundClick = () => {
@@ -118,17 +128,12 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
             (node) => node.id === selectedNodeId,
         ) as ForceGraphNode | undefined;
 
-        if (
-            !selectedNode ||
-            typeof selectedNode.x !== 'number' ||
-            typeof selectedNode.y !== 'number'
-        ) {
+        if (!selectedNode) {
             return;
         }
 
-        graphRef.current.centerAt(selectedNode.x, selectedNode.y, 1000);
-        graphRef.current.zoom(2, 2000);
-    }, [filteredData.nodes, selectedNodeId]);
+        focusNode(selectedNode);
+    }, [filteredData.nodes, focusNode, selectedNodeId]);
 
     const isDark =
         theme === 'dark' ||

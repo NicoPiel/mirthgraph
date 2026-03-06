@@ -10,7 +10,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover';
-import { Settings2, Search, X } from 'lucide-react';
+import { Search, Settings2, X, ZoomIn } from 'lucide-react';
 
 export const GraphControls: React.FC = () => {
     const {
@@ -46,6 +46,25 @@ export const GraphControls: React.FC = () => {
                         </button>
                     )}
                 </div>
+
+                <Button
+                    variant={graphSettings.zoomOnSelect ? 'default' : 'outline'}
+                    className="shrink-0"
+                    aria-pressed={graphSettings.zoomOnSelect}
+                    title={
+                        graphSettings.zoomOnSelect
+                            ? 'Disable zoom on select'
+                            : 'Enable zoom on select'
+                    }
+                    onClick={() =>
+                        setGraphSettings({
+                            zoomOnSelect: !graphSettings.zoomOnSelect,
+                        })
+                    }
+                >
+                    <ZoomIn className="h-4 w-4" />
+                    <span className="hidden sm:inline">Zoom on select</span>
+                </Button>
 
                 <Popover>
                     <PopoverTrigger asChild>
