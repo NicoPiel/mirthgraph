@@ -11,6 +11,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
+import { getNodeRelationships } from '../domain/getNodeRelationships';
 
 interface NodeDetailsProps {
     data: GraphData;
@@ -30,6 +31,14 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
             setSelectedNodeId(null);
         }
     };
+
+    const { sources, destinations } = React.useMemo(
+        () =>
+            node
+                ? getNodeRelationships(data, node.id)
+                : { sources: [], destinations: [] },
+        [data, node],
+    );
 
     if (!node) {
         return null;
@@ -85,6 +94,50 @@ export const NodeDetails: React.FC<NodeDetailsProps> = ({ data }) => {
                                     </div>
                                 </div>
                             )}
+
+                            <div className="space-y-2">
+                                <h3 className="text-sm font-medium text-muted-foreground">
+                                    Sources
+                                </h3>
+                                {sources.length > 0 ? (
+                                    <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed">
+                                        {sources.map((source) => (
+                                            <li
+                                                key={source.id}
+                                                className="break-words"
+                                            >
+                                                {source.label}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="text-sm text-muted-foreground">
+                                        No sources
+                                    </p>
+                                )}
+                            </div>
+
+                            <div className="space-y-2">
+                                <h3 className="text-sm font-medium text-muted-foreground">
+                                    Destinations
+                                </h3>
+                                {destinations.length > 0 ? (
+                                    <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed">
+                                        {destinations.map((destination) => (
+                                            <li
+                                                key={destination.id}
+                                                className="break-words"
+                                            >
+                                                {destination.label}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="text-sm text-muted-foreground">
+                                        No destinations
+                                    </p>
+                                )}
+                            </div>
 
                             <Separator />
 

@@ -6,6 +6,8 @@ type Channel = components['schemas']['Channel'];
 type Connector = components['schemas']['Connector'];
 type Step = components['schemas']['Step'];
 
+const OTHER_NODE_ID = 'OTHER';
+
 function toArray<T>(value: unknown): T[] {
     if (!value) {
         return [];
@@ -89,12 +91,10 @@ export const transformer = {
             links: [],
         };
 
-        const OTHER = 'OTHER';
-
         gData.nodes.push({
-            id: OTHER,
-            name: OTHER,
-            group: OTHER,
+            id: OTHER_NODE_ID,
+            name: OTHER_NODE_ID,
+            group: OTHER_NODE_ID,
             description: 'Unhandled connectors',
             val: 1,
             tags: [],
@@ -322,22 +322,20 @@ function processConnector(
                     targetChannel.exportData?.metadata?.enabled || false;
             }
 
-            if (isTargetEnabled) {
-                if (targetChannelId && targetChannelId !== 'none') {
-                    gData.links.push({
-                        source: channelId,
-                        target: targetChannelId,
-                        enabled: enabled,
-                        group: 'Channel Writer',
-                    });
-                } else {
-                    gData.links.push({
-                        source: channelId,
-                        target: 'other',
-                        enabled: enabled,
-                        group: 'Channel Writer',
-                    });
-                }
+            if (!targetChannelId || targetChannelId === 'none') {
+                gData.links.push({
+                    source: channelId,
+                    target: OTHER_NODE_ID,
+                    enabled: enabled,
+                    group: 'Channel Writer',
+                });
+            } else if (isTargetEnabled) {
+                gData.links.push({
+                    source: channelId,
+                    target: targetChannelId,
+                    enabled: enabled,
+                    group: 'Channel Writer',
+                });
             }
             break;
         }

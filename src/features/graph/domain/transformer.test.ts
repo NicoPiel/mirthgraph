@@ -276,4 +276,40 @@ describe('transformer', () => {
 
         expect(channelNode?.tags).toContain('TagWrapped');
     });
+
+    it('routes missing channel writer targets to OTHER', () => {
+        const config: ServerConfiguration = {
+            channels: [
+                {
+                    id: 'channel-1',
+                    name: 'Source Channel',
+                    exportData: {
+                        metadata: {
+                            enabled: true,
+                        },
+                    },
+                    destinationConnectors: [
+                        {
+                            transportName: 'Channel Writer',
+                            enabled: true,
+                            properties: {
+                                channelId: 'none',
+                            } as any,
+                        },
+                    ],
+                },
+            ],
+            channelTags: [],
+        };
+
+        const result = transformer.buildGraphData(config);
+
+        expect(result.nodes.some((node) => node.id === 'OTHER')).toBe(true);
+        expect(result.links).toContainEqual({
+            source: 'channel-1',
+            target: 'OTHER',
+            group: 'Channel Writer',
+            enabled: 1,
+        });
+    });
 });
