@@ -29,6 +29,44 @@ async function loadInstanceConfig(): Promise<InstanceConfig> {
     }
 }
 
+export function normalizeInstanceUrl(rawUrl: string): string {
+    const trimmed = rawUrl?.trim();
+
+    if (!trimmed) {
+        throw new Error('Instance URL is empty');
+    }
+
+    let candidate = trimmed
+        .replace(/^https\/\//i, 'https://')
+        .replace(/^http\/\//i, 'http://');
+
+    if (candidate.startsWith('//')) {
+        candidate = `https:${candidate}`;
+    }
+
+    if (!/^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(candidate)) {
+        candidate = `https://${candidate}`;
+    }
+
+    let parsed: URL;
+
+    try {
+        parsed = new URL(candidate);
+    } catch {
+        throw new Error(
+            `Invalid instance URL "${rawUrl}". Use http:// or https://`,
+        );
+    }
+
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+        throw new Error(
+            `Unsupported URL protocol "${parsed.protocol}" for instance "${rawUrl}". Use http:// or https://`,
+        );
+    }
+
+    return parsed.toString();
+}
+
 function selectInstance(
     config: InstanceConfig,
     activeInstanceId?: string,
@@ -72,8 +110,10 @@ export async function getAuthenticatedClient(context: ClientContext) {
     const config = await loadInstanceConfig();
     const activeInstanceId = context.cookies?.get('mirth_instance_id');
     const instance = selectInstance(config, activeInstanceId);
+    const baseUrl = normalizeInstanceUrl(instance.url);
+    const cacheKey = `${instance.id}:${baseUrl}`;
 
-    const cached = clientCache.get(instance.id);
+    const cached = clientCache.get(cacheKey);
     if (cached) {
         return cached;
     }
@@ -89,10 +129,10 @@ export async function getAuthenticatedClient(context: ClientContext) {
     }
 
     const client = createClient<EngineApi, 'application/json'>({
-        baseUrl: instance.url,
+        baseUrl,
         headers,
     });
 
-    clientCache.set(instance.id, client);
+    clientCache.set(cacheKey, client);
     return client;
 }
