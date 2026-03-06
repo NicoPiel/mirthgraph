@@ -85,6 +85,29 @@ function normalizeServerConfiguration(data: any): ServerConfiguration {
         return [elements];
     };
 
+    const normalizeStringArray = (field: any): string[] => {
+        if (!field) return [];
+        if (Array.isArray(field)) {
+            return field.filter((item): item is string => typeof item === 'string');
+        }
+        if (typeof field === 'string') return [field];
+        if (typeof field !== 'object') return [];
+
+        if (field.string) {
+            return normalizeStringArray(field.string);
+        }
+
+        if (field.channelId) {
+            return normalizeStringArray(field.channelId);
+        }
+
+        if (field.channelIds) {
+            return normalizeStringArray(field.channelIds);
+        }
+
+        return [];
+    };
+
     const normalizeConnector = (connector: any) => {
         const rawConnector = normalizeSingle(connector, 'connector');
         if (!rawConnector) return undefined;
@@ -144,7 +167,13 @@ function normalizeServerConfiguration(data: any): ServerConfiguration {
         },
     );
 
-    normalized.channelTags = normalizeArray(config?.channelTags, 'channelTag');
+    normalized.channelTags = normalizeArray(config?.channelTags, 'channelTag')
+        .map((tag: any) => normalizeSingle(tag, 'channelTag'))
+        .filter(Boolean)
+        .map((tag: any) => ({
+            ...tag,
+            channelIds: normalizeStringArray(tag.channelIds),
+        }));
     normalized.channelGroups = normalizeArray(
         config?.channelGroups,
         'channelGroup',

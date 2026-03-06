@@ -119,4 +119,39 @@ describe('getGraphData', () => {
         expect(Array.isArray(sourceConnector.transformer.elements)).toBe(true);
         expect(Array.isArray(destinationConnector.filter.elements)).toBe(true);
     });
+
+    it('should normalize wrapped channelTag channelIds', async () => {
+        const mockGraphData = { nodes: [], links: [] };
+
+        mockClient.GET.mockResolvedValue({
+            data: {
+                serverConfiguration: {
+                    channels: {
+                        channel: {
+                            id: 'channel-1',
+                            name: 'Channel 1',
+                        },
+                    },
+                    channelTags: {
+                        channelTag: {
+                            name: 'WrappedTag',
+                            channelIds: {
+                                string: 'channel-1',
+                            },
+                        },
+                    },
+                },
+            },
+            error: null,
+        });
+
+        (transformer.buildGraphData as any).mockReturnValue(mockGraphData);
+
+        await getGraphData({} as any);
+
+        const normalizedConfig = (transformer.buildGraphData as any).mock.calls[0][0];
+
+        expect(normalizedConfig.channelTags[0].name).toBe('WrappedTag');
+        expect(normalizedConfig.channelTags[0].channelIds).toEqual(['channel-1']);
+    });
 });

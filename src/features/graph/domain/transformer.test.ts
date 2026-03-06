@@ -245,4 +245,35 @@ describe('transformer', () => {
 
         expect(routerLink).toBeDefined();
     });
+
+    it('should handle wrapped channelIds in tags', () => {
+        const config: ServerConfiguration = {
+            channels: [
+                {
+                    id: 'channel-1',
+                    name: 'Tagged Channel',
+                    exportData: {
+                        metadata: {
+                            enabled: true,
+                        },
+                    },
+                },
+            ],
+            channelTags: [
+                {
+                    name: 'TagWrapped',
+                    channelIds: {
+                        string: 'channel-1',
+                    } as any,
+                },
+            ],
+        };
+
+        const result = transformer.buildGraphData(config);
+        const channelNode = result.nodes.find(
+            (node) => node.id === 'channel-1',
+        );
+
+        expect(channelNode?.tags).toContain('TagWrapped');
+    });
 });

@@ -48,6 +48,40 @@ function normalizeStepElements(elements: unknown): Step[] {
     return [wrapped as Step];
 }
 
+function normalizeStringArray(value: unknown): string[] {
+    if (!value) {
+        return [];
+    }
+
+    if (Array.isArray(value)) {
+        return value.filter((item): item is string => typeof item === 'string');
+    }
+
+    if (typeof value === 'string') {
+        return [value];
+    }
+
+    if (typeof value !== 'object') {
+        return [];
+    }
+
+    const wrapped = value as Record<string, unknown>;
+
+    if ('string' in wrapped) {
+        return normalizeStringArray(wrapped.string);
+    }
+
+    if ('channelId' in wrapped) {
+        return normalizeStringArray(wrapped.channelId);
+    }
+
+    if ('channelIds' in wrapped) {
+        return normalizeStringArray(wrapped.channelIds);
+    }
+
+    return [];
+}
+
 export const transformer = {
     buildGraphData(serverConfiguration: ServerConfiguration): GraphData {
         const gData: GraphData = {
@@ -97,10 +131,16 @@ export const transformer = {
         });
 
         // Process tags
-        const channelTags = serverConfiguration.channelTags || [];
+        const channelTags = toArray<Record<string, unknown>>(
+            serverConfiguration.channelTags,
+        );
         channelTags.forEach((tag) => {
-            const tagName = tag.name!;
-            const channelIds = tag.channelIds || [];
+            const tagName = typeof tag.name === 'string' ? tag.name : '';
+            if (!tagName) {
+                return;
+            }
+
+            const channelIds = normalizeStringArray(tag.channelIds);
 
             channelIds.forEach((channelId) => {
                 const node = gData.nodes.find((n) => n.id === channelId);
