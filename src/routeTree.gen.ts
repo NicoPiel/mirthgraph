@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as PortsRouteImport } from './routes/ports'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GraphIndexRouteImport } from './routes/graph.index'
 
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortsRoute = PortsRouteImport.update({
+  id: '/ports',
+  path: '/ports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,30 +37,34 @@ const GraphIndexRoute = GraphIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ports': typeof PortsRoute
   '/settings': typeof SettingsRoute
-  '/graph': typeof GraphIndexRoute
+  '/graph/': typeof GraphIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ports': typeof PortsRoute
   '/settings': typeof SettingsRoute
   '/graph': typeof GraphIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ports': typeof PortsRoute
   '/settings': typeof SettingsRoute
   '/graph/': typeof GraphIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/settings' | '/graph'
+  fullPaths: '/' | '/ports' | '/settings' | '/graph/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/settings' | '/graph'
-  id: '__root__' | '/' | '/settings' | '/graph/'
+  to: '/' | '/ports' | '/settings' | '/graph'
+  id: '__root__' | '/' | '/ports' | '/settings' | '/graph/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortsRoute: typeof PortsRoute
   SettingsRoute: typeof SettingsRoute
   GraphIndexRoute: typeof GraphIndexRoute
 }
@@ -68,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ports': {
+      id: '/ports'
+      path: '/ports'
+      fullPath: '/ports'
+      preLoaderRoute: typeof PortsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -78,7 +95,7 @@ declare module '@tanstack/react-router' {
     '/graph/': {
       id: '/graph/'
       path: '/graph'
-      fullPath: '/graph'
+      fullPath: '/graph/'
       preLoaderRoute: typeof GraphIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortsRoute: PortsRoute,
   SettingsRoute: SettingsRoute,
   GraphIndexRoute: GraphIndexRoute,
 }
