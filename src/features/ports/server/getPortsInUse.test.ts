@@ -82,4 +82,31 @@ describe('getPortsInUse', () => {
             'Failed to fetch occupied ports',
         );
     });
+
+    it('normalizes wrapped Mirth port list responses', async () => {
+        mockClient.GET.mockResolvedValue({
+            data: {
+                list: {
+                    'com.mirth.connect.donkey.model.channel.Ports': [
+                        {
+                            id: 'channel-1',
+                            name: 'HTTP Listener',
+                            port: '8080',
+                        },
+                        {
+                            id: 'channel-2',
+                            name: 'TCP Listener',
+                            port: '6661',
+                        },
+                    ],
+                },
+            },
+            error: null,
+        });
+
+        await expect(getPortsInUse()).resolves.toEqual([
+            { id: 'channel-1', name: 'HTTP Listener', port: '8080' },
+            { id: 'channel-2', name: 'TCP Listener', port: '6661' },
+        ]);
+    });
 });
