@@ -1,0 +1,38 @@
+import { defineConfig } from 'vite'
+import { devtools } from '@tanstack/devtools-vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import viteReact from '@vitejs/plugin-react'
+import viteTsConfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
+import { nitro } from 'nitro/vite'
+
+// Only apply this in development to avoid security risks in production
+if (process.env.NODE_ENV === 'development') {
+  // Disables SSL verification for the Node process (Server Functions)
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+}
+
+const config = defineConfig({
+  plugins: [
+    devtools(),
+    nitro(),
+    // this is the plugin that enables path aliases
+    viteTsConfigPaths({
+      projects: ['./tsconfig.json'],
+    }),
+    tailwindcss(),
+    process.env.VITEST ? undefined : tanstackStart(),
+    viteReact({
+      babel: {
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
+  ],
+  server: {
+    allowedHosts: [
+      'localhost'
+    ]
+  }
+})
+
+export default config
