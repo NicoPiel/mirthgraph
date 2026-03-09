@@ -7,7 +7,13 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { ArrowRight, Network, Settings, Activity } from 'lucide-react';
+import {
+    ArrowRight,
+    Network,
+    Settings,
+    Activity,
+    Waypoints,
+} from 'lucide-react';
 
 export const Route = createFileRoute('/')({ component: App });
 
@@ -28,13 +34,18 @@ function App() {
                             View Graph <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                     </Button>
+                    <Button variant="secondary" size="lg" asChild>
+                        <Link to="/ports">
+                            View Ports <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                    </Button>
                     <Button variant="outline" size="lg" asChild>
                         <Link to="/settings">Configure Instances</Link>
                     </Button>
                 </div>
             </section>
 
-            <section className="grid gap-6 md:grid-cols-3">
+            <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                 <Card>
                     <CardHeader>
                         <Network className="h-10 w-10 mb-2 text-primary" />
@@ -77,6 +88,21 @@ function App() {
                     <CardContent>
                         Quickly identify issues and bottlenecks in your
                         integration workflow.
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <Waypoints className="h-10 w-10 mb-2 text-primary" />
+                        <CardTitle>Occupied Ports</CardTitle>
+                        <CardDescription>
+                            Search the listener ports already claimed by the
+                            active Mirth instance.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        Use a sortable table to quickly spot port conflicts and
+                        confirm which channels own them.
                     </CardContent>
                 </Card>
             </section>

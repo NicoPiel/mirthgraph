@@ -71,6 +71,15 @@ function RootComponent() {
                                     Graph
                                 </Link>
                                 <Link
+                                    to="/ports"
+                                    className="transition-colors hover:text-foreground/80 text-foreground/60"
+                                    activeProps={{
+                                        className: 'text-foreground',
+                                    }}
+                                >
+                                    Ports
+                                </Link>
+                                <Link
                                     to="/settings"
                                     className="transition-colors hover:text-foreground/80 text-foreground/60"
                                     activeProps={{
