@@ -337,6 +337,14 @@ describe('transformer', () => {
 
         const result = transformer.buildGraphData(config);
 
+        expect(result.nodes).toContainEqual(
+            expect.objectContaining({
+                id: 'missing-channel',
+                name: 'Unresolved Channel: missing-channel',
+                group: 'Unresolved Channel',
+                enabled: 0,
+            }),
+        );
         expect(result.links).toContainEqual({
             source: 'channel-1',
             target: 'missing-channel',

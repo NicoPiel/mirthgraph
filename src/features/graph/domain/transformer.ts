@@ -119,6 +119,22 @@ function addLink(
     });
 }
 
+function addUnresolvedChannelNode(
+    context: TransformerContext,
+    channelId: string,
+): GraphNode {
+    return addNodeIfNotExists(context, {
+        id: channelId,
+        name: `Unresolved Channel: ${channelId}`,
+        group: 'Unresolved Channel',
+        description:
+            'Referenced by a Channel Writer destination but not found.',
+        val: 1,
+        tags: [],
+        enabled: 0,
+    });
+}
+
 function buildTransformerContext(channels: Channel[]): TransformerContext {
     const channelById = new Map<string, Channel>();
     const channelByName = new Map<string, Channel>();
@@ -349,6 +365,10 @@ function processConnector(
 
             if (!targetChannelId || targetChannelId === 'none') {
                 break;
+            }
+
+            if (!context.channelById.has(targetChannelId)) {
+                addUnresolvedChannelNode(context, targetChannelId);
             }
 
             addLink(
