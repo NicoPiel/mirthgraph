@@ -11,17 +11,16 @@ describe('transformer', () => {
 
         // Verify nodes
         // Expected nodes:
-        // 1. OTHER
-        // 2. Channel: Test1
-        // 3. Channel Reader (VM) for Test1 (Source) - Not explicitly a node in transformer logic unless it has specific properties like listener
-        // 4. Destination 1 (VM) for Test1 - Not explicitly a node unless it has specific properties
-        // 5. Channel: Test2
-        // 6. Channel Reader (VM) for Test2
-        // 7. Destination 1 (VM) for Test2
-        // 8. Channel: TestDB
-        // 9. Database Host: host
-        // 10. Database Reader: jdbc:oracle:thin:@host:port:dbname
-        // 11. Destination 1 (SMTP) for TestDB -> SMTP: test@test.local
+        // 1. Channel: Test1
+        // 2. Channel Reader (VM) for Test1 (Source) - Not explicitly a node in transformer logic unless it has specific properties like listener
+        // 3. Destination 1 (VM) for Test1 - Not explicitly a node unless it has specific properties
+        // 4. Channel: Test2
+        // 5. Channel Reader (VM) for Test2
+        // 6. Destination 1 (VM) for Test2
+        // 7. Channel: TestDB
+        // 8. Database Host: host
+        // 9. Database Reader: jdbc:oracle:thin:@host:port:dbname
+        // 10. Destination 1 (SMTP) for TestDB -> SMTP: test@test.local
 
         // Let's check specific nodes we expect based on the transformer logic
         const channel1 = result.nodes.find(
@@ -93,8 +92,7 @@ describe('transformer', () => {
 
         const result = transformer.buildGraphData(config);
 
-        expect(result.nodes).toHaveLength(1); // OTHER node
-        expect(result.nodes[0].id).toBe('OTHER');
+        expect(result.nodes).toHaveLength(0);
         expect(result.links).toHaveLength(0);
     });
 
@@ -128,7 +126,7 @@ describe('transformer', () => {
 
         const result = transformer.buildGraphData(config);
 
-        expect(result.nodes).toHaveLength(3); // OTHER, Channel, TCP Listener
+        expect(result.nodes).toHaveLength(2); // Channel, TCP Listener
 
         const channelNode = result.nodes.find((n) => n.id === 'channel-1');
         expect(channelNode).toBeDefined();
@@ -277,7 +275,7 @@ describe('transformer', () => {
         expect(channelNode?.tags).toContain('TagWrapped');
     });
 
-    it('routes missing channel writer targets to OTHER', () => {
+    it('omits empty channel writer targets', () => {
         const config: ServerConfiguration = {
             channels: [
                 {
@@ -304,10 +302,44 @@ describe('transformer', () => {
 
         const result = transformer.buildGraphData(config);
 
-        expect(result.nodes.some((node) => node.id === 'OTHER')).toBe(true);
+        expect(result.links).not.toContainEqual({
+            source: 'channel-1',
+            group: 'Channel Writer',
+            enabled: 1,
+        });
+        expect(result.links).toHaveLength(0);
+    });
+
+    it('keeps explicit channel writer targets even when unresolved', () => {
+        const config: ServerConfiguration = {
+            channels: [
+                {
+                    id: 'channel-1',
+                    name: 'Source Channel',
+                    exportData: {
+                        metadata: {
+                            enabled: true,
+                        },
+                    },
+                    destinationConnectors: [
+                        {
+                            transportName: 'Channel Writer',
+                            enabled: true,
+                            properties: {
+                                channelId: 'missing-channel',
+                            } as any,
+                        },
+                    ],
+                },
+            ],
+            channelTags: [],
+        };
+
+        const result = transformer.buildGraphData(config);
+
         expect(result.links).toContainEqual({
             source: 'channel-1',
-            target: 'OTHER',
+            target: 'missing-channel',
             group: 'Channel Writer',
             enabled: 1,
         });

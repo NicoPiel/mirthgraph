@@ -90,7 +90,7 @@ describe('getNodeRelationships', () => {
                 },
                 {
                     source: 'channel-1',
-                    target: 'OTHER',
+                    target: 'missing-channel',
                     group: 'Channel Writer',
                     enabled: 1,
                 },
@@ -109,8 +109,8 @@ describe('getNodeRelationships', () => {
         ]);
         expect(result.destinations).toEqual([
             {
-                id: 'OTHER',
-                label: 'OTHER',
+                id: 'missing-channel',
+                label: 'missing-channel',
                 group: undefined,
                 isNavigable: false,
             },

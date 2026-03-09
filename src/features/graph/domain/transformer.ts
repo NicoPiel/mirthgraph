@@ -13,8 +13,6 @@ type TransformerContext = {
     channelByName: Map<string, Channel>;
 };
 
-const OTHER_NODE_ID = 'OTHER';
-
 function toArray<T>(value: unknown): T[] {
     if (!value) {
         return [];
@@ -147,15 +145,6 @@ function buildTransformerContext(channels: Channel[]): TransformerContext {
         channelById,
         channelByName,
     };
-
-    addNodeIfNotExists(context, {
-        id: OTHER_NODE_ID,
-        name: OTHER_NODE_ID,
-        group: OTHER_NODE_ID,
-        description: 'Unhandled connectors',
-        val: 1,
-        tags: [],
-    });
 
     return context;
 }
@@ -353,30 +342,22 @@ function processConnector(
             break;
         }
         case 'Channel Writer': {
-            const targetChannelId = properties.channelId;
-            const targetChannel = targetChannelId
-                ? context.channelById.get(targetChannelId)
-                : undefined;
-            const isTargetEnabled =
-                targetChannel?.exportData?.metadata?.enabled || false;
+            const targetChannelId =
+                typeof properties.channelId === 'string'
+                    ? properties.channelId.trim()
+                    : '';
 
             if (!targetChannelId || targetChannelId === 'none') {
-                addLink(
-                    context,
-                    channelId,
-                    OTHER_NODE_ID,
-                    'Channel Writer',
-                    enabled,
-                );
-            } else if (isTargetEnabled) {
-                addLink(
-                    context,
-                    channelId,
-                    targetChannelId,
-                    'Channel Writer',
-                    enabled,
-                );
+                break;
             }
+
+            addLink(
+                context,
+                channelId,
+                targetChannelId,
+                'Channel Writer',
+                enabled,
+            );
             break;
         }
         case 'SMTP Sender': {
