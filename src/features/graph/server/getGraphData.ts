@@ -25,7 +25,7 @@ export const getGraphData = createServerFn({ method: 'GET' })
 
                     const [channelsResponse, channelTagsResponse] =
                         await Promise.all([
-                            client.GET('/channels'),
+                            client.GET('/channels?includeCodeTemplates=false'),
                             client.GET('/server/channelTags'),
                         ]);
 
