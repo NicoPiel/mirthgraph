@@ -1,4 +1,4 @@
-import { createFileRoute, useRouterState } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { getGraphData } from '@/features/graph/server/getGraphData';
 import { GraphCanvas } from '@/features/graph/components/GraphCanvas';
 import { NodeDetails } from '@/features/graph/components/NodeDetails';
@@ -8,6 +8,8 @@ import { GraphLoadingScreen } from '@/features/graph/components/GraphLoadingScre
 
 export const Route = createFileRoute('/graph/')({
     component: GraphComponent,
+    pendingComponent: GraphLoadingScreen,
+    pendingMs: 0,
     loader: async () => {
         return await getGraphData();
     },
@@ -15,15 +17,9 @@ export const Route = createFileRoute('/graph/')({
 
 function GraphComponent() {
     const data = Route.useLoaderData();
-    const isLoading = useRouterState({ select: (s) => s.isLoading });
 
     return (
         <div className="relative w-full h-[calc(100vh-4rem)] overflow-hidden">
-            {isLoading && (
-                <div className="absolute inset-0 z-50">
-                    <GraphLoadingScreen />
-                </div>
-            )}
             <ClientOnly>
                 <GraphCanvas data={data} />
             </ClientOnly>
