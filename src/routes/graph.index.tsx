@@ -4,9 +4,12 @@ import { GraphCanvas } from '@/features/graph/components/GraphCanvas';
 import { NodeDetails } from '@/features/graph/components/NodeDetails';
 import { GraphControls } from '@/features/graph/components/GraphControls';
 import { ClientOnly } from '@/app/components/ClientOnly';
+import { GraphLoadingScreen } from '@/features/graph/components/GraphLoadingScreen';
 
 export const Route = createFileRoute('/graph/')({
     component: GraphComponent,
+    pendingComponent: GraphLoadingScreen,
+    pendingMs: 300,
     loader: async () => {
         return await getGraphData();
     },

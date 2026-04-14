@@ -10,6 +10,7 @@ const ForceGraph2D = React.lazy(() =>
     })),
 );
 import { GraphData, GraphNode, getGraphLinkEndpointId } from '../domain/types';
+import { GraphLoadingScreen } from './GraphLoadingScreen';
 
 interface GraphCanvasProps {
     data: GraphData;
@@ -146,7 +147,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ data }) => {
             ref={containerRef}
             className="w-full h-full bg-background overflow-hidden"
         >
-            <React.Suspense fallback={<div>Loading graph...</div>}>
+            <React.Suspense fallback={<GraphLoadingScreen />}>
                 <ForceGraph2D
                     ref={graphRef}
                     width={dimensions.width}
