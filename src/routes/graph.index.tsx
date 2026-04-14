@@ -8,8 +8,6 @@ import { GraphLoadingScreen } from '@/features/graph/components/GraphLoadingScre
 
 export const Route = createFileRoute('/graph/')({
     component: GraphComponent,
-    pendingComponent: GraphLoadingScreen,
-    pendingMs: 300,
     loader: async () => {
         return await getGraphData();
     },

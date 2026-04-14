@@ -12,7 +12,7 @@ type ServerConfiguration = components['schemas']['ServerConfiguration'];
 type Channel = components['schemas']['Channel'];
 type ChannelTag = components['schemas']['ChannelTag'];
 
-export const getGraphData = createServerFn({ method: 'POST' })
+export const getGraphData = createServerFn({ method: 'GET' })
     .handler(async (): Promise<GraphData> => {
         try {
             const resolvedInstance = await getResolvedActiveInstance();
